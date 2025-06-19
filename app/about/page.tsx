@@ -16,6 +16,8 @@ import {
   Network,
   DollarSign,
   Activity,
+  BarChart3,
+  Quote,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -440,6 +442,36 @@ export default function AboutPage() {
         <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-8 text-admiral-900">
           Why Choose Longitude Rx?
         </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+          <div className="flex items-start space-x-4">
+            <Shield className="h-8 w-8 text-gulf-600 flex-shrink-0" />
+            <div>
+              <h3 className="font-semibold text-admiral-800 mb-1">Security & Compliance</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">HIPAA-compliant, enterprise-grade security and privacy standards ensure your data and patients are always protected.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <BarChart3 className="h-8 w-8 text-rhodamine-600 flex-shrink-0" />
+            <div>
+              <h3 className="font-semibold text-admiral-800 mb-1">Scalable & Future-Proof</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">Our platform grows with you—supporting everything from local initiatives to multi-state health systems and emerging therapies.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <Users className="h-8 w-8 text-admiral-600 flex-shrink-0" />
+            <div>
+              <h3 className="font-semibold text-admiral-800 mb-1">Collaborative Partnership</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">We work as an extension of your team, providing hands-on support, training, and continuous improvement.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <TrendingUp className="h-8 w-8 text-ocean-600 flex-shrink-0" />
+            <div>
+              <h3 className="font-semibold text-admiral-800 mb-1">Measurable Outcomes</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">We deliver real, quantifiable results—improving prescription capture, patient adherence, and financial performance.</p>
+            </div>
+          </div>
+        </div>
         <div className="space-y-6">
           <p className="text-lg text-admiral-600 leading-relaxed">
             <span className="font-semibold text-admiral-800">Built for Health Systems:</span> Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies.
@@ -453,6 +485,13 @@ export default function AboutPage() {
           <p className="text-lg text-admiral-600 leading-relaxed">
             <span className="font-semibold text-admiral-800">Results-Driven:</span> We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services.
           </p>
+        </div>
+        <div className="mt-10 p-6 bg-white/80 border-l-4 border-gulf-400 rounded-xl shadow flex items-start space-x-4">
+          <Quote className="h-8 w-8 text-gulf-400 flex-shrink-0" />
+          <div>
+            <p className="italic text-admiral-700 mb-2">“Longitude Rx has been a true partner in transforming our specialty pharmacy operations. Their technology, expertise, and commitment to outcomes have made a measurable difference for our patients and our bottom line.”</p>
+            <div className="text-sm font-semibold text-admiral-800">Jake Childs, PharmD, COO, Onvida Health</div>
+          </div>
         </div>
       </div>
 

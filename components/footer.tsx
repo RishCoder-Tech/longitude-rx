@@ -99,20 +99,17 @@ export default function Footer() {
           {/* Quick Links */}
           {[
             {
-              title: "Solutions",
+              title: "Our Offerings",
               links: [
-                { name: "Cost Intelligence", href: "/solutions#cost-intelligence" },
-                { name: "Health Systems", href: "/solutions#health-systems" },
-                { name: "AI Analytics", href: "/solutions#ai-analytics" },
-                { name: "Optimization", href: "/solutions#optimization" },
+                { name: "Technology", href: "/technology" },
+                { name: "Services", href: "/services" },
+                { name: "Case Studies", href: "/case-studies" },
               ],
             },
             {
               title: "Company",
               links: [
                 { name: "About Us", href: "/about" },
-                { name: "Leadership", href: "/about#leadership" },
-                { name: "Partners", href: "/about#partners" },
                 { name: "Careers", href: "/careers" },
                 { name: "Newsletter", href: "/newsletter" },
                 { name: "Contact", href: "/contact" },
@@ -216,22 +213,6 @@ export default function Footer() {
             <p className="text-gypsum-400 text-sm font-space-grotesk">
               © {new Date().getFullYear()} Longitude Rx. All rights reserved. Powered by next-gen healthcare AI.
             </p>
-            <div className="flex space-x-6">
-              {[
-                { name: "Privacy Policy", href: "/privacy" },
-                { name: "Terms of Service", href: "/terms" },
-                { name: "Cookie Policy", href: "/cookies" },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gypsum-400 hover:text-white text-sm transition-colors duration-200 font-space-grotesk flex items-center group"
-                >
-                  {item.name}
-                  <ExternalLink className="ml-1 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </Link>
-              ))}
-            </div>
           </div>
         </motion.div>
       </div>

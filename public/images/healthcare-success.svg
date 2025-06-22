@@ -1,0 +1,128 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgSuccess" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.05" />
+      <stop offset="50%" style="stop-color:#be185d;stop-opacity:0.03" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="successIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af" />
+      <stop offset="100%" style="stop-color:#be185d" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgSuccess)"/>
+  
+  <!-- Abstract Healthcare Elements -->
+  <g opacity="0.1">
+    <!-- Medical Crosses -->
+    <g transform="translate(100, 100)">
+      <rect x="0" y="-15" width="4" height="30" fill="url(#successIcon)"/>
+      <rect x="-15" y="0" width="30" height="4" fill="url(#successIcon)"/>
+    </g>
+    <g transform="translate(300, 200)">
+      <rect x="0" y="-12" width="3" height="24" fill="url(#successIcon)"/>
+      <rect x="-12" y="0" width="24" height="3" fill="url(#successIcon)"/>
+    </g>
+    <g transform="translate(500, 150)">
+      <rect x="0" y="-10" width="2" height="20" fill="url(#successIcon)"/>
+      <rect x="-10" y="0" width="20" height="2" fill="url(#successIcon)"/>
+    </g>
+    
+    <!-- DNA Helix -->
+    <g transform="translate(800, 100)">
+      <path d="M 0 0 Q 20 -20 40 0 Q 60 20 80 0 Q 100 -20 120 0" stroke="url(#successIcon)" stroke-width="2" fill="none" opacity="0.3"/>
+      <path d="M 0 20 Q 20 40 40 20 Q 60 0 80 20 Q 100 40 120 20" stroke="url(#successIcon)" stroke-width="2" fill="none" opacity="0.3"/>
+      <circle cx="0" cy="0" r="3" fill="url(#successIcon)"/>
+      <circle cx="40" cy="0" r="3" fill="url(#successIcon)"/>
+      <circle cx="80" cy="0" r="3" fill="url(#successIcon)"/>
+      <circle cx="120" cy="0" r="3" fill="url(#successIcon)"/>
+      <circle cx="20" cy="20" r="3" fill="url(#successIcon)"/>
+      <circle cx="60" cy="20" r="3" fill="url(#successIcon)"/>
+      <circle cx="100" cy="20" r="3" fill="url(#successIcon)"/>
+    </g>
+    
+    <!-- Heartbeat -->
+    <g transform="translate(200, 400)">
+      <path d="M 0 20 L 20 20 L 30 0 L 40 40 L 50 20 L 70 20 L 90 20 L 100 0 L 110 40 L 120 20 L 140 20" stroke="url(#successIcon)" stroke-width="3" fill="none" opacity="0.4"/>
+    </g>
+    
+    <!-- Pills -->
+    <g transform="translate(600, 350)">
+      <ellipse cx="0" cy="0" rx="15" ry="8" fill="url(#successIcon)" opacity="0.2"/>
+      <ellipse cx="40" cy="0" rx="15" ry="8" fill="url(#successIcon)" opacity="0.2"/>
+      <ellipse cx="80" cy="0" rx="15" ry="8" fill="url(#successIcon)" opacity="0.2"/>
+    </g>
+    
+    <!-- Stethoscope -->
+    <g transform="translate(900, 300)">
+      <path d="M 0 0 Q 20 -20 40 0 Q 60 20 80 0" stroke="url(#successIcon)" stroke-width="3" fill="none" opacity="0.3"/>
+      <circle cx="0" cy="0" r="8" fill="none" stroke="url(#successIcon)" stroke-width="2" opacity="0.3"/>
+      <circle cx="80" cy="0" r="8" fill="none" stroke="url(#successIcon)" stroke-width="2" opacity="0.3"/>
+    </g>
+    
+    <!-- Charts -->
+    <g transform="translate(150, 600)">
+      <rect x="0" y="40" width="8" height="20" fill="url(#successIcon)" opacity="0.3"/>
+      <rect x="12" y="30" width="8" height="30" fill="url(#successIcon)" opacity="0.3"/>
+      <rect x="24" y="20" width="8" height="40" fill="url(#successIcon)" opacity="0.3"/>
+      <rect x="36" y="10" width="8" height="50" fill="url(#successIcon)" opacity="0.3"/>
+      <rect x="48" y="25" width="8" height="35" fill="url(#successIcon)" opacity="0.3"/>
+    </g>
+    
+    <!-- Network Nodes -->
+    <g transform="translate(700, 500)">
+      <circle cx="0" cy="0" r="6" fill="url(#successIcon)" opacity="0.2"/>
+      <circle cx="40" cy="0" r="6" fill="url(#successIcon)" opacity="0.2"/>
+      <circle cx="80" cy="0" r="6" fill="url(#successIcon)" opacity="0.2"/>
+      <circle cx="20" cy="30" r="6" fill="url(#successIcon)" opacity="0.2"/>
+      <circle cx="60" cy="30" r="6" fill="url(#successIcon)" opacity="0.2"/>
+      <line x1="0" y1="0" x2="40" y2="0" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+      <line x1="40" y1="0" x2="80" y2="0" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+      <line x1="0" y1="0" x2="20" y2="30" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+      <line x1="40" y1="0" x2="20" y2="30" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+      <line x1="40" y1="0" x2="60" y2="30" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+      <line x1="80" y1="0" x2="60" y2="30" stroke="url(#successIcon)" stroke-width="1" opacity="0.2"/>
+    </g>
+  </g>
+  
+  <!-- Floating Success Indicators -->
+  <g opacity="0.15">
+    <!-- Checkmarks -->
+    <g transform="translate(400, 200)">
+      <path d="M 0 10 L 8 18 L 20 6" stroke="url(#successIcon)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(600, 250)">
+      <path d="M 0 8 L 6 14 L 16 4" stroke="url(#successIcon)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(800, 180)">
+      <path d="M 0 12 L 10 20 L 24 8" stroke="url(#successIcon)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Percentage Signs -->
+    <g transform="translate(300, 500)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#successIcon)">+300%</text>
+    </g>
+    <g transform="translate(750, 450)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="url(#successIcon)">92%</text>
+    </g>
+    <g transform="translate(500, 650)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="url(#successIcon)">$12M+</text>
+    </g>
+  </g>
+  
+  <!-- Animated Elements -->
+  <circle cx="200" cy="300" r="2" fill="url(#successIcon)" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="800" cy="400" r="3" fill="url(#successIcon)" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="200" r="2" fill="url(#successIcon)" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1000" cy="300" r="2" fill="url(#successIcon)" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+</svg> 

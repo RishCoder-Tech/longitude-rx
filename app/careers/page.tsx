@@ -55,14 +55,13 @@ export default function CareersPage() {
       department: "engineering",
       location: "Remote",
       type: "Full-time",
-      salary: "$140k - $180k",
       description:
         "Lead the development of AI-powered cost optimization algorithms that transform specialty medicine economics across health systems.",
       requirements: [
         "5+ years in ML/AI development",
         "Experience with healthcare data",
         "Python, TensorFlow, PyTorch",
-        "Cloud platforms (AWS/Azure)",
+        "Cloud technologies (AWS/Azure)",
       ],
       benefits: ["Equity package", "Health insurance", "Remote work", "Learning budget"],
       posted: "2 days ago",
@@ -74,7 +73,6 @@ export default function CareersPage() {
       department: "data-science",
       location: "Dallas, TX",
       type: "Full-time",
-      salary: "$120k - $160k",
       description:
         "Analyze complex healthcare datasets to identify cost-saving opportunities and develop predictive models for specialty medicine optimization.",
       requirements: [
@@ -93,9 +91,8 @@ export default function CareersPage() {
       department: "engineering",
       location: "Remote",
       type: "Full-time",
-      salary: "$130k - $170k",
       description:
-        "Build and maintain our cost optimization platform, creating intuitive interfaces for health system administrators and financial teams.",
+        "Build and maintain our cost optimization technology, creating intuitive interfaces for health system administrators and financial teams.",
       requirements: [
         "5+ years full-stack development",
         "React, Node.js, TypeScript",
@@ -112,7 +109,6 @@ export default function CareersPage() {
       department: "product",
       location: "Hybrid",
       type: "Full-time",
-      salary: "$140k - $180k",
       description:
         "Drive product strategy for our cost optimization solutions, working closely with health systems to understand their financial challenges.",
       requirements: [
@@ -131,13 +127,12 @@ export default function CareersPage() {
       department: "engineering",
       location: "Remote",
       type: "Full-time",
-      salary: "$120k - $150k",
       description:
-        "Ensure our platform scales securely and reliably to serve health systems processing millions in specialty medicine costs.",
+        "Ensure our technology scales securely and reliably to serve health systems processing millions in specialty medicine costs.",
       requirements: [
         "4+ years DevOps experience",
         "Kubernetes, Docker, CI/CD",
-        "AWS/Azure cloud platforms",
+        "AWS/Azure cloud technologies",
         "Security best practices",
       ],
       benefits: ["Competitive pay", "Health benefits", "Home office stipend", "Professional development"],
@@ -150,14 +145,13 @@ export default function CareersPage() {
       department: "data-science",
       location: "Austin, TX",
       type: "Full-time",
-      salary: "$130k - $165k",
       description:
         "Build robust data pipelines to process healthcare and financial data from multiple health systems for cost optimization analysis.",
       requirements: [
         "5+ years data engineering",
         "Big data technologies (Spark, Kafka)",
         "Healthcare data standards (FHIR)",
-        "Python, SQL, cloud platforms",
+        "Python, SQL, cloud technologies",
       ],
       benefits: ["Stock options", "Health insurance", "Relocation assistance", "Learning budget"],
       posted: "4 days ago",
@@ -169,9 +163,8 @@ export default function CareersPage() {
       department: "sales",
       location: "Remote",
       type: "Full-time",
-      salary: "$100k - $140k + Commission",
       description:
-        "Partner with health systems to understand their cost optimization needs and demonstrate how our platform delivers measurable savings.",
+        "Partner with health systems to understand their cost optimization needs and demonstrate how our technology delivers measurable savings.",
       requirements: [
         "Healthcare industry experience",
         "Consultative selling skills",
@@ -188,7 +181,6 @@ export default function CareersPage() {
       department: "product",
       location: "Hybrid",
       type: "Full-time",
-      salary: "$110k - $140k",
       description:
         "Design intuitive interfaces for complex cost optimization workflows, making financial data accessible to healthcare administrators.",
       requirements: [
@@ -207,9 +199,8 @@ export default function CareersPage() {
       department: "engineering",
       location: "Remote",
       type: "Full-time",
-      salary: "$110k - $145k",
       description:
-        "Create responsive, accessible interfaces for our cost optimization platform using modern frontend technologies.",
+        "Create responsive, accessible interfaces for our cost optimization technology using modern frontend technologies.",
       requirements: [
         "3+ years frontend development",
         "React, TypeScript, Next.js",
@@ -226,7 +217,6 @@ export default function CareersPage() {
       department: "data-science",
       location: "Dallas, TX",
       type: "Full-time",
-      salary: "$90k - $120k",
       description:
         "Analyze clinical and financial data to identify cost optimization opportunities in specialty medicine workflows.",
       requirements: [
@@ -245,7 +235,6 @@ export default function CareersPage() {
       department: "sales",
       location: "Remote",
       type: "Full-time",
-      salary: "$95k - $125k",
       description:
         "Drive marketing initiatives to reach health system decision-makers and communicate our cost optimization value proposition.",
       requirements: [
@@ -255,7 +244,7 @@ export default function CareersPage() {
         "Marketing automation tools",
       ],
       benefits: ["Marketing budget", "Health benefits", "Conference attendance", "Creative autonomy"],
-      posted: "1 week ago",
+      posted: "1 day ago",
       urgent: false,
     },
     {
@@ -264,7 +253,6 @@ export default function CareersPage() {
       department: "engineering",
       location: "Remote",
       type: "Full-time",
-      salary: "$115k - $150k",
       description:
         "Build scalable backend systems to process and analyze healthcare cost data from multiple health system partners.",
       requirements: [
@@ -276,6 +264,45 @@ export default function CareersPage() {
       benefits: ["Stock options", "Health coverage", "Remote setup", "Learning opportunities"],
       posted: "4 days ago",
       urgent: false,
+    },
+  ]
+
+  const pillars = [
+    {
+      icon: Heart,
+      title: "Comprehensive Health Coverage",
+      description:
+        "Medical, dental, and vision coverage designed to support you and your family's well-being at every life stage.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Market-Leading Compensation",
+      description:
+        "Competitive base pay, plus a variety of incentive and pay opportunities based on role.",
+    },
+    {
+      icon: Laptop,
+      title: "Remote-First Flexibility",
+      description:
+        "Work from anywhere and thrive. Flexibility and support built for a seamless remote experience.",
+    },
+    {
+      icon: Shield,
+      title: "Retirement Benefits",
+      description:
+        "Supporting your goals beyond the paycheck with a 401(k) match starting Day 1.",
+    },
+    {
+      icon: Users,
+      title: "Team Connection & Culture",
+      description:
+        "Virtual events, team offsites, and shoutouts that keep us connected and celebrated.",
+    },
+    {
+      icon: Calendar,
+      title: "Work-Life Balance",
+      description:
+        "Generous PTO policy and a culture that respects boundaries to support a full life.",
     },
   ]
 
@@ -578,14 +605,6 @@ export default function CareersPage() {
                                 <div className="flex items-center gap-1">
                                   <Clock className="h-4 w-4" />
                                   {job.type}
-                                </div>
-                                <div className="flex items-center gap-1">
-                                  <DollarSign className="h-4 w-4" />
-                                  {job.salary}
-                                </div>
-                                <div className="flex items-center gap-1">
-                                  <Calendar className="h-4 w-4" />
-                                  {job.posted}
                                 </div>
                               </div>
                             </div>

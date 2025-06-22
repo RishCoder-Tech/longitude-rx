@@ -10,15 +10,15 @@ export default function OnvidaPressRelease() {
         <h1 className="text-4xl md:text-5xl font-bold font-outfit mb-4 bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">Longitude Rx Welcomes Onvida Health as First External Partner</h1>
         <div className="mb-4 text-admiral-600 font-space-grotesk">June 2025 &mdash; Dallas, TX</div>
         <p className="text-lg text-admiral-700 font-space-grotesk mb-6">
-          Longitude Rx, the specialty pharmacy initiative created by leading health systems, is proud to announce its first external partnership with Onvida Health of Arizona. This milestone marks the expansion of Longitude Rx's innovative specialty pharmacy platform beyond its founding members, bringing advanced specialty medication access and care coordination to new communities.
+          Longitude Rx, the specialty pharmacy initiative created by leading health systems, is proud to announce its first external partnership with Onvida Health of Arizona. This milestone marks the expansion of Longitude Rx's innovative specialty pharmacy technology beyond its founding members, bringing advanced specialty medication access and care coordination to new communities.
         </p>
         <h2 className="text-2xl font-bold font-outfit mb-2 mt-8">Expanding Access, Improving Outcomes</h2>
         <p className="mb-4 text-admiral-700 font-space-grotesk">
           Onvida Health will implement Longitude Rx's specialty pharmacy model to enhance care for patients requiring complex therapies. By joining forces, both organizations aim to improve patient access and adherence to specialty medications, streamline care coordination, and deliver better outcomes for those with chronic, complex, and rare conditions.
         </p>
-        <h2 className="text-2xl font-bold font-outfit mb-2 mt-8">A Platform Built by and for Health Systems</h2>
+        <h2 className="text-2xl font-bold font-outfit mb-2 mt-8">A Technology Built by and for Health Systems</h2>
         <p className="mb-4 text-admiral-700 font-space-grotesk">
-          Longitude Rx was launched by a coalition of leading health systems—including Baylor Scott & White Health, Memorial Hermann Health System, Michigan Medicine, Novant Health, and Providence—to address the unique challenges of specialty pharmacy. The platform is designed to help health systems:
+          Longitude Rx was launched by a coalition of leading health systems—including Baylor Scott & White Health, Memorial Hermann Health System, Michigan Medicine, Novant Health, and Providence—to address the unique challenges of specialty pharmacy. The technology is designed to help health systems:
         </p>
         <ul className="list-disc list-inside mb-4 text-admiral-700 font-space-grotesk">
           <li>Overcome barriers to specialty medication access</li>

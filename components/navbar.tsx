@@ -57,8 +57,8 @@ export default function Navbar() {
           >
             <Link href="/" className="flex items-center space-x-3">
               <div className="h-9 w-auto md:h-10 rounded-xl flex items-center justify-center p-1 space-x-2">
-                <Image
-                  src="/images/longitude-logo.png"
+                  <Image
+                    src="/images/longitude-logo.png"
                   alt="Favicon"
                   width={24}
                   height={24}
@@ -66,7 +66,7 @@ export default function Navbar() {
                 />
                 <Image
                   src="/longitude-logo-navbar.png"
-                  alt="Longitude Rx Logo"
+                    alt="Longitude Rx Logo"
                   width={160}
                   height={40}
                   className="object-contain h-8 md:h-9 w-auto"
@@ -80,11 +80,11 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {[
               { href: "/", label: "Home" },
-              { href: "/platform", label: "Platform" },
+              { href: "/services", label: "Services" },
+              { href: "/technology", label: "Technology" },
+              { href: "/case-studies", label: "Case Studies" },
               { href: "/about", label: "About" },
-              { href: "/careers", label: "Careers" },
               { href: "/newsletter", label: "Blog" },
-              { href: "/contact", label: "Contact" },
             ].map((item, index) => (
               <motion.div
                 key={item.href}
@@ -115,7 +115,7 @@ export default function Navbar() {
               <MagneticButton>
                 <Link href="/contact">
                   <Button className="bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-lg shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium font-space-grotesk group">
-                    Get Started
+                    Contact Us
                     <motion.div
                       className="ml-2"
                       animate={{ x: [0, 3, 0] }}
@@ -176,11 +176,11 @@ export default function Navbar() {
               >
                 {[
                   { href: "/", label: "Home" },
-                  { href: "/platform", label: "Platform" },
+                  { href: "/services", label: "Services" },
+                  { href: "/technology", label: "Technology" },
+                  { href: "/case-studies", label: "Case Studies" },
                   { href: "/about", label: "About" },
-                  { href: "/careers", label: "Careers" },
                   { href: "/newsletter", label: "Blog" },
-                  { href: "/contact", label: "Contact" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -204,7 +204,7 @@ export default function Navbar() {
                 >
                   <Link href="/contact" onClick={toggleMenu}>
                     <Button className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-lg shadow-rhodamine-500/25 rounded-full px-6 py-3 font-medium font-space-grotesk mt-4">
-                      Get Started
+                      Contact Us
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>

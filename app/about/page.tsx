@@ -16,36 +16,77 @@ import {
   Network,
   DollarSign,
   Activity,
-  BarChart3,
-  Quote,
+  CheckCircle,
+  Cpu,
+  HeartHandshake,
+  Linkedin,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import HealthcareLeadersScroll from "@/components/healthcare-leaders-scroll"
 import Image from "next/image"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function AboutPage() {
-  // Dynamically generate leadership team from public headshots
-  const headshots = [
-    "Jigar Thakkar.png",
-    "Toni Giglio.jpg",
-    "Tom Kotronis.jpg",
-    "Sinthu Sinnadurai.jpg",
-    "Rachel Bolton.jpg",
-    "Nicole Ostrowski.png",
-    "Katie McMillen.jpg",
-    "Jonathan Williams.png",
-    "Arpit Parikh.jpg",
-  ];
-  const leadershipTeam = headshots.map((filename) => {
-    const name = filename.replace(/\.(jpg|jpeg|png)$/i, "").replace(/_/g, " ");
-    return {
-      name,
-      title: "1",
-      headshot: `/${filename}`,
-    };
-  });
+  const leadershipTeam = [
+    {
+      name: "Jigar Thakkar",
+      title: "CEO of Longitude Rx",
+      headshot: "/Jigar Thakkar.png",
+      bio: "Jigar is a visionary leader with over 20 years of experience in the healthcare industry. He is passionate about leveraging technology to improve patient outcomes and reduce healthcare costs.",
+      linkedin: "https://www.linkedin.com/in/jigar24/",
+    },
+    {
+      name: "Jonathan Williams",
+      title: "Vice President of 340B Operations",
+      headshot: "/Jonathan Williams.png",
+      bio: "Jonathan is an expert in 340B operations, with a deep understanding of the complexities of the program. He is dedicated to helping health systems optimize their 340B programs.",
+      linkedin: "https://www.linkedin.com/in/jonathan-williams-26a30286/",
+    },
+    {
+      name: "Sinthu Sinnadurai",
+      title: "Senior Vice-President of Operations",
+      headshot: "/Sinthu Sinnadurai.jpg",
+      bio: "Sinthu is a seasoned operations leader with a proven track record of driving efficiency and growth. He is committed to building a world-class operations team at Longitude Rx.",
+      linkedin: "https://www.linkedin.com/in/sinthusan/",
+    },
+    {
+      name: "Nicole Ostrowski",
+      title: "Executive Director of Strategy & Operations",
+      headshot: "/Nicole Ostrowski.png",
+      bio: "Nicole is a strategic thinker with a passion for innovation. She is responsible for developing and executing Longitude Rx's corporate strategy.",
+      linkedin: "https://www.linkedin.com/in/nicolejostrowski/",
+    },
+    {
+      name: "Toni Giglio",
+      title: "SVP, Market Access for Longitude Rx",
+      headshot: "/Toni Giglio.jpg",
+      bio: "Toni is a market access expert with a deep understanding of the payer landscape. She is dedicated to ensuring that patients have access to the medications they need.",
+      linkedin: "https://www.linkedin.com/in/tonigiglio/",
+    },
+    {
+      name: "Rachel Bolton, MBA, SHRM-SCP",
+      title: "VP Human Resources",
+      headshot: "/Rachel Bolton.jpg",
+      bio: "Rachel is a passionate HR leader with a focus on building a strong and inclusive culture. She is committed to attracting and retaining top talent at Longitude Rx.",
+      linkedin: "https://www.linkedin.com/in/rachel-bolton-mba-shrm-scp-7a8194126/",
+    },
+    {
+      name: "Tom Kotronis",
+      title: "Senior Director of Specialty Pharmacy New Business Development",
+      headshot: "/Tom Kotronis.jpg",
+      bio: "Tom is a business development expert with a proven track record of driving growth. He is responsible for building and managing Longitude Rx's sales pipeline.",
+      linkedin: "https://www.linkedin.com/in/tom-kotronis/",
+    },
+    // Add other team members here...
+  ]
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
@@ -84,58 +125,9 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk mt-8">
-              Longitude Rx is a pioneering specialty pharmacy service that enhances health systems' specialty pharmacy operations, financial performance, and clinical outcomes through state-of-the-art AI-enabled technology platforms.
+              Longitude Rx is a pioneering specialty pharmacy service that enhances health systems' specialty pharmacy operations, financial performance, and clinical outcomes through state-of-the-art AI-enabled technologies.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container px-6 md:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
-            <ScrollReveal direction="left" className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-                  <Target className="h-4 w-4 text-rhodamine-600" />
-                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                    OUR MISSION
-                  </span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                  Revolutionizing Cost Management
-                </h2>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Longitude Rx is pioneering the future of specialty medicine cost optimization through AI-powered
-                  solutions that eliminate waste, optimize spending, and transform patient access. We're not just
-                  reducing costs—we're reimagining healthcare economics.
-                </p>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Our mission extends beyond traditional cost management. We're building an intelligent ecosystem that
-                  connects health systems, payers, and providers through cutting-edge technology, ensuring optimal
-                  specialty medicine economics while maintaining the highest quality of care.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal direction="right" className="relative">
-              <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/data-analytics.jpg"
-                  alt="Healthcare cost analytics and optimization"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-rhodamine-500/20 to-gulf-600/20 backdrop-blur-sm z-10"></div>
-                {/* Floating elements */}
-                <div className="absolute top-6 right-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <DollarSign className="h-8 w-8 text-white" />
-                </div>
-                <div className="absolute bottom-6 left-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <TrendingUp className="h-10 w-10 text-white" />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
@@ -159,102 +151,48 @@ export default function AboutPage() {
 
           {/* CEO and Leadership Team Grid - all on same level, multiple rows allowed */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Jigar Thakkar.png"
-                  alt="Jigar Thakkar"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Jigar Thakkar</h3>
-              <p className="text-gray-600">CEO of Longitude Rx</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Jonathan Williams.png"
-                  alt="Jonathan Williams"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Jonathan Williams</h3>
-              <p className="text-gray-600">Vice President of 340B Operations</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Katie McMillen.jpg"
-                  alt="Katie McMillen"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Katie McMillen</h3>
-              <p className="text-gray-600">VP of Market Access</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Nicole Ostrowski.png"
-                  alt="Nicole Ostrowski"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Nicole Ostrowski</h3>
-              <p className="text-gray-600">Executive Director of Strategy & Operations</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Sinthu Sinnadurai.jpg"
-                  alt="Sinthu Sinnadurai"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Sinthu Sinnadurai</h3>
-              <p className="text-gray-600">Senior Vice-President of Operations</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Tom Kotronis.jpg"
-                  alt="Tom Kotronis"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Tom Kotronis</h3>
-              <p className="text-gray-600">Senior Director of Specialty Pharmacy New Business Development</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Rachel Bolton.jpg"
-                  alt="Rachel Bolton"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Rachel Bolton, MBA, SHRM-SCP</h3>
-              <p className="text-gray-600">VP Human Resources</p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-4">
-                <Image
-                  src="/Toni Giglio.jpg"
-                  alt="Toni Giglio"
-                  fill
-                  className="object-cover object-top rounded-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Toni Giglio</h3>
-              <p className="text-gray-600">SVP, Market Access for Longitude Rx</p>
-            </div>
+            {leadershipTeam.map((member) => (
+              <Dialog key={member.name}>
+                <DialogTrigger asChild>
+                  <div className="text-center cursor-pointer group">
+                    <div className="relative w-48 h-48 mx-auto mb-4 transition-transform duration-300 transform group-hover:scale-105">
+                      <Image
+                        src={member.headshot}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top rounded-full"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                    <p className="text-gray-600">{member.title}</p>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>{member.name}</DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="relative w-48 h-48 mx-auto mb-4">
+                      <Image
+                        src={member.headshot}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top rounded-full"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold text-center">{member.name}</h3>
+                    <p className="text-gray-600 text-center">{member.title}</p>
+                    <p className="text-gray-600 text-center">{member.bio}</p>
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="w-full">
+                        <Linkedin className="mr-2 h-4 w-4" />
+                        LinkedIn
+                      </Button>
+                    </a>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            ))}
           </div>
         </div>
       </section>
@@ -321,7 +259,7 @@ export default function AboutPage() {
                   year: "Early 2025",
                   title: "Launch of Longitude Rx",
                   description:
-                    "Revolutionary AI-powered specialty medicine cost optimization platform launches, marking the beginning of a new era in healthcare economics.",
+                    "Revolutionary AI-powered specialty medicine cost optimization technology launches, marking the beginning of a new era in healthcare economics.",
                   icon: DollarSign,
                   gradient: "from-gulf-500 to-ocean-500",
                   side: "right",
@@ -379,122 +317,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <div className="mt-24 max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-8 text-admiral-900">
-          Our Mission
-        </h2>
-        <p className="text-lg text-admiral-600 leading-relaxed mb-8">
-          We empower health systems to deliver exceptional specialty pharmacy care while optimizing financial performance. Our AI-driven platform streamlines operations, enhances patient care, and maximizes revenue capture—all while maintaining the highest standards of clinical excellence.
-        </p>
-      </div>
-
-      {/* Key Differentiators */}
-      <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6">
-            <Brain className="h-7 w-7 text-admiral-600" />
-          </div>
-          <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">AI-Powered Innovation</h3>
-          <div className="space-y-4">
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Technology:</span> State-of-the-art AI platform optimizing specialty pharmacy operations
-            </p>
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Impact:</span> Unprecedented efficiency in prescription capture and patient care coordination
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6">
-            <Activity className="h-7 w-7 text-admiral-600" />
-          </div>
-          <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">Financial Excellence</h3>
-          <div className="space-y-4">
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Strategy:</span> Advanced analytics and optimized 340B participation
-            </p>
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Impact:</span> Maximized revenue through strategic payer relationships
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6">
-            <Users className="h-7 w-7 text-admiral-600" />
-          </div>
-          <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">Clinical Impact</h3>
-          <div className="space-y-4">
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Approach:</span> Integrated care coordination between providers and pharmacy teams
-            </p>
-            <p className="text-admiral-600 leading-relaxed">
-              <span className="font-semibold text-admiral-800">Impact:</span> Improved medication adherence and better patient outcomes
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Why Choose Us */}
-      <div className="mt-24 max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-8 text-admiral-900">
-          Why Choose Longitude Rx?
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
-          <div className="flex items-start space-x-4">
-            <Shield className="h-8 w-8 text-gulf-600 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold text-admiral-800 mb-1">Security & Compliance</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">HIPAA-compliant, enterprise-grade security and privacy standards ensure your data and patients are always protected.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <BarChart3 className="h-8 w-8 text-rhodamine-600 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold text-admiral-800 mb-1">Scalable & Future-Proof</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">Our platform grows with you—supporting everything from local initiatives to multi-state health systems and emerging therapies.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <Users className="h-8 w-8 text-admiral-600 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold text-admiral-800 mb-1">Collaborative Partnership</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">We work as an extension of your team, providing hands-on support, training, and continuous improvement.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <TrendingUp className="h-8 w-8 text-ocean-600 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold text-admiral-800 mb-1">Measurable Outcomes</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">We deliver real, quantifiable results—improving prescription capture, patient adherence, and financial performance.</p>
-            </div>
-          </div>
-        </div>
-        <div className="space-y-6">
-          <p className="text-lg text-admiral-600 leading-relaxed">
-            <span className="font-semibold text-admiral-800">Built for Health Systems:</span> Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies.
-          </p>
-          <p className="text-lg text-admiral-600 leading-relaxed">
-            <span className="font-semibold text-admiral-800">Proven Technology:</span> Our AI-enabled platform has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes.
-          </p>
-          <p className="text-lg text-admiral-600 leading-relaxed">
-            <span className="font-semibold text-admiral-800">Comprehensive Support:</span> From implementation to ongoing optimization, we provide end-to-end support to ensure your success.
-          </p>
-          <p className="text-lg text-admiral-600 leading-relaxed">
-            <span className="font-semibold text-admiral-800">Results-Driven:</span> We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services.
-          </p>
-        </div>
-        <div className="mt-10 p-6 bg-white/80 border-l-4 border-gulf-400 rounded-xl shadow flex items-start space-x-4">
-          <Quote className="h-8 w-8 text-gulf-400 flex-shrink-0" />
-          <div>
-            <p className="italic text-admiral-700 mb-2">“Longitude Rx has been a true partner in transforming our specialty pharmacy operations. Their technology, expertise, and commitment to outcomes have made a measurable difference for our patients and our bottom line.”</p>
-            <div className="text-sm font-semibold text-admiral-800">Jake Childs, PharmD, COO, Onvida Health</div>
-          </div>
-        </div>
-      </div>
-
       {/* CTA Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
@@ -511,6 +333,7 @@ export default function AboutPage() {
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
         </div>
+        <div className="h-9"></div>
 
         <div className="container px-6 md:px-8 relative z-10">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
@@ -524,7 +347,7 @@ export default function AboutPage() {
               Ready to Optimize Your Costs?
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join us in revolutionizing specialty medicine cost management and discover how our innovative platform can
+              Join us in revolutionizing specialty medicine cost management and discover how our innovative technology can
               transform your healthcare economics.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
@@ -538,7 +361,7 @@ export default function AboutPage() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
-              <Link href="/solutions">
+              <Link href="/services">
                 <Button
                   variant="outline"
                   size="lg"

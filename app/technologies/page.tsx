@@ -30,7 +30,7 @@ export default function SolutionsPage() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy platform beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
+          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
         </span>
       </div>
 
@@ -56,12 +56,12 @@ export default function SolutionsPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <DollarSign className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                SPECIALTY PHARMACY PLATFORM
+                SPECIALTY PHARMACY TECHNOLOGY
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Tech-Enabled Specialty Pharmacy Platform
+                Tech-Enabled Specialty Pharmacy Technology
               </span>
               <br />
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
@@ -69,7 +69,7 @@ export default function SolutionsPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Longitude Rx is now serving health systems beyond our founding members. With Onvida Health as our first external partner, our platform is delivering specialty pharmacy solutions to more communities—improving access, adherence, and outcomes for patients with complex needs.
+              With Onvida Health as our first external partner, our technology is delivering specialty pharmacy solutions to more communities—improving access, adherence, and outcomes for patients with complex needs.
             </p>
           </motion.div>
 
@@ -132,17 +132,10 @@ export default function SolutionsPage() {
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6">
                 <Network className="h-7 w-7 text-admiral-600" />
               </div>
-              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">AI Enabled Tech Platform</h3>
-              <div className="space-y-4">
-                <p className="text-admiral-600 leading-relaxed text-sm">
-                  <span className="font-semibold text-admiral-800">Challenge:</span> Disconnected data sources and manual workflows slow down patient care and reduce adherence rates.
-                </p>
-                <p className="text-admiral-600 leading-relaxed text-sm">
-                  <span className="font-semibold text-admiral-800">Solution:</span> Our AI-driven platform integrates all data sources and automates workflows, accelerating prior authorization and improving patient satisfaction.
-                </p>
-                <p className="text-admiral-600 leading-relaxed text-sm">
-                  <span className="font-semibold text-admiral-800">Impact:</span> 83% adherence rates for patients on our integrated platform.
-                </p>
+              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">AI Enabled Tech Technology</h3>
+              <div className="space-y-4 text-admiral-700">
+                <p><span className="font-semibold text-admiral-800">Solution:</span> Our AI-driven technology integrates all data sources and automates workflows, accelerating prior authorization and improving patient satisfaction.</p>
+                <p><span className="font-semibold text-admiral-800">Impact:</span> 83% adherence rates for patients on our integrated technology.</p>
               </div>
             </div>
           </div>
@@ -163,7 +156,7 @@ export default function SolutionsPage() {
               How Longitude Rx Works
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              We address the coordination requirements and barriers that patients and providers face with accessing and adhering to specialty medications. Our platform is designed to scale across health systems, support integrated care, and enable participation in the emerging wave of rare disease-focused therapeutics.
+              Our technology is designed to scale across health systems, support integrated care, and enable participation in the emerging wave of rare disease-focused therapeutics.
             </p>
           </ScrollReveal>
 
@@ -205,7 +198,7 @@ export default function SolutionsPage() {
             {[
               {
                 icon: DollarSign,
-                title: "AI Cost Intelligence Platform",
+                title: "AI Cost Intelligence Technology",
                 description:
                   "Revolutionary machine learning algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
                 features: [
@@ -381,7 +374,7 @@ export default function SolutionsPage() {
               Ready to Revolutionize Your Cost Management?
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join the healthcare revolution and discover how our AI-powered platform can transform your specialty
+              Join the healthcare revolution and discover how our AI-powered technology can transform your specialty
               medicine cost optimization and deliver unprecedented savings.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-4">

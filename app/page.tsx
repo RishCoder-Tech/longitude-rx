@@ -21,6 +21,10 @@ import {
   ShoppingCart,
   LineChart,
   Network,
+  CheckCircle,
+  Building,
+  Cpu,
+  HeartHandshake,
 } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
@@ -60,7 +64,7 @@ export default function Home() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy platform beyond founding health systems! <a href="/onvida-press-release" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn more</a>
+          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="/onvida-press-release" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn more</a>
         </span>
       </div>
 
@@ -160,13 +164,12 @@ export default function Home() {
                   </motion.div>
                 </Button>
               </Link>
-              <Link href="/platform">
+              <Link href="/services">
                 <Button
-                  variant="outline"
                   size="lg"
-                  className="border-2 border-admiral-300 text-admiral-700 hover:bg-admiral-50 hover:border-admiral-400 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk transition-all duration-300 hover:scale-105 hover:-translate-y-2 backdrop-blur-sm bg-white/50"
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-1"
                 >
-                  Explore Platform
+                  Explore Services
                 </Button>
               </Link>
             </motion.div>
@@ -210,30 +213,30 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
             {[
               {
-                number: 35,
-                suffix: "%",
-                label: "Projected Revenue Growth by 2027 of Specialty Drugs",
-                icon: BarChart3,
+                number: 500,
+                prefix: "$",
+                suffix: "M+",
+                label: "Potential Gross Revenue for Specialty Pharmacy",
+                icon: DollarSign,
                 gradient: "from-rhodamine-500 to-rhodamine-600",
                 description: "",
               },
               {
-                number: 2,
-                suffix: "x",
-                label: "Orphan Drug Sales By 2028",
-                icon: TrendingUp,
+                number: 20,
+                suffix: "%",
+                label: "Of Health System's Net Patient Services Revenue Potential",
+                icon: BarChart3,
                 gradient: "from-gulf-500 to-gulf-600",
                 description: "",
               },
               {
-                number: 80,
-                suffix: "%",
-                label: "Of FDA Pipeline Are Specialty Medications",
+                text: "20-30%",
+                label: "Contribution Margin",
                 icon: Beaker,
                 gradient: "from-ocean-500 to-ocean-600",
                 description: "",
               },
-            ].map((stat, index) => (
+            ].map((stat: any, index) => (
               <ScrollReveal key={stat.label} delay={index * 0.1} direction="scale">
                 <motion.div className="group cursor-pointer" whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
                   <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm overflow-hidden relative h-full min-h-[340px] flex flex-col">
@@ -245,12 +248,19 @@ export default function Home() {
                       >
                         <stat.icon className="h-10 w-10 text-white" />
                       </motion.div>
-                      <CounterAnimation
-                        end={stat.number}
-                        suffix={stat.suffix}
-                        duration={2500}
-                        className="text-5xl font-bold font-outfit bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-4"
-                      />
+                      {stat.text ? (
+                        <span className="text-5xl font-bold font-outfit bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-4">
+                          {stat.text}
+                        </span>
+                      ) : (
+                        <CounterAnimation
+                          end={stat.number}
+                          prefix={stat.prefix}
+                          suffix={stat.suffix}
+                          duration={2500}
+                          className="text-5xl font-bold font-outfit bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-4"
+                        />
+                      )}
                       <h3 className="text-lg font-semibold text-admiral-800 font-outfit mb-3">{stat.label}</h3>
                       <p className="text-sm text-admiral-600 font-space-grotesk leading-relaxed">{stat.description}</p>
                     </CardContent>
@@ -261,6 +271,124 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mission & Vision */}
+      <section className="w-full py-20 md:py-32">
+        <div className="container px-6 md:px-8">
+          <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
+            <ScrollReveal direction="left" className="space-y-8">
+              <div className="space-y-6">
+                <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+                  <Target className="h-4 w-4 text-rhodamine-600" />
+                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
+                    OUR MISSION
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+                  Revolutionizing Cost Management
+                </h2>
+                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
+                  Longitude Rx is pioneering the future of specialty medicine cost optimization through AI-powered
+                  solutions that eliminate waste, optimize spending, and transform patient access. We're not just
+                  reducing costs—we're reimagining healthcare economics.
+                </p>
+                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
+                  Our mission extends beyond traditional cost management. We're building an intelligent ecosystem that
+                  connects health systems, payers, and providers through cutting-edge technology, ensuring optimal
+                  specialty medicine economics while maintaining the highest quality of care.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" className="relative">
+              <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/data-analytics.jpg"
+                  alt="Healthcare cost analytics and optimization"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-rhodamine-500/20 to-gulf-600/20 backdrop-blur-sm z-10"></div>
+                {/* Floating elements */}
+                <div className="absolute top-6 right-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
+                  <DollarSign className="h-8 w-8 text-white" />
+                </div>
+                <div className="absolute bottom-6 left-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
+                  <TrendingUp className="h-10 w-10 text-white" />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <div className="mt-24 pb-16 max-w-7xl mx-auto px-6 md:px-8">
+        <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+            <CheckCircle className="h-4 w-4 text-admiral-600" />
+            <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
+              WHY CHOOSE US
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            Why Choose Longitude Rx?
+          </h2>
+          <p className="text-xl text-admiral-600 max-w-2xl leading-relaxed font-space-grotesk">
+            Discover why leading health systems trust Longitude Rx to transform their specialty pharmacy operations.
+          </p>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <ScrollReveal direction="left" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for Health Systems</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
+              </p>
+            </div>
+          </ScrollReveal>
+  
+
+          <ScrollReveal direction="right" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Cpu className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Proven Technology</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                Our AI-enabled technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="left" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <HeartHandshake className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Comprehensive Support</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                From implementation to ongoing optimization, we provide end-to-end support to ensure your success. Our dedicated team of experts works alongside you every step of the way, providing training, guidance, and continuous improvement strategies.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Target className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Results-Driven</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services. Our technology provides detailed analytics and insights to track your progress and demonstrate ROI.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
 
       {/* Core Solutions Section */}
       <section className="w-full py-10 md:py-16 bg-gradient-to-br from-gypsum-50 to-white relative">
@@ -298,7 +426,7 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <motion.div
+                <motion.div
               variants={fadeInUp}
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
@@ -310,10 +438,10 @@ export default function Home() {
                 <p className="text-admiral-600 leading-relaxed text-sm">
                   <span className="font-semibold text-admiral-800"></span> Achieve significant revenue growth by capturing a higher percentage of internal provider prescriptions, enhancing financial performance through our Medication Capture Strategy.
                 </p>
-              </div>
+                    </div>
             </motion.div>
 
-            <motion.div
+                    <motion.div
               variants={fadeInUp}
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
@@ -326,9 +454,9 @@ export default function Home() {
                   <span className="font-semibold text-admiral-800"></span> Maximize financial performance and compliance by optimizing 340B processes and contract pharmacy engagement.
                 </p>
               </div>
-            </motion.div>
+                      </motion.div>
 
-            <motion.div
+                      <motion.div
               variants={fadeInUp}
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
@@ -343,7 +471,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div
+                          <motion.div
               variants={fadeInUp}
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
@@ -356,7 +484,7 @@ export default function Home() {
                   <span className="font-semibold text-admiral-800"></span> Leverage AI-driven solutions to streamline data integration and automate workflows, improving patient care delivery and increasing adherence rates.
                 </p>
               </div>
-            </motion.div>
+                </motion.div>
           </div>
 
           {/* Testimonials Section */}
@@ -475,7 +603,7 @@ export default function Home() {
             </motion.h2>
             <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
               Join leading health systems who are already saving millions on specialty medicine costs with our
-              AI-powered optimization platform.
+              AI-powered optimization technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-8 pt-8">
               <Link href="/contact">
@@ -499,13 +627,13 @@ export default function Home() {
                   </motion.div>
                 </Button>
               </Link>
-              <Link href="/platform">
+              <Link href="/case-studies">
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-admiral-200 text-admiral-200 bg-admiral-800/10 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk backdrop-blur-sm"
                 >
-                  Explore Platform
+                  Case Studies
                 </Button>
               </Link>
             </div>

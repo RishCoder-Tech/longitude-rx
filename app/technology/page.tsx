@@ -15,6 +15,9 @@ import {
   BarChart3,
   ShoppingCart,
   LineChart,
+  Building,
+  Cpu,
+  HeartHandshake,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -30,7 +33,7 @@ export default function SolutionsPage() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy platform beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
+          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
         </span>
       </div>
 
@@ -56,12 +59,12 @@ export default function SolutionsPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <DollarSign className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                SPECIALTY PHARMACY PLATFORM
+                SPECIALTY PHARMACY TECHNOLOGY
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Tech-Enabled Specialty Pharmacy Platform
+                Tech-Enabled Specialty Pharmacy Technology
               </span>
               <br />
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
@@ -69,7 +72,7 @@ export default function SolutionsPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-            Transform Rx efficiency & patient care with AI-driven tech platform that unifies data, streamlines operations, and improves outcomes at every step.
+            Transform Rx efficiency & patient care with AI-driven technology that unifies data, streamlines operations, and improves outcomes at every step.
             </p>
           </motion.div>
         </div>
@@ -118,7 +121,7 @@ export default function SolutionsPage() {
             {[
               {
                 icon: DollarSign,
-                title: "AI Cost Intelligence Platform",
+                title: "AI Cost Intelligence Technology",
                 description:
                   "Revolutionary machine learning algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
                 features: [
@@ -195,6 +198,75 @@ export default function SolutionsPage() {
 
       {/* Advanced Features */}
 
+      {/* Why Choose Us */}
+      <div className="mt-24 max-w-7xl mx-auto px-6 md:px-8">
+        <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+            <CheckCircle className="h-4 w-4 text-admiral-600" />
+            <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
+              WHY CHOOSE US
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            Why Choose Longitude Rx?
+          </h2>
+          <p className="text-xl text-admiral-600 max-w-2xl leading-relaxed font-space-grotesk">
+            Discover why leading health systems trust Longitude Rx to transform their specialty pharmacy operations.
+          </p>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <ScrollReveal direction="left" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for Health Systems</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
+              </p>
+            </div>
+          </ScrollReveal>
+  
+
+          <ScrollReveal direction="right" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Cpu className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Proven Technology</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                Our AI-enabled technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="left" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <HeartHandshake className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Comprehensive Support</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                From implementation to ongoing optimization, we provide end-to-end support to ensure your success. Our dedicated team of experts works alongside you every step of the way, providing training, guidance, and continuous improvement strategies.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right" className="group">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Target className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Results-Driven</h3>
+              <p className="text-admiral-600 leading-relaxed text-base">
+                We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services. Our technology provides detailed analytics and insights to track your progress and demonstrate ROI.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
@@ -224,7 +296,7 @@ export default function SolutionsPage() {
               Ready to Revolutionize Your Cost Management?
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join the healthcare revolution and discover how our AI-powered platform can transform your specialty
+              Join the healthcare revolution and discover how our AI-powered technology can transform your specialty
               medicine cost optimization and deliver unprecedented savings.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
@@ -238,7 +310,7 @@ export default function SolutionsPage() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/services">
                 <Button
                   variant="outline"
                   size="lg"

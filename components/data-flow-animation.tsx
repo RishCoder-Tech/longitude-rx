@@ -54,7 +54,7 @@ const dataSources = [
   },
   {
     id: "340b",
-    name: "340B Program",
+    name: "TPA",
     icon: Heart,
     color: "from-green-500 to-green-600",
     description:
@@ -156,28 +156,30 @@ const processSteps = [
 
 const outcomes = [
   {
-    id: "vbc",
-    title: "Drive VBC performance",
+    id: "access",
+    title: "Enhance patient access & adherence",
     icon: TrendingUp,
     color: "from-blue-500 to-blue-600",
     description:
-      "Optimize value-based care initiatives through comprehensive data insights, quality measure tracking, and risk adjustment accuracy, resulting in improved clinical outcomes and financial performance.",
+      "Enable health systems to bring specialty meds in-house, overcoming prior-auth delays, financing hurdles, and fragmented networks—leading to faster starts, fewer drop-offs, and better medication adherence.",
+    source: "darwinresearch.com",
   },
   {
-    id: "experiences",
-    title: "Deliver intelligent experiences",
+    id: "coordination",
+    title: "Embed clinical care coordination",
     icon: Brain,
     color: "from-purple-500 to-purple-600",
     description:
-      "Create personalized patient and provider experiences through AI-powered insights, smart workflows, and contextual recommendations that improve engagement and satisfaction.",
+      "Build integrated specialty pharmacy hubs with pharmacists and care teams working side-by-side with providers—supporting complex therapies from cell & gene treatments to rare-disease meds. This improves monitoring, adjustments, and patient experience.",
+    source: "hcinnovationgroup.com",
   },
   {
-    id: "burden",
-    title: "Reduce provider burden",
+    id: "resilience",
+    title: "Drive financial & operational resilience",
     icon: Shield,
     color: "from-cyan-500 to-cyan-600",
     description:
-      "Minimize administrative overhead and clinical workload through automated documentation, intelligent alerts, and streamlined workflows that allow providers to focus on patient care.",
+      "Turn specialty pharmacy into a clinical and financial asset—capturing up to 20% of net patient revenue, managing drug shortages, reducing costs, and scaling smart operations across health systems.",
   },
 ]
 

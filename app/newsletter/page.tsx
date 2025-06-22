@@ -364,7 +364,7 @@ export default function NewsletterPage() {
               Ready to Optimize Your Costs?
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Don't just read about cost optimization—experience it. Schedule a demo to see how our platform can
+              Don't just read about cost optimization—experience it. Schedule a demo to see how our technology can
               transform your specialty medicine economics.
             </p>
             <Button

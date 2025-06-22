@@ -49,6 +49,11 @@ export default function CareersPage() {
 
   useEffect(() => {
     const fetchJobs = async () => {
+      if (!supabase) {
+        console.warn('Supabase client not available')
+        return
+      }
+      
       const { data, error } = await supabase.from("job_postings").select("*")
       if (error) {
         console.error("Error fetching job postings:", error)

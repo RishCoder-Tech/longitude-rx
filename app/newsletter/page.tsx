@@ -47,6 +47,11 @@ export default function NewsletterPage() {
 
   useEffect(() => {
     const fetchNews = async () => {
+      if (!supabase) {
+        console.warn('Supabase client not available')
+        return
+      }
+      
       const { data, error } = await supabase.from("news").select("*").order("created_at", { ascending: false })
       if (error) {
         console.error("Error fetching news:", error)
@@ -67,6 +72,11 @@ export default function NewsletterPage() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!supabase) {
+      console.warn('Supabase client not available')
+      return
+    }
+    
     const { data, error } = await supabase.from('subscribers').insert([
       { email: values.email, interests: values.interests },
     ])

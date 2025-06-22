@@ -50,6 +50,11 @@ export default function CaseStudiesPage() {
 
   useEffect(() => {
     const fetchCaseStudies = async () => {
+      if (!supabase) {
+        console.warn('Supabase client not available')
+        return
+      }
+      
       const { data, error } = await supabase.from("case_studies").select("*")
       if (error) {
         console.error("Error fetching case studies:", error)

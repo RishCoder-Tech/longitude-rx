@@ -17,13 +17,35 @@ import {
   Calendar,
   ArrowRight,
   Sparkles,
+  BookOpen,
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import { useState } from "react"
 import Image from "next/image"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+
+const formSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email." }),
+  interests: z.array(z.string()).optional(),
+})
 
 export default function NewsletterPage() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      interests: [],
+    },
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+    // Here you would typically send the data to your backend
+  }
+
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -103,7 +125,7 @@ export default function NewsletterPage() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
-      {/* Blog Hero Section */}
+      {/* News Hero Section */}
       <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-hidden bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
           <Image
@@ -125,12 +147,12 @@ export default function NewsletterPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Mail className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                BLOG
+                NEWS
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                The Longitude Rx Blog
+                The Longitude Rx News
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
@@ -325,7 +347,7 @@ export default function NewsletterPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl font-outfit font-bold text-admiral-800 flex items-center">
                     <Calendar className="h-6 w-6 mr-2 text-ocean-600" />
-                    Latest Blog Posts
+                    Latest News
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -375,6 +397,26 @@ export default function NewsletterPage() {
               Schedule a Demo
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="w-full py-20 md:py-32">
+        <div className="container px-6 md:px-8">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+              <BookOpen className="h-4 w-4 text-rhodamine-600" />
+              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
+                Latest News
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+              Latest News Posts
+            </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
+              Catch up on our latest articles and expert analyses.
+            </p>
           </ScrollReveal>
         </div>
       </section>

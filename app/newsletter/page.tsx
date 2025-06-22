@@ -17,80 +17,13 @@ import {
   Calendar,
   ArrowRight,
   Sparkles,
-  BookOpen,
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { supabase } from "@/lib/supabaseClient"
-
-const formSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email." }),
-  interests: z.array(z.string()).optional(),
-})
-
-interface NewsArticle {
-  id: number
-  title: string
-  description: string
-  created_at: string
-  read_time_minutes: number
-  slug: string
-}
 
 export default function NewsletterPage() {
-  const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([])
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      if (!supabase) {
-        console.warn('Supabase client not available')
-        return
-      }
-      
-      const { data, error } = await supabase.from("news").select("*").order("created_at", { ascending: false })
-      if (error) {
-        console.error("Error fetching news:", error)
-      } else {
-        setNewsArticles(data || [])
-      }
-    }
-
-    fetchNews()
-  }, [])
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      interests: [],
-    },
-  })
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (!supabase) {
-      console.warn('Supabase client not available')
-      return
-    }
-    
-    const { data, error } = await supabase.from('subscribers').insert([
-      { email: values.email, interests: values.interests },
-    ])
-
-    if (error) {
-      console.error('Error inserting data:', error)
-      // Here you might want to show an error message to the user
-    } else {
-      console.log('Successfully subscribed:', data)
-      // Here you might want to show a success message
-      form.reset()
-    }
-  }
-
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -170,7 +103,7 @@ export default function NewsletterPage() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
-      {/* News Hero Section */}
+      {/* Blog Hero Section */}
       <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-hidden bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
           <Image
@@ -192,12 +125,12 @@ export default function NewsletterPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Mail className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                NEWS
+                BLOG
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                The Longitude Rx News
+                The Longitude Rx Blog
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
@@ -392,7 +325,7 @@ export default function NewsletterPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl font-outfit font-bold text-admiral-800 flex items-center">
                     <Calendar className="h-6 w-6 mr-2 text-ocean-600" />
-                    Latest News
+                    Latest Blog Posts
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -443,49 +376,6 @@ export default function NewsletterPage() {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Latest News Section */}
-      <section className="w-full py-20 md:py-32 bg-gypsum-50">
-        <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <BookOpen className="h-4 w-4 text-ocean-600" />
-              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                Latest News
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Latest News Posts
-            </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Catch up on our latest articles and expert analyses.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {newsArticles.map((issue, index) => (
-              <ScrollReveal key={issue.id} delay={index * 0.1}>
-                <Card className="h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-                  <h3 className="text-xl font-bold font-outfit mb-3 text-admiral-900">{issue.title}</h3>
-                  <div className="flex items-center text-sm text-admiral-600 mb-4">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    <span>{new Date(issue.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
-                    <span className="mx-2">·</span>
-                    <span>{issue.read_time_minutes} min read</span>
-                  </div>
-                  <p className="text-admiral-600 leading-relaxed mb-6">{issue.description}</p>
-                  <Button
-                    variant="link"
-                    className="p-0 text-ocean-600 font-semibold group-hover:text-rhodamine-600 transition-colors duration-300"
-                  >
-                    Read More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
     </div>

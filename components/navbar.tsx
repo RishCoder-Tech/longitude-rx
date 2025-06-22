@@ -84,7 +84,7 @@ export default function Navbar() {
               { href: "/technology", label: "Technology" },
               { href: "/case-studies", label: "Case Studies" },
               { href: "/about", label: "About" },
-              { href: "/newsletter", label: "News" },
+              { href: "/newsletter", label: "Blog" },
             ].map((item, index) => (
               <motion.div
                 key={item.href}
@@ -180,7 +180,7 @@ export default function Navbar() {
                   { href: "/technology", label: "Technology" },
                   { href: "/case-studies", label: "Case Studies" },
                   { href: "/about", label: "About" },
-                  { href: "/newsletter", label: "News" },
+                  { href: "/newsletter", label: "Blog" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.href}

@@ -26,7 +26,6 @@ import {
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
-import { useState } from "react"
 import Image from "next/image"
 import { supabase } from "@/lib/supabaseClient"
 

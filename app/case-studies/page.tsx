@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {
@@ -13,51 +14,61 @@ import {
   TrendingUp,
   Clock,
   DollarSign,
+  LucideIcon,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import Image from "next/image"
+import { supabase } from "@/lib/supabaseClient"
+
+interface Metric {
+  label: string
+  value: string
+  icon: string // Store icon name as string
+}
+
+interface CaseStudy {
+  id: number
+  title: string
+  organization: string
+  description: string
+  metrics: Metric[]
+  image_url: string
+  tag: string
+}
+
+const icons: { [key: string]: LucideIcon } = {
+  TrendingUp,
+  Clock,
+  DollarSign,
+  Target,
+}
 
 export default function CaseStudiesPage() {
-  const caseStudies = [
-    {
-      title: "Major Health System Achieves 300% Increase in Prescription Capture",
-      organization: "Leading Midwest Healthcare Network",
-      description: "A prominent health system transformed their specialty pharmacy operations using Longitude Rx's AI-powered technology, resulting in dramatic improvements in prescription capture rates and patient care coordination.",
-      metrics: [
-        { label: "Increase in Rx Capture", value: "300%", icon: TrendingUp },
-        { label: "Time Savings", value: "65%", icon: Clock },
-        { label: "Revenue Growth", value: "$12M+", icon: DollarSign },
-      ],
-      image: "/images/case-study-1.svg",
-      tag: "Prescription Management"
-    },
-    {
-      title: "Regional Hospital Network Optimizes 340B Program",
-      organization: "Southeast Regional Healthcare",
-      description: "Implementation of Longitude Rx's revenue cycle optimization solutions led to significant improvements in 340B program management and overall financial performance.",
-      metrics: [
-        { label: "340B Savings", value: "$8.5M", icon: DollarSign },
-        { label: "Process Efficiency", value: "85%", icon: TrendingUp },
-        { label: "Compliance Rate", value: "99.9%", icon: Target },
-      ],
-      image: "/images/case-study-2.svg",
-      tag: "Revenue Optimization"
-    },
-    {
-      title: "Multi-State System Enhances Patient Outcomes",
-      organization: "Pacific Healthcare Alliance",
-      description: "Through implementation of our clinical care coordination technology, this healthcare system achieved remarkable improvements in patient adherence and outcomes.",
-      metrics: [
-        { label: "Patient Adherence", value: "92%", icon: Users },
-        { label: "Care Coordination", value: "+75%", icon: TrendingUp },
-        { label: "Patient Satisfaction", value: "4.9/5", icon: Target },
-      ],
-      image: "/images/case-study-3.svg",
-      tag: "Clinical Excellence"
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+
+  useEffect(() => {
+    const fetchCaseStudies = async () => {
+      const { data, error } = await supabase.from("case_studies").select("*")
+      if (error) {
+        console.error("Error fetching case studies:", error)
+      } else {
+        // The metrics from Supabase will be a JSON string, so we need to parse it.
+        // Also, the icon names will be strings, so we'll map them to the actual components.
+        const formattedData = data.map(study => ({
+          ...study,
+          metrics: study.metrics.map((metric: any) => ({
+            ...metric,
+            icon: metric.icon, // Keep the icon name as string for now
+          })),
+        }))
+        setCaseStudies(formattedData)
+      }
     }
-  ]
+
+    fetchCaseStudies()
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
@@ -94,57 +105,49 @@ export default function CaseStudiesPage() {
       {/* Case Studies Grid */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
-          <div className="space-y-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {caseStudies.map((study, index) => (
               <ScrollReveal
-                key={study.title}
+                key={study.id}
                 direction={index % 2 === 0 ? "left" : "right"}
-                className="group"
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="grid md:grid-cols-2 gap-8 p-8">
-                    <div className="relative h-64 md:h-full rounded-xl overflow-hidden">
-                      <Image
-                        src={study.image}
-                        alt={study.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-admiral-900/40 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <span className="inline-flex items-center rounded-full bg-white/90 px-4 py-1 text-sm font-medium text-admiral-900 backdrop-blur-sm">
-                          {study.tag}
-                        </span>
+                <Card className="h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                  <div className="flex flex-col h-full">
+                    <div className="mb-6">
+                      <div className="w-full h-48 relative rounded-lg overflow-hidden mb-6">
+                        <Image
+                          src={study.image_url}
+                          alt={study.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
                       </div>
+                      <span className="text-sm font-semibold text-ocean-800 bg-ocean-100 px-3 py-1 rounded-full">
+                        {study.tag}
+                      </span>
+                      <h3 className="text-2xl font-bold font-outfit mt-4 text-admiral-900">{study.title}</h3>
+                      <p className="text-admiral-700 mt-1 font-semibold">{study.organization}</p>
+                      <p className="text-admiral-600 leading-relaxed mt-2">{study.description}</p>
                     </div>
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-2xl font-bold font-outfit mb-2 text-admiral-900">{study.title}</h3>
-                        <p className="text-admiral-600 font-semibold">{study.organization}</p>
-                      </div>
-                      <p className="text-admiral-600 leading-relaxed">{study.description}</p>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {study.metrics.map((metric) => (
-                          <div key={metric.label} className="space-y-2">
-                            <div className="w-10 h-10 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-lg flex items-center justify-center">
-                              <metric.icon className="h-5 w-5 text-admiral-600" />
+                    <div className="mt-auto">
+                      <h4 className="font-bold text-admiral-800 mb-4">Key Metrics</h4>
+                      <div className="grid grid-cols-3 gap-4 text-center">
+                        {study.metrics.map((metric, metricIndex) => {
+                          const IconComponent = icons[metric.icon as keyof typeof icons]
+                          return (
+                            <div key={metricIndex}>
+                              <div className="bg-gypsum-100 rounded-lg p-4">
+                                {IconComponent && <IconComponent className="h-8 w-8 text-admiral-600 mx-auto mb-2" />}
+                                <p className="text-2xl font-bold text-admiral-900">{metric.value}</p>
+                                <p className="text-sm text-admiral-600">{metric.label}</p>
+                              </div>
                             </div>
-                            <div>
-                              <div className="text-2xl font-bold text-admiral-900">{metric.value}</div>
-                              <div className="text-sm text-admiral-600">{metric.label}</div>
-                            </div>
-                          </div>
-                        ))}
+                          )
+                        })}
                       </div>
-                      <Button
-                        className="group/btn bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white rounded-full px-6 py-2"
-                      >
-                        Read Full Case Study
-                        <ChevronRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      </Button>
                     </div>
                   </div>
-                </div>
+                </Card>
               </ScrollReveal>
             ))}
           </div>

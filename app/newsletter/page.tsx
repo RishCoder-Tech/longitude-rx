@@ -21,18 +21,43 @@ import {
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
+import { supabase } from "@/lib/supabaseClient"
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
   interests: z.array(z.string()).optional(),
 })
 
+interface NewsArticle {
+  id: number
+  title: string
+  description: string
+  created_at: string
+  read_time_minutes: number
+  slug: string
+}
+
 export default function NewsletterPage() {
+  const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([])
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      const { data, error } = await supabase.from("news").select("*").order("created_at", { ascending: false })
+      if (error) {
+        console.error("Error fetching news:", error)
+      } else {
+        setNewsArticles(data || [])
+      }
+    }
+
+    fetchNews()
+  }, [])
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,9 +66,19 @@ export default function NewsletterPage() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    // Here you would typically send the data to your backend
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { data, error } = await supabase.from('subscribers').insert([
+      { email: values.email, interests: values.interests },
+    ])
+
+    if (error) {
+      console.error('Error inserting data:', error)
+      // Here you might want to show an error message to the user
+    } else {
+      console.log('Successfully subscribed:', data)
+      // Here you might want to show a success message
+      form.reset()
+    }
   }
 
   const [email, setEmail] = useState("")
@@ -402,12 +437,12 @@ export default function NewsletterPage() {
       </section>
 
       {/* Latest News Section */}
-      <section className="w-full py-20 md:py-32">
+      <section className="w-full py-20 md:py-32 bg-gypsum-50">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <BookOpen className="h-4 w-4 text-rhodamine-600" />
-              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+              <BookOpen className="h-4 w-4 text-ocean-600" />
+              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
                 Latest News
               </span>
             </div>
@@ -418,6 +453,29 @@ export default function NewsletterPage() {
               Catch up on our latest articles and expert analyses.
             </p>
           </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {newsArticles.map((issue, index) => (
+              <ScrollReveal key={issue.id} delay={index * 0.1}>
+                <Card className="h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                  <h3 className="text-xl font-bold font-outfit mb-3 text-admiral-900">{issue.title}</h3>
+                  <div className="flex items-center text-sm text-admiral-600 mb-4">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    <span>{new Date(issue.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
+                    <span className="mx-2">·</span>
+                    <span>{issue.read_time_minutes} min read</span>
+                  </div>
+                  <p className="text-admiral-600 leading-relaxed mb-6">{issue.description}</p>
+                  <Button
+                    variant="link"
+                    className="p-0 text-ocean-600 font-semibold group-hover:text-rhodamine-600 transition-colors duration-300"
+                  >
+                    Read More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>

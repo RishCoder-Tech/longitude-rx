@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -27,17 +28,45 @@ import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import { useState } from "react"
 import Image from "next/image"
+import { supabase } from "@/lib/supabaseClient"
+
+interface JobOpening {
+  id: number
+  title: string
+  department: string
+  location: string
+  type: string
+  description: string
+  requirements: string[]
+  benefits: string[]
+  is_urgent: boolean
+  created_at: string
+}
 
 export default function CareersPage() {
   const [selectedDepartment, setSelectedDepartment] = useState("all")
   const [selectedLocation, setSelectedLocation] = useState("all")
+  const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([])
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const { data, error } = await supabase.from("job_postings").select("*")
+      if (error) {
+        console.error("Error fetching job postings:", error)
+      } else {
+        setJobOpenings(data || [])
+      }
+    }
+
+    fetchJobs()
+  }, [])
 
   const departments = [
-    { id: "all", name: "All Departments", count: 12 },
-    { id: "engineering", name: "Engineering", count: 5 },
-    { id: "data-science", name: "Data Science", count: 3 },
-    { id: "product", name: "Product", count: 2 },
-    { id: "sales", name: "Sales & Marketing", count: 2 },
+    { id: "all", name: "All Departments", count: jobOpenings.length },
+    { id: "engineering", name: "Engineering", count: jobOpenings.filter(j => j.department === 'engineering').length },
+    { id: "data-science", name: "Data Science", count: jobOpenings.filter(j => j.department === 'data-science').length },
+    { id: "product", name: "Product", count: jobOpenings.filter(j => j.department === 'product').length },
+    { id: "sales", name: "Sales & Marketing", count: jobOpenings.filter(j => j.department === 'sales').length },
   ]
 
   const locations = [
@@ -46,225 +75,6 @@ export default function CareersPage() {
     { id: "dallas", name: "Dallas, TX" },
     { id: "austin", name: "Austin, TX" },
     { id: "hybrid", name: "Hybrid" },
-  ]
-
-  const jobOpenings = [
-    {
-      id: 1,
-      title: "Senior AI/ML Engineer",
-      department: "engineering",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Lead the development of AI-powered cost optimization algorithms that transform specialty medicine economics across health systems.",
-      requirements: [
-        "5+ years in ML/AI development",
-        "Experience with healthcare data",
-        "Python, TensorFlow, PyTorch",
-        "Cloud technologies (AWS/Azure)",
-      ],
-      benefits: ["Equity package", "Health insurance", "Remote work", "Learning budget"],
-      posted: "2 days ago",
-      urgent: true,
-    },
-    {
-      id: 2,
-      title: "Healthcare Data Scientist",
-      department: "data-science",
-      location: "Dallas, TX",
-      type: "Full-time",
-      description:
-        "Analyze complex healthcare datasets to identify cost-saving opportunities and develop predictive models for specialty medicine optimization.",
-      requirements: [
-        "PhD/MS in Data Science or related",
-        "Healthcare analytics experience",
-        "R, Python, SQL expertise",
-        "Statistical modeling",
-      ],
-      benefits: ["Competitive salary", "Health benefits", "401k matching", "Flexible PTO"],
-      posted: "1 week ago",
-      urgent: false,
-    },
-    {
-      id: 3,
-      title: "Senior Full-Stack Developer",
-      department: "engineering",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Build and maintain our cost optimization technology, creating intuitive interfaces for health system administrators and financial teams.",
-      requirements: [
-        "5+ years full-stack development",
-        "React, Node.js, TypeScript",
-        "Healthcare software experience",
-        "API design and integration",
-      ],
-      benefits: ["Stock options", "Health coverage", "Remote setup budget", "Conference attendance"],
-      posted: "3 days ago",
-      urgent: false,
-    },
-    {
-      id: 4,
-      title: "Product Manager - Cost Optimization",
-      department: "product",
-      location: "Hybrid",
-      type: "Full-time",
-      description:
-        "Drive product strategy for our cost optimization solutions, working closely with health systems to understand their financial challenges.",
-      requirements: [
-        "5+ years product management",
-        "Healthcare industry experience",
-        "B2B SaaS background",
-        "Data-driven decision making",
-      ],
-      benefits: ["Equity participation", "Premium healthcare", "Flexible schedule", "Growth opportunities"],
-      posted: "5 days ago",
-      urgent: true,
-    },
-    {
-      id: 5,
-      title: "DevOps Engineer",
-      department: "engineering",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Ensure our technology scales securely and reliably to serve health systems processing millions in specialty medicine costs.",
-      requirements: [
-        "4+ years DevOps experience",
-        "Kubernetes, Docker, CI/CD",
-        "AWS/Azure cloud technologies",
-        "Security best practices",
-      ],
-      benefits: ["Competitive pay", "Health benefits", "Home office stipend", "Professional development"],
-      posted: "1 week ago",
-      urgent: false,
-    },
-    {
-      id: 6,
-      title: "Senior Data Engineer",
-      department: "data-science",
-      location: "Austin, TX",
-      type: "Full-time",
-      description:
-        "Build robust data pipelines to process healthcare and financial data from multiple health systems for cost optimization analysis.",
-      requirements: [
-        "5+ years data engineering",
-        "Big data technologies (Spark, Kafka)",
-        "Healthcare data standards (FHIR)",
-        "Python, SQL, cloud technologies",
-      ],
-      benefits: ["Stock options", "Health insurance", "Relocation assistance", "Learning budget"],
-      posted: "4 days ago",
-      urgent: false,
-    },
-    {
-      id: 7,
-      title: "Healthcare Solutions Consultant",
-      department: "sales",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Partner with health systems to understand their cost optimization needs and demonstrate how our technology delivers measurable savings.",
-      requirements: [
-        "Healthcare industry experience",
-        "Consultative selling skills",
-        "Technical aptitude",
-        "Travel availability (25%)",
-      ],
-      benefits: ["Commission structure", "Health benefits", "Car allowance", "Flexible schedule"],
-      posted: "6 days ago",
-      urgent: false,
-    },
-    {
-      id: 8,
-      title: "UX/UI Designer",
-      department: "product",
-      location: "Hybrid",
-      type: "Full-time",
-      description:
-        "Design intuitive interfaces for complex cost optimization workflows, making financial data accessible to healthcare administrators.",
-      requirements: [
-        "4+ years UX/UI design",
-        "Healthcare software experience",
-        "Figma, design systems",
-        "User research skills",
-      ],
-      benefits: ["Design tools budget", "Health coverage", "Flexible hours", "Creative freedom"],
-      posted: "1 week ago",
-      urgent: false,
-    },
-    {
-      id: 9,
-      title: "Frontend Engineer",
-      department: "engineering",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Create responsive, accessible interfaces for our cost optimization technology using modern frontend technologies.",
-      requirements: [
-        "3+ years frontend development",
-        "React, TypeScript, Next.js",
-        "Responsive design",
-        "Accessibility standards",
-      ],
-      benefits: ["Remote work", "Health benefits", "Equipment budget", "Growth opportunities"],
-      posted: "3 days ago",
-      urgent: false,
-    },
-    {
-      id: 10,
-      title: "Clinical Data Analyst",
-      department: "data-science",
-      location: "Dallas, TX",
-      type: "Full-time",
-      description:
-        "Analyze clinical and financial data to identify cost optimization opportunities in specialty medicine workflows.",
-      requirements: [
-        "Clinical background preferred",
-        "Healthcare data analysis",
-        "SQL, Excel, Tableau",
-        "Statistical analysis",
-      ],
-      benefits: ["Professional development", "Health insurance", "Flexible PTO", "Mentorship program"],
-      posted: "5 days ago",
-      urgent: false,
-    },
-    {
-      id: 11,
-      title: "Marketing Manager",
-      department: "sales",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Drive marketing initiatives to reach health system decision-makers and communicate our cost optimization value proposition.",
-      requirements: [
-        "4+ years B2B marketing",
-        "Healthcare industry knowledge",
-        "Content marketing",
-        "Marketing automation tools",
-      ],
-      benefits: ["Marketing budget", "Health benefits", "Conference attendance", "Creative autonomy"],
-      posted: "1 day ago",
-      urgent: false,
-    },
-    {
-      id: 12,
-      title: "Backend Engineer",
-      department: "engineering",
-      location: "Remote",
-      type: "Full-time",
-      description:
-        "Build scalable backend systems to process and analyze healthcare cost data from multiple health system partners.",
-      requirements: [
-        "4+ years backend development",
-        "Node.js, Python, or Go",
-        "Database design (PostgreSQL)",
-        "API development",
-      ],
-      benefits: ["Stock options", "Health coverage", "Remote setup", "Learning opportunities"],
-      posted: "4 days ago",
-      urgent: false,
-    },
   ]
 
   const pillars = [
@@ -306,9 +116,14 @@ export default function CareersPage() {
     },
   ]
 
-  const filteredJobs = jobOpenings.filter((job) => {
-    const departmentMatch = selectedDepartment === "all" || job.department === selectedDepartment
-    const locationMatch = selectedLocation === "all" || job.location.toLowerCase().includes(selectedLocation)
+  const filteredJobs = jobOpenings.filter(job => {
+    const departmentMatch =
+      selectedDepartment === "all" || job.department === selectedDepartment
+    const locationMatch =
+      selectedLocation === "all" ||
+      job.location === selectedLocation ||
+      (selectedLocation === "hybrid" && job.location.toLowerCase().includes("hybrid")) ||
+      (selectedLocation === "remote" && job.location.toLowerCase().includes("remote"))
     return departmentMatch && locationMatch
   })
 
@@ -367,6 +182,34 @@ export default function CareersPage() {
       description: "We maintain the highest standards of ethics and transparency in everything we do.",
     },
   ]
+
+  // Helper to calculate "posted ago" time
+  const timeAgo = (dateString: string) => {
+    const date = new Date(dateString)
+    const now = new Date()
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000)
+    let interval = seconds / 31536000
+    if (interval > 1) {
+      return Math.floor(interval) + " years ago"
+    }
+    interval = seconds / 2592000
+    if (interval > 1) {
+      return Math.floor(interval) + " months ago"
+    }
+    interval = seconds / 86400
+    if (interval > 1) {
+      return Math.floor(interval) + " days ago"
+    }
+    interval = seconds / 3600
+    if (interval > 1) {
+      return Math.floor(interval) + " hours ago"
+    }
+    interval = seconds / 60
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes ago"
+    }
+    return Math.floor(seconds) + " seconds ago"
+  }
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
@@ -587,7 +430,7 @@ export default function CareersPage() {
                             <div>
                               <div className="flex items-center gap-3 mb-2">
                                 <h3 className="text-2xl font-bold text-admiral-800 font-outfit">{job.title}</h3>
-                                {job.urgent && (
+                                {job.is_urgent && (
                                   <Badge className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 text-white">
                                     Urgent
                                   </Badge>

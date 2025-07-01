@@ -132,9 +132,9 @@ export default function SolutionsPage() {
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6">
                 <Network className="h-7 w-7 text-admiral-600" />
               </div>
-              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">AI Enabled Tech Technology</h3>
+              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900">Next-Gen Technology</h3>
               <div className="space-y-4 text-admiral-700">
-                <p><span className="font-semibold text-admiral-800">Solution:</span> Our AI-driven technology integrates all data sources and automates workflows, accelerating prior authorization and improving patient satisfaction.</p>
+                <p><span className="font-semibold text-admiral-800">Solution:</span> Our next-gen technology integrates all data sources and automates workflows, accelerating prior authorization and improving patient satisfaction.</p>
                 <p><span className="font-semibold text-admiral-800">Impact:</span> 83% adherence rates for patients on our integrated technology.</p>
               </div>
             </div>
@@ -198,9 +198,9 @@ export default function SolutionsPage() {
             {[
               {
                 icon: DollarSign,
-                title: "AI Cost Intelligence Technology",
+                title: "Next-Gen Cost Intelligence Technology",
                 description:
-                  "Revolutionary machine learning algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
+                  "Revolutionary next-generation algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
                 features: [
                   "Predictive Cost Analytics",
                   "Real-time Optimization",
@@ -223,7 +223,7 @@ export default function SolutionsPage() {
                 icon: Target,
                 title: "Specialty Medicine Cost Management",
                 description:
-                  "Specialized AI models designed for complex specialty medications, rare disease treatments, and high-cost therapeutic protocols with advanced cost optimization.",
+                  "Specialized next-gen models designed for complex specialty medications, rare disease treatments, and high-cost therapeutic protocols with advanced revenue optimization.",
                 features: ["Specialty Drug Analytics", "Cost Protocols", "Outcome Tracking", "Compliance Monitoring"],
                 gradient: "from-ocean-500 to-admiral-500",
                 bgGradient: "from-ocean-50 to-admiral-50",
@@ -284,7 +284,7 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Cutting-Edge Cost Optimization Technology
+              Cutting-Edge Revenue Optimization Technology
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Built on the latest AI and cloud technologies to deliver unmatched cost savings, security, and scalability
@@ -305,7 +305,7 @@ export default function SolutionsPage() {
                 icon: Globe,
                 title: "Global Scalability",
                 description:
-                  "Cloud-native infrastructure that scales automatically to handle millions of cost optimization transactions worldwide.",
+                  "Cloud-native infrastructure that scales automatically to handle millions of revenue optimization transactions worldwide.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
@@ -319,7 +319,7 @@ export default function SolutionsPage() {
                 icon: Users,
                 title: "Collaborative Networks",
                 description:
-                  "Multi-tenant architecture enabling secure cost optimization collaboration across health system networks.",
+                  "Multi-tenant architecture enabling secure revenue optimization collaboration across health system networks.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },
             ].map((feature, index) => (
@@ -371,11 +371,11 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent">
-              Ready to Revolutionize Your Cost Management?
+              Ready to Revolutionize Your Revenue Management?
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
               Join the healthcare revolution and discover how our AI-powered technology can transform your specialty
-              medicine cost optimization and deliver unprecedented savings.
+              medicine revenue optimization and deliver unprecedented savings.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <Link href="/contact">

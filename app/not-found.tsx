@@ -25,7 +25,6 @@ export default function NotFound() {
     { name: "Home", href: "/", icon: Home, description: "Return to homepage" },
     { name: "Services", href: "/services", icon: Zap, description: "Explore our solutions" },
     { name: "Technology", href: "/technology", icon: Brain, description: "Learn about our tech" },
-    { name: "Case Studies", href: "/case-studies", icon: Target, description: "View success stories" },
     { name: "About", href: "/about", icon: Users, description: "Meet our team" },
     { name: "Contact", href: "/contact", icon: MapPin, description: "Get in touch" },
   ]

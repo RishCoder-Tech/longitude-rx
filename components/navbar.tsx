@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4"
+      className="navbar fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4"
       style={{ y: navbarY, opacity: navbarOpacity }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -79,12 +79,12 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {[
-              { href: "/", label: "Home" },
+              { href: "/about", label: "About" },
               { href: "/services", label: "Services" },
               { href: "/technology", label: "Technology" },
+              { href: "/newsletter", label: "News" },
+              { href: "/careers", label: "Careers" },
               { href: "/case-studies", label: "Case Studies" },
-              { href: "/about", label: "About" },
-              { href: "/newsletter", label: "Blog" },
             ].map((item, index) => (
               <motion.div
                 key={item.href}
@@ -175,12 +175,12 @@ export default function Navbar() {
                 className="py-6 flex flex-col space-y-4 px-6"
               >
                 {[
-                  { href: "/", label: "Home" },
+                  { href: "/about", label: "About" },
                   { href: "/services", label: "Services" },
                   { href: "/technology", label: "Technology" },
+                  { href: "/newsletter", label: "News" },
+                  { href: "/careers", label: "Careers" },
                   { href: "/case-studies", label: "Case Studies" },
-                  { href: "/about", label: "About" },
-                  { href: "/newsletter", label: "Blog" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.href}

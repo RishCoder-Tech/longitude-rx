@@ -48,7 +48,7 @@ export default function HealthcareLeadersScroll() {
                   src={leader.logo || "/placeholder.svg"}
                   alt={`${leader.name} logo`}
                   fill
-                  className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </div>
@@ -69,7 +69,7 @@ export default function HealthcareLeadersScroll() {
                   src={leader.logo || "/placeholder.svg"}
                   alt={`${leader.name} logo`}
                   fill
-                  className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </div>
@@ -90,7 +90,7 @@ export default function HealthcareLeadersScroll() {
                   src={leader.logo || "/placeholder.svg"}
                   alt={`${leader.name} logo`}
                   fill
-                  className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
                 />
               </div>

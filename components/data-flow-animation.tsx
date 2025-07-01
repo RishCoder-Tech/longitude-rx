@@ -94,7 +94,7 @@ const processSteps = [
     icon: Zap,
     pattern: "dots",
     detailedDescription:
-      "The harmonization process transforms disparate data formats into standardized structures. Our AI-powered mapping engine automatically identifies data elements and converts them to FHIR resources and other healthcare standards. This stage resolves terminology differences, standardizes units of measure, and creates a unified data model.",
+      "The harmonization process transforms disparate data formats into standardized structures. Our next-gen mapping engine automatically identifies data elements and converts them to FHIR resources and other healthcare standards. This stage resolves terminology differences, standardizes units of measure, and creates a unified data model.",
     keyFeatures: [
       "Terminology mapping",
       "Unit standardization",
@@ -127,7 +127,7 @@ const processSteps = [
     icon: Brain,
     pattern: "diamond",
     detailedDescription:
-      "Our processing engine applies clinical logic, quality measures, and AI algorithms to the unified data. This stage identifies care gaps, calculates risk scores, and generates clinical insights. Machine learning models continuously improve by analyzing patterns across millions of patient records while maintaining privacy and security.",
+      "Our processing engine applies clinical logic, quality measures, and next-gen algorithms to the unified data. This stage identifies care gaps, calculates risk scores, and generates clinical insights. Machine learning models continuously improve by analyzing patterns across millions of patient records while maintaining privacy and security.",
     keyFeatures: [
       "Care gap analysis",
       "Risk stratification",
@@ -513,7 +513,7 @@ export default function DataFlowAnimation() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-3xl md:text-4xl font-bold font-outfit mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            AI-Powered Data Intelligence Pipeline
+            Next-Gen Data Intelligence Pipeline
           </h3>
           <p className="text-lg text-blue-200 font-space-grotesk max-w-3xl mx-auto">
             Click on any element to explore how we transform healthcare data into actionable insights

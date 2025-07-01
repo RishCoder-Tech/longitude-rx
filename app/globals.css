@@ -299,3 +299,7 @@ textarea {
     line-height: 3.5rem;
   }
 }
+
+body.modal-open .navbar {
+  display: none !important;
+}

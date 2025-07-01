@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight } from "lucide-react"
+import { Mail, MapPin, Send, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
@@ -51,22 +51,22 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-full px-4 py-2">
-              <Globe className="h-4 w-4 text-cyan-600" />
-              <span className="text-sm font-semibold text-cyan-800 font-space-grotesk tracking-wide">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rhodamine-100 to-gulf-100 rounded-full px-4 py-2">
+              <Globe className="h-4 w-4 text-rhodamine-600" />
+              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
                 CONNECT WITH INNOVATION
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
                 Let's Transform
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
                 Healthcare Together
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-space-grotesk">
+            <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Ready to revolutionize your specialty pharmacy operations? Connect with our team of healthcare innovation
               experts and discover the future of patient care.
             </p>
@@ -86,16 +86,16 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-cyan-100 rounded-full px-4 py-2">
-                  <Zap className="h-4 w-4 text-emerald-600" />
-                  <span className="text-sm font-semibold text-emerald-800 font-space-grotesk tracking-wide">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rhodamine-100 to-gulf-100 rounded-full px-4 py-2">
+                  <Zap className="h-4 w-4 text-rhodamine-600" />
+                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
                     GET IN TOUCH
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
                   Start Your Innovation Journey
                 </h2>
-                <p className="text-lg text-slate-600 leading-relaxed font-space-grotesk">
+                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
                   Our team of healthcare technology experts is ready to discuss how Longitude Rx can transform your
                   specialty pharmacy operations and improve patient outcomes.
                 </p>
@@ -108,21 +108,14 @@ export default function ContactPage() {
                     title: "Email Us",
                     content: "innovation@longituderx.com",
                     description: "Get in touch with our innovation team",
-                    gradient: "from-blue-500 to-cyan-500",
-                  },
-                  {
-                    icon: Phone,
-                    title: "Call Us",
-                    content: "(555) 123-4567",
-                    description: "Speak directly with our specialists",
-                    gradient: "from-purple-500 to-pink-500",
+                    gradient: "from-rhodamine-500 to-gulf-500",
                   },
                   {
                     icon: MapPin,
                     title: "Visit Us",
                     content: "Dallas, TX Innovation Hub",
                     description: "Experience our technology center",
-                    gradient: "from-emerald-500 to-teal-500",
+                    gradient: "from-gulf-500 to-ocean-500",
                   },
                 ].map((contact, index) => (
                   <motion.div
@@ -186,7 +179,7 @@ export default function ContactPage() {
                         <Input
                           id="first-name"
                           placeholder="Enter your first name"
-                          className="border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                          className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                         />
                       </div>
                       <div className="space-y-2">
@@ -196,7 +189,7 @@ export default function ContactPage() {
                         <Input
                           id="last-name"
                           placeholder="Enter your last name"
-                          className="border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                          className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                         />
                       </div>
                     </div>
@@ -209,7 +202,7 @@ export default function ContactPage() {
                         id="email"
                         type="email"
                         placeholder="Enter your email address"
-                        className="border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                       />
                     </div>
 
@@ -220,7 +213,7 @@ export default function ContactPage() {
                       <Input
                         id="organization"
                         placeholder="Enter your organization name"
-                        className="border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                       />
                     </div>
 
@@ -231,7 +224,7 @@ export default function ContactPage() {
                       <Input
                         id="role"
                         placeholder="e.g., Chief Pharmacy Officer, IT Director"
-                        className="border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                       />
                     </div>
 
@@ -242,14 +235,14 @@ export default function ContactPage() {
                       <Textarea
                         id="message"
                         placeholder="Tell us about your current challenges and goals..."
-                        className="min-h-[120px] border-2 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 rounded-xl font-space-grotesk"
+                        className="min-h-[120px] border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl font-space-grotesk"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105"
+                      className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105"
                     >
                       <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                       Contact Us
@@ -298,18 +291,18 @@ export default function ContactPage() {
               >
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white/80 backdrop-blur-sm overflow-hidden group">
                   <CardHeader
-                    className="cursor-pointer p-6 hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-purple-50/50 transition-all duration-300"
+                    className="cursor-pointer p-6 hover:bg-gradient-to-r hover:from-rhodamine-50/50 hover:to-gulf-50/50 transition-all duration-300"
                     onClick={() => toggleFaq(index)}
                   >
                     <div className="flex justify-between items-center">
-                      <CardTitle className="text-xl font-outfit font-bold text-slate-800 group-hover:text-blue-800 transition-colors duration-300">
+                      <CardTitle className="text-xl font-outfit font-bold text-admiral-800 group-hover:text-rhodamine-800 transition-colors duration-300">
                         {faq.question}
                       </CardTitle>
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-rhodamine-100 to-gulf-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         {openFaq === index ? (
-                          <ChevronUp className="h-5 w-5 text-blue-600" />
+                          <ChevronUp className="h-5 w-5 text-rhodamine-600" />
                         ) : (
-                          <ChevronDown className="h-5 w-5 text-slate-600" />
+                          <ChevronDown className="h-5 w-5 text-admiral-600" />
                         )}
                       </div>
                     </div>
@@ -420,15 +413,6 @@ export default function ContactPage() {
                   >
                     <ArrowRight className="h-6 w-6" />
                   </motion.div>
-                </Button>
-              </Link>
-              <Link href="/case-studies">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-admiral-200 text-admiral-200 bg-admiral-800/10 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk backdrop-blur-sm"
-                >
-                  Case Studies
                 </Button>
               </Link>
             </div>

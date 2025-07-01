@@ -12,10 +12,10 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" })
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" })
 
 export const metadata: Metadata = {
-  title: "Longitude Rx - Revolutionary AI-Powered Specialty Pharmacy",
+  title: "Longitude Rx - Next-Gen Specialty Pharmacy",
   description:
-    "Next-generation specialty pharmacy solutions powered by cutting-edge AI, machine learning, and advanced healthcare technology. Transform patient outcomes with Longitude Rx.",
-    generator: 'v0.dev'
+    "Next-generation specialty pharmacy solutions powered by cutting-edge technology, machine learning, and advanced healthcare innovation. Transform patient outcomes with Longitude Rx.",
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

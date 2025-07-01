@@ -73,7 +73,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gypsum-300 max-w-xs leading-relaxed font-space-grotesk">
-              Revolutionary specialty medicine cost optimization solutions powered by AI and advanced healthcare
+              Revolutionary specialty medicine revenue optimization solutions powered by AI and advanced healthcare
               technology.
             </p>
             <div className="flex space-x-4">
@@ -103,15 +103,12 @@ export default function Footer() {
               links: [
                 { name: "Technology", href: "/technology" },
                 { name: "Services", href: "/services" },
-                { name: "Case Studies", href: "/case-studies" },
               ],
             },
             {
               title: "Company",
               links: [
                 { name: "About Us", href: "/about" },
-                { name: "Careers", href: "/careers" },
-                { name: "Newsletter", href: "/newsletter" },
                 { name: "Contact", href: "/contact" },
               ],
             },
@@ -159,7 +156,7 @@ export default function Footer() {
               Stay Updated
             </h3>
             <p className="text-gypsum-300 mb-4 font-space-grotesk">
-              Get the latest cost optimization insights delivered to your inbox.
+              Get the latest revenue capture insights delivered to your inbox.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <div className="relative">
@@ -211,7 +208,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gypsum-400 text-sm font-space-grotesk">
-              © {new Date().getFullYear()} Longitude Rx. All rights reserved. Powered by next-gen healthcare AI.
+              © {new Date().getFullYear()} Longitude Rx. All rights reserved. Powered by next-gen healthcare technology.
             </p>
           </div>
         </motion.div>

@@ -72,7 +72,7 @@ export default function SolutionsPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-            Transform Rx efficiency & patient care with AI-driven technology that unifies data, streamlines operations, and improves outcomes at every step.
+            Transform Rx efficiency & patient care with next-gen technology that unifies data, streamlines operations, and improves outcomes at every step.
             </p>
           </motion.div>
         </div>
@@ -107,23 +107,23 @@ export default function SolutionsPage() {
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Our solutions empower health systems to:
-              <ul className="list-disc list-inside mt-4 text-lg text-admiral-700">
-                <li>Improve patient access and adherence to specialty medications</li>
-                <li>Address market, regulatory, and competitive barriers to specialty pharmacy</li>
-                <li>Enable participation in rare disease and cell/gene therapy markets</li>
-                <li>Leverage member strengths and build new capabilities where needed</li>
-                <li>Deliver better outcomes for patients, providers, and communities</li>
-              </ul>
             </p>
+            <ul className="list-disc list-inside mt-4 text-lg text-admiral-700">
+              <li>Improve patient access and adherence to specialty medications</li>
+              <li>Address market, regulatory, and competitive barriers to specialty pharmacy</li>
+              <li>Enable participation in rare disease and cell/gene therapy markets</li>
+              <li>Leverage member strengths and build new capabilities where needed</li>
+              <li>Deliver better outcomes for patients, providers, and communities</li>
+            </ul>
           </ScrollReveal>
 
           <div className="grid gap-8 lg:grid-cols-3 max-w-7xl mx-auto">
             {[
               {
                 icon: DollarSign,
-                title: "AI Cost Intelligence Technology",
+                title: "Next-Gen Cost Intelligence Technology",
                 description:
-                  "Revolutionary machine learning algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
+                  "Revolutionary next-generation algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
                 features: [
                   "Predictive Cost Analytics",
                   "Real-time Optimization",
@@ -146,7 +146,7 @@ export default function SolutionsPage() {
                 icon: Target,
                 title: "Specialty Medicine Cost Management",
                 description:
-                  "Specialized AI models designed for complex specialty medications, rare disease treatments, and high-cost therapeutic protocols with advanced cost optimization.",
+                  "Specialized next-gen models designed for complex specialty medications, rare disease treatments, and high-cost therapeutic protocols with advanced revenue optimization.",
                 features: ["Specialty Drug Analytics", "Cost Protocols", "Outcome Tracking", "Compliance Monitoring"],
                 gradient: "from-ocean-500 to-admiral-500",
                 bgGradient: "from-ocean-50 to-admiral-50",
@@ -236,7 +236,7 @@ export default function SolutionsPage() {
               </div>
               <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Proven Technology</h3>
               <p className="text-admiral-600 leading-relaxed text-base">
-                Our AI-enabled technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
+                Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
               </p>
             </div>
           </ScrollReveal>
@@ -297,7 +297,7 @@ export default function SolutionsPage() {
             </h2>
             <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
               Join the healthcare revolution and discover how our AI-powered technology can transform your specialty
-              medicine cost optimization and deliver unprecedented savings.
+              medicine revenue optimization and deliver unprecedented savings.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <Link href="/contact">

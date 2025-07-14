@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Send, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight } from "lucide-react"
+import { Mail, MapPin, Send, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
@@ -19,24 +19,24 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: "What makes Longitude Rx different from traditional specialty pharmacies?",
+      question: "What makes Longitude Rx different from traditional specialty pharmacy solutions?",
       answer:
-        "Longitude Rx leverages cutting-edge AI and machine learning to predict patient needs, optimize medication access, and eliminate barriers before they occur. Our technology integrates seamlessly with health systems and provides real-time analytics that traditional pharmacies simply cannot match.",
+        "Longitude Rx leverages cutting-edge technology and deep specialty pharmacy expertise to proactively identify patient needs, optimize medication access, and eliminate barriers before they occur. Our teams and technology integrate intuitively with health systems and provide real-time analytics that traditional vendors simply cannot match.",
     },
     {
-      question: "How can Longitude Rx transform my health system's operations?",
+      question: "How can Longitude Rx transform my health system's pharmacy operations?",
       answer:
         "Our AI-powered technology provides comprehensive solutions including predictive analytics, automated workflows, real-time synchronization, and advanced business intelligence. We help health systems reduce costs, improve patient outcomes, and streamline operations.",
     },
     {
       question: "When will the full Longitude Rx technology be available?",
       answer:
-        "The revolutionary Longitude Rx technology is launching in early 2025. We're currently onboarding select healthcare partners for our beta program. Contact us to learn about early access opportunities and how you can be part of the healthcare revolution.",
+        "The revolutionary Longitude Rx technology is launching in late 2025. We're currently onboarding select healthcare partners for our beta program. Contact us to learn about early access opportunities and how you can be part of the healthcare revolution.",
     },
     {
       question: "How do I become a partner with Longitude Rx?",
       answer:
-        "We're actively seeking visionary healthcare organizations to join our network. If you're interested in partnering with Longitude Rx, please contact us through this form or email us directly. We'll schedule a consultation to discuss how our technology can revolutionize your specialty pharmacy operations.",
+        "We're actively seeking visionary healthcare organizations to join our network. If you're interested in partnering with Longitude Rx, please contact us through this form or email us directly. We'll schedule a consultation to discuss how we can help revolutionize your specialty pharmacy operations.",
     },
   ]
 
@@ -106,9 +106,10 @@ export default function ContactPage() {
                   {
                     icon: Mail,
                     title: "Email Us",
-                    content: "innovation@longituderx.com",
-                    description: "Get in touch with our innovation team",
+                    content: "info@longituderx.org",
+                    description: "Get in touch with our team",
                     gradient: "from-rhodamine-500 to-gulf-500",
+                    link: "mailto:info@longituderx.org"
                   },
                   {
                     icon: MapPin,
@@ -116,6 +117,15 @@ export default function ContactPage() {
                     content: "Dallas, TX Innovation Hub",
                     description: "Experience our technology center",
                     gradient: "from-gulf-500 to-ocean-500",
+                    link: undefined
+                  },
+                  {
+                    icon: Linkedin,
+                    title: "Connect on LinkedIn",
+                    content: "linkedin.com/company/longituderx",
+                    description: "Follow us for updates and insights",
+                    gradient: "from-blue-600 to-blue-400",
+                    link: "https://www.linkedin.com/company/longituderx"
                   },
                 ].map((contact, index) => (
                   <motion.div
@@ -134,11 +144,17 @@ export default function ContactPage() {
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold font-outfit text-slate-800 mb-1">{contact.title}</h3>
-                          <p
-                            className={`text-lg font-semibold bg-gradient-to-r ${contact.gradient} bg-clip-text text-transparent font-space-grotesk mb-1`}
-                          >
-                            {contact.content}
-                          </p>
+                          {contact.link ? (
+                            <a href={contact.link} target="_blank" rel="noopener noreferrer"
+                              className={`text-lg font-semibold bg-gradient-to-r ${contact.gradient} bg-clip-text text-transparent font-space-grotesk mb-1 hover:underline`}
+                            >
+                              {contact.content}
+                            </a>
+                          ) : (
+                            <p className={`text-lg font-semibold bg-gradient-to-r ${contact.gradient} bg-clip-text text-transparent font-space-grotesk mb-1`}>
+                              {contact.content}
+                            </p>
+                          )}
                           <p className="text-sm text-slate-500 font-space-grotesk">{contact.description}</p>
                         </div>
                       </CardContent>

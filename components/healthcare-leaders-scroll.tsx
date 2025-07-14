@@ -3,7 +3,13 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-const healthcareLeaders = [
+type Partner = { name: string; logo: string };
+
+type CarouselProps = {
+  partners: Partner[];
+};
+
+const foundingPartners = [
   {
     name: "Baylor Scott & White Health",
     logo: "/images/baylor-scott-white-logo.png",
@@ -17,10 +23,6 @@ const healthcareLeaders = [
     logo: "/images/novant-health-logo.png",
   },
   {
-    name: "Onvida Health",
-    logo: "/onvida-logo.png",
-  },
-  {
     name: "Michigan Medicine",
     logo: "/images/michigan-medicine-logo.png",
   },
@@ -30,12 +32,19 @@ const healthcareLeaders = [
   },
 ]
 
-export default function HealthcareLeadersScroll() {
+const homePartners = [
+  ...foundingPartners,
+  {
+    name: "Onvida Health",
+    logo: "/onvida-logo.png",
+  },
+]
+
+function Carousel({ partners }: CarouselProps) {
   return (
     <div className="w-full overflow-hidden py-8">
       <div className="flex animate-scroll">
-        {/* First set of cards */}
-        {healthcareLeaders.map((leader, index) => (
+        {partners.map((partner: Partner, index: number) => (
           <motion.div
             key={`first-${index}`}
             className="flex-shrink-0 mx-6 w-64"
@@ -45,8 +54,8 @@ export default function HealthcareLeadersScroll() {
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gypsum-200 group h-32 flex items-center justify-center">
               <div className="relative w-full h-20 group-hover:scale-110 transition-transform duration-300">
                 <Image
-                  src={leader.logo || "/placeholder.svg"}
-                  alt={`${leader.name} logo`}
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={`${partner.name} logo`}
                   fill
                   className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
@@ -55,8 +64,7 @@ export default function HealthcareLeadersScroll() {
             </div>
           </motion.div>
         ))}
-        {/* Duplicate set for seamless loop */}
-        {healthcareLeaders.map((leader, index) => (
+        {partners.map((partner: Partner, index: number) => (
           <motion.div
             key={`second-${index}`}
             className="flex-shrink-0 mx-6 w-64"
@@ -66,8 +74,8 @@ export default function HealthcareLeadersScroll() {
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gypsum-200 group h-32 flex items-center justify-center">
               <div className="relative w-full h-20 group-hover:scale-110 transition-transform duration-300">
                 <Image
-                  src={leader.logo || "/placeholder.svg"}
-                  alt={`${leader.name} logo`}
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={`${partner.name} logo`}
                   fill
                   className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
@@ -76,8 +84,7 @@ export default function HealthcareLeadersScroll() {
             </div>
           </motion.div>
         ))}
-        {/* Third set for extra smooth scrolling */}
-        {healthcareLeaders.map((leader, index) => (
+        {partners.map((partner: Partner, index: number) => (
           <motion.div
             key={`third-${index}`}
             className="flex-shrink-0 mx-6 w-64"
@@ -87,8 +94,8 @@ export default function HealthcareLeadersScroll() {
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gypsum-200 group h-32 flex items-center justify-center">
               <div className="relative w-full h-20 group-hover:scale-110 transition-transform duration-300">
                 <Image
-                  src={leader.logo || "/placeholder.svg"}
-                  alt={`${leader.name} logo`}
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={`${partner.name} logo`}
                   fill
                   className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 100vw, 256px"
@@ -100,4 +107,12 @@ export default function HealthcareLeadersScroll() {
       </div>
     </div>
   )
+}
+
+export function HealthcareLeadersScroll() {
+  return <Carousel partners={foundingPartners} />;
+}
+
+export function HealthcareLeadersScrollHome() {
+  return <Carousel partners={homePartners} />;
 }

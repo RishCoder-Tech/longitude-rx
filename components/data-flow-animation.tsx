@@ -54,7 +54,7 @@ const dataSources = [
   },
   {
     id: "340b",
-    name: "TPA",
+    name: "340B TPA",
     icon: Heart,
     color: "from-green-500 to-green-600",
     description:

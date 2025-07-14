@@ -28,7 +28,7 @@ import {
 } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
-import HealthcareLeadersScroll from "@/components/healthcare-leaders-scroll"
+import { HealthcareLeadersScrollHome } from "@/components/healthcare-leaders-scroll"
 import CounterAnimation from "@/components/counter-animation"
 import { useRef } from "react"
 import Image from "next/image"
@@ -168,7 +168,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
                   size="lg"
                   className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-1"
                 >
-                  Explore Services
+                  Explore Solutions
                 </Button>
               </Link>
             </motion.div>
@@ -213,9 +213,9 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
             {[
               {
                 number: 500,
-                prefix: "$",
+                prefix: "",
                 suffix: "M+",
-                label: "Potential Gross Revenue for Specialty Pharmacy",
+                label: "Potential Specialty Pharmacy Gross Revenue",
                 icon: DollarSign,
                 gradient: "from-rhodamine-500 to-rhodamine-600",
                 description: "",
@@ -223,14 +223,14 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               {
                 number: 20,
                 suffix: "%",
-                label: "Of Health System's Net Patient Services Revenue Potential",
+                label: "Of Health System's Net Patient Services Revenue from Specialty Pharmacy",
                 icon: BarChart3,
                 gradient: "from-gulf-500 to-gulf-600",
                 description: "",
               },
               {
                 text: "20-30%",
-                label: "Contribution Margin",
+                label: "Specialty Pharmacy Contribution Margin",
                 icon: Beaker,
                 gradient: "from-ocean-500 to-ocean-600",
                 description: "",
@@ -271,51 +271,6 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container px-6 md:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
-            <ScrollReveal direction="left" className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-                  <Target className="h-4 w-4 text-rhodamine-600" />
-                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                    OUR MISSION
-                  </span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                  Revolutionizing Specialty Pharmacy Operations
-                </h2>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Longitude Rx exists to help health systems capture their full specialty pharmacy opportunity. We harness fragmented data sources to uncover every in-system script, streamline reimbursement workflows, and open new payer and manufacturer channels, driving sustainable top-line growth in your specialty pharmacy and improving patient medication adherence.
-                </p>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Our approach is proactive, not retrospective, enabling meaningful engagement and impactful growth. Beyond boosting revenue, we're building an intelligent ecosystem that brings health systems, payers, and providers together. By unifying data, automating workflows, and applying cutting-edge analytics, we ensure you deliver best-in-class patient care.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal direction="right" className="relative">
-              <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/data-analytics.jpg"
-                  alt="Healthcare cost analytics and optimization"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-rhodamine-500/20 to-gulf-600/20 backdrop-blur-sm z-10"></div>
-                {/* Floating elements */}
-                <div className="absolute top-6 right-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <DollarSign className="h-8 w-8 text-white" />
-                </div>
-                <div className="absolute bottom-6 left-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <TrendingUp className="h-10 w-10 text-white" />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
       {/* Core Solutions Section */}
       <section className="w-full py-10 md:py-16 bg-gradient-to-br from-gypsum-50 to-white relative">
         <div className="absolute inset-0">
@@ -340,7 +295,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
                 <Zap className="h-4 w-4 text-rhodamine-600" />
               </motion.div>
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                REVENUE OPTIMIZATION SOLUTIONS
+                HEALTH SYSTEM SOLUTIONS
               </span>
             </motion.div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-5xl">
@@ -357,7 +312,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <DollarSign className="h-7 w-7 text-admiral-600" />
+                <DollarSign className="h-7 w-7 text-rhodamine-600 group-hover:text-ocean-600 transition-colors duration-300" />
               </div>
               <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900 group-hover:text-admiral-700 transition-colors duration-300">Capture Specialty Rx Revenue</h3>
               <div className="space-y-4">
@@ -372,7 +327,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <ShoppingCart className="h-7 w-7 text-admiral-600" />
+                <ShoppingCart className="h-7 w-7 text-rhodamine-600 group-hover:text-ocean-600 transition-colors duration-300" />
               </div>
               <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900 group-hover:text-admiral-700 transition-colors duration-300">Optimize 340B Program</h3>
               <div className="space-y-4">
@@ -387,7 +342,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <LineChart className="h-7 w-7 text-admiral-600" />
+                <LineChart className="h-7 w-7 text-rhodamine-600 group-hover:text-ocean-600 transition-colors duration-300" />
               </div>
               <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900 group-hover:text-admiral-700 transition-colors duration-300">Expand Market and Payer Access</h3>
               <div className="space-y-4">
@@ -402,9 +357,9 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Network className="h-7 w-7 text-admiral-600" />
+                <Network className="h-7 w-7 text-rhodamine-600 group-hover:text-ocean-600 transition-colors duration-300" />
               </div>
-              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900 group-hover:text-admiral-700 transition-colors duration-300">Predict the Patient Journey</h3>
+              <h3 className="text-2xl font-bold font-outfit mb-4 text-admiral-900 group-hover:text-admiral-700 transition-colors duration-300">Next Gen Technology</h3>
               <div className="space-y-4">
                 <p className="text-admiral-600 leading-relaxed text-sm">
                   Leverage next-gen data aggregation to create predictive workflows and tackle problems upstream in the patient journey, improving care delivery and adherence rates.
@@ -413,90 +368,34 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
                 </motion.div>
           </div>
 
-          {/* Why Choose Us */}
-          <div className="mt-24 pb-16 max-w-7xl mx-auto">
-            <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-              <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-                <CheckCircle className="h-4 w-4 text-admiral-600" />
-                <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
-                  WHY CHOOSE US
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Why Choose Longitude Rx?
-              </h2>
-              <p className="text-xl text-admiral-600 max-w-2xl leading-relaxed font-space-grotesk">
-                Discover why leading health systems trust Longitude Rx to transform their specialty pharmacy operations.
-              </p>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <ScrollReveal direction="left" className="group">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for Health Systems</h3>
-                  <p className="text-admiral-600 leading-relaxed text-base">
-                    Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
-                  </p>
-                </div>
-              </ScrollReveal>
-      
-              <ScrollReveal direction="right" className="group">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Cpu className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Proven Technology</h3>
-                  <p className="text-admiral-600 leading-relaxed text-base">
-                    Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal direction="left" className="group">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <HeartHandshake className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Comprehensive Support</h3>
-                  <p className="text-admiral-600 leading-relaxed text-base">
-                    From implementation to ongoing optimization, we provide end-to-end support to ensure your success. Our dedicated team of experts works alongside you every step of the way, providing training, guidance, and continuous improvement strategies.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal direction="right" className="group">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Target className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Results-Driven</h3>
-                  <p className="text-admiral-600 leading-relaxed text-base">
-                    We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services. Our technology provides detailed analytics and insights to track your progress and demonstrate ROI.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-
           {/* Testimonials Section */}
           <motion.div
             variants={fadeInUp}
-            className="mt-24 bg-gradient-to-br from-white/90 to-gypsum-50/90 backdrop-blur-sm rounded-2xl p-12 border border-gypsum-200 shadow-lg"
+            className="mt-24 rounded-2xl border border-rhodamine-100 bg-white/95 shadow-xl px-8 py-8 md:py-12 md:px-16 flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-0 relative overflow-visible"
+            style={{ minHeight: 200 }}
           >
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-8">
-                <img src="/onvida-logo.png" alt="Onvida Health" className="h-20 mx-auto mb-8" />
+            {/* Left: Quote and text */}
+            <div className="flex-1 flex flex-col justify-center">
+              <div className="text-admiral-400 text-5xl md:text-6xl font-serif mb-2 leading-none">
+                &ldquo;
               </div>
-              <blockquote className="text-2xl md:text-3xl font-outfit text-admiral-900 italic mb-8 leading-relaxed">
-                "We selected Longitude Rx because they are mission-aligned, health-system owned and innovative in their approach. They bring the infrastructure and expertise to design and build the right pharmacy model for our community, while supporting our patients with clinical and financial oversight at every step."
+              <blockquote className="italic text-lg md:text-2xl font-outfit text-admiral-900 mb-4 leading-relaxed">
+                We selected Longitude Rx because they are mission-aligned, health-system owned and innovative in their approach. They bring the infrastructure and expertise to design and build the right pharmacy model for our community, while supporting our patients with clinical and financial oversight at every step.
               </blockquote>
-              <div className="text-lg font-semibold text-admiral-800">
-                Jake Childs, PharmD, COO
-                <br />
-                <span className="text-rhodamine-700">Onvida Health</span>
+              <div className="text-admiral-400 text-4xl md:text-5xl font-serif mt-2 leading-none">
+                &rdquo;
+              </div>
+            </div>
+            {/* Right: Author info and logo */}
+            <div className="flex flex-col items-end justify-center md:pl-12 min-w-[220px] md:border-l md:border-gypsum-200 md:ml-8 h-full">
+              <div className="flex flex-col justify-between h-full w-full">
+                <div className="text-right w-full">
+                  <div className="font-bold text-admiral-900 text-lg md:text-xl">Jake Childs, PharmD</div>
+                  <div className="text-admiral-700 text-sm md:text-base mb-2">COO at <span className="italic text-black">Onvida Health</span></div>
+                </div>
+                <div className="flex justify-end w-full mt-2">
+                  <img src="/onvida-logo.png" alt="Onvida Health" className="h-24 md:h-28 lg:h-32 w-auto object-contain" style={{maxWidth:'180px'}} />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -527,13 +426,12 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               Trusted by Healthcare Leaders
             </h2>
             <p className="text-2xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk font-light">
-              Trusted by major health systems committed to revolutionizing specialty medicine cost management through
-              collaborative innovation.
+              Trusted by health systems across the country who are committed to revolutionizing their specialty pharmacy programs through collaboration and innovation.
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up">
-            <HealthcareLeadersScroll />
+            <HealthcareLeadersScrollHome />
           </ScrollReveal>
         </div>
       </section>
@@ -593,10 +491,10 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
             >
-              Ready to Grow Specialty Pharmacy Revenue?
+              Ready to grow your specialty pharmacy program?
             </motion.h2>
             <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
-              Join leading health systems who are already saving millions on specialty medicine costs with our next-gen optimization technology.
+              Join leading health systems who are already capturing millions of added revenue on specialty medications and therapies.
             </p>
             <div className="flex flex-col sm:flex-row gap-8 pt-8">
               <Link href="/contact">

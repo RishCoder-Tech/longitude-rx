@@ -40,7 +40,7 @@ export default function CaseStudiesClient({ caseStudies }: { caseStudies: any[] 
       metrics: [
         { label: "Increase in Rx Capture", value: "300%", icon: TrendingUp },
         { label: "Time Savings", value: "65%", icon: Clock },
-        { label: "Revenue Growth", value: "$12M+", icon: DollarSign },
+        { label: "Revenue Growth", value: "12M+", icon: DollarSign },
       ],
       image: "/images/case-study-1.svg",
       tag: "Prescription Management"
@@ -51,7 +51,7 @@ export default function CaseStudiesClient({ caseStudies }: { caseStudies: any[] 
       organization: "Southeast Regional Healthcare",
       description: "Implementation of Longitude Rx's revenue cycle optimization solutions led to significant improvements in 340B program management and overall financial performance.",
       metrics: [
-        { label: "340B Savings", value: "$8.5M", icon: DollarSign },
+        { label: "340B Savings", value: "8.5M", icon: DollarSign },
         { label: "Process Efficiency", value: "85%", icon: TrendingUp },
         { label: "Compliance Rate", value: "99.9%", icon: Target },
       ],

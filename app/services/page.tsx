@@ -25,194 +25,114 @@ import {
   Award,
   Star,
   Sparkles,
-  Database,
+  UserCheck,
+  Heart,
+  Clipboard,
   FileText,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Eye,
-  Lock,
-  RefreshCw,
-  Monitor,
-  Smartphone,
-  Tablet,
-  Server,
-  Cloud,
-  Key,
-  Users2,
-  Calendar,
-  PieChart,
+  Truck,
   BarChart,
-  ArrowUpRight,
-  Play,
-  Pause,
-  SkipForward,
-  Volume2,
-  Settings,
-  Filter,
-  Search,
-  Download,
-  Upload,
-  Share2,
-  Copy,
-  Edit,
-  Trash2,
-  Plus,
-  Minus,
-  X,
-  ChevronRight,
-  ChevronLeft,
-  ChevronUp,
-  ChevronDown,
-  Menu,
-  Home,
-  Info,
-  HelpCircle,
-  AlertCircle,
-  CheckCircle2,
-  XCircle,
-  AlertTriangle,
-  Bell,
-  BellOff,
-  Volume,
-  VolumeX,
-  Wifi,
-  WifiOff,
-  Battery,
-  BatteryCharging,
-  Signal,
-  SignalHigh,
-  SignalMedium,
-  SignalLow,
-  SignalZero,
-  WifiHigh,
-  WifiMedium,
-  WifiLow,
-  WifiZero,
-  Bluetooth,
-  BluetoothOff,
-  Airplay,
-  Cast,
-  MonitorOff,
-  MonitorSpeaker,
-  MonitorSmartphone,
-  MonitorTablet,
-  MonitorLaptop,
-  MonitorDesktop,
+  Database,
+  ShieldCheck,
+  Timer,
+  Pill,
+  Dna,
   MonitorCheck,
-  MonitorX,
-  MonitorPause,
-  MonitorPlay,
-  MonitorStop,
-  MonitorSkipBack,
-  MonitorSkipForward,
-  MonitorRewind,
-  MonitorFastForward,
-  MonitorVolume,
-  MonitorVolume1,
-  MonitorVolume2,
-  MonitorVolumeX,
-  MonitorMute,
-  MonitorUnmute,
-  MonitorPause2,
-  MonitorPlay2,
-  MonitorStop2,
-  MonitorSkipBack2,
-  MonitorSkipForward2,
-  MonitorRewind2,
-  MonitorFastForward2,
-  MonitorVolume2_2,
-  MonitorVolume12,
-  MonitorVolume22,
-  MonitorVolumeX2,
-  MonitorMute2,
-  MonitorUnmute2,
+  Expand,
+  TrendingDown,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import Image from "next/image"
 import CounterAnimation from "@/components/counter-animation"
+import ServicesSlider from "@/components/services-slider"
+import { HealthcareLeadersScroll } from "@/components/healthcare-leaders-scroll"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from "react"
 
 export default function ServicesPage() {
+  const [activeIndex, setActiveIndex] = useState(0)
   const coreServices = [
     {
-      title: "Next-Gen Script Capture",
-      description: "Harness advanced next-gen technology to uncover every in-system prescription opportunity and maximize revenue capture.",
-      icon: Brain,
-      gradient: "from-rhodamine-500 to-rhodamine-600",
-      features: [
-        "Automated prescription routing and tracking",
-        "Real-time prior authorization management",
-        "Predictive analytics for prescription patterns",
-        "Intelligent workflow optimization",
-        "Cross-system prescription identification",
-        "Automated refill reminders and capture"
+      title: `Prescription Capture`,
+      description: `Deliver integrated clinical pharmacy services to support\npatient care and specialty drug access`,
+      valueProps: [
+        { label: `Reduce\nstaff\nburden`, icon: TrendingDown },
+        { label: `Improve\npatient\nexperience`, icon: UserCheck },
+        { label: `Increase Rx\nrevenue`, icon: DollarSign },
       ],
-      stats: {
-        number: 95,
-        suffix: "%",
-        label: "Script Capture Rate"
-      }
+      features: [
+        "Embedded care teams",
+        "Support hub",
+        "Medication Capture Strategy",
+        "Prescription Retention",
+        "Rx Channel Optimization",
+        "Employee and self-funded plan script capture",
+      ],
+      image: "/ServicesSlider/PrescriptionCapture.png",
     },
     {
-      title: "Revenue Cycle Optimization",
-      description: "Maximize revenue potential through intelligent billing systems, payer management, and financial analytics.",
-      icon: ChartBar,
-      gradient: "from-gulf-500 to-gulf-600",
-      features: [
-        "340B program optimization",
-        "Payer contract management",
-        "Revenue forecasting and analytics",
-        "Claims optimization and tracking",
-        "Reimbursement workflow automation",
-        "Financial performance dashboards"
+      title: `340B Optimization`,
+      description: `Maximize 340B program value through operational and\nstrategic services`,
+      valueProps: [
+        { label: `Centralize\nMonitoring`, icon: MonitorCheck },
+        { label: `Expand\nmargin\nopportunities`, icon: Expand },
+        { label: `Improve\nProgram\nCompliance`, icon: ShieldCheck },
       ],
-      stats: {
-        number: 40,
-        suffix: "%",
-        label: "Revenue Increase"
-      }
+      features: [
+        "Contract pharmacy optimization",
+        "340B TPA / Claims qualification engine",
+        "340B location optimization",
+        "Patient definition enhancement",
+      ],
+      image: "/ServicesSlider/340BOptimization.png",
     },
     {
-      title: "Clinical Care Coordination",
-      description: "Enhance patient care through integrated clinical services and comprehensive care coordination.",
-      icon: Users,
-      gradient: "from-ocean-500 to-ocean-600",
-      features: [
-        "Patient engagement programs",
-        "Medication therapy management",
-        "Clinical outcomes tracking",
-        "Care team collaboration tools",
-        "Patient education and support",
-        "Clinical decision support"
+      title: `LRx Tech Platform`,
+      description: `Integrate complex, fragmented tech stack to leverage complex data\nguide the patient specialty pharmacy journey`,
+      valueProps: [
+        { label: `Identify new\nopportunities`, icon: Sparkles },
+        { label: `Ensure better\noutcomes`, icon: Award },
+        { label: `Increase\nefficiency`, icon: Timer },
       ],
-      stats: {
-        number: 85,
-        suffix: "%",
-        label: "Patient Satisfaction"
-      }
+      features: [
+        "Prescriptive analytics",
+        "Orchestrated patient journey",
+        "Capture and channel optimization",
+      ],
+      image: "/ServicesSlider/LrxPlatform.png",
     },
     {
-      title: "Operational Excellence",
-      description: "Streamline pharmacy operations with advanced technology and process optimization.",
-      icon: Cog,
-      gradient: "from-admiral-500 to-admiral-600",
-      features: [
-        "Inventory management optimization",
-        "Workflow automation",
-        "Quality assurance programs",
-        "Performance analytics",
-        "Staff productivity tools",
-        "Compliance monitoring"
+      title: `Market Access`,
+      description: `Facilitate pharmaceutical pricing negotiations to enhance access to payers, PBMs, and manufacturers, focusing on rare, orphan, and cell/gene therapies.`,
+      valueProps: [
+        { label: `Expand\nmedication\nrevenue`, icon: Pill },
+        { label: `Unlock new\nServices`, icon: Dna },
+        { label: `Increase\npatient\nvolume`, icon: Users },
       ],
-      stats: {
-        number: 60,
-        suffix: "%",
-        label: "Efficiency Gain"
-      }
-    }
+      features: [
+        "Payor & PBM access",
+        "Manufacturer access",
+        "Rare & Orphan drug access",
+        "Cell & Gene therapy access",
+        "Employee benefit design",
+      ],
+      image: "/ServicesSlider/MarketAccess.png",
+    },
+    {
+      title: "Cell & Gene Therapy (CGT) + Rare Disease Strategy",
+      description: "Position your health system as a launch partner for complex cell & gene and rare & orphan disease therapies",
+      valueProps: [
+        { label: "10-20 cell and gene therapies gain FDA approval annually\nAverage cost per drug is over $1M", icon: Dna },
+      ],
+      features: [
+        "Treatment access for your patients",
+        "Medical & pharmaceutical billing support",
+        "Partner to guide you through operational complexities",
+        "Patient support & financial navigation through their journey",
+      ],
+      image: "/ServicesSlider/Cell:Gene.png",
+    },
   ]
 
   const technologyFeatures = [
@@ -247,22 +167,22 @@ export default function ServicesPage() {
       title: "Increased Revenue Capture",
       description: "Capture every dollar of specialty pharmacy opportunity through next-gen technology-powered script identification.",
       icon: TrendingUp,
-      metric: "$500M+",
+      metric: "500M+",
       label: "Potential Revenue"
     },
     {
-      title: "Operational Efficiency",
-      description: "Streamline workflows and reduce manual processes through intelligent automation.",
-      icon: Zap,
-      metric: "60%",
-      label: "Time Savings"
+      title: "Patient Financial Assistance",
+      description: "Assist eligible patients with gaining financial assistance on specialty pharmaceuticals.",
+      icon: HeartHandshake,
+      metric: "100% eligible patients receiving assistance",
+      label: ""
     },
     {
-      title: "Enhanced Patient Care",
-      description: "Improve clinical outcomes and patient satisfaction through coordinated care.",
-      icon: HeartHandshake,
-      metric: "85%",
-      label: "Patient Satisfaction"
+      title: "Rapid Patient Management",
+      description: "Manage impacted patients within days of launching operations.",
+      icon: Users,
+      metric: "100+ patients under management the first month",
+      label: ""
     },
     {
       title: "Compliance & Quality",
@@ -279,7 +199,7 @@ export default function ServicesPage() {
       <section className="w-full py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/healthcare-innovation.jpg"
+            src="https://media.istockphoto.com/id/1250152635/photo/medicine-doctor-holding-electronic-medical-and-record-on-tablet-dna-digital-healthcare-and.jpg"
             alt="Healthcare innovation"
             fill
             className="object-cover opacity-10"
@@ -316,13 +236,10 @@ export default function ServicesPage() {
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Revolutionizing Specialty Pharmacy Revenue
+              Comprehensive Solutions for Revolutionizing Specialty Pharmacy
             </h1>
-            <p className="text-lg font-semibold text-rhodamine-600 uppercase tracking-wider mt-2">
-              Comprehensive solutions designed for health systems
-            </p>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Transform your specialty pharmacy operations with our suite of next-gen technology-powered services designed to capture every dollar of opportunity while delivering exceptional patient care.
+              Transform your specialty pharmacy operations with our suite of next-gen technology-powered services designed to capture every opportunity while delivering exceptional patient care.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-8">
               <Link href="/contact">
@@ -340,34 +257,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="w-full py-16 bg-gradient-to-r from-white via-gypsum-50 to-white">
-        <div className="container px-6 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {[
-              { number: 500, prefix: "$", suffix: "M+", label: "Revenue Captured" },
-              { number: 95, suffix: "%", label: "Script Capture Rate" },
-              { number: 40, suffix: "%", label: "Revenue Increase" },
-              { number: 85, suffix: "%", label: "Patient Satisfaction" }
-            ].map((stat, index) => (
-              <ScrollReveal key={stat.label} delay={index * 0.1} direction="up">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold font-outfit bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-2">
-                    <CounterAnimation
-                      end={stat.number}
-                      prefix={stat.prefix}
-                      suffix={stat.suffix}
-                      duration={2000}
-                    />
-                  </div>
-                  <p className="text-sm text-admiral-600 font-space-grotesk">{stat.label}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Core Services Section */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
@@ -380,54 +269,37 @@ export default function ServicesPage() {
             </p>
           </ScrollReveal>
 
-          <div className="grid gap-8 md:grid-cols-2 max-w-7xl mx-auto">
-            {coreServices.map((service, index) => (
-              <ScrollReveal key={service.title} delay={index * 0.2} direction="up">
-                <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm overflow-hidden relative h-full">
-                  <CardContent className="p-8">
-                    <div className="flex items-start space-x-6">
-                      <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} shadow-lg flex items-center justify-center`}>
-                        <service.icon className="h-8 w-8 text-white" />
+          {/* Stepper Bar */}
+          <div className="flex gap-6 mb-10 justify-center">
+            {coreServices.map((service, idx) => (
+              <div
+                key={service.title}
+                className={`flex items-center gap-3 px-4 py-2 rounded-2xl transition-all duration-300 ${activeIndex === idx ? 'bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 shadow-lg' : 'bg-admiral-200/40'} cursor-pointer`}
+                onClick={() => setActiveIndex(idx)}
+                style={{ minWidth: 160 }}
+              >
+                <div className={`rounded-xl p-3 ${activeIndex === idx ? 'bg-white/20 backdrop-blur-sm' : 'bg-white/60'} flex items-center justify-center`}>
+                  {idx === 0 && <Sparkles className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 1 && <Pill className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 2 && <MonitorCheck className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 3 && <FileText className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 4 && <Dna className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
                 </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold font-outfit mb-3 text-admiral-900">{service.title}</h3>
-                  <p className="text-admiral-600 leading-relaxed mb-6">{service.description}</p>
-                        
-                        {/* Stats */}
-                        <div className="mb-6 p-4 bg-gradient-to-r from-gypsum-50 to-gypsum-100 rounded-xl">
-                          <div className="text-3xl font-bold font-outfit bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent">
-                            <CounterAnimation
-                              end={service.stats.number}
-                              suffix={service.stats.suffix}
-                              duration={2000}
-                            />
-                          </div>
-                          <p className="text-sm text-admiral-600 font-space-grotesk">{service.stats.label}</p>
-                        </div>
-
-                        {/* Features */}
-                        <div className="space-y-3 mb-6">
-                    {service.features.map((feature) => (
-                            <div key={feature} className="flex items-start space-x-3">
-                              <CheckCircle className="h-5 w-5 text-gulf-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-admiral-600 text-sm">{feature}</span>
-                            </div>
-                    ))}
-                        </div>
-
-                  <Link href="/contact">
-                          <Button className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-6 py-2 font-medium font-space-grotesk">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </ScrollReveal>
+                <span className={`font-mono text-base font-semibold tracking-wide ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`}>
+                  {idx === 0 ? 'Rx CAPTURE' : idx === 2 ? 'TECH' : idx === 3 ? 'MARKET ACCESS' : idx === 4 ? 'CGT Strategy' : service.title.toUpperCase().split(' ')[0]}
+                </span>
+                {activeIndex === idx && (
+                  <span className="ml-2 w-3 h-3 bg-white rounded-full inline-block" />
+                )}
+              </div>
             ))}
           </div>
+
+          <ServicesSlider
+            services={coreServices}
+            activeIndex={activeIndex}
+            onChange={setActiveIndex}
+          />
         </div>
       </section>
 
@@ -493,58 +365,93 @@ export default function ServicesPage() {
             </div>
       </section>
 
-      {/* Founding Partners Section */}
+      {/* Trusted by Healthcare Leaders Carousel */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6">
-              Built by Health Systems, For Health Systems
-            </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl mx-auto font-space-grotesk">
-              Our founding partners represent some of the most respected health systems in the nation
-            </p>
-          </ScrollReveal>
-
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-80">
-            <Image src="/images/baylor-scott-white-logo.png" alt="Baylor Scott & White" width={120} height={60} className="grayscale hover:grayscale-0 transition-all duration-300" />
-            <Image src="/images/memorial-hermann-logo.png" alt="Memorial Hermann" width={120} height={60} className="grayscale hover:grayscale-0 transition-all duration-300" />
-            <Image src="/images/michigan-medicine-logo.png" alt="Michigan Medicine" width={120} height={60} className="grayscale hover:grayscale-0 transition-all duration-300" />
-            <Image src="/images/novant-health-logo.png" alt="Novant Health" width={120} height={60} className="grayscale hover:grayscale-0 transition-all duration-300" />
-            <Image src="/images/providence-logo.png" alt="Providence" width={120} height={60} className="grayscale hover:grayscale-0 transition-all duration-300" />
+          <div className="flex flex-col items-center text-center space-y-4 mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold font-outfit text-admiral-900">Designed by health systems, enabled by technology, focused on performance.</h2>
+            <p className="text-admiral-600 text-base md:text-lg max-w-2xl mx-auto">Our founding partners represent some of the most respected health systems in the nation.</p>
           </div>
+          <HealthcareLeadersScroll />
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - replaced with homepage version */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="/images/medical-innovation.jpg"
+            alt="Medical innovation background"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-admiral-900/90 via-ocean-800/90 to-rhodamine-900/90" />
         </div>
-
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
+          />
+        </div>
         <div className="container px-6 md:px-8 relative z-10">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-              <Target className="h-4 w-4 text-gulf-400" />
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
+            <motion.div
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+            >
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                <Sparkles className="h-4 w-4 text-gulf-400" />
+              </motion.div>
               <span className="text-sm font-semibold text-gulf-300 font-space-grotesk tracking-wide">
-                GET STARTED TODAY
+                START OPTIMIZING TODAY
               </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent">
-              Ready to Capture Every Dollar?
-            </h2>
-            <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join leading health systems in revolutionizing specialty pharmacy revenue capture. Our team is ready to help you achieve your goals.
+            </motion.div>
+            <motion.h2
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent"
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: "100% 50%" }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+            >
+              Ready to grow your specialty pharmacy program?
+            </motion.h2>
+            <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
+              Join leading health systems who are already capturing millions of added revenue on specialty medications and therapies.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row gap-8 pt-8">
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-300 hover:to-rhodamine-400 text-admiral-900 shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-full px-8 py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
-                  <DollarSign className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                  <motion.div
+                    animate={{ rotate: [0, 12, 0] }}
+                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <span className="mr-3 h-6 w-6">🎯</span>
+                  </motion.div>
                   Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <motion.div
+                    className="ml-3"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <ArrowRight className="h-6 w-6" />
+                  </motion.div>
                 </Button>
               </Link>
             </div>

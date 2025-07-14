@@ -21,11 +21,12 @@ import {
   HeartHandshake,
   Linkedin,
   Rocket,
+  Sparkles,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
-import HealthcareLeadersScroll from "@/components/healthcare-leaders-scroll"
+import { HealthcareLeadersScroll } from "@/components/healthcare-leaders-scroll"
 import Image from "next/image"
 import {
   Dialog,
@@ -41,57 +42,54 @@ export default function AboutPage() {
       name: "Jigar Thakkar",
       title: "Chief Executive Officer",
       headshot: "/Jigar Thakkar.png",
-      bio: "Jigar is a visionary leader with over 20 years of experience in the healthcare industry. He is passionate about leveraging technology to improve patient outcomes and reduce healthcare costs.",
+      bio: `Jigar Thakkar, PharmD, MBA, MHCDS, FACHE is the CEO of Longitude Rx, an inaugural role for the newly created specialty pharmacy operating company within Longitude Health. Previously, Jigar served as the enterprise Chief Administrative Officer (CAO) and SVP of Growth Integration at OU Health as well as the Chief Pharmacy Officer.   \n\nJigar has extensive experience in academic healthcare, as well as large integrated delivery networks, with a successful track record of leading complex hospital operations, strategic growth, and revenue diversification. At OU Health, Jigar established a specialty pharmacy business, taking it from a highly fragmented environment under multiple companies and integrating it under an operating model which resulted in revenue growth from $0 to over $470m annually within four years, leading to a $200m annual contribution margin impact. He was instrumental in transforming OU Health into a more clinically integrated academic health system. Prior to joining OU Health, Jigar was a Managing Director at FTI Consulting, a global, publicly traded consulting firm where Jigar served as U.S. lead for pharmacy services with a focus on leading vision, strategy, and implementation phases of engagements. He has delivered strategic and operational excellence work to the executive leadership of hospitals and health systems, Fortune 100 companies, pharmacy wholesalers, national retail pharmacy chains, private equity firms, and law firms. Jigar has also provided extensive 340B Drug Pricing Program advisory services related to compliance for many health systems across the U.S. Jigar serves as a Fellow of the American College of Healthcare Executives (FACHE) and serves on the hospital advisory board of Cencora (a recent top 10 Fortune 500 company). \n\nJigar grew up in Chicago where he received his PharmD. He completed his Executive MBA at Northwestern University's Kellogg School of Management and received his Master of Health Care Delivery Science (MHCDS) from Dartmouth College.`,
       linkedin: "https://www.linkedin.com/in/jigar24/",
     },
     {
       name: "Sinthu Sinnadurai",
       title: "Senior Vice President of Operations",
       headshot: "/Sinthu Sinnadurai.jpg",
-      bio: "Sinthu is a seasoned operations leader with a proven track record of driving efficiency and growth. He is committed to building a world-class operations team at Longitude Rx.",
+      bio: `As the Senior Vice-President of Operations, Sinthu Sinnadurai, MHA, CSSBB, leads Longitude Rx's pharmacy operations and strategic initiatives for the company. Sinthu possesses extensive experience in building specialty pharmacies and health system pharmacy programs including 340B programs, pharmacy benefit management (PBM), billing, and supply chain.  \n\nBefore joining Longitude Rx, Sinthu served as the President at InScript and Vice President at Beth Israel Lahey Health. During his tenure at Beth Israel Lahey Health, Sinthu built a full-service pharmacy benefit management (PBM) company, 340B Claims Qualification Engine, and a rare disease patient identification technology platform. Additionally, he led the 340B contract pharmacy program, payer contracting and commercial engagements. Prior to joining Beth Israel Lahey Health, Sinthu served as the Director of Business Operations and Strategic Initiatives for Clinical Operations at Stanford Health Care where he had management and oversight of a $1.2B portfolio including pharmacy supply chain, 340B program, contract pharmacy program, specialty pharmacy, and ambulatory pharmacy services.  \n\nSinthu earned his Master of Health Administration (MHA) from Cornell University and completed his Administrative Fellowship at Stanford Health Care.`,
       linkedin: "https://www.linkedin.com/in/sinthusan/",
     },
     {
       name: "Toni Giglio",
       title: "Senior Vice President of Market Access",
       headshot: "/Toni Giglio.jpg",
-      bio: "Toni is a market access expert with a deep understanding of the payer landscape. She is dedicated to ensuring that patients have access to the medications they need.",
+      bio: `Toni Giglio is a dynamic, entrepreneurial healthcare executive with over 25 years of experience in the pharmacy services and healthcare industry. She currently serves as Senior Vice President of Market Access at Longitude Rx, where she leads strategic initiatives to establish impactful programs and partnerships with pharmaceutical manufacturers and payers. Her work is focused on improving medication access for the company's health system partners through innovative and results-driven strategies. \n\nThroughout her career, Toni has specialized in business development, strategic planning, sales leadership, and operational management. She is recognized for her ability to deliver multimillion-dollar growth in both startup and scaling environments by identifying new market opportunities, optimizing revenue strategies, and leading high-performing teams. \n\nBefore joining Longitude Rx, Toni was the National Vice President of Payer & Infusion Solutions at Cencora, a Fortune 10 pharmaceutical distributor. There, she led the development and commercialization of Accelerate Specialty Network—the nation's first specialty pharmacy PSAO—and directed infusion strategy consulting and solutions for Cencora's health system clients. Her earlier roles include VP of Payer Strategy at US Bioservices, and leadership positions at Walgreens and Option Care, where she played a pivotal role in launching infusion suites across the country, including the first Nurse Practitioner-led infusion center in the U.S. \n\nToni studied Business Management at Flagler College and the University of Tampa. She currently resides in Tampa, Florida.`,
       linkedin: "https://www.linkedin.com/in/tonigiglio/",
+    },
+    {
+      name: "Arpit Parikh",
+      title: "Senior Vice President of Finance",
+      headshot: "/Arpit Parikh.jpg",
+      bio: `Arpit is a seasoned finance executive with 18  years of experience leading financial strategy across Fortune 50 corporations, high-growth technology startups, healthcare organizations. He brings deep expertise in financial analysis, capital planning, and corporate development and strategy, with a consistent track record of aligning financial operations with enterprise-wide objectives to drive growth and long-term value creation.\nAt Longitude Rx, Arpit oversees all facets of financial operations, strategy, and planning. As the steward of the company's economic engine, he plays a critical role in shaping future-ready decisions that support innovation, scalability, and fiscal discipline. Prior to joining Longitude Rx, he served as Head of Finance at autonomous vehicle pioneer Cruise and held successive senior finance leadership roles at PepsiCo, where he led multi-billion-dollar initiatives across pricing, revenue management, and supply chain finance. He began his career as a management consultant at Accenture.\nArpit holds an MBA from Northwestern University's  Kellogg School of Management and a BBA from the University of Texas at Austin's McCombs School of Business. He resides in Dallas with his wife and three children and is an avid sports fan who enjoys cheering on his hometown teams.`,
     },
     {
       name: "Jonathan Williams",
       title: "Vice President of 340B Operations",
       headshot: "/Jonathan Williams.png",
-      bio: "Jonathan is an expert in 340B operations, with a deep understanding of the complexities of the program. He is dedicated to helping health systems optimize their 340B programs.",
+      bio: `Jonathan Williams, PharmD, MS, 340B ACE, joined Longitude Health as Vice President of 340B Operations, a key role focused on supporting 340B program performance and compliance within its member organizations. He brings deep expertise in health system pharmacy operations, integrating data and technology with regulatory guidance to drive efficiency and maximize program impact. \n\nPreviously, Jonathan was a Senior Director in the Department of Pharmacy at Cleveland Clinic, where he led 340B, benchmarking, and productivity initiatives. Over his sixteen-year tenure, he was the primary contact for nine covered entities, overseeing more than 500 child sites and over 300 contract pharmacy relationships. His leadership was instrumental in optimizing compliance and financial benefits while advancing data-driven decision-making. In addition to 340B, he worked on pharmacy supply chain strategies, procurement and inventory management, technology implementation, and resource optimization. \n\nJonathan has been actively involved in national and state organizations, including Vizient, the Partnership for DSCSA Governance (PDG), the Ohio Society for Health-System Pharmacists (OSHP), and the American Society for Health-System Pharmacists (ASHP). He served as OSHP's Educational Affairs Director from 2011 to 2013 and was a PDG board member from 2019 to 2021. \n\nHe earned his PharmD from The Ohio State University, along with a master's degree and a residency in Health-System Pharmacy Administration.`,
       linkedin: "https://www.linkedin.com/in/jonathan-williams-26a30286/",
     },
     {
       name: "Katie McMillen",
       title: "Vice President of Market Access",
       headshot: "/Katie McMillen.jpg",
-      bio: "Katie is a financial executive with deep expertise in healthcare economics and strategic financial planning. She is instrumental in ensuring Longitude Rx's sustainable growth and financial success.",
+      bio: `Katie McMillen, PharmD, MPH, FACHE, has joined Longitude Rx as the VP of Market Access, where she will help lead efforts to establish and maintain strategic partnerships with manufacturers and develop innovative programs to expand access for Longitude Rx members.  \n\nPrior to joining Longitude Rx, Katie served as Senior Director of Strategic Accounts at G1 Therapeutics, where she directed a national team to strengthen partnerships with large oncology practices, academic centers, and integrated delivery networks. She played a pivotal role in driving strategic growth, mentoring team members, and fostering multi-level relationships with senior stakeholders, including corporate, medical, quality, and pharmacy leaders. Her leadership supported G1 Therapeutics' objectives to improve oncology care, integrate innovative products into clinical protocols, and enhance the patient experience. \n\nBefore her tenure at G1 Therapeutics, Katie served as the Vice President of Operations at Cencora leading Integrated Health Outcomes Coalition (IHOC). She led data integration and research projects to demonstrate the value of health system specialty pharmacies. She facilitated initiatives for IHOC members to achieve strategic goals while supporting the coalition's mission to improve patient outcomes and expand access to specialty products. \n\nEarlier in her career, Katie was the Director of Pharmacy for the oncology service line and specialty pharmacy services at Froedtert and the Medical College of Wisconsin, where she led the strategic development and operational execution of cancer centers, community infusion sites, and inpatient oncology services. She also developed and managed Froedtert's URAC-accredited specialty pharmacy program. \n\nKatie began her career as an Operations Manager at the University of Pittsburgh Medical Center (UPMC), where she completed a two-year health care administration residency. She earned a PharmD and MPH with an emphasis in pharmacy administration from the University of Pittsburgh. She currently resides in Atlanta, Georgia. `,
       linkedin: "https://www.linkedin.com/in/katie-mcmillen/",
-    },
-    {
-      name: "Arpit Parikh",
-      title: "Senior Vice President of Finance",
-      headshot: "/Arpit Parikh.jpg",
-      bio: "Arpit is a technology leader with extensive experience in healthcare systems and AI development. He is driving the technical innovation that powers Longitude Rx's revolutionary platform.",
-      linkedin: "https://www.linkedin.com/in/arpit-parikh/",
     },
     {
       name: "Rachel Bolton",
       title: "Vice President of Human Resources",
       headshot: "/Rachel Bolton.jpg",
-      bio: "Rachel is a passionate HR leader with a focus on building a strong and inclusive culture. She is committed to attracting and retaining top talent at Longitude Rx.",
-      linkedin: "https://www.linkedin.com/in/rachel-bolton-mba-shrm-scp-7a8194126/",
+      bio: `Rachel Bolton serves as Vice President of Human Resources at Longitude Rx, where she leads the company's enterprise people strategy to enable growth, operational scale, and a high-performing culture. She oversees all HR functions, including talent acquisition, workforce planning, organizational development, employee engagement, performance management, and compliance. Her focus is building the infrastructure, capabilities, and culture required for sustainable success in a fast-scaling environment.\nPrior to joining Longitude Rx, Rachel served as Associate Vice President of Talent Acquisition at OU Health, the state's only comprehensive academic health system. She led the transformation of enterprise-wide hiring operations, implemented data-driven strategies, and established system-wide job architecture and leveling frameworks. She integrated workforce planning with financial and operational forecasting and launched workforce development initiatives to strengthen retention and build career mobility. Her leadership spanned both clinical and non-clinical domains and positioned HR as a strategic partner during large-scale organizational change, system redesigns, workforce optimization, and executive transitions.\nRachel holds both her undergraduate and graduate degree from the University of Oklahoma. She brings to Longitude Rx a performance-driven leadership approach grounded in operational rigor, strategic alignment, and a commitment to building scalable, people-first organizations.`,
     },
     {
       name: "Nicole Ostrowski",
       title: "Executive Director of Strategy and Operations",
       headshot: "/Nicole Ostrowski.png",
-      bio: "Nicole is a strategic thinker with a passion for innovation. She is responsible for developing and executing Longitude Rx's corporate strategy.",
-      linkedin: "https://www.linkedin.com/in/nicolejostrowski/",
+      bio: `Nicole Ostrowski, Ph.D., currently serves as the Executive Director of Strategy & Operations at Longitude Rx, where she leads enterprise planning and operational execution to support strategic growth. Prior to this, she held several leadership roles at Highmark Health, including Director of Operations & Planning, where she partnered with senior executives to address over $16M in budget pressures within the Human Resources and internal consulting functions, and implemented financial review processes that improved fiscal transparency and accountability. She led a team responsible for maintaining Salesforce CRM infrastructure used by vice presidents across the company and drove continuous improvement initiatives that reduced administrative burden through automation and self-service tools. In earlier roles at Highmark, Nicole led strategic consulting engagements that delivered more than $10M in annual contribution margin and $7M+ in cost savings through operational redesign and process optimization.\nNicole is known for her collaborative, adaptable leadership style and her ability to create structure in complex environments. She builds strong cross-functional relationships and consistently delivers results by aligning strategic vision with practical execution. She brings a unique blend of scientific rigor and business acumen to her work, supported by a strong foundation in project management, financial planning, and change leadership. Nicole holds a Ph.D. in Bioengineering and a B.S. in Materials Science & Engineering from the University of Pittsburgh.`,
     },
   ]
 
@@ -119,176 +117,46 @@ export default function AboutPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Globe className="h-4 w-4 text-ocean-600" />
               <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                SPECIALTY MEDICINE REVENUE OPTIMIZATION LEADERS
+                SPECIALTY PHARMACY OPTIMIZATION LEADERS
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Transforming Specialty Pharmacy
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
-                Through AI & Innovation
+                Transforming Specialty Pharmacy through Innovation & Collaboration
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk mt-8">
-              Longitude Rx is a pioneering specialty pharmacy service that enhances health systems' specialty pharmacy operations, financial performance, and clinical outcomes through state-of-the-art AI-enabled technologies.
+              Longitude Rx is a pioneering specialty pharmacy service that enhances health systems' specialty pharmacy operations, financial performance, and clinical outcomes through deep health system partnerships and state-of-the-art technology.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container px-6 md:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
-            <ScrollReveal direction="left" className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-                  <Target className="h-4 w-4 text-rhodamine-600" />
-                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                    OUR MISSION
-                  </span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                  Revolutionizing Specialty Pharmacy Revenue
-                </h2>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Longitude Rx exists to help health systems capture every dollar of specialty pharmacy opportunity. We harness AI to uncover every in-system script, streamline reimbursement workflows, and open new payer and manufacturer channels driving sustainable top-line growth in your specialty pharmacy.
-                </p>
-                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
-                  Beyond boosting revenue, we're building an intelligent ecosystem that brings health systems, payers, and providers together. By unifying data, automating workflows, and applying cutting-edge analytics, we ensure you keep more of your hard-earned margin while delivering best-in-class patient care.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal direction="right" className="relative">
-              <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/data-analytics.jpg"
-                  alt="Healthcare cost analytics and optimization"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-rhodamine-500/20 to-gulf-600/20 backdrop-blur-sm z-10"></div>
-                {/* Floating elements */}
-                <div className="absolute top-6 right-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <DollarSign className="h-8 w-8 text-white" />
-                </div>
-                <div className="absolute bottom-6 left-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center z-20">
-                  <TrendingUp className="h-10 w-10 text-white" />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Why We're Different Section */}
+      {/* Founding Partners Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Building className="h-4 w-4 text-ocean-600" />
               <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                WHY WE'RE DIFFERENT
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              We're not just a platform, we're a partner  
-            </h2>
+                FOUNDING PARTNERS
+                  </span>
+                </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-4xl">
+              Founding Health Systems
+                </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              We go beyond technology to become an extension of your team—collaborating closely, sharing expertise, and supporting your goals at every step. Longitude Rx is your partner in specialty pharmacy transformation, working side-by-side to drive sustainable growth and deliver better outcomes for your patients and your health system.
+              These visionary health systems came together to create Longitude Rx and revolutionize specialty operations through collaboration, innovation, and shared expertise.
             </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <ScrollReveal direction="left" className="group">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built By Health Systems</h3>
-                <p className="text-admiral-600 leading-relaxed text-base">
-                  Owned & governed by health system CEOs, our platform is built with deep understanding of healthcare operations. We know your challenges because we've lived them, ensuring solutions that truly work for health systems.
-                </p>
-              </div>
             </ScrollReveal>
 
-            <ScrollReveal direction="up" className="group">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for Health Systems</h3>
-                <p className="text-admiral-600 leading-relaxed text-base">
-                  Designed by pharmacy leadership, our solutions are specifically crafted to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
-                </p>
-              </div>
+          <ScrollReveal direction="up">
+            <HealthcareLeadersScroll />
             </ScrollReveal>
-
-            <ScrollReveal direction="right" className="group">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Integrated Care Teams
-                </h3>
-                <p className="text-admiral-600 leading-relaxed text-base">
-                  Our specialized teams become an extension of your organization, working directly within your health system to optimize specialty pharmacy operations, drive revenue growth, and enhance patient care outcomes. Focused on improving health system outcomes and patient care.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="left" className="group">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Cpu className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Powered by Next Gen Technology</h3>
-                <p className="text-admiral-600 leading-relaxed text-base">
-                  Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
-      {/* Parent Company Section */}
-      <section className="w-full py-16 md:py-24">
-        <div className="container px-6 md:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <ScrollReveal direction="up" className="space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-white/80 border border-gulf-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-                <Building className="h-4 w-4 text-gulf-600" />
-                <span className="text-sm font-semibold text-gulf-800 font-space-grotesk tracking-wide">
-                  ABOUT LONGITUDE HEALTH
-                </span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                A Division of Longitude Health, Inc.
-              </h3>
-              <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk max-w-3xl mx-auto">
-                Longitude Rx operates as a division of Longitude Health, Inc., headquartered in Somerset, New Jersey. Our parent company provides the strategic foundation and resources that enable us to deliver innovative specialty pharmacy solutions to health systems nationwide.
-              </p>
-              <div className="pt-4">
-                <Link href="http://longitudehealth.com" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    className="border-2 border-gulf-200 text-gulf-700 bg-white/80 hover:bg-gulf-50 rounded-full px-6 py-3 text-base font-semibold font-space-grotesk backdrop-blur-sm transition-all duration-300 hover:scale-105"
-                  >
-                    <Globe className="mr-2 h-4 w-4" />
-                    Visit Longitude Health
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section - OUR JOURNEY */}
+      {/* Timeline Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
@@ -316,7 +184,7 @@ export default function AboutPage() {
                   year: "2024",
                   title: "Formation of Longitude Health",
                   description:
-                    "Four major health systems unite to create Longitude Health, establishing the foundation for collaborative specialty medicine revenue optimization.",
+                    "Four major health systems unite to create Longitude Health, establishing the foundation for collaborative specialty medicine cost optimization.",
                   icon: Building,
                   gradient: "from-rhodamine-500 to-gulf-500",
                   side: "left",
@@ -325,16 +193,16 @@ export default function AboutPage() {
                   year: "Early 2025",
                   title: "Launch of Longitude Rx",
                   description:
-                    "Revolutionary AI-powered specialty medicine revenue optimization technology launches, marking the beginning of a new era in healthcare economics.",
+                    "Revolutionary AI-powered specialty medicine cost optimization platform launches, marking the beginning of a new era in healthcare economics.",
                   icon: Rocket,
                   gradient: "from-gulf-500 to-ocean-500",
                   side: "right",
                 },
                 {
                   year: "Future",
-                  title: "Global Revenue Optimization",
+                  title: "Global Cost Optimization",
                   description:
-                    "Expanding partnerships and AI capabilities to revolutionize specialty medicine revenue management worldwide.",
+                    "Expanding partnerships and AI capabilities to revolutionize specialty medicine cost management worldwide.",
                   icon: Globe,
                   gradient: "from-ocean-500 to-admiral-500",
                   side: "left",
@@ -383,7 +251,77 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Section - moved above Founders logos */}
+      {/* We're not just a platform, we're a partner Section */}
+      <section className="w-full py-20 md:py-32">
+        <div className="container px-6 md:px-8">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+              <Building className="h-4 w-4 text-ocean-600" />
+              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
+                WHY WE'RE DIFFERENT
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+              We're not just a platform, we're a partner  
+            </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
+              We go beyond technology to become an extension of your team—collaborating closely, sharing expertise, and supporting your goals at every step. Longitude Rx is your partner in specialty pharmacy transformation, working side-by-side to drive sustainable growth and deliver better outcomes for your patients and your health system.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <ScrollReveal direction="left" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-rhodamine-500 via-gulf-400 to-ocean-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Activity className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built by health systems</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Owned & governed by health system CEOs, our platform is built with deep understanding of healthcare operations. We know your challenges because we've lived them, ensuring solutions that truly work for health systems.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gulf-500 via-ocean-400 to-rhodamine-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Rocket className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for health systems</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Designed by pharmacy leadership, our solutions are specifically crafted to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-rhodamine-500 via-gulf-400 to-ocean-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Users className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Integrated care teams</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Our specialized teams become an extension of your organization, working directly within your health system to optimize specialty pharmacy operations, drive revenue growth, and enhance patient care outcomes. Focused on improving health system outcomes and patient care.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="left" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gulf-500 via-ocean-400 to-rhodamine-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Rocket className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Powered by next gen technology</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
@@ -393,11 +331,11 @@ export default function AboutPage() {
                 VISIONARY LEADERSHIP
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-5xl">
               Meet Our Leadership Team
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Industry pioneers and healthcare visionaries driving the future of specialty medicine revenue optimization.
+            <p className="text-xl text-admiral-600 max-w-5xl leading-relaxed font-space-grotesk">
+              Industry pioneers and visionaries driving the future of specialty pharmacy optimization.
             </p>
           </ScrollReveal>
 
@@ -419,12 +357,9 @@ export default function AboutPage() {
                     <p className="text-gray-600">{member.title}</p>
                   </div>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle>{member.name}</DialogTitle>
-                  </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="relative w-48 h-48 mx-auto mb-4">
+                <DialogContent className="sm:max-w-[600px]">
+                  <div className="flex flex-col sm:flex-row gap-6 py-4 items-center">
+                    <div className="relative w-40 h-40 flex-shrink-0 mx-auto sm:mx-0">
                       <Image
                         src={member.headshot}
                         alt={member.name}
@@ -432,15 +367,17 @@ export default function AboutPage() {
                         className="object-cover object-top rounded-full"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-center">{member.name}</h3>
-                    <p className="text-gray-600 text-center">{member.title}</p>
-                    <p className="text-gray-600 text-center">{member.bio}</p>
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="w-full">
-                        <Linkedin className="mr-2 h-4 w-4" />
-                        LinkedIn
-                      </Button>
-                    </a>
+                    <div className="flex-1 flex flex-col items-start">
+                      <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
+                      <p className="text-admiral-700 text-lg mb-2">{member.title}</p>
+                      <p className="text-gray-600 mb-4 whitespace-pre-line max-h-48 overflow-y-auto">{member.bio}</p>
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" className="">
+                          <Linkedin className="mr-2 h-4 w-4" />
+                          LinkedIn
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 </DialogContent>
               </Dialog>
@@ -449,31 +386,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Healthcare Leaders Auto-Scrolling Section (Founders logos) */}
+      {/* Mission Statement Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Building className="h-4 w-4 text-ocean-600" />
-              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                FOUNDING PARTNERS
+          <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
+            <ScrollReveal direction="left" className="space-y-8">
+              <div className="space-y-6">
+                <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+                  <Target className="h-4 w-4 text-rhodamine-600" />
+                  <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
+                    OUR MISSION
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-4xl">
-              Trusted by Healthcare Giants
+                <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+                  Revolutionizing Specialty Pharmacy Operations
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Major health systems united to revolutionize specialty medicine revenue optimization through collaborative innovation and shared expertise.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up">
-            <HealthcareLeadersScroll />
-          </ScrollReveal>
+                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
+                  Longitude Rx exists to help health systems capture every dollar of specialty pharmacy opportunity. We harness AI to uncover every in-system script, streamline reimbursement workflows, and open new payer and manufacturer channels driving sustainable top-line growth in your specialty pharmacy.
+                </p>
+                <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk">
+                  Beyond boosting revenue, we're building an intelligent ecosystem that brings health systems, payers, and providers together. By unifying data, automating workflows, and applying cutting-edge analytics, we ensure you keep more of your hard-earned margin while delivering best-in-class patient care.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" className="relative">
+              <div className="relative w-full h-80 md:h-[420px] rounded-3xl overflow-hidden shadow-xl">
+                <Image
+                  src="/Mission Image 5.png"
+                  alt="Our mission"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* About Longitude Health Section */}
+      <section className="w-full py-4">
+        <div className="container px-6 md:px-8">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2">
+              <Globe className="h-5 w-5 text-admiral-400" />
+              <span className="text-lg md:text-2xl font-outfit text-admiral-900 font-bold">
+                Established in 2024 as a part of <Link href="http://longitudehealth.org" target="_blank" rel="noopener noreferrer" className="underline text-primary font-bold hover:text-gulf-600">Longitude Health</Link>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - replaced with homepage version */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -484,46 +449,71 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-admiral-900/90 via-ocean-800/90 to-rhodamine-900/90" />
         </div>
-
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+          <motion.div
+            className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
+          />
         </div>
-        <div className="h-9"></div>
-
         <div className="container px-6 md:px-8 relative z-10">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-              <DollarSign className="h-4 w-4 text-gulf-400" />
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
+            <motion.div
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+            >
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                <Sparkles className="h-4 w-4 text-gulf-400" />
+              </motion.div>
               <span className="text-sm font-semibold text-gulf-300 font-space-grotesk tracking-wide">
-                CAPTURE MORE REVENUE
+                START OPTIMIZING TODAY
               </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent">
-              Ready to Capture More Revenue?
-            </h2>
-            <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join us in revolutionizing specialty medicine revenue management and discover how our innovative technology can
-              transform your healthcare economics.
+            </motion.div>
+            <motion.h2
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent"
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: "100% 50%" }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+            >
+              Ready to grow your specialty pharmacy program?
+            </motion.h2>
+            <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
+              Join leading health systems who are already capturing millions of added revenue on specialty medications and therapies.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row gap-8 pt-8">
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-300 hover:to-rhodamine-400 text-admiral-900 shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-full px-8 py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
-                  <DollarSign className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                  <motion.div
+                    animate={{ rotate: [0, 12, 0] }}
+                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <span className="mr-3 h-6 w-6">🎯</span>
+                  </motion.div>
                   Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-admiral-200 text-admiral-200 bg-admiral-800/10 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk backdrop-blur-sm"
-                >
-                  Explore Solutions
+                  <motion.div
+                    className="ml-3"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <ArrowRight className="h-6 w-6" />
+                  </motion.div>
                 </Button>
               </Link>
             </div>

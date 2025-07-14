@@ -3,12 +3,13 @@
 import type React from "react"
 
 import Link from "next/link"
-import { ArrowUpRight, Mail, Phone, MapPin, Send, ExternalLink } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, Send, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Image from "next/image"
+import { Linkedin } from "lucide-react"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
@@ -26,10 +27,10 @@ export default function Footer() {
   const handleContactClick = (type: string) => {
     switch (type) {
       case "email":
-        window.location.href = "mailto:innovation@longituderx.com"
+        window.location.href = "mailto:info@longituderx.org"
         break
-      case "phone":
-        window.location.href = "tel:+15551234567"
+      case "linkedin":
+        window.open("https://www.linkedin.com/company/longituderx", "_blank")
         break
       case "location":
         window.open("https://maps.google.com/?q=Dallas,TX", "_blank")
@@ -73,26 +74,28 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gypsum-300 max-w-xs leading-relaxed font-space-grotesk">
-              Revolutionary specialty medicine revenue optimization solutions powered by AI and advanced healthcare
-              technology.
+            Longitude Rx is your partner in specialty pharmacy transformation, working side-by-side to drive sustainable growth and deliver better outcomes for your patients and your health system.
+
             </p>
             <div className="flex space-x-4">
-              {[
-                { icon: Mail, type: "email", label: "Email us" },
-                { icon: Phone, type: "phone", label: "Call us" },
-                { icon: MapPin, type: "location", label: "Visit us" },
-              ].map((contact, index) => (
+              <motion.button
+                onClick={() => handleContactClick("email")}
+                className="h-10 w-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 group"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                title="Email us"
+              >
+                <Mail className="h-4 w-4 text-white/70 group-hover:text-white transition-colors" />
+              </motion.button>
                 <motion.button
-                  key={index}
-                  onClick={() => handleContactClick(contact.type)}
+                onClick={() => handleContactClick("linkedin")}
                   className="h-10 w-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 group"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  title={contact.label}
+                title="LinkedIn"
                 >
-                  <contact.icon className="h-4 w-4 text-white/70 group-hover:text-white transition-colors" />
+                <Linkedin className="h-4 w-4 text-white/70 group-hover:text-white transition-colors" />
                 </motion.button>
-              ))}
             </div>
           </motion.div>
 
@@ -103,12 +106,15 @@ export default function Footer() {
               links: [
                 { name: "Technology", href: "/technology" },
                 { name: "Services", href: "/services" },
+                // { name: "Case Studies", href: "/case-studies" }, // Hidden as requested
               ],
             },
             {
               title: "Company",
               links: [
                 { name: "About Us", href: "/about" },
+                { name: "Careers", href: "/careers" },
+                { name: "Newsletter", href: "/newsletter" },
                 { name: "Contact", href: "/contact" },
               ],
             },
@@ -156,7 +162,7 @@ export default function Footer() {
               Stay Updated
             </h3>
             <p className="text-gypsum-300 mb-4 font-space-grotesk">
-              Get the latest revenue capture insights delivered to your inbox.
+              Get the latest insights delivered to your inbox.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <div className="relative">
@@ -208,7 +214,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gypsum-400 text-sm font-space-grotesk">
-              © {new Date().getFullYear()} Longitude Rx. All rights reserved. Powered by next-gen healthcare technology.
+              © 2025 Longitude Rx. All rights reserved.
             </p>
           </div>
         </motion.div>

@@ -18,6 +18,8 @@ import {
   Building,
   Cpu,
   HeartHandshake,
+  Rocket,
+  Sparkles,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -64,7 +66,7 @@ export default function SolutionsPage() {
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Tech-Enabled Specialty Pharmacy Technology
+                Tech-Enabled Specialty Pharmacy Platform
               </span>
               <br />
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
@@ -72,7 +74,7 @@ export default function SolutionsPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-            Transform Rx efficiency & patient care with next-gen technology that unifies data, streamlines operations, and improves outcomes at every step.
+            Transform patient pharmacy care coordination and script capture with next-gen technology that unifies data, streamlines operations, and improves outcomes at every step.
             </p>
           </motion.div>
         </div>
@@ -108,85 +110,56 @@ export default function SolutionsPage() {
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Our solutions empower health systems to:
             </p>
-            <ul className="list-disc list-inside mt-4 text-lg text-admiral-700">
-              <li>Improve patient access and adherence to specialty medications</li>
-              <li>Address market, regulatory, and competitive barriers to specialty pharmacy</li>
-              <li>Enable participation in rare disease and cell/gene therapy markets</li>
-              <li>Leverage member strengths and build new capabilities where needed</li>
-              <li>Deliver better outcomes for patients, providers, and communities</li>
-            </ul>
           </ScrollReveal>
 
-          <div className="grid gap-8 lg:grid-cols-3 max-w-7xl mx-auto">
+          <div className="grid gap-8 lg:grid-cols-5 max-w-7xl mx-auto items-stretch">
             {[
               {
-                icon: DollarSign,
-                title: "Next-Gen Cost Intelligence Technology",
-                description:
-                  "Revolutionary next-generation algorithms that identify cost-saving opportunities, optimize procurement strategies, and eliminate waste across specialty medicine portfolios.",
-                features: [
-                  "Predictive Cost Analytics",
-                  "Real-time Optimization",
-                  "Automated Procurement",
-                  "Smart Contracting",
-                ],
+                icon: HeartHandshake,
+                title: "Improve patient access and adherence",
+                description: "Boost access to specialty medications and support adherence for better health outcomes.",
                 gradient: "from-rhodamine-500 to-gulf-500",
-                bgGradient: "from-rhodamine-50 to-gulf-50",
               },
               {
-                icon: Network,
-                title: "Smart Health System Integration",
-                description:
-                  "Seamless API-first architecture that connects with any health system, providing real-time cost synchronization and comprehensive financial analytics.",
-                features: ["Universal API", "Real-time Cost Sync", "Advanced Financial Analytics", "Custom Dashboards"],
+                icon: Shield,
+                title: "Address market, regulatory, and competitive barriers",
+                description: "Overcome challenges in specialty pharmacy with compliance and market expertise.",
                 gradient: "from-gulf-500 to-ocean-500",
-                bgGradient: "from-gulf-50 to-ocean-50",
               },
               {
-                icon: Target,
-                title: "Specialty Medicine Cost Management",
-                description:
-                  "Specialized next-gen models designed for complex specialty medications, rare disease treatments, and high-cost therapeutic protocols with advanced revenue optimization.",
-                features: ["Specialty Drug Analytics", "Cost Protocols", "Outcome Tracking", "Compliance Monitoring"],
+                icon: Cpu,
+                title: "Enable participation in rare disease and cell/gene therapy markets",
+                description: "Expand your reach into advanced therapies and rare disease markets.",
                 gradient: "from-ocean-500 to-admiral-500",
-                bgGradient: "from-ocean-50 to-admiral-50",
+              },
+              {
+                icon: Users,
+                title: "Leverage member strengths and build new capabilities",
+                description: "Collaborate and innovate to build new strengths and capabilities where needed.",
+                gradient: "from-admiral-500 to-rhodamine-500",
+              },
+              {
+                icon: Globe,
+                title: "Deliver better outcomes for patients, providers, and communities",
+                description: "Drive improved outcomes for all stakeholders in the specialty pharmacy ecosystem.",
+                gradient: "from-rhodamine-600 to-ocean-600",
               },
             ].map((solution, index) => (
-              <ScrollReveal key={solution.title} delay={index * 0.2} direction="up">
-                <motion.div className="group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
+              <ScrollReveal key={solution.title} delay={index * 0.1} direction="up">
+                <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col min-h-[320px] bg-white/80 backdrop-blur-sm border border-gypsum-200">
                     <CardHeader className="pb-6">
                       <div
                         className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${solution.gradient} shadow-lg mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                       >
                         <solution.icon className="h-8 w-8 text-white" />
                       </div>
-                      <CardTitle className="text-2xl font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
+                      <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
                         {solution.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <p className="text-admiral-600 leading-relaxed font-space-grotesk">{solution.description}</p>
-                      <ul className="space-y-3">
-                        {solution.features.map((feature) => (
-                          <li key={feature} className="flex items-center space-x-3">
-                            <div
-                              className={`h-5 w-5 rounded-full bg-gradient-to-r ${solution.gradient} flex items-center justify-center flex-shrink-0`}
-                            >
-                              <CheckCircle className="h-3 w-3 text-white" />
-                            </div>
-                            <span className="text-admiral-700 font-space-grotesk font-medium">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="pt-4">
-                        <Button
-                          className={`w-full bg-gradient-to-r ${solution.gradient} hover:opacity-90 text-white shadow-lg transition-all duration-300 rounded-full font-space-grotesk font-semibold group-hover:scale-105 hover:-translate-y-1`}
-                        >
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </div>
+                    <CardContent>
+                      <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{solution.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -196,78 +169,77 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* Advanced Features */}
+      {/* Why We're Different Section (from About page) */}
+      <section className="w-full py-20 md:py-32">
+        <div className="container px-6 md:px-8">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+              <Building className="h-4 w-4 text-ocean-600" />
+              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
+                WHY WE'RE DIFFERENT
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+              We're not just a platform, we're a partner
+            </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
+              We go beyond technology to become an extension of your team—collaborating closely, sharing expertise, and supporting your goals at every step. Longitude Rx is your partner in specialty pharmacy transformation, working side-by-side to drive sustainable growth and deliver better outcomes for your patients and your health system.
+            </p>
+          </ScrollReveal>
 
-      {/* Why Choose Us */}
-      <div className="mt-24 max-w-7xl mx-auto px-6 md:px-8">
-        <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-          <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-            <CheckCircle className="h-4 w-4 text-admiral-600" />
-            <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
-              WHY CHOOSE US
-            </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <ScrollReveal direction="left" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-rhodamine-500 via-gulf-400 to-ocean-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Shield className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built by health systems</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Owned & governed by health system CEOs, our platform is built with deep understanding of healthcare operations. We know your challenges because we've lived them, ensuring solutions that truly work for health systems.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gulf-500 via-ocean-400 to-rhodamine-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Rocket className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for health systems</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Designed by pharmacy leadership, our solutions are specifically crafted to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-rhodamine-500 via-gulf-400 to-ocean-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Users className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Integrated care teams</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Our specialized teams become an extension of your organization, working directly within your health system to optimize specialty pharmacy operations, drive revenue growth, and enhance patient care outcomes. Focused on improving health system outcomes and patient care.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="left" className="group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gulf-500 via-ocean-400 to-rhodamine-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Rocket className="h-6 w-6 md:h-7 md:w-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Powered by next gen technology</h3>
+                <p className="text-admiral-600 leading-relaxed text-base">
+                  Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
-          <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-            Why Choose Longitude Rx?
-          </h2>
-          <p className="text-xl text-admiral-600 max-w-2xl leading-relaxed font-space-grotesk">
-            Discover why leading health systems trust Longitude Rx to transform their specialty pharmacy operations.
-          </p>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <ScrollReveal direction="left" className="group">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Building className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Built for Health Systems</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">
-                Our solutions are specifically designed to address the unique challenges and opportunities of health system specialty pharmacies. We understand the complexities of your operations and provide tailored solutions that integrate seamlessly with your existing workflows.
-              </p>
-            </div>
-          </ScrollReveal>
-  
-
-          <ScrollReveal direction="right" className="group">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Cpu className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Proven Technology</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">
-                Our next-gen technology has demonstrated significant improvements in prescription capture, operational efficiency, and patient outcomes. With cutting-edge technology at your fingertips, you can streamline processes and make data-driven decisions.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="left" className="group">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <HeartHandshake className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Comprehensive Support</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">
-                From implementation to ongoing optimization, we provide end-to-end support to ensure your success. Our dedicated team of experts works alongside you every step of the way, providing training, guidance, and continuous improvement strategies.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="right" className="group">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-admiral-100 to-admiral-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Target className="h-6 w-6 md:h-7 md:w-7 text-admiral-600" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3 md:mb-4 text-admiral-900">Results-Driven</h3>
-              <p className="text-admiral-600 leading-relaxed text-base">
-                We focus on measurable outcomes, helping you achieve both financial and clinical excellence in specialty pharmacy services. Our technology provides detailed analytics and insights to track your progress and demonstrate ROI.
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - replaced with homepage version */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -278,45 +250,71 @@ export default function SolutionsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-admiral-900/90 via-ocean-800/90 to-rhodamine-900/90" />
         </div>
-
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+          <motion.div
+            className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
+          />
         </div>
-
         <div className="container px-6 md:px-8 relative z-10">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-              <DollarSign className="h-4 w-4 text-gulf-400" />
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
+            <motion.div
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+            >
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                <Sparkles className="h-4 w-4 text-gulf-400" />
+              </motion.div>
               <span className="text-sm font-semibold text-gulf-300 font-space-grotesk tracking-wide">
                 START OPTIMIZING TODAY
               </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent">
-              Ready to Revolutionize Your Cost Management?
-            </h2>
-            <p className="text-xl text-gypsum-300 max-w-3xl leading-relaxed font-space-grotesk">
-              Join the healthcare revolution and discover how our AI-powered technology can transform your specialty
-              medicine revenue optimization and deliver unprecedented savings.
+            </motion.div>
+            <motion.h2
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent"
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: "100% 50%" }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+            >
+              Ready to grow your specialty pharmacy program?
+            </motion.h2>
+            <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
+              Join leading health systems who are already capturing millions of added revenue on specialty medications and therapies.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row gap-8 pt-8">
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-300 hover:to-rhodamine-400 text-admiral-900 shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-full px-8 py-4 text-lg font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-1"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
-                  <DollarSign className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                  <motion.div
+                    animate={{ rotate: [0, 12, 0] }}
+                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <span className="mr-3 h-6 w-6">🎯</span>
+                  </motion.div>
                   Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-admiral-200 text-admiral-200 bg-admiral-800/10 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk backdrop-blur-sm"
-                >
-                  Learn More
+                  <motion.div
+                    className="ml-3"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <ArrowRight className="h-6 w-6" />
+                  </motion.div>
                 </Button>
               </Link>
             </div>

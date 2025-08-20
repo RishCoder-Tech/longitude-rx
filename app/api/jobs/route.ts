@@ -18,7 +18,14 @@ function extractTextFromRichText(richText: any): string {
 function getStringValue(field: any): string {
   if (typeof field === 'string') return field
   if (typeof field === 'object' && field !== null) {
-    return extractTextFromRichText(field)
+    const extracted = extractTextFromRichText(field)
+    if (extracted) return extracted
+    // If it's an object but not rich text, try to stringify it safely
+    try {
+      return JSON.stringify(field)
+    } catch {
+      return ''
+    }
   }
   return ''
 }
@@ -26,7 +33,7 @@ function getStringValue(field: any): string {
 // Helper function to safely get array of strings from Contentful field
 function getStringArray(field: any): string[] {
   if (!Array.isArray(field)) return []
-  return field.map(item => getStringValue(item))
+  return field.map(item => getStringValue(item)).filter(item => item !== '')
 }
 
 export async function GET() {
@@ -38,7 +45,8 @@ export async function GET() {
       order: ['sys.createdAt']
     })
 
-    const jobs = jobsResponse.items.map(item => ({
+    const jobs = jobsResponse.items.map(item => {
+      return {
       sys: {
         id: item.sys.id
       },
@@ -47,12 +55,13 @@ export async function GET() {
         department: getStringValue(item.fields.department) || 'General',
         location: getStringValue(item.fields.location) || 'Remote',
         type: getStringValue(item.fields.type) || 'Full-time',
-        description: getStringValue(item.fields.description),
+          description: getStringValue(item.fields.description) || 'No description available',
         requirements: getStringArray(item.fields.requirements),
         benefits: getStringArray(item.fields.benefits),
         salary: getStringValue(item.fields.salary)
       }
-    }))
+      }
+    })
 
     console.log(`API: Fetched ${jobs.length} jobs from Contentful`)
     

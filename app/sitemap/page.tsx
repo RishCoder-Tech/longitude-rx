@@ -21,14 +21,14 @@ export default function SitemapPage() {
             <ul className="space-y-1 pl-4 list-disc text-admiral-700">
               <li><Link href="/services" className="hover:underline">Services</Link></li>
               <li><Link href="/technology" className="hover:underline">Technology</Link></li>
-              <li><Link href="/application-dashboard" className="hover:underline">Application Dashboard</Link></li>
+
             </ul>
           </div>
           <div>
             <h2 className="text-xl font-semibold mb-2 text-admiral-900 font-outfit">Careers</h2>
             <ul className="space-y-1 pl-4 list-disc text-admiral-700">
               <li><Link href="/careers" className="hover:underline">Careers</Link></li>
-              <li><Link href="/admin" className="hover:underline">Admin</Link></li>
+
             </ul>
           </div>
           <div>

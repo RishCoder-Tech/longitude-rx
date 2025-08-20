@@ -419,14 +419,14 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
                 <Globe className="h-4 w-4 text-ocean-600" />
               </motion.div>
               <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                HEALTH SYSTEM PARTNERS
+                LONGITUDE HEALTH INITIATIVE
               </span>
             </motion.div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-5xl">
-              Trusted by Healthcare Leaders
+              Longitude Health
             </h2>
             <p className="text-2xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk font-light">
-              Trusted by health systems across the country who are committed to revolutionizing their specialty pharmacy programs through collaboration and innovation.
+              Longitude Health ("LH") is a collaborative initiative currently owned and funded by five leading not-for-profit health systems – Baylor Scott & White Health, Memorial Hermann Health System, Michigan Medicine, Novant Health and Providence – comprised of $60 billion in consolidated net patient service revenue. LH aims to revolutionize the way health systems operate by creating bold, innovative solutions designed and built by health systems for health systems. The organization identifies, develops, and implements initiatives that drive meaningful change: delivering high-quality, affordable care, improving access, and enhancing the patient experience. For more information, visit Longitudehealth.org.
             </p>
           </ScrollReveal>
 

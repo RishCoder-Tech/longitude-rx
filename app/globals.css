@@ -67,6 +67,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Prevent viewport issues on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Improve form input handling on mobile */
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  /* Better touch targets */
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve modal handling on mobile */
+  [data-radix-dialog-content] {
+    margin: 1rem !important;
+    max-height: calc(100vh - 2rem) !important;
+  }
+  
+  /* Better file upload area on mobile */
+  .file-upload-area {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  .overflow-x-auto {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Custom animations and utilities */
 @layer utilities {
   .animation-delay-1000 {

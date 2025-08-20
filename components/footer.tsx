@@ -13,14 +13,45 @@ import { Linkedin } from "lucide-react"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
-  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState("")
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
-      setIsSubscribed(true)
-      setEmail("")
-      setTimeout(() => setIsSubscribed(false), 3000)
+    if (!email) return
+
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage("")
+
+    try {
+      const formData = new FormData()
+      formData.append('email', email)
+      formData.append('source', 'Footer')
+
+      const response = await fetch('/api/newsletter-subscription', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success')
+        setEmail("")
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage(result.error || 'Failed to subscribe. Please try again.')
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please check your connection and try again.')
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -178,9 +209,14 @@ export default function Footer() {
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-white shadow-lg transition-all duration-300 rounded-xl font-space-grotesk font-semibold group"
-                disabled={isSubscribed}
+                disabled={isSubmitting}
               >
-                {isSubscribed ? (
+                {isSubmitting ? (
+                  <>
+                    <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                    Subscribing...
+                  </>
+                ) : submitStatus === 'success' ? (
                   <>
                     <span>Subscribed!</span>
                   </>
@@ -192,13 +228,23 @@ export default function Footer() {
                 )}
               </Button>
             </form>
-            {isSubscribed && (
+            {submitStatus === 'success' && (
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-green-400 text-sm mt-2 font-space-grotesk"
               >
                 Thank you for subscribing!
+              </motion.p>
+            )}
+
+            {submitStatus === 'error' && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-red-400 text-sm mt-2 font-space-grotesk"
+              >
+                {errorMessage}
               </motion.p>
             )}
           </motion.div>

@@ -11,7 +11,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Checkbox } from "@/components/ui/checkbox"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
-import { X, Upload, FileText, Send, MapPin, DollarSign, Building, ArrowRight, CheckCircle } from "lucide-react"
+import { X, Upload, FileText, Send, MapPin, DollarSign, Building, ArrowRight, CheckCircle, Clock } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 interface JobApplicationFormProps {
   isOpen: boolean
@@ -92,6 +94,8 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
   const totalSteps = 4
+  const { toast } = useToast()
+  const isMobile = useIsMobile()
   
 
   const handleInputChange = (field: keyof FormData, value: any) => {
@@ -106,30 +110,50 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
     const step = stepOverride ?? currentStep;
     if (step === 1) {
       if (!formData.firstName || !formData.lastName || !formData.email || !formData.location) {
-        alert('Please fill in all required fields.');
+        toast({
+          title: "Missing Information",
+          description: "Please fill in all required fields.",
+          variant: "destructive",
+        })
         return false;
       }
       // Simple email validation
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email)) {
-        alert('Please enter a valid email address.');
+        toast({
+          title: "Invalid Email",
+          description: "Please enter a valid email address.",
+          variant: "destructive",
+        })
         return false;
       }
     }
     if (step === 2) {
       if (!formData.education || !formData.salaryExpectation || !formData.startDate) {
-        alert('Please fill in all required fields for Professional Background.');
+        toast({
+          title: "Missing Information",
+          description: "Please fill in all required fields for Professional Background.",
+          variant: "destructive",
+        })
         return false;
       }
     }
     if (step === 3) {
       if (!formData.resume) {
-        alert('Please upload your resume.');
+        toast({
+          title: "Resume Required",
+          description: "Please upload your resume.",
+          variant: "destructive",
+        })
         return false;
       }
     }
     if (step === 4) {
-      if (!formData.workAuthorization || !formData.agreeToTerms || !formData.infoAccurate || formData.visaSponsorship === undefined) {
-        alert('Please complete all required fields for Additional Information.');
+      if (!formData.workAuthorization || !formData.agreeToTerms || !formData.infoAccurate) {
+        toast({
+          title: "Missing Information",
+          description: "Please complete all required fields for Additional Information.",
+          variant: "destructive",
+        })
         return false;
       }
     }
@@ -157,7 +181,11 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
     }
     // Only check agreeToTerms here
     if (!formData.agreeToTerms) {
-      alert('You must agree to the terms and conditions.');
+      toast({
+        title: "Terms Agreement Required",
+        description: "You must agree to the terms and conditions.",
+        variant: "destructive",
+      })
       return;
     }
     if (!validateStep(currentStep)) {
@@ -182,10 +210,6 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
       formDataToSend.append('jobTitle', jobTitle)
       formDataToSend.append('jobId', jobId)
 
-      // REMOVE OR DISABLE AUTO-SUBMIT LOGIC HERE
-      // Submission only occurs when user clicks submit on last step
-      // (No auto-submit anywhere else)
-
       const response = await fetch('/api/job-application-monday', {
         method: 'POST',
         body: formDataToSend,
@@ -195,10 +219,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
         const result = await response.json()
         console.log('Application submitted successfully:', result)
         
-        // Store email for dashboard access
-        localStorage.setItem('applicantEmail', formData.email)
-        
-        // Show success modal instead of redirecting
+        // Show success modal
         setShowSuccessModal(true)
       } else {
         const errorData = await response.json()
@@ -210,11 +231,19 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
           errorMessage = 'Application system is being configured. Please try again later or contact us directly.'
         }
         
-        alert(errorMessage) // Replace with proper toast notification
+        toast({
+          title: "Submission Failed",
+          description: errorMessage,
+          variant: "destructive",
+        })
       }
     } catch (error) {
       console.error('Error submitting application:', error)
-      alert('An error occurred while submitting your application. Please try again.')
+      toast({
+        title: "Submission Error",
+        description: "An error occurred while submitting your application. Please try again.",
+        variant: "destructive",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -253,12 +282,10 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
     setShowJobDetails(true)
   }
 
-  const handleGoToDashboard = () => {
-    window.location.href = '/application-dashboard'
-  }
+
 
   const renderStep1 = () => (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="firstName">First Name *</Label>
@@ -268,6 +295,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
             onChange={(e) => handleInputChange('firstName', e.target.value)}
             placeholder="Enter your first name"
             required
+            className="h-12 md:h-10"
           />
         </div>
         <div className="space-y-2">
@@ -278,6 +306,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
             onChange={(e) => handleInputChange('lastName', e.target.value)}
             placeholder="Enter your last name"
             required
+            className="h-12 md:h-10"
           />
         </div>
       </div>
@@ -291,6 +320,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
           onChange={(e) => handleInputChange('email', e.target.value)}
           placeholder="your.email@example.com"
           required
+          className="h-12 md:h-10"
         />
       </div>
 
@@ -302,6 +332,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
           value={formData.phone}
           onChange={(e) => handleInputChange('phone', e.target.value)}
           placeholder="+1 (555) 123-4567"
+          className="h-12 md:h-10"
         />
       </div>
 
@@ -313,6 +344,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
           onChange={(e) => handleInputChange('location', e.target.value)}
           placeholder="City, State/Province, Country"
           required
+          className="h-12 md:h-10"
         />
       </div>
 
@@ -325,6 +357,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
             value={formData.linkedinUrl}
             onChange={(e) => handleInputChange('linkedinUrl', e.target.value)}
             placeholder="https://linkedin.com/in/yourprofile"
+            className="h-12 md:h-10"
           />
         </div>
         <div className="space-y-2">
@@ -335,6 +368,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
             value={formData.portfolioUrl}
             onChange={(e) => handleInputChange('portfolioUrl', e.target.value)}
             placeholder="https://yourportfolio.com"
+            className="h-12 md:h-10"
           />
         </div>
       </div>
@@ -410,16 +444,16 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
       <div className="space-y-2">
         <Label htmlFor="resume">Resume/CV *</Label>
         <div
-          className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center"
-          onDragOver={e => { e.preventDefault(); e.stopPropagation(); }}
-          onDrop={e => {
+          className="border-2 border-dashed border-gray-300 rounded-lg p-4 md:p-6 text-center file-upload-area"
+          onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
+          onDrop={(e) => {
             e.preventDefault();
             e.stopPropagation();
             const file = e.dataTransfer.files[0];
             if (file) handleFileChange('resume', file);
           }}
         >
-          <Upload className="mx-auto h-12 w-12 text-gray-400" />
+          <Upload className="mx-auto h-8 w-8 md:h-12 md:w-12 text-gray-400" />
           <div className="mt-4">
             <input
               type="file"
@@ -432,14 +466,14 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
               <span className="text-blue-600 hover:text-blue-500 font-medium">
                 Click to upload
               </span>
-              <span className="text-gray-500"> or drag and drop</span>
+              <span className="text-gray-500 hidden md:inline"> or drag and drop</span>
             </label>
             <p className="text-sm text-gray-500 mt-2">PDF, DOC, or DOCX (max 10MB)</p>
           </div>
           {formData.resume && (
             <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-gray-600">
               <FileText className="h-4 w-4" />
-              <span>{formData.resume.name}</span>
+              <span className="truncate max-w-[200px] md:max-w-none">{formData.resume.name}</span>
             </div>
           )}
         </div>
@@ -448,16 +482,16 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
       <div className="space-y-2">
         <Label htmlFor="portfolio">Portfolio/Work Samples (Optional)</Label>
         <div
-          className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center"
-          onDragOver={e => { e.preventDefault(); e.stopPropagation(); }}
-          onDrop={e => {
+          className="border-2 border-dashed border-gray-300 rounded-lg p-4 md:p-6 text-center file-upload-area"
+          onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
+          onDrop={(e) => {
             e.preventDefault();
             e.stopPropagation();
             const file = e.dataTransfer.files[0];
             if (file) handleFileChange('portfolio', file);
           }}
         >
-          <Upload className="mx-auto h-12 w-12 text-gray-400" />
+          <Upload className="mx-auto h-8 w-8 md:h-12 md:w-12 text-gray-400" />
           <div className="mt-4">
             <input
               type="file"
@@ -470,14 +504,14 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
               <span className="text-blue-600 hover:text-blue-500 font-medium">
                 Click to upload
               </span>
-              <span className="text-gray-500"> or drag and drop</span>
+              <span className="text-gray-500 hidden md:inline"> or drag and drop</span>
             </label>
             <p className="text-sm text-gray-500 mt-2">PDF or ZIP file (max 25MB)</p>
           </div>
           {formData.portfolio && (
             <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-gray-600">
               <FileText className="h-4 w-4" />
-              <span>{formData.portfolio.name}</span>
+              <span className="truncate max-w-[200px] md:max-w-none">{formData.portfolio.name}</span>
             </div>
           )}
         </div>
@@ -490,7 +524,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
           value={formData.coverLetter}
           onChange={(e) => handleInputChange('coverLetter', e.target.value)}
           placeholder="Tell us why you're interested in this position and why you'd be a great fit..."
-          rows={6}
+          rows={isMobile ? 4 : 6}
         />
       </div>
     </div>
@@ -535,10 +569,9 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
             id="visaSponsorship"
             checked={formData.visaSponsorship || false}
             onCheckedChange={(checked) => handleInputChange('visaSponsorship', checked)}
-            required
           />
           <Label htmlFor="visaSponsorship">
-            Will you now or in the future require sponsorship for employment visa status? <span className="text-red-500">*</span>
+            Will you now or in the future require sponsorship for employment visa status?
           </Label>
         </div>
 
@@ -603,78 +636,161 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
     }
   }
 
+  // Helper function to safely get string value from Contentful field
+  const getStringValue = (field: any): string => {
+    if (typeof field === 'string') return field
+    if (typeof field === 'object' && field !== null) {
+      // Handle Rich Text objects
+      if (field.content && Array.isArray(field.content)) {
+        return field.content
+          .map((node: any) => 
+            node.content
+              ?.map((contentNode: any) => contentNode.value || '')
+              .join('') || ''
+          )
+          .join(' ')
+      }
+      // If it's an object but not rich text, try to stringify it safely
+      try {
+        return JSON.stringify(field)
+      } catch {
+        return ''
+      }
+    }
+    return ''
+  }
+
+  // Helper function to safely get array of strings from Contentful field
+  const getStringArray = (field: any): string[] => {
+    if (!Array.isArray(field)) return []
+    return field.map(item => getStringValue(item)).filter(item => item !== '')
+  }
+
   const renderJobDetails = () => (
-    <div className="space-y-6">
-      <div className="bg-gradient-to-r from-admiral-50 to-gypsum-50 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-admiral-900">{jobData?.title || jobTitle}</h2>
-          <div className="flex space-x-2">
-            <Badge className="bg-rhodamine-100 text-rhodamine-800">
-              {jobData?.department}
-            </Badge>
-            <Badge className="bg-gulf-100 text-gulf-800">
-              {jobData?.type}
-            </Badge>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="flex items-center space-x-2 text-admiral-600">
-            <MapPin className="h-4 w-4" />
-            <span>{jobData?.location}</span>
-          </div>
-          {jobData?.salary && (
-            <div className="flex items-center space-x-2 text-admiral-600">
-              <DollarSign className="h-4 w-4" />
-              <span>{jobData.salary}</span>
-            </div>
-          )}
-          <div className="flex items-center space-x-2 text-admiral-600">
-            <Building className="h-4 w-4" />
-            <span>{jobData?.department}</span>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-lg font-semibold text-admiral-900 mb-2">Job Description</h3>
-            <p className="text-admiral-600 leading-relaxed">{jobData?.description}</p>
-          </div>
-
-          {jobData?.requirements && jobData.requirements.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold text-admiral-900 mb-2">Requirements</h3>
-              <ul className="space-y-1">
-                {jobData.requirements.map((req, idx) => (
-                  <li key={idx} className="text-admiral-600 flex items-start space-x-2">
-                    <span className="w-1.5 h-1.5 bg-rhodamine-500 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {jobData?.benefits && jobData.benefits.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold text-admiral-900 mb-2">Benefits</h3>
-              <ul className="space-y-1">
-                {jobData.benefits.map((benefit, idx) => (
-                  <li key={idx} className="text-admiral-600 flex items-start space-x-2">
-                    <span className="w-1.5 h-1.5 bg-gulf-500 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+    <div className="space-y-8">
+      {/* Header with gradient background */}
+      <div className="bg-gradient-to-r from-rhodamine-500 via-gulf-600 to-admiral-800 text-white rounded-t-xl p-8">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold font-outfit mb-4">
+            LONGITUDE Rx
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold font-space-grotesk">
+            {getStringValue(jobData?.title) || jobTitle}
+          </h2>
         </div>
       </div>
 
+      {/* Content section */}
+      <div className="bg-white rounded-b-xl shadow-lg p-8">
+        {/* About Longitude Rx */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold text-admiral-900 mb-4 font-outfit">About Longitude Rx</h3>
+          <p className="text-admiral-700 leading-relaxed font-space-grotesk">
+            Longitude Rx "LRx" aims to transform access and management of specialty medications through tech-enabled solutions. 
+            Our platform focuses on improving patient outcomes, reducing care costs, and scaling efficiently for healthcare organizations. 
+            We support hospital-based specialty pharmacies, serving patients with complex, chronic, and rare conditions requiring expert clinical oversight.
+          </p>
+        </div>
+
+        {/* Job Title */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-admiral-900 font-outfit">
+            {getStringValue(jobData?.title) || jobTitle}
+          </h2>
+        </div>
+
+        {/* Position Summary */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold text-admiral-900 mb-4 font-outfit">Position Summary</h3>
+          <div className="space-y-4 text-admiral-700 font-space-grotesk">
+            <p>
+              Longitude Rx emphasizes a flexible work approach centered on trust, culture, connection, clarity, and evolving business needs.
+            </p>
+            <p>
+              {getStringValue(jobData?.description) || 'This role is for a key strategic business partner who will work closely with cross-functional teams to drive business success and innovation.'}
+            </p>
+            <p>
+              Key traits for success are strict attention to detail, ability to meet tight deadlines, a curious mindset, and a bias for action.
+            </p>
+          </div>
+        </div>
+
+        {/* Core Responsibilities */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold text-admiral-900 mb-4 font-outfit">Core Responsibilities</h3>
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-admiral-800 font-space-grotesk">Strategic Thinking</h4>
+            <ul className="space-y-2">
+              {jobData?.requirements && jobData.requirements.length > 0 ? (
+                getStringArray(jobData.requirements).map((req, idx) => (
+                  <li key={idx} className="text-admiral-700 flex items-start space-x-3 font-space-grotesk">
+                    <span className="w-2 h-2 bg-rhodamine-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span>{req}</span>
+                  </li>
+                ))
+              ) : (
+                <>
+                  <li className="text-admiral-700 flex items-start space-x-3 font-space-grotesk">
+                    <span className="w-2 h-2 bg-rhodamine-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Lead long-range and annual planning processes, and monthly financial forecasting</span>
+                  </li>
+                  <li className="text-admiral-700 flex items-start space-x-3 font-space-grotesk">
+                    <span className="w-2 h-2 bg-rhodamine-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Partner with senior executives to develop and execute solutions for global finance strategies, initiatives, and key investments</span>
+                  </li>
+                  <li className="text-admiral-700 flex items-start space-x-3 font-space-grotesk">
+                    <span className="w-2 h-2 bg-rhodamine-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Develop frameworks for rigorous and analytical decision-making</span>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </div>
+
+        {/* Job Details */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="flex items-center space-x-3 text-admiral-700">
+            <MapPin className="h-5 w-5 text-rhodamine-500" />
+            <span className="font-space-grotesk">{getStringValue(jobData?.location) || 'Remote'}</span>
+          </div>
+          <div className="flex items-center space-x-3 text-admiral-700">
+            <Building className="h-5 w-5 text-gulf-500" />
+            <span className="font-space-grotesk">{getStringValue(jobData?.department) || 'General'}</span>
+          </div>
+          {jobData?.salary && (
+            <div className="flex items-center space-x-3 text-admiral-700">
+              <DollarSign className="h-5 w-5 text-admiral-500" />
+              <span className="font-space-grotesk">{getStringValue(jobData.salary)}</span>
+            </div>
+          )}
+          <div className="flex items-center space-x-3 text-admiral-700">
+            <Clock className="h-5 w-5 text-ocean-500" />
+            <span className="font-space-grotesk">{getStringValue(jobData?.type) || 'Full-time'}</span>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        {jobData?.benefits && jobData.benefits.length > 0 && (
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-admiral-900 mb-4 font-outfit">Benefits</h3>
+            <ul className="space-y-2">
+              {getStringArray(jobData.benefits).map((benefit, idx) => (
+                <li key={idx} className="text-admiral-700 flex items-start space-x-3 font-space-grotesk">
+                  <span className="w-2 h-2 bg-gulf-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Continue Button */}
       <div className="text-center">
         <Button
           onClick={() => setShowJobDetails(false)}
-          className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-white px-8 py-3 text-lg"
+          className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-white px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300"
         >
           Continue to Application
           <ArrowRight className="ml-2 h-5 w-5" />
@@ -718,7 +834,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
     <>
       {/* Success Modal */}
       <Dialog open={showSuccessModal} onOpenChange={handleCloseSuccessModal}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-md mx-4">
           <div className="text-center py-8">
             {showSuccessModal && <Confetti />}
             <motion.div
@@ -765,15 +881,15 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
 
       {/* Main Application Form */}
       <Dialog open={isOpen && !showSuccessModal} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden">
+        <DialogContent className={`${isMobile ? 'max-w-[95vw] mx-2' : 'max-w-4xl'} max-h-[95vh] overflow-hidden`}>
           <DialogHeader>
             <div className="flex items-center justify-between">
-              <div>
-                <DialogTitle className="text-2xl font-bold text-admiral-900">
+              <div className="flex-1 min-w-0">
+                <DialogTitle className="text-lg md:text-2xl font-bold text-admiral-900 truncate">
                   {showJobDetails ? 'Job Details' : `Apply for ${jobTitle}`}
                 </DialogTitle>
                 {!showJobDetails && (
-                  <p className="text-admiral-600 mt-2">
+                  <p className="text-admiral-600 mt-1 md:mt-2 text-xs md:text-base">
                     Step {currentStep} of {totalSteps}: {getStepTitle()}
                   </p>
                 )}
@@ -782,15 +898,15 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="h-8 w-8 p-0"
+                className="h-10 w-10 md:h-8 md:w-8 p-0 ml-2 flex-shrink-0"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5 md:h-4 md:w-4" />
               </Button>
             </div>
           </DialogHeader>
 
           {showJobDetails ? (
-            <ScrollArea className="h-[70vh] pr-4">
+            <ScrollArea className={`${isMobile ? 'h-[60vh]' : 'h-[70vh]'} pr-4`}>
               {renderJobDetails()}
             </ScrollArea>
           ) : (
@@ -804,7 +920,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <ScrollArea className="h-[60vh] pr-4">
+                <ScrollArea className={`${isMobile ? 'h-[50vh]' : 'h-[60vh]'} pr-4`}>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentStep}
@@ -820,21 +936,25 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
 
                 {/* Navigation Buttons */}
                 <div className="flex justify-between pt-6 border-t">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={prevStep}
-                    disabled={currentStep === 1}
-                  >
-                    Previous
-                  </Button>
+                  {currentStep > 1 ? (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={prevStep}
+                      className="text-sm md:text-base h-12 md:h-10 px-6 md:px-4"
+                    >
+                      Previous
+                    </Button>
+                  ) : (
+                    <div></div>
+                  )}
 
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2 md:space-x-3">
                     {currentStep < totalSteps ? (
                       <Button
                         type="button"
                         onClick={nextStep}
-                        className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600"
+                        className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-sm md:text-base h-12 md:h-10 px-6 md:px-4"
                       >
                         Next Step
                       </Button>
@@ -842,7 +962,7 @@ export default function JobApplicationForm({ isOpen, onClose, jobTitle, jobId, j
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600"
+                        className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-sm md:text-base h-12 md:h-10 px-6 md:px-4"
                       >
                         {isSubmitting ? (
                           <div className="flex items-center space-x-2">

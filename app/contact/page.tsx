@@ -12,9 +12,43 @@ import Link from "next/link"
 
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    const formData = new FormData(e.currentTarget)
+    
+    try {
+      const response = await fetch('/api/contact-form', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success')
+        e.currentTarget.reset()
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage(result.error || 'Failed to submit contact form. Please try again.')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const faqs = [
@@ -186,7 +220,7 @@ export default function ContactPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="relative space-y-6">
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="first-name" className="text-sm font-semibold text-slate-700 font-space-grotesk">
@@ -194,8 +228,10 @@ export default function ContactPage() {
                         </label>
                         <Input
                           id="first-name"
+                          name="firstName"
                           placeholder="Enter your first name"
                           className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                          required
                         />
                       </div>
                       <div className="space-y-2">
@@ -204,8 +240,10 @@ export default function ContactPage() {
                         </label>
                         <Input
                           id="last-name"
+                          name="lastName"
                           placeholder="Enter your last name"
                           className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                          required
                         />
                       </div>
                     </div>
@@ -216,9 +254,11 @@ export default function ContactPage() {
                       </label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="Enter your email address"
                         className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                        required
                       />
                     </div>
 
@@ -228,8 +268,10 @@ export default function ContactPage() {
                       </label>
                       <Input
                         id="organization"
+                        name="organization"
                         placeholder="Enter your organization name"
                         className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
+                        required
                       />
                     </div>
 
@@ -239,6 +281,7 @@ export default function ContactPage() {
                       </label>
                       <Input
                         id="role"
+                        name="role"
                         placeholder="e.g., Chief Pharmacy Officer, IT Director"
                         className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
                       />
@@ -250,20 +293,45 @@ export default function ContactPage() {
                       </label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="Tell us about your current challenges and goals..."
                         className="min-h-[120px] border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl font-space-grotesk"
+                        required
                       />
                     </div>
 
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                      Contact Us
-                      <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                      {isSubmitting ? (
+                        <>
+                          <div className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                          Contact Us
+                          <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                        </>
+                      )}
                     </Button>
+
+                    {/* Success/Error Messages */}
+                    {submitStatus === 'success' && (
+                      <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
+                        <p className="text-green-800 font-medium">Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                      </div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                        <p className="text-red-800 font-medium">{errorMessage}</p>
+                      </div>
+                    )}
                   </form>
                 </CardContent>
               </Card>

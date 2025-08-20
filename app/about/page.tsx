@@ -145,8 +145,8 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-4xl">
               Founding Health Systems
                 </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              These visionary health systems came together to create Longitude Rx and revolutionize specialty operations through collaboration, innovation, and shared expertise.
+            <p className="text-xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk">
+              Longitude Health ("LH") is a collaborative initiative currently owned and funded by five leading not-for-profit health systems – Baylor Scott & White Health, Memorial Hermann Health System, Michigan Medicine, Novant Health and Providence – comprised of $60 billion in consolidated net patient service revenue. LH aims to revolutionize the way health systems operate by creating bold, innovative solutions designed and built by health systems for health systems. The organization identifies, develops, and implements initiatives that drive meaningful change: delivering high-quality, affordable care, improving access, and enhancing the patient experience. For more information, visit Longitudehealth.org.
             </p>
             </ScrollReveal>
 

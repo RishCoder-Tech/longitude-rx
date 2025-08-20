@@ -14,6 +14,9 @@ import { ScrollReveal } from "@/components/scroll-animations";
 export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: any[], webinars: any[] }) {
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleReadMore = (article: any) => {
     setSelectedArticle(article);
@@ -23,6 +26,41 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedArticle(null);
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    formData.append('source', 'Newsletter Page');
+
+    try {
+      const response = await fetch('/api/newsletter-subscription', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success');
+        e.currentTarget.reset();
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Failed to subscribe. Please try again.');
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
 
@@ -287,18 +325,32 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
             
             {/* Email Subscription Box */}
             <div className="w-full max-w-md mx-auto pt-8">
-              <div className="flex gap-2">
+              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Enter your email address"
                   className="flex-1 border-admiral-200 focus:border-admiral-400 bg-white/80 backdrop-blur-sm"
+                  required
                 />
                 <Button
-                  className="bg-gradient-to-r from-rhodamine-500 to-gulf-600 hover:from-rhodamine-600 hover:to-gulf-700 text-white px-6"
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-gradient-to-r from-rhodamine-500 to-gulf-600 hover:from-rhodamine-600 hover:to-gulf-700 text-white px-6 disabled:opacity-50"
                 >
-                  <Send className="h-4 w-4" />
+                  {isSubmitting ? (
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
                 </Button>
-              </div>
+              </form>
+              {submitStatus === 'success' && (
+                <p className="text-green-600 text-sm mt-2 text-center">✅ Successfully subscribed!</p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-600 text-sm mt-2 text-center">❌ {errorMessage}</p>
+              )}
             </div>
           </motion.div>
         </div>

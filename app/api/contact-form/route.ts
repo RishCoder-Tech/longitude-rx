@@ -86,42 +86,60 @@ export async function POST(request: NextRequest) {
 
     console.log('Creating Monday.com contact item...')
 
-    const response = await fetch('https://api.monday.com/v2', {
-      method: 'POST',
-      headers: {
-        'Authorization': MONDAY_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query, variables })
-    })
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 second timeout
+    let itemId: string
 
-    console.log('Monday.com response status:', response.status)
-    
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('Monday.com HTTP error:', response.status, response.statusText)
-      console.error('Error response:', errorText)
-      return NextResponse.json({ 
-        success: false, 
-        error: `Monday.com API error: ${response.status} ${response.statusText}`,
-        details: errorText
-      }, { status: 500 })
-    }
+    try {
+      const response = await fetch('https://api.monday.com/v2', {
+        method: 'POST',
+        headers: {
+          'Authorization': MONDAY_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query, variables }),
+        signal: controller.signal
+      })
 
-    const data = await response.json()
-    console.log('Monday.com response data:', data)
-    
-    if (data.errors) {
-      console.error('Monday.com GraphQL errors:', data.errors)
-      return NextResponse.json({ 
-        success: false, 
-        error: 'Monday.com GraphQL errors',
-        details: data.errors 
-      }, { status: 500 })
+      clearTimeout(timeoutId)
+      console.log('Monday.com response status:', response.status)
+      
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error('Monday.com HTTP error:', response.status, response.statusText)
+        console.error('Error response:', errorText)
+        return NextResponse.json({ 
+          success: false, 
+          error: `Monday.com API error: ${response.status} ${response.statusText}`,
+          details: errorText
+        }, { status: 500 })
+      }
+
+      const data = await response.json()
+      console.log('Monday.com response data:', data)
+      
+      if (data.errors) {
+        console.error('Monday.com GraphQL errors:', data.errors)
+        return NextResponse.json({ 
+          success: false, 
+          error: 'Monday.com GraphQL errors',
+          details: data.errors 
+        }, { status: 500 })
+      }
+      
+      itemId = data.data.create_item.id
+      console.log('Contact item created successfully with ID:', itemId)
+    } catch (fetchError) {
+      clearTimeout(timeoutId)
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+        console.error('Monday.com API request timed out')
+        return NextResponse.json({ 
+          success: false, 
+          error: 'Request timed out. Please try again.'
+        }, { status: 408 })
+      }
+      throw fetchError
     }
-    
-    const itemId = data.data.create_item.id
-    console.log('Contact item created successfully with ID:', itemId)
 
     // Create an update with contact details
     const details = [
@@ -141,26 +159,37 @@ export async function POST(request: NextRequest) {
     }`
     const updateVars = { itemId, body: detailsText }
     
-    const updateRes = await fetch('https://api.monday.com/v2', {
-      method: 'POST',
-      headers: {
-        'Authorization': MONDAY_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: updateQuery, variables: updateVars })
-    })
+    try {
+      const updateController = new AbortController()
+      const updateTimeoutId = setTimeout(() => updateController.abort(), 15000) // 15 second timeout
+      
+      const updateRes = await fetch('https://api.monday.com/v2', {
+        method: 'POST',
+        headers: {
+          'Authorization': MONDAY_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: updateQuery, variables: updateVars }),
+        signal: updateController.signal
+      })
 
-    if (!updateRes.ok) {
-      const errorText = await updateRes.text()
-      console.error('Update creation HTTP error:', updateRes.status, updateRes.statusText)
-      console.error('Error response:', errorText)
-    } else {
-      const updateData = await updateRes.json()
-      if (updateData.errors) {
-        console.error('Update creation GraphQL errors:', updateData.errors)
+      clearTimeout(updateTimeoutId)
+
+      if (!updateRes.ok) {
+        const errorText = await updateRes.text()
+        console.error('Update creation HTTP error:', updateRes.status, updateRes.statusText)
+        console.error('Error response:', errorText)
       } else {
-        console.log('Contact update created successfully')
+        const updateData = await updateRes.json()
+        if (updateData.errors) {
+          console.error('Update creation GraphQL errors:', updateData.errors)
+        } else {
+          console.log('Contact update created successfully')
+        }
       }
+    } catch (updateError) {
+      console.error('Error creating update (non-critical):', updateError)
+      // Don't fail the entire request if update creation fails
     }
 
     console.log('=== Contact Form Monday.com API Completed Successfully ===')

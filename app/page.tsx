@@ -435,20 +435,10 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-5xl">
               Trusted by Major Health Systems
             </h2>
-            <p className="text-2xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk font-light">
-              Our founding health systems represent the pinnacle of healthcare excellence, collectively managing over $60 billion in annual revenue while serving millions of patients across diverse communities. These five leading not-for-profit health systems – Baylor Scott & White Health, Memorial Hermann Health System, Michigan Medicine, Novant Health, and Providence – have joined forces to create Longitude Health, a revolutionary collaborative initiative. Together, we're building innovative solutions that address the most pressing challenges in healthcare delivery, from specialty pharmacy optimization to advanced care coordination, all designed and built by health systems for health systems.
+
+            <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk mt-8">
+              Our founding health systems bring decades of combined experience in healthcare delivery, offering unparalleled insights into operational challenges and opportunities. Together, we're creating innovative solutions that transform specialty pharmacy operations across the healthcare landscape, ensuring every health system can deliver exceptional care while maximizing their specialty pharmacy potential.
             </p>
-            <div className="space-y-4 mt-8">
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                With decades of combined experience in healthcare delivery, our partner health systems bring unparalleled insights into the operational challenges and opportunities facing modern healthcare organizations.
-              </p>
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                Through strategic collaboration and shared resources, we're creating a new model of healthcare innovation that prioritizes patient outcomes while driving sustainable financial performance.
-              </p>
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                Our collective mission is to transform specialty pharmacy operations across the healthcare landscape, ensuring every health system can deliver exceptional care while maximizing their specialty pharmacy potential.
-              </p>
-            </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up">

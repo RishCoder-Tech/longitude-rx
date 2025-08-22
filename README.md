@@ -48,9 +48,7 @@
    # Using npm
    npm install
    
-   # Using pnpm (recommended)
-   pnpm install
-   ```
+   
 
 3. **Set up environment variables**
    ```bash

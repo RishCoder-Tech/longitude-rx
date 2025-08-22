@@ -2,9 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Send, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight, Linkedin } from "lucide-react"
+import { Mail, MapPin, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
@@ -15,11 +13,8 @@ import { PerformanceMonitoring } from "@/components/performance-monitoring"
 
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
   
-  const { trackFormInteraction, trackButtonClick, trackInteraction } = usePostHog()
+  const { trackButtonClick, trackInteraction } = usePostHog()
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
@@ -28,77 +23,6 @@ export default function ContactPage() {
       is_open: openFaq !== index,
       faq_question: faqs[index].question
     })
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-    setErrorMessage('')
-
-    // Track form start
-    trackFormInteraction('contact_form', 'start', {
-      form_fields: ['firstName', 'lastName', 'email', 'organization', 'role', 'message']
-    })
-
-    const formData = new FormData(e.currentTarget)
-    
-    try {
-      const response = await fetch('/api/contact-form', {
-        method: 'POST',
-        body: formData,
-      })
-
-      const result = await response.json()
-
-      // Check if the response indicates success (lead was created)
-      if (response.ok && result.success) {
-        setSubmitStatus('success')
-        e.currentTarget.reset()
-        
-        // Track successful submission
-        trackFormInteraction('contact_form', 'complete', {
-          success: true,
-          item_id: result.itemId,
-          response_time: Date.now() - performance.now()
-        })
-      } else if (response.ok && result.itemId) {
-        // If we have an itemId, the lead was created successfully
-        // even if there were minor issues with the update
-        setSubmitStatus('success')
-        e.currentTarget.reset()
-        
-        // Track successful submission
-        trackFormInteraction('contact_form', 'complete', {
-          success: true,
-          item_id: result.itemId,
-          response_time: Date.now() - performance.now()
-        })
-      } else {
-        setSubmitStatus('error')
-        setErrorMessage(result.error || 'Failed to submit contact form. Please try again.')
-        
-        // Track form error
-        trackFormInteraction('contact_form', 'error', {
-          error_message: result.error,
-          response_status: response.status,
-          response_time: Date.now() - performance.now()
-        })
-      }
-    } catch (error) {
-      console.error('Contact form submission error:', error)
-      setSubmitStatus('error')
-      setErrorMessage('Network error. Please check your connection and try again.')
-      
-      // Track form error
-      trackFormInteraction('contact_form', 'error', {
-        error_message: 'Network error',
-        error_type: error instanceof Error ? error.constructor.name : 'Unknown',
-        response_time: Date.now() - performance.now()
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   const faqs = [
@@ -269,144 +193,24 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="relative space-y-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label htmlFor="first-name" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                          First Name *
-                        </label>
-                        <Input
-                          id="first-name"
-                          name="firstName"
-                          placeholder="Enter your first name"
-                          className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="last-name" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                          Last Name *
-                        </label>
-                        <Input
-                          id="last-name"
-                          name="lastName"
-                          placeholder="Enter your last name"
-                          className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                        Email Address *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email address"
-                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="organization" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                        Organization *
-                      </label>
-                      <Input
-                        id="organization"
-                        name="organization"
-                        placeholder="Enter your organization name"
-                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="role" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                        Your Role
-                      </label>
-                      <Input
-                        id="role"
-                        name="role"
-                        placeholder="e.g., Chief Pharmacy Officer, IT Director"
-                        className="border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl h-12 font-space-grotesk"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-semibold text-slate-700 font-space-grotesk">
-                        How can we help transform your operations? *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us about your current challenges and goals..."
-                        className="min-h-[120px] border-2 border-gypsum-200 focus:border-rhodamine-500 focus:ring-rhodamine-500/20 transition-all duration-300 rounded-xl font-space-grotesk"
-                        required
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      onClick={() => trackButtonClick('contact_form_submit', {
-                        button_type: 'submit',
-                        form_name: 'contact_form'
-                      })}
-                      className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                          Contact Us
-                          <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-                        </>
-                      )}
-                    </Button>
-
-                    {/* Success/Error Messages */}
-                    {submitStatus === 'success' && (
-                      <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl">
-                        <div className="flex items-center space-x-3">
-                          <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
-                            <svg className="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          <div>
-                            <p className="text-green-800 font-semibold text-lg">Message Sent Successfully!</p>
-                            <p className="text-green-700 text-sm">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {submitStatus === 'error' && (
-                      <div className="p-6 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl">
-                        <div className="flex items-center space-x-3">
-                          <div className="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center">
-                            <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                            </svg>
-                          </div>
-                          <div>
-                            <p className="text-red-800 font-semibold text-lg">Submission Failed</p>
-                            <p className="text-red-700 text-sm">{errorMessage}</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </form>
+                <CardContent className="relative">
+                  {/* Tally Form Embed */}
+                  <iframe 
+                    data-tally-src="https://tally.so/embed/3EROZN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height={421} 
+                    frameBorder="0" 
+                    marginHeight={0} 
+                    marginWidth={0} 
+                    title="Contact Us!"
+                    className="w-full"
+                  />
+                  <script dangerouslySetInnerHTML={{
+                    __html: `
+                      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                    `
+                  }} />
                 </CardContent>
               </Card>
             </motion.div>

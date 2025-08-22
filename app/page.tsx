@@ -436,17 +436,9 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               Trusted by Major Health Systems
             </h2>
 
-            <div className="space-y-4 mt-8">
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                With decades of combined experience in healthcare delivery, our partner health systems bring unparalleled insights into the operational challenges and opportunities facing modern healthcare organizations.
-              </p>
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                Through strategic collaboration and shared resources, we're creating a new model of healthcare innovation that prioritizes patient outcomes while driving sustainable financial performance.
-              </p>
-              <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk">
-                Our collective mission is to transform specialty pharmacy operations across the healthcare landscape, ensuring every health system can deliver exceptional care while maximizing their specialty pharmacy potential.
-              </p>
-            </div>
+            <p className="text-lg text-admiral-600 max-w-3xl mx-auto leading-relaxed font-space-grotesk mt-8">
+              Our founding health systems bring decades of combined experience in healthcare delivery, offering unparalleled insights into operational challenges and opportunities. Together, we're creating innovative solutions that transform specialty pharmacy operations across the healthcare landscape, ensuring every health system can deliver exceptional care while maximizing their specialty pharmacy potential.
+            </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up">

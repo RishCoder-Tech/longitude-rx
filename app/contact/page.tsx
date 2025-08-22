@@ -36,14 +36,22 @@ export default function ContactPage() {
 
       const result = await response.json()
 
+      // Check if the response indicates success (lead was created)
       if (response.ok && result.success) {
+        setSubmitStatus('success')
+        e.currentTarget.reset()
+      } else if (response.ok && result.itemId) {
+        // If we have an itemId, the lead was created successfully
+        // even if there were minor issues with the update
         setSubmitStatus('success')
         e.currentTarget.reset()
       } else {
         setSubmitStatus('error')
         setErrorMessage(result.error || 'Failed to submit contact form. Please try again.')
+        // Don't reset the form on error so user can fix and retry
       }
     } catch (error) {
+      console.error('Contact form submission error:', error)
       setSubmitStatus('error')
       setErrorMessage('Network error. Please check your connection and try again.')
     } finally {
@@ -322,14 +330,34 @@ export default function ContactPage() {
 
                     {/* Success/Error Messages */}
                     {submitStatus === 'success' && (
-                      <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
-                        <p className="text-green-800 font-medium">Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                      <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl">
+                        <div className="flex items-center space-x-3">
+                          <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+                            <svg className="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <div>
+                            <p className="text-green-800 font-semibold text-lg">Message Sent Successfully!</p>
+                            <p className="text-green-700 text-sm">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                          </div>
+                        </div>
                       </div>
                     )}
 
                     {submitStatus === 'error' && (
-                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-                        <p className="text-red-800 font-medium">{errorMessage}</p>
+                      <div className="p-6 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl">
+                        <div className="flex items-center space-x-3">
+                          <div className="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center">
+                            <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <p className="text-red-800 font-semibold text-lg">Submission Failed</p>
+                            <p className="text-red-700 text-sm">{errorMessage}</p>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </form>

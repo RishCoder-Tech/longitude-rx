@@ -9,15 +9,25 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePostHog } from "@/hooks/use-posthog"
+import { ScrollTracking } from "@/components/scroll-tracking"
+import { PerformanceMonitoring } from "@/components/performance-monitoring"
 
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  
+  const { trackFormInteraction, trackButtonClick, trackInteraction } = usePostHog()
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
+    trackInteraction('faq_toggle', {
+      faq_index: index,
+      is_open: openFaq !== index,
+      faq_question: faqs[index].question
+    })
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,6 +35,11 @@ export default function ContactPage() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
+
+    // Track form start
+    trackFormInteraction('contact_form', 'start', {
+      form_fields: ['firstName', 'lastName', 'email', 'organization', 'role', 'message']
+    })
 
     const formData = new FormData(e.currentTarget)
     
@@ -40,20 +55,47 @@ export default function ContactPage() {
       if (response.ok && result.success) {
         setSubmitStatus('success')
         e.currentTarget.reset()
+        
+        // Track successful submission
+        trackFormInteraction('contact_form', 'complete', {
+          success: true,
+          item_id: result.itemId,
+          response_time: Date.now() - performance.now()
+        })
       } else if (response.ok && result.itemId) {
         // If we have an itemId, the lead was created successfully
         // even if there were minor issues with the update
         setSubmitStatus('success')
         e.currentTarget.reset()
+        
+        // Track successful submission
+        trackFormInteraction('contact_form', 'complete', {
+          success: true,
+          item_id: result.itemId,
+          response_time: Date.now() - performance.now()
+        })
       } else {
         setSubmitStatus('error')
         setErrorMessage(result.error || 'Failed to submit contact form. Please try again.')
-        // Don't reset the form on error so user can fix and retry
+        
+        // Track form error
+        trackFormInteraction('contact_form', 'error', {
+          error_message: result.error,
+          response_status: response.status,
+          response_time: Date.now() - performance.now()
+        })
       }
     } catch (error) {
       console.error('Contact form submission error:', error)
       setSubmitStatus('error')
       setErrorMessage('Network error. Please check your connection and try again.')
+      
+      // Track form error
+      trackFormInteraction('contact_form', 'error', {
+        error_message: 'Network error',
+        error_type: error instanceof Error ? error.constructor.name : 'Unknown',
+        response_time: Date.now() - performance.now()
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -312,6 +354,10 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
+                      onClick={() => trackButtonClick('contact_form_submit', {
+                        button_type: 'submit',
+                        form_name: 'contact_form'
+                      })}
                       className="w-full bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-full py-4 text-lg font-semibold font-space-grotesk group transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
@@ -509,6 +555,11 @@ export default function ContactPage() {
               <Link href="/contact">
                 <Button
                   size="lg"
+                  onClick={() => trackButtonClick('cta_contact_button', {
+                    button_type: 'cta',
+                    button_location: 'enhanced_cta_section',
+                    button_text: 'Contact Us'
+                  })}
                   className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
                   <motion.div
@@ -531,6 +582,10 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+      
+      {/* PostHog Tracking Components */}
+      <ScrollTracking pageName="contact" />
+      <PerformanceMonitoring pageName="contact" />
     </div>
   )
 }

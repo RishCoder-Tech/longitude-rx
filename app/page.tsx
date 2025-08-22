@@ -32,6 +32,9 @@ import { HealthcareLeadersScrollHome } from "@/components/healthcare-leaders-scr
 import CounterAnimation from "@/components/counter-animation"
 import { useRef } from "react"
 import Image from "next/image"
+import { usePostHog } from "@/hooks/use-posthog"
+import { ScrollTracking } from "@/components/scroll-tracking"
+import { PerformanceMonitoring } from "@/components/performance-monitoring"
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -43,6 +46,8 @@ export default function Home() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0])
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95])
+
+  const { trackButtonClick, trackInteraction } = usePostHog()
 
   const staggerContainer = {
     animate: {
@@ -145,6 +150,11 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               <Link href="/contact">
                 <Button
                   size="lg"
+                  onClick={() => trackButtonClick('home_cta_button', {
+                    button_type: 'cta',
+                    button_location: 'hero_section',
+                    button_text: 'Contact Us'
+                  })}
                   className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
                   <motion.div
@@ -500,6 +510,11 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               <Link href="/contact">
                 <Button
                   size="lg"
+                  onClick={() => trackButtonClick('home_cta_button', {
+                    button_type: 'cta',
+                    button_location: 'enhanced_cta_section',
+                    button_text: 'Contact Us'
+                  })}
                   className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
                 >
                   <motion.div
@@ -522,6 +537,10 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
           </ScrollReveal>
         </div>
       </section>
+
+      {/* PostHog Tracking Components */}
+      <ScrollTracking pageName="home" />
+      <PerformanceMonitoring pageName="home" />
     </div>
   )
 }

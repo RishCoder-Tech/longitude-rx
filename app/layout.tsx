@@ -8,6 +8,7 @@ import FooterConditional from "@/components/footer-conditional"
 import { ScrollProgress } from "@/components/scroll-animations"
 import Script from "next/script"
 import { PostHogProvider } from "@/components/PostHogProvider"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" })
@@ -76,14 +77,16 @@ export default function RootLayout({
         
         <PostHogProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-            <div className="flex min-h-screen flex-col bg-gradient-to-br from-gypsum-50 via-gypsum-100 to-gypsum-200 relative overflow-hidden">
-              {/* Scroll Progress */}
-              <ScrollProgress />
+            <ErrorBoundary>
+              <div className="flex min-h-screen flex-col bg-gradient-to-br from-gypsum-50 via-gypsum-100 to-gypsum-200 relative overflow-hidden">
+                {/* Scroll Progress */}
+                <ScrollProgress />
 
-              <Navbar />
-              <main className="flex-1 relative z-20">{children}</main>
-              <FooterConditional />
-            </div>
+                <Navbar />
+                <main className="flex-1 relative z-20">{children}</main>
+                <FooterConditional />
+              </div>
+            </ErrorBoundary>
           </ThemeProvider>
         </PostHogProvider>
       </body>

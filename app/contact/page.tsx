@@ -4,17 +4,59 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, MapPin, ChevronDown, ChevronUp, Sparkles, Globe, Zap, ArrowRight, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePostHog } from "@/hooks/use-posthog"
 import { ScrollTracking } from "@/components/scroll-tracking"
 import { PerformanceMonitoring } from "@/components/performance-monitoring"
 
+// TypeScript declaration for Tally
+declare global {
+  interface Window {
+    Tally?: {
+      loadEmbeds: () => void
+    }
+  }
+}
+
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [tallyLoaded, setTallyLoaded] = useState(false)
   
   const { trackButtonClick, trackInteraction } = usePostHog()
+
+  // Load Tally script
+  useEffect(() => {
+    const loadTallyScript = () => {
+      if (typeof window !== 'undefined' && !window.Tally) {
+        const script = document.createElement('script')
+        script.src = 'https://tally.so/widgets/embed.js'
+        script.async = true
+        script.onload = () => {
+          if (window.Tally) {
+            window.Tally.loadEmbeds()
+            setTallyLoaded(true)
+          }
+        }
+        script.onerror = () => {
+          console.error('Failed to load Tally script')
+          // Fallback: try to load the iframe directly
+          const iframe = document.querySelector('iframe[data-tally-src]') as HTMLIFrameElement
+          if (iframe && iframe.dataset.tallySrc) {
+            iframe.src = iframe.dataset.tallySrc
+            setTallyLoaded(true)
+          }
+        }
+        document.body.appendChild(script)
+      } else if (window.Tally) {
+        window.Tally.loadEmbeds()
+        setTallyLoaded(true)
+      }
+    }
+
+    loadTallyScript()
+  }, [])
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
@@ -195,6 +237,12 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="relative">
                   {/* Tally Form Embed */}
+                  {!tallyLoaded && (
+                    <div className="flex items-center justify-center py-8">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rhodamine-500"></div>
+                      <span className="ml-3 text-slate-600">Loading contact form...</span>
+                    </div>
+                  )}
                   <iframe 
                     data-tally-src="https://tally.so/embed/3EROZN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" 
                     loading="lazy" 
@@ -204,13 +252,9 @@ export default function ContactPage() {
                     marginHeight={0} 
                     marginWidth={0} 
                     title="Contact Us!"
-                    className="w-full"
+                    className={`w-full ${tallyLoaded ? 'block' : 'hidden'}`}
+                    onLoad={() => setTallyLoaded(true)}
                   />
-                  <script dangerouslySetInnerHTML={{
-                    __html: `
-                      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-                    `
-                  }} />
                 </CardContent>
               </Card>
             </motion.div>

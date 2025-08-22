@@ -1,5 +1,6 @@
-// PostHog Dashboard Configuration
-// This file contains predefined dashboard configurations and insights for Longitude Rx
+// PostHog Dashboard Configuration for Longitude Rx
+// API Key: phc_CPWCoYSQujWKeF6qNbo4lqksCbuZUj8zIgvA36dJcOm
+// Host: https://app.posthog.com
 
 export const POSTHOG_DASHBOARD_CONFIG = {
   // User Engagement Dashboard
@@ -237,8 +238,8 @@ export const EVENT_PROPERTIES = {
   // User Properties
   USER_PROPERTIES: [
     'environment',
-    'app_version',
     'platform',
+    'app_name',
     'user_type',
     'organization',
     'role'

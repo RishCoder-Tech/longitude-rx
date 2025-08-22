@@ -15,7 +15,6 @@ export function ScrollTracking({
   const { trackScrollDepth, trackTimeOnPage } = usePostHog()
   const startTime = useRef<number>(Date.now())
   const trackedScrollDepths = useRef<Set<number>>(new Set())
-  const pageLeaveTimeout = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,10 +64,6 @@ export function ScrollTracking({
       // Track final time on page
       const timeSpent = Math.round((Date.now() - startTime.current) / 1000)
       trackTimeOnPage(timeSpent, pageName)
-      
-      if (pageLeaveTimeout.current) {
-        clearTimeout(pageLeaveTimeout.current)
-      }
     }
   }, [pageName, scrollThresholds, trackScrollDepth, trackTimeOnPage])
 

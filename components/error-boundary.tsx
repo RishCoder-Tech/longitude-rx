@@ -13,8 +13,8 @@ interface State {
   error?: Error
 }
 
-class ErrorBoundaryClass extends Component<Props & { trackError: (message: string, stack?: string) => void }, State> {
-  constructor(props: Props & { trackError: (message: string, stack?: string) => void }) {
+class ErrorBoundaryClass extends Component<Props & { trackError: (message: string, stack?: string, properties?: Record<string, any>) => void }, State> {
+  constructor(props: Props & { trackError: (message: string, stack?: string, properties?: Record<string, any>) => void }) {
     super(props)
     this.state = { hasError: false }
   }

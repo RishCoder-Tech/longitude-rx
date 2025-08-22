@@ -6,15 +6,12 @@ import { useEffect } from "react"
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Initialize PostHog with enhanced configuration
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: "/ingest",
-      ui_host: "https://us.posthog.com",
-      defaults: "2025-05-24",
-      capture_exceptions: true,
-      debug: process.env.NODE_ENV === "development",
+    // Initialize PostHog with the new API key
+    posthog.init('phc_CPWCoYSQujWKeF6qNbo4lqksCbuZUj8zIgvA36dJcOm', {
+      api_host: 'https://app.posthog.com',
+      ui_host: 'https://app.posthog.com',
       
-      // Enable session recordings
+      // Session recordings
       session_recording: {
         enabled: true,
         recordCanvas: true,
@@ -30,7 +27,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         },
       },
       
-      // Enhanced autocapture settings
+      // Enhanced autocapture
       autocapture: true,
       capture_pageview: true,
       capture_pageleave: true,
@@ -40,12 +37,6 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       
       // Performance monitoring
       performance_tracking: true,
-      
-      // Feature flags
-      feature_flags: {
-        "enable-advanced-analytics": true,
-        "session-recording-quality": "high",
-      },
       
       // Privacy and compliance
       respect_dnt: true,
@@ -57,19 +48,22 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       disable_session_recording: false,
       disable_persistence: false,
       
+      // Debug mode in development
+      debug: process.env.NODE_ENV === 'development',
+      
       // Custom properties for all events
       loaded: (posthog) => {
-        // Set user properties based on environment
+        // Set user properties
         posthog.people.set({
           environment: process.env.NODE_ENV,
-          app_version: process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0',
           platform: 'web',
+          app_name: 'Longitude Rx',
         })
         
-        // Start session recording for all sessions
+        // Start session recording
         posthog.startSessionRecording()
         
-        console.log('PostHog initialized with session recordings enabled')
+        console.log('PostHog initialized successfully with session recordings')
       }
     })
   }, [])

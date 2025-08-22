@@ -4,13 +4,14 @@ import posthog from 'posthog-js'
 // Custom hook for PostHog analytics
 export const usePostHog = () => {
   
-  // Track page views with custom properties
+  // Track page views
   const trackPageView = useCallback((pageName: string, properties?: Record<string, any>) => {
     posthog.capture('page_view', {
       page_name: pageName,
       page_url: window.location.href,
       page_title: document.title,
       referrer: document.referrer,
+      timestamp: new Date().toISOString(),
       ...properties,
     })
   }, [])
@@ -132,7 +133,7 @@ export const usePostHog = () => {
 
   // Check if PostHog is loaded
   const isLoaded = useCallback(() => {
-    return posthog.isFeatureEnabled('enable-advanced-analytics')
+    return posthog.isFeatureEnabled !== undefined
   }, [])
 
   return {

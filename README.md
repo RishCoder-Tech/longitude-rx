@@ -61,11 +61,6 @@
    CONTENTFUL_SPACE_ID=your_space_id
    CONTENTFUL_ACCESS_TOKEN=your_access_token
    
-   # Supabase Database
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-   
    # Monday.com Integration
    MONDAY_API_TOKEN=your_monday_token
    MONDAY_BOARD_ID=your_board_id

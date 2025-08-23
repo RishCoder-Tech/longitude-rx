@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://longituderx.org)
 
 ## 🏥 Project Overview
 
@@ -32,7 +32,7 @@
 ### Prerequisites
 
 - **Node.js**: 18.17 or later
-- **npm**: 9.0 or later, or **pnpm**: 8.0 or later
+- **npm**: 9.0 or later
 - **Git**: For version control
 
 ### Installation

@@ -28,13 +28,7 @@ import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import { HealthcareLeadersScroll } from "@/components/healthcare-leaders-scroll"
 import Image from "next/image"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+
 
 export default function AboutPage() {
   const leadershipTeam = [
@@ -291,48 +285,37 @@ export default function AboutPage() {
 
           </ScrollReveal>
 
-          {/* CEO and Leadership Team Grid - all on same level, multiple rows allowed */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* CEO Profile Layout */}
+          <div className="max-w-6xl mx-auto">
             {leadershipTeam.map((member) => (
-              <Dialog key={member.name}>
-                <DialogTrigger asChild>
-                  <div className="text-center cursor-pointer group">
-                    <div className="relative w-48 h-48 mx-auto mb-4 transition-transform duration-300 transform group-hover:scale-105">
-                      <Image
-                        src={member.headshot}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-top rounded-full"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                    <p className="text-gray-600">{member.title}</p>
+              <div key={member.name} className="flex flex-col lg:flex-row gap-8 items-start">
+                {/* Headshot on the left */}
+                <div className="relative w-64 h-64 lg:w-80 lg:h-80 flex-shrink-0 mx-auto lg:mx-0">
+                  <Image
+                    src={member.headshot}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top rounded-full shadow-xl"
+                  />
+                </div>
+                
+                {/* Information on the right */}
+                <div className="flex-1 text-left">
+                  <h3 className="text-5xl font-bold mb-4 text-admiral-900 tracking-wide uppercase">{member.name}</h3>
+                  <p className="text-2xl text-ocean-600 mb-8 font-normal">{member.title}</p>
+                  <div className="max-w-none">
+                    <p className="text-gray-800 leading-relaxed whitespace-pre-line text-lg mb-8">{member.bio}</p>
                   </div>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[600px]">
-                  <div className="flex flex-col sm:flex-row gap-6 py-4 items-center">
-                    <div className="relative w-40 h-40 flex-shrink-0 mx-auto sm:mx-0">
-                      <Image
-                        src={member.headshot}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-top rounded-full"
-                      />
-                    </div>
-                    <div className="flex-1 flex flex-col items-start">
-                      <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                      <p className="text-admiral-700 text-lg mb-2">{member.title}</p>
-                      <p className="text-gray-600 mb-4 whitespace-pre-line max-h-48 overflow-y-auto">{member.bio}</p>
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" className="">
-                          <Linkedin className="mr-2 h-4 w-4" />
-                          LinkedIn
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </DialogContent>
-              </Dialog>
+                  {member.linkedin && (
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
+                        <Linkedin className="mr-2 h-4 w-4" />
+                        LinkedIn
+                      </Button>
+                    </a>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         </div>

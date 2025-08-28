@@ -18,7 +18,41 @@ export const metadata: Metadata = {
   title: "Longitude Rx Specialty Pharmacy",
   description:
     "Next-generation specialty pharmacy solutions powered by cutting-edge technology, machine learning, and advanced healthcare innovation. Transform patient outcomes with Longitude Rx.",
-  generator: 'v0.dev'
+  generator: 'v0.dev',
+  openGraph: {
+    title: "Longitude Rx Specialty Pharmacy",
+    description: "Next-generation specialty pharmacy solutions powered by cutting-edge technology, machine learning, and advanced healthcare innovation. Transform patient outcomes with Longitude Rx.",
+    url: "https://longituderx.com",
+    siteName: "Longitude Rx",
+    images: [
+      {
+        url: "/images/longitude-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Longitude Rx Specialty Pharmacy Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Longitude Rx Specialty Pharmacy",
+    description: "Next-generation specialty pharmacy solutions powered by cutting-edge technology, machine learning, and advanced healthcare innovation. Transform patient outcomes with Longitude Rx.",
+    images: ["/images/longitude-logo.png"],
+    creator: "@longituderx",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const MONDAY_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjUzNDcyMjcwMiwiYWFpIjoxMSwidWlkIjo3Nzk3MDE3NywiaWFkIjoiMjAyNS0wNy0wM1QyMDowMjoxNS4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MzAyNDc5NzcsInJnbiI6InVzZTEifQ.bJmXKWd-iZD0ZPh3m3ucG6bOarhEyMyvKpJypPHkoIU'
+const MONDAY_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjU1NTgwMzE2NCwiYWFpIjoxMSwidWlkIjo3NTU0MDgxMSwiaWFkIjoiMjAyNS0wOC0yOFQyMTowNzo0Mi4zNDFaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6Mjg5NzM5NTIsInJnbiI6InVzZTEifQ.3oFQ9V95JqhU6ZTZaNWPa5do386CstnoQQdShaJtMpg'
 const MONDAY_BOARD_ID = '9729192571'
 
 const COLUMN_MAPPING = {

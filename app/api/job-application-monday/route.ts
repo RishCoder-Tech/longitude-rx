@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { uploadFile } from '@/lib/supabase'
 
-const MONDAY_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjU0NDAxOTg4MywiYWFpIjoxMSwidWlkIjo3NTU0MDgxMSwiaWFkIjoiMjAyNS0wNy0yOFQxODoyODo1MS41MjBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6Mjg5NzM5NTIsInJnbiI6InVzZTEifQ.iP0kcZLkzgwPTeWcM5obQVp-4bGlRlkkqP_yGjzPj7k'
+const MONDAY_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjU1NTgwMzE2NCwiYWFpIjoxMSwidWlkIjo3NTU0MDgxMSwiaWFkIjoiMjAyNS0wOC0yOFQyMTowNzo0Mi4zNDFaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6Mjg5NzM5NTIsInJnbiI6InVzZTEifQ.3oFQ9V95JqhU6ZTZaNWPa5do386CstnoQQdShaJtMpg'
 const MONDAY_BOARD_ID = '9688248949'
 
 // Map your form fields to Monday.com column IDs here

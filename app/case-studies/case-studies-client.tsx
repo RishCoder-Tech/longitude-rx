@@ -155,8 +155,8 @@ export default function CaseStudiesClient({ caseStudies }: { caseStudies: any[] 
         </div>
       </section>
 
-      {/* Case Studies Grid */}
-      <section className="w-full py-20 md:py-32">
+      {/* Case Studies Grid - Hidden */}
+      <section className="w-full py-20 md:py-32 hidden">
         <div className="container px-6 md:px-8">
           <div className="space-y-16 max-w-7xl mx-auto">
             {displayCaseStudies.map((study, index) => (

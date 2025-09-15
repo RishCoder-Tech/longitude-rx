@@ -149,7 +149,7 @@ export default function CaseStudiesClient({ caseStudies }: { caseStudies: any[] 
               Real Results, Real Impact
             </h1>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Discover how leading health systems are transforming their specialty pharmacy operations with Longitude Rx.
+              Insights From Our Work — Coming Soon
             </p>
           </ScrollReveal>
         </div>

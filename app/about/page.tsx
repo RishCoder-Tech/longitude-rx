@@ -39,6 +39,49 @@ export default function AboutPage() {
       bio: `Jigar Thakkar, PharmD, MBA, MHCDS, FACHE is the CEO of Longitude Rx, an inaugural role for the newly created specialty pharmacy operating company within Longitude Health. Previously, Jigar served as the enterprise Chief Administrative Officer (CAO) and SVP of Growth Integration at OU Health as well as the Chief Pharmacy Officer.   \n\nJigar has extensive experience in academic healthcare, as well as large integrated delivery networks, with a successful track record of leading complex hospital operations, strategic growth, and revenue diversification. At OU Health, Jigar established a specialty pharmacy business, taking it from a highly fragmented environment under multiple companies and integrating it under an operating model which resulted in revenue growth from $0 to over $470m annually within four years, leading to a $200m annual contribution margin impact. He was instrumental in transforming OU Health into a more clinically integrated academic health system. Prior to joining OU Health, Jigar was a Managing Director at FTI Consulting, a global, publicly traded consulting firm where Jigar served as U.S. lead for pharmacy services with a focus on leading vision, strategy, and implementation phases of engagements. He has delivered strategic and operational excellence work to the executive leadership of hospitals and health systems, Fortune 100 companies, pharmacy wholesalers, national retail pharmacy chains, private equity firms, and law firms. Jigar has also provided extensive 340B Drug Pricing Program advisory services related to compliance for many health systems across the U.S. Jigar serves as a Fellow of the American College of Healthcare Executives (FACHE) and serves on the hospital advisory board of Cencora (a recent top 10 Fortune 500 company). \n\nJigar grew up in Chicago where he received his PharmD. He completed his Executive MBA at Northwestern University's Kellogg School of Management and received his Master of Health Care Delivery Science (MHCDS) from Dartmouth College.`,
       linkedin: "https://www.linkedin.com/in/jigar24/",
     },
+    {
+      name: "Sinthu Sinnadurai",
+      title: "Senior Vice President of Operations",
+      headshot: "/Sinthu Sinnadurai.jpg",
+      bio: "Sinthu Sinnadurai brings extensive operational expertise to Longitude Rx, overseeing critical operational functions that drive efficiency and excellence across our specialty pharmacy services. With a proven track record in healthcare operations, Sinthu ensures our systems and processes deliver optimal outcomes for health system partners.",
+    },
+    {
+      name: "Toni Giglio",
+      title: "Senior Vice President of Market Access",
+      headshot: "/Toni Giglio.jpg",
+      bio: "Toni Giglio leads our market access strategy, developing innovative approaches to expand specialty pharmacy services and optimize patient access to critical medications. Her expertise in healthcare market dynamics and payer relationships drives sustainable growth and improved patient outcomes.",
+    },
+    {
+      name: "Arpit Parikh",
+      title: "Senior Vice President of Finance",
+      headshot: "/Arpit Parikh.jpg",
+      bio: "Arpit is a seasoned finance executive with 18 years of experience leading financial strategy across Fortune 50 corporations, high-growth technology startups, and healthcare organizations. He brings deep expertise in financial analysis, capital planning, and corporate development and strategy, with a consistent track record of aligning financial operations with enterprise-wide objectives to drive growth and long-term value creation.\n\nAt Longitude Rx, Arpit oversees all facets of financial operations, strategy, and planning. As the steward of the company's economic engine, he plays a critical role in shaping future-ready decisions that support innovation, scalability, and fiscal discipline. Prior to joining Longitude Rx, he served as Head of Finance at autonomous vehicle pioneer Cruise and held successive senior finance leadership roles at PepsiCo, where he led multi-billion-dollar initiatives across pricing, revenue management, and supply chain finance. He began his career as a management consultant at Accenture.\n\nArpit holds an MBA from Northwestern University's Kellogg School of Management and a BBA from the University of Texas at Austin's McCombs School of Business.",
+    },
+    {
+      name: "Jonathan Williams",
+      title: "Vice President of 340B Operations",
+      headshot: "/Jonathan Williams.png",
+      bio: "Jonathan Williams specializes in 340B program operations, ensuring compliance and optimization of this critical program for health system partners. His deep understanding of 340B regulations and operational requirements helps maximize program benefits while maintaining strict compliance standards.",
+    },
+    {
+      name: "Katie McMillen",
+      title: "Vice President of Market Access",
+      headshot: "/Katie McMillen.jpg",
+      bio: "Katie McMillen focuses on expanding market access opportunities and building strategic partnerships that enhance our specialty pharmacy capabilities. Her expertise in healthcare market dynamics and relationship management drives growth and improved patient access to specialty medications.",
+    },
+    {
+      name: "Rachel Bolton",
+      title: "Vice President of Human Resources",
+      headshot: "/Rachel Bolton.jpg",
+      bio: "Rachel Bolton serves as Vice President of Human Resources at Longitude Rx, where she leads the company's enterprise people strategy to enable growth, operational scale, and a high-performing culture. She oversees all HR functions, including talent acquisition, workforce planning, organizational development, employee engagement, performance management, and compliance.\n\nPrior to joining Longitude Rx, Rachel served as Associate Vice President of Talent Acquisition at OU Health, the state's only comprehensive academic health system. She led the transformation of enterprise-wide hiring operations, implemented data-driven strategies, and established system-wide job architecture and leveling frameworks. She integrated workforce planning with financial and operational forecasting and launched workforce development initiatives to strengthen retention and build career mobility.\n\nRachel holds both her undergraduate and graduate degree from the University of Oklahoma. She brings to Longitude Rx a performance-driven leadership approach grounded in operational rigor, strategic alignment, and a commitment to building scalable, people-first organizations.",
+    },
+    {
+      name: "Nicole Ostrowski",
+      title: "Executive Director of Strategy and Operations",
+      headshot: "/Nicole Ostrowski.png",
+      bio: "Nicole Ostrowski, Ph.D., currently serves as the Executive Director of Strategy & Operations at Longitude Rx, where she leads enterprise planning and operational execution to support strategic growth. Prior to this, she held several leadership roles at Highmark Health, including Director of Operations & Planning, where she partnered with senior executives to address over $16M in budget pressures within the Human Resources and internal consulting functions.\n\nNicole is known for her collaborative, adaptable leadership style and her ability to create structure in complex environments. She builds strong cross-functional relationships and consistently delivers results by aligning strategic vision with practical execution. She brings a unique blend of scientific rigor and business acumen to her work, supported by a strong foundation in project management, financial planning, and change leadership.\n\nNicole holds a Ph.D. in Bioengineering and a B.S. in Materials Science & Engineering from the University of Pittsburgh.",
+      linkedin: "https://www.linkedin.com/in/nicolejostrowski/",
+    },
   ]
 
   return (
@@ -280,43 +323,58 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-5xl">
-              Meet Our CEO
+              Meet Our Leadership Team
             </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
+              Industry pioneers and visionaries driving the future of specialty pharmacy optimization.
+            </p>
 
           </ScrollReveal>
 
-          {/* CEO Profile Layout */}
-          <div className="max-w-6xl mx-auto">
-            {leadershipTeam.map((member) => (
-              <div key={member.name} className="flex flex-col lg:flex-row gap-8 items-start">
-                {/* Headshot on the left */}
-                <div className="relative w-64 h-64 lg:w-80 lg:h-80 flex-shrink-0 mx-auto lg:mx-0">
-                  <Image
-                    src={member.headshot}
-                    alt={member.name}
-                    fill
-                    className="object-cover object-top rounded-full shadow-xl"
-                  />
-                </div>
-                
-                {/* Information on the right */}
-                <div className="flex-1 text-left">
-                  <h3 className="text-5xl font-bold mb-4 text-admiral-900 tracking-wide uppercase">{member.name}</h3>
-                  <p className="text-2xl text-ocean-600 mb-8 font-normal">{member.title}</p>
-                  <div className="max-w-none">
-                    <p className="text-gray-800 leading-relaxed whitespace-pre-line text-lg mb-8">{member.bio}</p>
+          {/* Leadership Team Grid */}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {leadershipTeam.map((member, index) => (
+                <ScrollReveal
+                  key={member.name}
+                  direction="up"
+                  delay={index * 0.1}
+                  className="group"
+                >
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 text-center group-hover:-translate-y-1 h-full flex flex-col">
+                    <div className="relative w-32 h-32 mx-auto mb-6">
+                      <Image
+                        src={member.headshot}
+                        alt={member.name}
+                        fill
+                        className="object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">
+                      {member.name}
+                    </h3>
+                    <p className="text-admiral-600 font-medium mb-4">
+                      {member.title}
+                    </p>
+                    <div className="flex-1 flex flex-col justify-between">
+                      <p className="text-admiral-600 text-sm leading-relaxed mb-4 text-left">
+                        {member.bio}
+                      </p>
+                      {member.linkedin && (
+                        <div className="mt-auto">
+                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" size="sm" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
+                              <Linkedin className="mr-2 h-4 w-4" />
+                              LinkedIn
+                            </Button>
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
-                        <Linkedin className="mr-2 h-4 w-4" />
-                        LinkedIn
-                      </Button>
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

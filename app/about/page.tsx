@@ -59,7 +59,7 @@ export default function AboutPage() {
     {
       name: "Arpit Parikh",
       title: "Senior Vice President of Finance",
-      headshot: "/Arpit Parikh New.jpg",
+      headshot: "/Arpit Parikh.jpg",
       bio: "Arpit is a seasoned finance executive with 18 years of experience leading financial strategy across Fortune 50 corporations, high-growth technology startups, and healthcare organizations. He brings deep expertise in financial analysis, capital planning, and corporate development and strategy, with a consistent track record of aligning financial operations with enterprise-wide objectives to drive growth and long-term value creation.\n\nAt Longitude Rx, Arpit oversees all facets of financial operations, strategy, and planning. As the steward of the company's economic engine, he plays a critical role in shaping future-ready decisions that support innovation, scalability, and fiscal discipline. Prior to joining Longitude Rx, he served as Head of Finance at autonomous vehicle pioneer Cruise and held successive senior finance leadership roles at PepsiCo, where he led multi-billion-dollar initiatives across pricing, revenue management, and supply chain finance. He began his career as a management consultant at Accenture.\n\nArpit holds an MBA from Northwestern University's Kellogg School of Management and a BBA from the University of Texas at Austin's McCombs School of Business.",
       linkedin: "https://www.linkedin.com/in/arpitparikh/",
     },

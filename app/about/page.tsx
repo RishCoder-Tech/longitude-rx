@@ -26,7 +26,7 @@ import {
   X,
 } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import { HealthcareLeadersScroll } from "@/components/healthcare-leaders-scroll"
 import Image from "next/image"

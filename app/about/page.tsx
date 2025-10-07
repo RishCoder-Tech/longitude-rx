@@ -63,7 +63,7 @@ export default function AboutPage() {
     {
       name: "Jonathan Williams",
       title: "Vice President of 340B Operations",
-      headshot: "/Jonathan Williams.png",
+      headshot: "/Jonathan Williams New.jpg",
       bio: "Jonathan Williams specializes in 340B program operations, ensuring compliance and optimization of this critical program for health system partners. His deep understanding of 340B regulations and operational requirements helps maximize program benefits while maintaining strict compliance standards.",
     },
     {

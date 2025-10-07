@@ -369,64 +369,66 @@ export default function AboutPage() {
           </div>
 
           {/* Modal */}
-          {selectedMember && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
-              >
-                <div className="flex flex-col lg:flex-row">
-                  {/* Left side - Photo */}
-                  <div className="lg:w-1/3 bg-gradient-to-br from-gypsum-100 to-gypsum-200 p-8 flex items-center justify-center">
-                    <div className="relative w-48 h-48">
-                      <Image
-                        src={selectedMember.headshot}
-                        alt={selectedMember.name}
-                        fill
-                        className="object-cover rounded-full shadow-xl"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Right side - Content */}
-                  <div className="lg:w-2/3 p-8 flex flex-col justify-between">
-                    <div>
-                      <h2 className="text-3xl font-bold font-outfit mb-2 text-admiral-900">
-                        {selectedMember.name}
-                      </h2>
-                      <p className="text-xl text-ocean-600 mb-6 font-medium">
-                        {selectedMember.title}
-                      </p>
-                      <div className="text-admiral-600 leading-relaxed whitespace-pre-line">
-                        {selectedMember.bio}
+          <AnimatePresence>
+            {selectedMember && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+                >
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Left side - Photo */}
+                    <div className="lg:w-1/3 bg-gradient-to-br from-gypsum-100 to-gypsum-200 p-8 flex items-center justify-center">
+                      <div className="relative w-48 h-48">
+                        <Image
+                          src={selectedMember.headshot}
+                          alt={selectedMember.name}
+                          fill
+                          className="object-cover rounded-full shadow-xl"
+                        />
                       </div>
                     </div>
                     
-                    <div className="flex justify-between items-center mt-8 pt-6 border-t border-gypsum-200">
-                      {selectedMember.linkedin && (
-                        <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
-                          <Button className="bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white">
-                            <Linkedin className="mr-2 h-4 w-4" />
-                            LinkedIn
-                          </Button>
-                        </a>
-                      )}
-                      <Button
-                        variant="outline"
-                        onClick={() => setSelectedMember(null)}
-                        className="text-admiral-700 border-admiral-300 hover:bg-admiral-50"
-                      >
-                        <X className="mr-2 h-4 w-4" />
-                        Close
-                      </Button>
+                    {/* Right side - Content */}
+                    <div className="lg:w-2/3 p-8 flex flex-col justify-between">
+                      <div>
+                        <h2 className="text-3xl font-bold font-outfit mb-2 text-admiral-900">
+                          {selectedMember.name}
+                        </h2>
+                        <p className="text-xl text-ocean-600 mb-6 font-medium">
+                          {selectedMember.title}
+                        </p>
+                        <div className="text-admiral-600 leading-relaxed whitespace-pre-line">
+                          {selectedMember.bio}
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-between items-center mt-8 pt-6 border-t border-gypsum-200">
+                        {selectedMember.linkedin && (
+                          <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
+                            <Button className="bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white">
+                              <Linkedin className="mr-2 h-4 w-4" />
+                              LinkedIn
+                            </Button>
+                          </a>
+                        )}
+                        <Button
+                          variant="outline"
+                          onClick={() => setSelectedMember(null)}
+                          className="text-admiral-700 border-admiral-300 hover:bg-admiral-50"
+                        >
+                          <X className="mr-2 h-4 w-4" />
+                          Close
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </div>
-          )}
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

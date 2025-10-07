@@ -47,24 +47,28 @@ export default function AboutPage() {
       title: "Senior Vice President of Operations",
       headshot: "/Sinthu Sinnadurai.jpg",
       bio: "Sinthu Sinnadurai brings extensive operational expertise to Longitude Rx, overseeing critical operational functions that drive efficiency and excellence across our specialty pharmacy services. With a proven track record in healthcare operations, Sinthu ensures our systems and processes deliver optimal outcomes for health system partners.",
+      linkedin: "https://www.linkedin.com/in/sinthusan/",
     },
     {
       name: "Toni Giglio",
       title: "Senior Vice President of Market Access",
       headshot: "/Toni Giglio.jpg",
       bio: "Toni Giglio leads our market access strategy, developing innovative approaches to expand specialty pharmacy services and optimize patient access to critical medications. Her expertise in healthcare market dynamics and payer relationships drives sustainable growth and improved patient outcomes.",
+      linkedin: "https://www.linkedin.com/in/tonigiglio/",
     },
     {
       name: "Arpit Parikh",
       title: "Senior Vice President of Finance",
       headshot: "/Arpit Parikh.jpg",
       bio: "Arpit is a seasoned finance executive with 18 years of experience leading financial strategy across Fortune 50 corporations, high-growth technology startups, and healthcare organizations. He brings deep expertise in financial analysis, capital planning, and corporate development and strategy, with a consistent track record of aligning financial operations with enterprise-wide objectives to drive growth and long-term value creation.\n\nAt Longitude Rx, Arpit oversees all facets of financial operations, strategy, and planning. As the steward of the company's economic engine, he plays a critical role in shaping future-ready decisions that support innovation, scalability, and fiscal discipline. Prior to joining Longitude Rx, he served as Head of Finance at autonomous vehicle pioneer Cruise and held successive senior finance leadership roles at PepsiCo, where he led multi-billion-dollar initiatives across pricing, revenue management, and supply chain finance. He began his career as a management consultant at Accenture.\n\nArpit holds an MBA from Northwestern University's Kellogg School of Management and a BBA from the University of Texas at Austin's McCombs School of Business.",
+      linkedin: "https://www.linkedin.com/in/arpitparikh/",
     },
     {
       name: "Jonathan Williams",
       title: "Vice President of 340B Operations",
       headshot: "/Jonathan Williams.png",
       bio: "Jonathan Williams specializes in 340B program operations, ensuring compliance and optimization of this critical program for health system partners. His deep understanding of 340B regulations and operational requirements helps maximize program benefits while maintaining strict compliance standards.",
+      linkedin: "https://www.linkedin.com/in/jonathan-williams-26a30286/",
     },
     {
       name: "Katie McMillen",
@@ -77,6 +81,7 @@ export default function AboutPage() {
       title: "Vice President of Human Resources",
       headshot: "/Rachel Bolton.jpg",
       bio: "Rachel Bolton serves as Vice President of Human Resources at Longitude Rx, where she leads the company's enterprise people strategy to enable growth, operational scale, and a high-performing culture. She oversees all HR functions, including talent acquisition, workforce planning, organizational development, employee engagement, performance management, and compliance.\n\nPrior to joining Longitude Rx, Rachel served as Associate Vice President of Talent Acquisition at OU Health, the state's only comprehensive academic health system. She led the transformation of enterprise-wide hiring operations, implemented data-driven strategies, and established system-wide job architecture and leveling frameworks. She integrated workforce planning with financial and operational forecasting and launched workforce development initiatives to strengthen retention and build career mobility.\n\nRachel holds both her undergraduate and graduate degree from the University of Oklahoma. She brings to Longitude Rx a performance-driven leadership approach grounded in operational rigor, strategic alignment, and a commitment to building scalable, people-first organizations.",
+      linkedin: "https://www.linkedin.com/in/rachel-bolton-mba-shrm-scp-7a8194126/",
     },
     {
       name: "Nicole Ostrowski",
@@ -90,6 +95,7 @@ export default function AboutPage() {
       title: "Senior Director, Specialty Pharmacy New Business Development",
       headshot: "/Tom Kotronis.jpg",
       bio: "With more than 20 years of experience in pharmacy operations and healthcare management, Thomas Kotronis is a seasoned executive known for his leadership in driving operational excellence and innovative business strategies within the healthcare and pharmacy industries. As Senior Director of Specialty Pharmacy New Business Development at Longitude Health, Thomas is at the forefront of expanding new business opportunities and enhancing the delivery of specialized pharmacy services.\n\nThroughout his career, Thomas has demonstrated an exceptional ability to lead large teams, optimize business operations, and drive sustainable growth. He has held senior leadership roles at prominent organizations, including Walgreens, CVS Health, and McKesson, where he successfully led initiatives to improve patient outcomes, boost regulatory compliance, and increase operational efficiency.\n\nAs Vice President of Pharmacy Operations at McKesson, Thomas spearheaded the strategic expansion of outpatient, specialty, and long-term care services across the U.S., Canada, Puerto Rico, and Hawaii. His leadership resulted in notable improvements in business development, patient care and regulatory performance, earning him several accolades, including the prestigious President's Award for Outstanding Leadership.\n\nIn addition to his corporate leadership roles, Thomas served as the Principal of Pharmacy Solutions Consulting, where he provided expert consulting services in outpatient, retail, long-term care, and specialty pharmacy operations. His expertise in pharmacy business transformation has made him a trusted advisor across multiple healthcare settings.\n\nA forward-thinking leader passionate about pharmacy innovation, Thomas is committed to shaping the future of healthcare by continuously exploring new opportunities to enhance service delivery. He holds a B.S. in Pharmaceutical Sciences from Wayne State University and is licensed as a pharmacist in Florida, Michigan, and New Jersey.",
+      linkedin: "https://www.linkedin.com/in/tom-kotronis/",
     },
   ]
 

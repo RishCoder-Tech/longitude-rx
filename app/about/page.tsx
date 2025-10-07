@@ -23,6 +23,7 @@ import {
   Linkedin,
   Rocket,
   Sparkles,
+  X,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -32,7 +33,7 @@ import Image from "next/image"
 
 
 export default function AboutPage() {
-  const [expandedBio, setExpandedBio] = useState<string | null>(null)
+  const [selectedMember, setSelectedMember] = useState<any>(null)
   const leadershipTeam = [
     {
       name: "Jigar Thakkar",
@@ -343,52 +344,89 @@ export default function AboutPage() {
                   delay={index * 0.1}
                   className="group"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 text-center group-hover:-translate-y-1">
-                    <div className="relative w-32 h-32 mx-auto mb-6">
+                  <div className="text-center group-hover:-translate-y-1 transition-transform duration-300">
+                    <button
+                      onClick={() => setSelectedMember(member)}
+                      className="relative w-32 h-32 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
+                    >
                       <Image
                         src={member.headshot}
                         alt={member.name}
                         fill
-                        className="object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
+                        className="object-cover rounded-full shadow-lg"
                       />
-                    </div>
+                    </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">
                       {member.name}
                     </h3>
-                    <p className="text-admiral-600 font-medium mb-4">
+                    <p className="text-admiral-600 font-medium">
                       {member.title}
                     </p>
-                    
-                    {/* Clickable Bio Section */}
-                    <div className="space-y-3">
-                      <button
-                        onClick={() => setExpandedBio(expandedBio === member.name ? null : member.name)}
-                        className="text-sm text-admiral-600 hover:text-admiral-800 font-medium transition-colors duration-200 underline"
-                      >
-                        {expandedBio === member.name ? 'Hide Bio' : 'Read Bio'}
-                      </button>
-                      
-                      {expandedBio === member.name && (
-                        <div className="text-left">
-                          <p className="text-admiral-600 text-sm leading-relaxed mb-4">
-                            {member.bio}
-                          </p>
-                          {member.linkedin && (
-                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                              <Button variant="outline" size="sm" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
-                                <Linkedin className="mr-2 h-4 w-4" />
-                                LinkedIn
-                              </Button>
-                            </a>
-                          )}
-                        </div>
-                      )}
-                    </div>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
+
+          {/* Modal */}
+          {selectedMember && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+              >
+                <div className="flex flex-col lg:flex-row">
+                  {/* Left side - Photo */}
+                  <div className="lg:w-1/3 bg-gradient-to-br from-gypsum-100 to-gypsum-200 p-8 flex items-center justify-center">
+                    <div className="relative w-48 h-48">
+                      <Image
+                        src={selectedMember.headshot}
+                        alt={selectedMember.name}
+                        fill
+                        className="object-cover rounded-full shadow-xl"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Right side - Content */}
+                  <div className="lg:w-2/3 p-8 flex flex-col justify-between">
+                    <div>
+                      <h2 className="text-3xl font-bold font-outfit mb-2 text-admiral-900">
+                        {selectedMember.name}
+                      </h2>
+                      <p className="text-xl text-ocean-600 mb-6 font-medium">
+                        {selectedMember.title}
+                      </p>
+                      <div className="text-admiral-600 leading-relaxed whitespace-pre-line">
+                        {selectedMember.bio}
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-between items-center mt-8 pt-6 border-t border-gypsum-200">
+                      {selectedMember.linkedin && (
+                        <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white">
+                            <Linkedin className="mr-2 h-4 w-4" />
+                            LinkedIn
+                          </Button>
+                        </a>
+                      )}
+                      <Button
+                        variant="outline"
+                        onClick={() => setSelectedMember(null)}
+                        className="text-admiral-700 border-admiral-300 hover:bg-admiral-50"
+                      >
+                        <X className="mr-2 h-4 w-4" />
+                        Close
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
         </div>
       </section>
 

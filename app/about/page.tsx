@@ -376,55 +376,62 @@ export default function AboutPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+                  className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col"
                 >
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Left side - Photo */}
-                    <div className="lg:w-1/3 bg-gradient-to-br from-gypsum-100 to-gypsum-200 p-8 flex items-center justify-center">
-                      <div className="relative w-48 h-48">
+                  {/* Header */}
+                  <div className="flex items-center justify-between p-6 border-b border-gypsum-200">
+                    <div className="flex items-center space-x-4">
+                      <div className="relative w-16 h-16">
                         <Image
                           src={selectedMember.headshot}
                           alt={selectedMember.name}
                           fill
-                          className="object-cover rounded-full shadow-xl"
+                          className="object-cover rounded-full shadow-lg"
                         />
                       </div>
-                    </div>
-                    
-                    {/* Right side - Content */}
-                    <div className="lg:w-2/3 p-8 flex flex-col justify-between">
                       <div>
-                        <h2 className="text-3xl font-bold font-outfit mb-2 text-admiral-900">
+                        <h2 className="text-2xl font-bold font-outfit text-admiral-900">
                           {selectedMember.name}
                         </h2>
-                        <p className="text-xl text-ocean-600 mb-6 font-medium">
+                        <p className="text-lg text-ocean-600 font-medium">
                           {selectedMember.title}
                         </p>
-                        <div className="text-admiral-600 leading-relaxed whitespace-pre-line">
+                      </div>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setSelectedMember(null)}
+                      className="text-admiral-700 border-admiral-300 hover:bg-admiral-50"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </div>
+
+                  {/* Scrollable Content */}
+                  <div className="flex-1 overflow-y-auto p-6">
+                    <div className="max-w-3xl mx-auto">
+                      <div className="prose prose-lg max-w-none">
+                        <div className="text-admiral-600 leading-relaxed whitespace-pre-line text-base">
                           {selectedMember.bio}
                         </div>
                       </div>
-                      
-                      <div className="flex justify-between items-center mt-8 pt-6 border-t border-gypsum-200">
-                        {selectedMember.linkedin && (
-                          <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
-                            <Button className="bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white">
-                              <Linkedin className="mr-2 h-4 w-4" />
-                              LinkedIn
-                            </Button>
-                          </a>
-                        )}
-                        <Button
-                          variant="outline"
-                          onClick={() => setSelectedMember(null)}
-                          className="text-admiral-700 border-admiral-300 hover:bg-admiral-50"
-                        >
-                          <X className="mr-2 h-4 w-4" />
-                          Close
-                        </Button>
-                      </div>
                     </div>
                   </div>
+
+                  {/* Footer with LinkedIn */}
+                  {selectedMember.linkedin && (
+                    <div className="p-6 border-t border-gypsum-200 bg-gypsum-50">
+                      <div className="flex justify-center">
+                        <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-gradient-to-r from-admiral-600 to-ocean-600 hover:from-admiral-500 hover:to-ocean-500 text-white px-8 py-3 text-lg font-semibold">
+                            <Linkedin className="mr-3 h-5 w-5" />
+                            Connect on LinkedIn
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             )}

@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -31,6 +32,7 @@ import Image from "next/image"
 
 
 export default function AboutPage() {
+  const [expandedBio, setExpandedBio] = useState<string | null>(null)
   const leadershipTeam = [
     {
       name: "Jigar Thakkar",
@@ -341,7 +343,7 @@ export default function AboutPage() {
                   delay={index * 0.1}
                   className="group"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 text-center group-hover:-translate-y-1 h-full flex flex-col">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300 text-center group-hover:-translate-y-1">
                     <div className="relative w-32 h-32 mx-auto mb-6">
                       <Image
                         src={member.headshot}
@@ -356,18 +358,29 @@ export default function AboutPage() {
                     <p className="text-admiral-600 font-medium mb-4">
                       {member.title}
                     </p>
-                    <div className="flex-1 flex flex-col justify-between">
-                      <p className="text-admiral-600 text-sm leading-relaxed mb-4 text-left">
-                        {member.bio}
-                      </p>
-                      {member.linkedin && (
-                        <div className="mt-auto">
-                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="sm" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
-                              <Linkedin className="mr-2 h-4 w-4" />
-                              LinkedIn
-                            </Button>
-                          </a>
+                    
+                    {/* Clickable Bio Section */}
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => setExpandedBio(expandedBio === member.name ? null : member.name)}
+                        className="text-sm text-admiral-600 hover:text-admiral-800 font-medium transition-colors duration-200 underline"
+                      >
+                        {expandedBio === member.name ? 'Hide Bio' : 'Read Bio'}
+                      </button>
+                      
+                      {expandedBio === member.name && (
+                        <div className="text-left">
+                          <p className="text-admiral-600 text-sm leading-relaxed mb-4">
+                            {member.bio}
+                          </p>
+                          {member.linkedin && (
+                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm" className="text-admiral-700 border-admiral-300 hover:bg-admiral-50">
+                                <Linkedin className="mr-2 h-4 w-4" />
+                                LinkedIn
+                              </Button>
+                            </a>
+                          )}
                         </div>
                       )}
                     </div>

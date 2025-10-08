@@ -348,7 +348,7 @@ export default function AboutPage() {
 
           {/* Leadership Team Grid */}
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {leadershipTeam.map((member, index) => (
                 <ScrollReveal
                   key={member.name}
@@ -359,13 +359,13 @@ export default function AboutPage() {
                   <div className="text-center group-hover:-translate-y-1 transition-transform duration-300">
                     <button
                       onClick={() => setSelectedMember(member)}
-                      className="relative w-32 h-32 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
+                      className="relative w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
                     >
                       <Image
                         src={member.headshot}
                         alt={member.name}
                         fill
-                        className="object-cover object-center object-[center_20%] rounded-full shadow-lg"
+                        className="object-cover object-center object-[center_30%] rounded-full shadow-lg border-4 border-white"
                       />
                     </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">

@@ -371,7 +371,7 @@ export default function AboutPage() {
                   <div className="text-center group-hover:-translate-y-1 transition-transform duration-300">
                     <button
                       onClick={() => setSelectedMember(member)}
-                      className="relative w-32 h-32 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
+                      className="relative w-40 h-40 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
                     >
                       <Image
                         src={member.headshot}

@@ -377,7 +377,7 @@ export default function AboutPage() {
                         src={member.headshot}
                         alt={member.name}
                         fill
-                        className="object-cover object-center object-[center_30%] rounded-full shadow-lg"
+                        className="object-cover object-center object-[center_30%] rounded-lg shadow-lg"
                       />
                     </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">

@@ -102,7 +102,12 @@ export default function AboutPage() {
       title: "Vice President of Strategic Operations",
       headshot: "/Avani Patel.png",
       bio: "Avani Patel is a seasoned healthcare executive with over 20 years of experience with the 340B program and Pharmacy Operations. Most recently, she served as Vice President at Optum Specialty Pharmacy, part of United Healthcare Group, where she led strategic initiatives to optimize 340B savings, expand pharmacy networks, and enhance operational performance across five business segments. As the escalated point of contact for all pharmacy-related matters, Avani played a pivotal role in aligning cross-functional teams and delivering high-impact solutions for health systems nationwide.\n\nHer career also includes leadership roles at Omnicell, Commcare Specialty Pharmacy, Life Extension Foundation, and RxStrategies (now Pillr Health), where she built and scaled pharmacy networks, managed multi-disciplinary teams, and spearheaded compliance and client success across contract pharmacy services. Avani is known for her deep expertise in 340B program development, inventory management, and client relations, as well as her ability to navigate complex regulatory landscapes and deliver measurable results.\n\nShe holds an MBA, a Bachelor's in Healthcare Administration, and is a certified Apexus 340B Expert. Avani's passion lies in transforming pharmacy operations to enhance patient care, streamline workflows, and empower healthcare organizations to thrive.",
-      linkedin: "https://www.linkedin.com/in/avani-patel/",
+      linkedin: "https://www.linkedin.com/in/avani-patel-mba-ace-3899118/",
+    },
+    {
+      name: "Shilpa Paul",
+      title: "Director of Product and Innovation",
+      headshot: "/Shilpa Patel.jpg",
     },
   ]
 
@@ -372,7 +377,7 @@ export default function AboutPage() {
                         src={member.headshot}
                         alt={member.name}
                         fill
-                        className="object-cover object-center object-[center_20%] rounded-full shadow-lg"
+                        className="object-cover object-center object-[center_30%] rounded-full shadow-lg"
                       />
                     </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">

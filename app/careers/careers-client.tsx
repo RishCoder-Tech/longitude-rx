@@ -303,11 +303,11 @@ export default function CareersClient() {
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section id="open-positions" className="w-full py-20 md:py-32">
+      {/* Open Positions - HIDDEN */}
+      {/* <section id="open-positions" className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            {/* <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Briefcase className="h-4 w-4 text-admiral-600" />
               <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
                 Open Positions
@@ -318,7 +318,7 @@ export default function CareersClient() {
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Explore our current openings and find the perfect role to grow your career with us.
-            </p> */}
+            </p>
           </ScrollReveal>
 
           {loading ? (
@@ -450,7 +450,7 @@ export default function CareersClient() {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* Job Application Form */}
       {selectedJob && (

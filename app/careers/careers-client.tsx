@@ -215,7 +215,7 @@ export default function CareersClient() {
                   jobsSection?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                View Open Positions Soon
+                No Current Positions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

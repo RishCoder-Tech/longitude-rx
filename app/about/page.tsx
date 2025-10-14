@@ -369,17 +369,17 @@ export default function AboutPage() {
                   className="group"
                 >
                   <div className="text-center group-hover:-translate-y-1 transition-transform duration-300">
-                    <button
-                      onClick={() => setSelectedMember(member)}
-                      className="relative w-40 h-40 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
-                    >
-                      <Image
-                        src={member.headshot}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-center object-[center_30%] rounded-lg shadow-lg"
-                      />
-                    </button>
+                      <button
+                        onClick={() => setSelectedMember(member)}
+                        className="relative w-32 h-32 mx-auto mb-6 block group-hover:scale-105 transition-transform duration-300"
+                      >
+                        <Image
+                          src={member.headshot}
+                          alt={member.name}
+                          fill
+                          className="object-cover object-center object-[center_25%] rounded-full shadow-lg"
+                        />
+                      </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">
                       {member.name}
                     </h3>
@@ -424,7 +424,7 @@ export default function AboutPage() {
                           src={selectedMember.headshot}
                           alt={selectedMember.name}
                           fill
-                          className="object-cover object-center object-[center_20%] rounded-full shadow-lg"
+                          className="object-cover object-center object-[center_25%] rounded-full shadow-lg"
                         />
                       </div>
                       

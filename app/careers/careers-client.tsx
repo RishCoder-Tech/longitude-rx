@@ -191,12 +191,12 @@ export default function CareersClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-admiral-50 via-white to-gypsum-50"></div>
         <div className="relative container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+            {/* <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Briefcase className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
                 Join Our Team
               </span>
-            </div>
+            </div> */}
             <h1 className="text-4xl md:text-6xl font-bold font-outfit text-admiral-900 leading-tight">
               Build the Future of
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-600 to-ocean-600 bg-clip-text text-transparent">
@@ -215,7 +215,7 @@ export default function CareersClient() {
                   jobsSection?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                View Open Positions
+                View Open Positions Soon
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -307,7 +307,7 @@ export default function CareersClient() {
       <section id="open-positions" className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+            {/* <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Briefcase className="h-4 w-4 text-admiral-600" />
               <span className="text-sm font-semibold text-admiral-800 font-space-grotesk tracking-wide">
                 Open Positions
@@ -318,7 +318,7 @@ export default function CareersClient() {
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Explore our current openings and find the perfect role to grow your career with us.
-            </p>
+            </p> */}
           </ScrollReveal>
 
           {loading ? (

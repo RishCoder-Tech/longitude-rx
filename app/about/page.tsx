@@ -564,7 +564,7 @@ export default function AboutPage() {
               </span>
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-normal"
               initial={{ backgroundPosition: "0% 50%" }}
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}

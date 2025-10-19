@@ -272,8 +272,8 @@ export default function AboutPage() {
       </section>
 
       {/* We're not just a platform, we're a partner Section */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container px-6 md:px-8">
+      <section className="w-full py-20 md:py-32 overflow-visible">
+        <div className="container px-6 md:px-8 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Building className="h-4 w-4 text-ocean-600" />
@@ -281,7 +281,7 @@ export default function AboutPage() {
                 WHY WE'RE DIFFERENT
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               We're not just a platform, we're a partner  
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">

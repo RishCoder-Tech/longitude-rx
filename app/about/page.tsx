@@ -153,8 +153,8 @@ export default function AboutPage() {
       </section>
 
       {/* Founding Partners Section */}
-      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
-        <div className="container px-6 md:px-8">
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm overflow-visible">
+        <div className="container px-6 md:px-8 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Building className="h-4 w-4 text-ocean-600" />
@@ -162,7 +162,7 @@ export default function AboutPage() {
                 FOUNDING PARTNERS
                   </span>
                 </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-4xl">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent max-w-4xl leading-loose pb-4">
               Longitude Health
                 </h2>
             <p className="text-xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk">
@@ -519,7 +519,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section - replaced with homepage version */}
-      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-visible">
         <div className="absolute inset-0">
           <Image
             src="/images/medical-innovation.jpg"
@@ -547,7 +547,7 @@ export default function AboutPage() {
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
           />
         </div>
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
             <motion.div
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
@@ -564,7 +564,7 @@ export default function AboutPage() {
               </span>
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-normal"
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-loose pb-4"
               initial={{ backgroundPosition: "0% 50%" }}
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}

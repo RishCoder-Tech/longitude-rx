@@ -196,7 +196,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
+      <section className="w-full py-20 md:py-32 relative overflow-visible bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://media.istockphoto.com/id/1250152635/photo/medicine-doctor-holding-electronic-medical-and-record-on-tablet-dna-digital-healthcare-and.jpg"
@@ -227,7 +227,7 @@ export default function ServicesPage() {
           />
         </div>
 
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-5xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-admiral-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Zap className="h-4 w-4 text-admiral-600" />
@@ -235,7 +235,7 @@ export default function ServicesPage() {
                 OUR SERVICES
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               Comprehensive Solutions for Revolutionizing Specialty Pharmacy
             </h1>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
@@ -307,7 +307,7 @@ export default function ServicesPage() {
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6 leading-loose pb-4">
               Powered by Advanced Technology
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl mx-auto font-space-grotesk">
@@ -335,7 +335,7 @@ export default function ServicesPage() {
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6 leading-loose pb-4">
               Why Choose Longitude Rx?
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl mx-auto font-space-grotesk">
@@ -377,7 +377,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section - replaced with homepage version */}
-      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-visible">
         <div className="absolute inset-0">
           <Image
             src="/images/medical-innovation.jpg"
@@ -405,7 +405,7 @@ export default function ServicesPage() {
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
           />
         </div>
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
             <motion.div
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
@@ -422,7 +422,7 @@ export default function ServicesPage() {
               </span>
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-normal"
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-loose pb-4"
               initial={{ backgroundPosition: "0% 50%" }}
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}

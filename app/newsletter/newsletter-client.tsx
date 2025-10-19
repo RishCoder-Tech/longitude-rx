@@ -291,7 +291,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
   return (
     <div className="flex flex-col min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-hidden bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
+      <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-visible bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/healthcare-collaboration.jpg"
@@ -301,7 +301,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
           />
           <div className="absolute inset-0 bg-gradient-to-br from-gypsum-50/90 via-white/95 to-gypsum-100/90" />
         </div>
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <motion.div
             className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -314,7 +314,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
                 NEWS & INSIGHTS
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-loose pb-4">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
                 Longitude Rx Newsroom
               </span>
@@ -365,7 +365,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
                 LATEST ARTICLES
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               Featured Content
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
@@ -439,7 +439,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
                   WEBINARS
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-outfit font-bold text-admiral-900">
+              <h2 className="text-3xl md:text-5xl font-outfit font-bold text-admiral-900 leading-loose pb-4">
                 Upcoming & On-Demand Webinars
               </h2>
               <p className="text-xl text-admiral-600 max-w-2xl leading-relaxed font-space-grotesk">
@@ -508,7 +508,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
       )}
 
       {/* CTA Section - replaced with homepage version */}
-      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-visible">
         <div className="absolute inset-0">
           <Image
             src="/images/medical-innovation.jpg"
@@ -536,7 +536,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
           />
         </div>
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
             <motion.div
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
@@ -553,7 +553,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
               </span>
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-normal"
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-loose pb-4"
               initial={{ backgroundPosition: "0% 50%" }}
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}

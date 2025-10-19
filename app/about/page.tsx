@@ -101,6 +101,8 @@ export default function AboutPage() {
       name: "Shilpa Paul",
       title: "Director of Product and Innovation",
       headshot: "/Shilpa Patel.jpg",
+      bio: "With over a decade of experience in hematology/oncology pharmacy, Shilpa is passionate about transforming patient care through innovation. A board-certified hematology/oncology pharmacist trained at Yale–New Haven Hospital and the University of Utah Huntsman Cancer Institute, Shilpa spent ten years at The University of Texas MD Anderson Cancer Center specializing in leukemia.\n\nThroughout their clinical career, Shilpa has authored over 60 publications and shared insights globally through lectures, presentations, and collaborations that advanced cancer care.\n\nNow as Director of Product & Innovation at Longitude Rx, Shilpa is combining deep clinical expertise with a vision for technology-enabled care. Her mission is to build solutions that address the real-world pain points clinicians, health system specialty pharmacies, and patients face, streamlining care, enhancing outcomes, and ensuring that innovation translates into better patient care and outcomes.",
+      linkedin: "https://www.linkedin.com/in/shilpa-paul-pharmd-bcop-571487b0/",
     },
     {
       name: "Nicole Ostrowski",

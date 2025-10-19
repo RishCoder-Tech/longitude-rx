@@ -448,7 +448,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="w-full py-10 md:py-16 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-hidden">
+      <section className="w-full py-10 md:py-16 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-visible">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -480,7 +480,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
           />
         </div>
 
-        <div className="container px-6 md:px-8 relative z-10">
+        <div className="container px-6 md:px-8 relative z-10 pb-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
             <motion.div
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
@@ -497,7 +497,7 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
               </span>
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-normal"
+              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-loose pb-4"
               initial={{ backgroundPosition: "0% 50%" }}
               animate={{ backgroundPosition: "100% 50%" }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}

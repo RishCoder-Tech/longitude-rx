@@ -211,11 +211,10 @@ export default function CareersClient() {
                 size="lg"
                 className="bg-gradient-to-r from-rhodamine-500 to-gulf-500 hover:from-rhodamine-600 hover:to-gulf-600 text-white px-8 py-3 text-lg"
                 onClick={() => {
-                  const jobsSection = document.getElementById('open-positions')
-                  jobsSection?.scrollIntoView({ behavior: 'smooth' })
+                  window.open('https://wd108.myworkdaysite.com/recruiting/longituderx/LRX', '_blank')
                 }}
               >
-                No Current Positions
+                Open Positions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

@@ -197,7 +197,7 @@ export default function AboutPage() {
                   year: "2024",
                   title: "Formation of Longitude Health",
                   description:
-                    "Four major health systems unite to create Longitude Health, establishing the foundation for collaborative specialty medicine cost optimization.",
+                    "Non-profit health systems unite to create Longitude Health, building solutions to address the most complex challenges and opportunities for health systems.",
                   icon: Building,
                   gradient: "from-rhodamine-500 to-gulf-500",
                   side: "left",
@@ -206,16 +206,16 @@ export default function AboutPage() {
                   year: "Early 2025",
                   title: "Launch of Longitude Rx",
                   description:
-                    "Revolutionary AI-powered specialty medicine cost optimization platform launches, marking the beginning of a new era in healthcare economics.",
+                    "Pioneering specialty pharmacy service created to enhance health systems' specialty pharmacy operations, financial performance, and clinical outcomes.",
                   icon: Rocket,
                   gradient: "from-gulf-500 to-ocean-500",
                   side: "right",
                 },
                 {
-                  year: "Future",
-                  title: "Global Cost Optimization",
+                  year: "Late 2025",
+                  title: "Establish Specialty Pharmacy Platform",
                   description:
-                    "Expanding partnerships and AI capabilities to revolutionize specialty medicine cost management worldwide.",
+                    "Unified, tech-enabled specialty pharmacy platform transforms fragmented care into a connected patient journey",
                   icon: Globe,
                   gradient: "from-ocean-500 to-admiral-500",
                   side: "left",

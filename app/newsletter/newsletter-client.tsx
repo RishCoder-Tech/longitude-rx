@@ -2,21 +2,27 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, X, Calendar, Tag, Clock, Video, Send, Sparkles } from "lucide-react";
+import { Mail, ArrowRight, X, Calendar, Tag, Clock, Video, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { ScrollReveal } from "@/components/scroll-animations";
 
+// TypeScript declaration for Tally
+declare global {
+  interface Window {
+    Tally?: {
+      loadEmbeds: () => void
+    }
+  }
+}
+
 export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: any[], webinars: any[] }) {
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [tallyLoaded, setTallyLoaded] = useState(false);
 
   const handleReadMore = (article: any) => {
     setSelectedArticle(article);
@@ -28,40 +34,37 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
     setSelectedArticle(null);
   };
 
-  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
-
-    const formData = new FormData(e.currentTarget);
-    formData.append('source', 'Newsletter Page');
-
-    try {
-      const response = await fetch('/api/newsletter-subscription', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        setSubmitStatus('success');
-        e.currentTarget.reset();
-        setTimeout(() => setSubmitStatus('idle'), 5000);
-      } else {
-        setSubmitStatus('error');
-        setErrorMessage(result.error || 'Failed to subscribe. Please try again.');
-        setTimeout(() => setSubmitStatus('idle'), 5000);
+  // Load Tally script
+  useEffect(() => {
+    const loadTallyScript = () => {
+      if (typeof window !== 'undefined' && !window.Tally) {
+        const script = document.createElement('script')
+        script.src = 'https://tally.so/widgets/embed.js'
+        script.async = true
+        script.onload = () => {
+          if (window.Tally) {
+            window.Tally.loadEmbeds()
+            setTallyLoaded(true)
+          }
+        }
+        script.onerror = () => {
+          console.error('Failed to load Tally script')
+          // Fallback: try to load the iframe directly
+          const iframe = document.querySelector('iframe[data-tally-src]') as HTMLIFrameElement
+          if (iframe && iframe.dataset.tallySrc) {
+            iframe.src = iframe.dataset.tallySrc
+            setTallyLoaded(true)
+          }
+        }
+        document.body.appendChild(script)
+      } else if (window.Tally) {
+        window.Tally.loadEmbeds()
+        setTallyLoaded(true)
       }
-    } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage('Network error. Please check your connection and try again.');
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    } finally {
-      setIsSubmitting(false);
     }
-  };
+
+    loadTallyScript()
+  }, [])
 
 
 
@@ -323,34 +326,26 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
               Stay ahead with the latest news, expert insights, and educational webinars in specialty pharmacy innovation.
             </p>
             
-            {/* Email Subscription Box */}
+            {/* Tally Email Subscription Form */}
             <div className="w-full max-w-md mx-auto pt-8">
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 border-admiral-200 focus:border-admiral-400 bg-white/80 backdrop-blur-sm"
-                  required
-                />
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-gradient-to-r from-rhodamine-500 to-gulf-600 hover:from-rhodamine-600 hover:to-gulf-700 text-white px-6 disabled:opacity-50"
-                >
-                  {isSubmitting ? (
-                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                  ) : (
-                    <Send className="h-4 w-4" />
-                  )}
-                </Button>
-              </form>
-              {submitStatus === 'success' && (
-                <p className="text-green-600 text-sm mt-2 text-center">✅ Successfully subscribed!</p>
+              {!tallyLoaded && (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rhodamine-500"></div>
+                  <span className="ml-3 text-admiral-600">Loading form...</span>
+                </div>
               )}
-              {submitStatus === 'error' && (
-                <p className="text-red-600 text-sm mt-2 text-center">❌ {errorMessage}</p>
-              )}
+              <iframe 
+                data-tally-src="https://tally.so/embed/1AA5G4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" 
+                loading="lazy" 
+                width="100%" 
+                height={200} 
+                frameBorder="0" 
+                marginHeight={0} 
+                marginWidth={0} 
+                title="Newsroom Email Subscription"
+                className={`w-full ${tallyLoaded ? 'block' : 'hidden'}`}
+                onLoad={() => setTallyLoaded(true)}
+              />
             </div>
           </motion.div>
         </div>

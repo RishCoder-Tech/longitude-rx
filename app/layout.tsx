@@ -94,6 +94,14 @@ export default function RootLayout({
         </Script>
         {/* End Google tag (gtag.js) */}
 
+        {/* Start of HubSpot Embed Code */}
+        <Script
+          id="hs-script-loader"
+          strategy="afterInteractive"
+          src="//js.hs-scripts.com/50564645.js"
+        />
+        {/* End of HubSpot Embed Code */}
+
         {/* Favicon */}
         <link rel="icon" type="image/png" href="/images/longitude-logo.png" />
       </head>

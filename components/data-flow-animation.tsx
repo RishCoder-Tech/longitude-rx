@@ -24,7 +24,7 @@ const dataSources = [
     id: "pharmacy",
     name: "Pharmacy",
     icon: Pill,
-    color: "from-pink-500 to-pink-600",
+    color: "from-rhodamine-500 to-rhodamine-600",
     description:
       "Medication dispensing records, prescription history, adherence data, and specialty pharmacy fulfillment information.",
   },
@@ -32,7 +32,7 @@ const dataSources = [
     id: "claims",
     name: "Claims",
     icon: FileText,
-    color: "from-blue-500 to-blue-600",
+    color: "from-rhodamine-400 to-gulf-500",
     description:
       "Insurance claims data including procedure codes, diagnosis codes, service dates, and reimbursement information.",
   },
@@ -40,7 +40,7 @@ const dataSources = [
     id: "emrs",
     name: "EMRs",
     icon: Database,
-    color: "from-cyan-500 to-cyan-600",
+    color: "from-gulf-500 to-ocean-500",
     description:
       "Electronic Medical Records containing patient history, clinical notes, treatment plans, and provider documentation.",
   },
@@ -48,7 +48,7 @@ const dataSources = [
     id: "wholesaler",
     name: "Wholesaler",
     icon: Users,
-    color: "from-teal-500 to-teal-600",
+    color: "from-ocean-500 to-ocean-400",
     description:
       "Data from pharmaceutical wholesalers, including inventory, distribution, and supply chain logistics.",
   },
@@ -56,7 +56,7 @@ const dataSources = [
     id: "340b",
     name: "340B TPA",
     icon: Heart,
-    color: "from-green-500 to-green-600",
+    color: "from-ocean-400 to-gulf-300",
     description:
       "340B program data including eligibility, claims, and compliance information for specialty pharmacy optimization.",
   },
@@ -64,7 +64,7 @@ const dataSources = [
     id: "thirdparty",
     name: "Third-party Data",
     icon: BarChart,
-    color: "from-orange-500 to-orange-600",
+    color: "from-gulf-300 to-gypsum-200",
     description:
       "External datasets including demographic information, geographic data, and public health statistics for enriched analysis.",
   },
@@ -497,7 +497,7 @@ export default function DataFlowAnimation() {
   return (
     <div
       ref={ref}
-      className="w-full bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
+      className="w-full bg-gradient-to-br from-slate-900 via-rhodamine-900/30 to-ocean-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -550,91 +550,89 @@ export default function DataFlowAnimation() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Data Sources */}
-          <motion.div
-            className="lg:col-span-2 space-y-3"
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {dataSources.map((source, index) => (
-              <motion.button
-                key={source.id}
-                className="flex items-center space-x-3 p-3 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 relative group w-full text-left"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                whileHover={{ scale: 1.02, x: 5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => handleSourceClick(source.id)}
+        {/* Data Sources - Horizontal Layout */}
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12"
+          initial={{ opacity: 0, y: -30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {dataSources.map((source, index) => (
+            <motion.button
+              key={source.id}
+              className="flex flex-col items-center p-4 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 relative group text-center"
+              initial={{ opacity: 0, y: -20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => handleSourceClick(source.id)}
+            >
+              <div
+                className={`w-12 h-12 rounded-lg bg-gradient-to-br ${source.color} flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}
               >
-                <div
-                  className={`w-8 h-8 rounded-lg bg-gradient-to-br ${source.color} flex items-center justify-center flex-shrink-0 shadow-lg`}
+                <source.icon className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-sm font-medium font-space-grotesk text-slate-200">{source.name}</span>
+
+              {/* Arrow pointing down to Process Flow */}
+              <div className="absolute bottom-0 left-1/2 w-px h-8 bg-gradient-to-b from-slate-600 to-transparent transform -translate-x-1/2 translate-y-full" />
+              <div className="absolute bottom-0 left-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-slate-600 transform -translate-x-1/2 translate-y-full" />
+
+              {/* Flowing data dot */}
+              <DataFlowDot startDelay={index * 0.3} duration={1.5} isActive={dataFlowActive} />
+            </motion.button>
+          ))}
+        </motion.div>
+
+        {/* Process Flow */}
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-6">
+            {processSteps.map((step, index) => (
+              <div key={step.id} className="flex flex-col items-center relative">
+                {/* Step Card */}
+                <motion.button
+                  onClick={() => handleStepClick(step.id)}
+                  className={`relative p-6 rounded-2xl border-2 transition-all duration-500 w-48 h-64 flex flex-col cursor-pointer group ${
+                    selectedStep === step.id
+                      ? "bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 shadow-2xl shadow-blue-500/25 scale-105"
+                      : "bg-slate-800/30 border-slate-700/50 hover:border-slate-600/50 hover:bg-slate-800/50"
+                  }`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <source.icon className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-sm font-medium font-space-grotesk text-slate-200">{source.name}</span>
+                  {/* Pattern Display */}
+                  <div className="mb-4 flex justify-center h-20 items-center">
+                    <PatternDisplay pattern={step.pattern} isActive={selectedStep === step.id} />
+                  </div>
 
-                {/* Arrow to Integrate */}
-                <div className="absolute right-0 top-1/2 w-12 h-px bg-slate-600 transform -translate-y-1/2" />
-                <div className="absolute right-0 top-1/2 w-0 h-0 border-t-4 border-r-4 border-b-4 border-transparent border-r-slate-600 border-t-transparent border-b-transparent transform -translate-y-1/2" />
+                  {/* Step Content */}
+                  <div className="text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-xl font-bold font-outfit mb-3 text-white">{step.title}</h4>
+                      <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
 
-                {/* Flowing data dot */}
-                <DataFlowDot startDelay={index * 0.3} duration={1.5} isActive={dataFlowActive} />
-              </motion.button>
+                  {/* Click indicator */}
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+
+                {/* Connection Line and Data Flow */}
+                {index < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-12 w-24 h-px bg-gradient-to-r from-slate-600 to-slate-600 transform -translate-y-1/2">
+                    {/* Arrow */}
+                    <div className="absolute right-0 top-1/2 w-0 h-0 border-l-4 border-l-slate-600 border-t-2 border-b-2 border-t-transparent border-b-transparent transform -translate-y-1/2" />
+
+                    {/* Flowing data dot */}
+                    <DataFlowDot startDelay={1 + index * 0.4} duration={1.2} isActive={dataFlowActive} />
+                  </div>
+                )}
+              </div>
             ))}
-          </motion.div>
-
-          {/* Process Flow */}
-          <div className="lg:col-span-10">
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-6">
-              {processSteps.map((step, index) => (
-                <div key={step.id} className="flex flex-col items-center relative">
-                  {/* Step Card */}
-                  <motion.button
-                    onClick={() => handleStepClick(step.id)}
-                    className={`relative p-6 rounded-2xl border-2 transition-all duration-500 w-48 h-64 flex flex-col cursor-pointer group ${
-                      selectedStep === step.id
-                        ? "bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 shadow-2xl shadow-blue-500/25 scale-105"
-                        : "bg-slate-800/30 border-slate-700/50 hover:border-slate-600/50 hover:bg-slate-800/50"
-                    }`}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                    whileHover={{ y: -5 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {/* Pattern Display */}
-                    <div className="mb-4 flex justify-center h-20 items-center">
-                      <PatternDisplay pattern={step.pattern} isActive={selectedStep === step.id} />
-                    </div>
-
-                    {/* Step Content */}
-                    <div className="text-center flex-1 flex flex-col justify-between">
-                      <div>
-                        <h4 className="text-xl font-bold font-outfit mb-3 text-white">{step.title}</h4>
-                        <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed">{step.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Click indicator */}
-                    <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.button>
-
-                  {/* Connection Line and Data Flow */}
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-12 w-24 h-px bg-gradient-to-r from-slate-600 to-slate-600 transform -translate-y-1/2">
-                      {/* Arrow */}
-                      <div className="absolute right-0 top-1/2 w-0 h-0 border-l-4 border-l-slate-600 border-t-2 border-b-2 border-t-transparent border-b-transparent transform -translate-y-1/2" />
-
-                      {/* Flowing data dot */}
-                      <DataFlowDot startDelay={1 + index * 0.4} duration={1.2} isActive={dataFlowActive} />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

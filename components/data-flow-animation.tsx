@@ -58,7 +58,7 @@ const dataSources = [
     icon: Heart,
     color: "from-ocean-400 to-gulf-300",
     description:
-      "340B program data including eligibility, claims, and compliance information for specialty pharmacy optimization.",
+      "340B third-party administrator data including eligibility, claims, and compliance information for specialty pharmacy optimization.",
   },
   {
     id: "thirdparty",
@@ -161,7 +161,7 @@ const outcomes = [
     icon: TrendingUp,
     color: "from-blue-500 to-blue-600",
     description:
-      "Enable health systems to bring specialty meds in-house, overcoming prior-auth delays, financing hurdles, and fragmented networks—leading to faster starts, fewer drop-offs, and better medication adherence.",
+      "Enable health systems to build end-to-end visibility of the specialty pharmacy patient journey, reducing prior authorization delays and financial hurdles and integrating fragmented data sources. Build faster processes and reduce medication non-compliance.",
     source: "darwinresearch.com",
   },
   {
@@ -170,7 +170,7 @@ const outcomes = [
     icon: Brain,
     color: "from-purple-500 to-purple-600",
     description:
-      "Build integrated specialty pharmacy hubs with pharmacists and care teams working side-by-side with providers—supporting complex therapies from cell & gene treatments to rare-disease meds. This improves monitoring, adjustments, and patient experience.",
+      "Embedded care and central hub teams, comprised of experienced pharmacists and care coordinators, work side-by-side with providers, supporting complex therapies from cell & gene treatments to rare-disease meds. This improves monitoring, adjustments, and patient experience.",
     source: "hcinnovationgroup.com",
   },
   {
@@ -179,7 +179,7 @@ const outcomes = [
     icon: Shield,
     color: "from-cyan-500 to-cyan-600",
     description:
-      "Turn specialty pharmacy into a clinical and financial asset—capturing up to 20% of net patient revenue, managing drug shortages, reducing costs, and scaling smart operations across health systems.",
+      "Turn specialty pharmacy into a clinical and financial asset. Capture up to 20% of net patient service revenue, manage drug shortages, reduce costs, and scale smart operations across health systems.",
   },
 ]
 

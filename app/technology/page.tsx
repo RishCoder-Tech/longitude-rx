@@ -272,7 +272,8 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
-              Your Health System's success, amplified by our partnership
+              Your Health System's success,<br />
+              amplified by our partnership
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Innovaccer's healthcare intelligence platform combined with Longitude Rx's deep clinical and operational experience to optimize your specialty pharmacy performance.
@@ -335,8 +336,17 @@ export default function SolutionsPage() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="up" className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-ocean-50 to-gulf-50 backdrop-blur-sm border border-ocean-200">
+          <ScrollReveal direction="up" className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+            <div className="flex-shrink-0">
+              <Image
+                src="/gravity logo.jpeg"
+                alt="Gravity by Innovaccer logo"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-ocean-50 to-gulf-50 backdrop-blur-sm border border-ocean-200 flex-1">
               <CardHeader>
                 <CardTitle className="text-2xl font-outfit font-bold text-admiral-900 mb-4">
                   Gravity by Innovaccer

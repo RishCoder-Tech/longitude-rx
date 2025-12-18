@@ -78,7 +78,7 @@ export default function SolutionsPage() {
                 Longitude Rx powered by
               </span>
               <Image
-                src="/images/innovaccer-gravity-logo.png"
+                src="/gravity logo.jpeg"
                 alt="Innovaccer Gravity"
                 width={200}
                 height={60}

@@ -58,12 +58,14 @@ export default function ContactPage() {
     loadTallyScript()
   }, [])
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index)
-    trackInteraction('faq_toggle', {
-      faq_index: index,
-      is_open: openFaq !== index,
-      faq_question: faqs[index].question
+  // Helper function to render text with bold formatting (**text** becomes <strong>text</strong>)
+  const renderAnswer = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g)
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} className="font-semibold text-slate-800">{part.slice(2, -2)}</strong>
+      }
+      return <span key={index}>{part}</span>
     })
   }
 
@@ -79,6 +81,26 @@ export default function ContactPage() {
         "Our AI-powered technology provides comprehensive solutions including predictive analytics, automated workflows, real-time synchronization, and advanced business intelligence. We help health systems reduce costs, improve patient outcomes, and streamline operations.",
     },
     {
+      question: "How does this solution differentiate itself from standard 340B optimization software?",
+      answer:
+        "Unlike standard 340B software vendors, our platform provides comprehensive management for the **complete specialty pharmacy lifecycle**. This includes every stage: from prescription intake, precise prior authorization, and financial assistance coordination, through to dispensing and medication adherence monitoring.",
+    },
+    {
+      question: "Is the specialty pharmacy platform compatible with existing EMR and dispensing systems?",
+      answer:
+        "Yes, we focus on seamless interoperability. We utilize pre-built **integrations with major EMR providers** and support modern, standardized HL7/FHIR protocols for efficient, bidirectional data exchange across your electronic health records, billing, and dispensing systems.",
+    },
+    {
+      question: "What is the typical implementation timeline for the platform?",
+      answer:
+        "By leveraging our validated playbooks and extensive pre-built data integrations, initial modules can typically reach **go-live in 8–12 weeks**. The full deployment is modular, allowing you to phase the rollout according to your organization's highest priorities.",
+    },
+    {
+      question: "Can we implement specific modules (e.g., PA or 340B) first and then expand later?",
+      answer:
+        "Absolutely. Our architecture supports **phased, modular deployment**. Most organizations achieve immediate impact by starting with critical areas like prior authorization optimization or 340B program management, and then strategically expanding to other modules as operational value is proven.",
+    },
+    {
       question: "When will the full Longitude Rx technology be available?",
       answer:
         "The revolutionary Longitude Rx technology is launching in late 2025. We're currently onboarding select healthcare partners for our beta program. Contact us to learn about early access opportunities and how you can be part of the healthcare revolution.",
@@ -89,6 +111,15 @@ export default function ContactPage() {
         "We're actively seeking visionary healthcare organizations to join our network. If you're interested in partnering with Longitude Rx, please contact us through this form or email us directly. We'll schedule a consultation to discuss how we can help revolutionize your specialty pharmacy operations.",
     },
   ]
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index)
+    trackInteraction('faq_toggle', {
+      faq_index: index,
+      is_open: openFaq !== index,
+      faq_question: faqs[index].question
+    })
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -282,7 +313,7 @@ export default function ContactPage() {
               Everything You Need to Know
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Get answers to common questions about Longitude Rx and our revolutionary healthcare technology.
+              Get answers to common questions about our specialty pharmacy platform.
             </p>
           </motion.div>
 
@@ -322,7 +353,7 @@ export default function ContactPage() {
                         transition={{ duration: 0.3 }}
                         className="border-t border-slate-100 pt-4"
                       >
-                        <p className="text-slate-600 leading-relaxed font-space-grotesk">{faq.answer}</p>
+                        <p className="text-slate-600 leading-relaxed font-space-grotesk">{renderAnswer(faq.answer)}</p>
                       </motion.div>
                     </CardContent>
                   )}

@@ -618,9 +618,18 @@ export default function DataFlowAnimation() {
                   whileHover={{ y: -5 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {/* Pattern Display */}
+                  {/* Icon Display */}
                   <div className="mb-4 flex justify-center h-20 items-center">
-                    <PatternDisplay pattern={step.pattern} isActive={selectedStep === step.id} />
+                    <motion.div
+                      className={`flex items-center justify-center transition-all duration-300 ${
+                        selectedStep === step.id ? "scale-110" : "scale-100"
+                      }`}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: selectedStep === step.id ? 1.1 : 1, opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <step.icon className={`w-12 h-12 text-white ${selectedStep === step.id ? "opacity-100" : "opacity-70"}`} />
+                    </motion.div>
                   </div>
 
                   {/* Step Content */}

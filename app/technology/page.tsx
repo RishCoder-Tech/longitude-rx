@@ -210,31 +210,31 @@ export default function SolutionsPage() {
             {[
               {
                 icon: Zap,
-                title: "Automated Workflows",
+                title: "Unified Specialty Pharmacy Platform",
                 description: "Workflows driven by clear protocols for specialty prescriptions with automated handoffs between tasks.",
                 gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Network,
-                title: "Data Integration",
+                title: "Reduced Administrative Burden",
                 description: "System data integration across EMR, TPA, Payers and wholesalers.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: Target,
-                title: "Single Source",
+                title: "End-to-End transparency",
                 description: "Integrated system data becomes single source of truth driving transparency across the patient journey.",
                 gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: BarChart3,
-                title: "Prioritized Worklists",
+                title: "340B Compliance & Financial Safeguarding",
                 description: "Smart queues powered by intelligent routing adjusts staff work priority based on availability, expertise and urgency.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },
               {
                 icon: LineChart,
-                title: "Real-time Analytics",
+                title: "Connected Ecosystem",
                 description: "Performance dashboards track outcomes, including financial performance, approval rates and task cycle times.",
                 gradient: "from-rhodamine-600 to-ocean-600",
               },

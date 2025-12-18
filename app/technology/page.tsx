@@ -35,7 +35,7 @@ export default function SolutionsPage() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
+          <strong>Innovaccer and Longitude Rx Partner to Transform Health System Specialty Pharmacy with the Gravity Platform!</strong> <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn More</a>.
         </span>
       </div>
 
@@ -66,15 +66,15 @@ export default function SolutionsPage() {
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-loose pb-4">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Specialty pharmacy operations,
+                Tech-Enabled Specialty Pharmacy Platform
               </span>
               <br />
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
-                orchestrated with AI.
+                Built for Health Systems
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Our platform provides complete infrastructure for specialty pharmacy transformation. AI-powered agents automate the patient lifecycle, minimizing administrative complexity, improving the speed of patient access, and ensuring 340B adherence.
+              Transform the specialty pharmacy patient journey by integrated technology that strengthens patient and clinician support through unified data and streamlined workflows, improving outcomes at every step.
             </p>
           </motion.div>
         </div>

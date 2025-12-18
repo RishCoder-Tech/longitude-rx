@@ -69,7 +69,7 @@ export default function Home() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="/onvida-press-release" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn more</a>
+          <strong>Innovaccer and Longitude Rx Partner to Transform Health System Specialty Pharmacy with the Gravity Platform!</strong> <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn More</a>.
         </span>
       </div>
 

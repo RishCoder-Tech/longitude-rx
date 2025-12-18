@@ -561,7 +561,7 @@ export default function DataFlowAnimation() {
 
         {/* Data Sources - Horizontal Layout */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 max-w-7xl mx-auto"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -596,13 +596,13 @@ export default function DataFlowAnimation() {
 
         {/* Process Flow */}
         <div className="w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 max-w-7xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={step.id} className="flex flex-col items-center relative">
                 {/* Step Card */}
                 <motion.button
                   onClick={() => handleStepClick(step.id)}
-                  className={`relative p-6 rounded-2xl border-2 transition-all duration-500 w-48 h-64 flex flex-col cursor-pointer group ${
+                  className={`relative p-6 rounded-2xl border-2 transition-all duration-500 w-full h-64 flex flex-col cursor-pointer group ${
                     selectedStep === step.id
                       ? "bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 shadow-2xl shadow-blue-500/25 scale-105"
                       : "bg-slate-800/30 border-slate-700/50 hover:border-slate-600/50 hover:bg-slate-800/50"
@@ -619,10 +619,12 @@ export default function DataFlowAnimation() {
                   </div>
 
                   {/* Step Content */}
-                  <div className="text-center flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-xl font-bold font-outfit mb-3 text-white">{step.title}</h4>
-                      <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed">{step.description}</p>
+                  <div className="text-center flex-1 flex flex-col justify-between w-full">
+                    <div className="w-full flex flex-col">
+                      <div className="h-16 flex items-center justify-center mb-3">
+                        <h4 className="text-lg md:text-xl font-bold font-outfit text-white leading-tight px-2 text-center">{step.title}</h4>
+                      </div>
+                      <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed px-1">{step.description}</p>
                     </div>
                   </div>
 
@@ -630,11 +632,11 @@ export default function DataFlowAnimation() {
                   <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.button>
 
-                {/* Connection Line and Data Flow */}
+                {/* Connection Line and Data Flow - Only show on larger screens in horizontal layout */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-12 w-24 h-px bg-gradient-to-r from-slate-600 to-slate-600 transform -translate-y-1/2">
+                  <div className="hidden xl:block absolute top-1/2 -right-2 w-4 h-px bg-gradient-to-r from-slate-600 to-slate-600 transform -translate-y-1/2">
                     {/* Arrow */}
-                    <div className="absolute right-0 top-1/2 w-0 h-0 border-l-4 border-l-slate-600 border-t-2 border-b-2 border-t-transparent border-b-transparent transform -translate-y-1/2" />
+                    <div className="absolute right-0 top-1/2 w-0 h-0 border-l-2 border-l-slate-600 border-t-1 border-b-1 border-t-transparent border-b-transparent transform -translate-y-1/2" />
 
                     {/* Flowing data dot */}
                     <DataFlowDot startDelay={1 + index * 0.4} duration={1.2} isActive={dataFlowActive} />

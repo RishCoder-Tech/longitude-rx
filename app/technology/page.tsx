@@ -73,6 +73,18 @@ export default function SolutionsPage() {
                 Built for Health Systems
               </span>
             </h1>
+            <div className="flex items-center justify-center gap-3 my-6">
+              <span className="text-lg md:text-xl text-admiral-700 font-space-grotesk font-medium">
+                Longitude Rx powered by
+              </span>
+              <Image
+                src="/images/innovaccer-gravity-logo.png"
+                alt="Innovaccer Gravity"
+                width={200}
+                height={60}
+                className="h-12 md:h-16 w-auto object-contain"
+              />
+            </div>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Transform the specialty pharmacy patient journey by integrated technology that strengthens patient and clinician support through unified data and streamlined workflows, improving outcomes at every step.
             </p>

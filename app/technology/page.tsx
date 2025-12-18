@@ -211,31 +211,31 @@ export default function SolutionsPage() {
               {
                 icon: Zap,
                 title: "Unified Specialty Pharmacy Platform",
-                description: "Workflows driven by clear protocols for specialty prescriptions with automated handoffs between tasks.",
+                description: "A purpose-built, unified platform to manage the entire specialty pharmacy lifecycle from prescription intake to therapy fulfillment. Purpose-built for scale, our infrastructure replaces fragmented tools with one connected ecosystem, accelerating time-to-therapy.",
                 gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Network,
                 title: "Reduced Administrative Burden",
-                description: "System data integration across EMR, TPA, Payers and wholesalers.",
+                description: "Automate the most time-consuming operational workflows across prior authorization, financial assistance, refills, and appeals. By digitally eliminating manual tasks and handoffs, your teams gain back time to focus on patient care instead of paperwork.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: Target,
                 title: "End-to-End transparency",
-                description: "Integrated system data becomes single source of truth driving transparency across the patient journey.",
+                description: "Full, real-time visibility into every step of the patient journey, from prescription order to medication in hand. Gain immediate, actionable insights into status, delays, and outcomes, eliminating uncertainty or blind spots.",
                 gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: BarChart3,
                 title: "340B Compliance & Financial Safeguarding",
-                description: "Smart queues powered by intelligent routing adjusts staff work priority based on availability, expertise and urgency.",
+                description: "Standardize, automate, and protect your 340B program with built-in compliance checks and manufacturer safeguards. Ensure every eligible claim is captured, every rule is enforced, and every dollar is protected.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },
               {
                 icon: LineChart,
                 title: "Connected Ecosystem",
-                description: "Performance dashboards track outcomes, including financial performance, approval rates and task cycle times.",
+                description: "Unite health systems into a single, connected network to unlocks new opportunities for market access, payer partnerships, and expanded patient reach. Shared best practices and improved patient outcomes fuel stronger negotiating power, smarter growth strategies, and faster access to therapy for patients.",
                 gradient: "from-rhodamine-600 to-ocean-600",
               },
             ].map((feature, index) => (

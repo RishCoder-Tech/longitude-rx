@@ -88,6 +88,17 @@ export default function SolutionsPage() {
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Transform the specialty pharmacy patient journey by integrated technology that strengthens patient and clinician support through unified data and streamlined workflows, improving outcomes at every step.
             </p>
+            <div className="mt-8">
+              <a href="mailto:Innovaccer@longituderx.org">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
+                >
+                  Request a Demo
+                  <ArrowRight className="ml-3 h-6 w-6" />
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

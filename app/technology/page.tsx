@@ -197,10 +197,10 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Comprehensive Platform Capabilities
+              Specialty pharmacy operations, orchestrated with AI.
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Experience leadership and embedded staff support health system pharmacy teams with intelligent workflows and real-time insights.
+              Our platform provides complete infrastructure for specialty pharmacy transformation. AI-powered agents automate the patient lifecycle, minimizing administrative complexity, improving the speed of patient access, and ensuring 340B adherence.
             </p>
           </ScrollReveal>
 

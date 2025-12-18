@@ -24,6 +24,11 @@ import {
   RefreshCw,
   ClipboardList,
   MessageSquare,
+  ClipboardCheck,
+  DollarSign,
+  RotateCw,
+  Stethoscope,
+  UserCheck,
 } from "lucide-react"
 
 const dataSources = [
@@ -82,7 +87,7 @@ const processSteps = [
     id: "priorauth",
     title: "Prior Authorization & Appeals",
     description: "Improve time-to-therapy",
-    icon: FileCheck,
+    icon: ClipboardCheck,
     pattern: "grid",
     isDefault: true,
     detailedDescription:
@@ -97,8 +102,8 @@ const processSteps = [
     id: "financialassistance",
     title: "Financial Assistance",
     description: "Make therapy affordable",
-    icon: Wallet,
-    pattern: "dots",
+    icon: DollarSign,
+    pattern: "grid",
     detailedDescription:
       "Reduces financial barriers to care by automatically identifying, matching, and enrolling patients in appropriate financial assistance programs. It streamlines the process from eligibility screening to enrollment, minimizing out-of-pocket costs, easing financial stress, and improving therapy affordability and access across diverse populations.",
     keyFeatures: [
@@ -111,7 +116,7 @@ const processSteps = [
     title: "340B Pre-qualification check",
     description: "Ensure compliance",
     icon: ShieldCheck,
-    pattern: "circle",
+    pattern: "grid",
     detailedDescription:
       "Ensures regulatory compliance while maximizing eligible drug cost savings through automated 340B validation. It verifies entity and patient eligibility in real time, reduces audit risk, and optimizes program utilization. By embedding intelligent checks into the workflow, organizations can protect revenue, maintain compliance, and achieve sustainable cost efficiencies without increasing operational complexity.",
     keyFeatures: [
@@ -123,8 +128,8 @@ const processSteps = [
     id: "refillmanagement",
     title: "Refill Management",
     description: "Improve adherence",
-    icon: RefreshCw,
-    pattern: "diamond",
+    icon: RotateCw,
+    pattern: "grid",
     detailedDescription:
       "Improves continuity of care and patient adherence through intelligent, proactive refill automation. Predictive analytics identify refill risks before gaps occur, while automated reminders and status tracking ensure patients stay on therapy without disruption. This reduces missed doses, prevents therapy abandonment, and supports better clinical outcomes through consistent medication access.",
     keyFeatures: [
@@ -137,8 +142,8 @@ const processSteps = [
     id: "medicationtherapy",
     title: "Medication Therapy Management",
     description: "Improve patient outcomes",
-    icon: ClipboardList,
-    pattern: "matrix",
+    icon: Stethoscope,
+    pattern: "grid",
     detailedDescription:
       "Enhances clinical outcomes through data-driven, personalized medication optimization. This solution embeds real-time clinical intelligence into provider workflows, enabling comprehensive medication reviews, drug interaction monitoring, and therapy adjustments. By integrating directly with patient data systems, it empowers care teams to deliver safer, more effective, and more individualized treatment plans.",
     keyFeatures: [
@@ -151,7 +156,7 @@ const processSteps = [
     id: "patientengagement",
     title: "Patient Engagement",
     description: "Strengthen patient satisfaction",
-    icon: MessageSquare,
+    icon: UserCheck,
     pattern: "grid",
     detailedDescription:
       "Strengthens patient relationships and improves outcomes through real-time, personalized communication and education. This solution delivers status alerts, educational content, appointment scheduling, and proactive reminders, keeping patients informed, empowered, and actively involved in their care journey. The result is higher satisfaction, improved adherence, and stronger long-term engagement.",

@@ -18,6 +18,12 @@ import {
   BarChart,
   X,
   CheckCircle,
+  FileCheck,
+  Wallet,
+  ShieldCheck,
+  RefreshCw,
+  ClipboardList,
+  MessageSquare,
 } from "lucide-react"
 
 const dataSources = [
@@ -73,100 +79,86 @@ const dataSources = [
 
 const processSteps = [
   {
-    id: "integrate",
-    title: "Integrate",
-    description: "Raw data is received from source systems & stored in a data lake.",
-    icon: Database,
+    id: "priorauth",
+    title: "Prior Authorization & Appeals",
+    description: "Improve time-to-therapy",
+    icon: FileCheck,
     pattern: "grid",
-    detailedDescription:
-      "Our integration layer connects to all healthcare data sources through secure APIs and FHIR-compliant interfaces. Raw data is ingested in its native format and stored in a HIPAA-compliant data lake, preserving the original structure while enabling downstream processing. This stage handles over 500+ different data formats from various healthcare systems.",
-    keyFeatures: [
-      "Secure API connections",
-      "FHIR compatibility",
-      "Raw data preservation",
-      "Automated data ingestion",
-      "Real-time streaming",
-    ],
-  },
-  {
-    id: "harmonize",
-    title: "Harmonize",
-    description: "Data is parsed & codified, then stored in a simple data structure.",
-    icon: Zap,
-    pattern: "dots",
-    detailedDescription:
-      "The harmonization process transforms disparate data formats into standardized structures. Our next-gen mapping engine automatically identifies data elements and converts them to FHIR resources and other healthcare standards. This stage resolves terminology differences, standardizes units of measure, and creates a unified data model.",
-    keyFeatures: [
-      "Terminology mapping",
-      "Unit standardization",
-      "Schema normalization",
-      "Data validation",
-      "Error correction",
-    ],
-  },
-  {
-    id: "unify",
-    title: "Unify",
-    description: "Patient & provider information are aggregated into a single record.",
-    icon: Target,
-    pattern: "circle",
     isDefault: true,
     detailedDescription:
-      "The unification stage creates a comprehensive 360° view of each patient by linking records across all data sources. Our proprietary patient matching algorithm achieves 99.5% accuracy using deterministic and probabilistic methods. This creates a longitudinal patient record that spans care settings, providers, and time periods.",
+      "Automates benefit verification, submission, tracking, and follow-ups, reducing administrative burden for providers while ensuring patients receive timely approval for medically necessary treatments. It aims for faster decisions, quicker therapy starts, fewer treatment interruptions, and improved overall care delivery.",
     keyFeatures: [
-      "Patient matching",
-      "Record linking",
-      "Identity resolution",
-      "Longitudinal record creation",
-      "Provider attribution",
+      "Automated benefit check",
+      "Prior authorization automation",
+      "Automated appeals",
     ],
   },
   {
-    id: "process",
-    title: "Process",
-    description: "Intelligent algorithms helping automate complex Rx workflows",
-    icon: Brain,
-    pattern: "diamond",
+    id: "financialassistance",
+    title: "Financial Assistance",
+    description: "Make therapy affordable",
+    icon: Wallet,
+    pattern: "dots",
     detailedDescription:
-      "Our processing engine applies clinical logic, quality measures, and next-gen algorithms to the unified data. This stage identifies care gaps, calculates risk scores, and generates clinical insights. Machine learning models continuously improve by analyzing patterns across millions of patient records while maintaining privacy and security.",
+      "Reduces financial barriers to care by automatically identifying, matching, and enrolling patients in appropriate financial assistance programs. It streamlines the process from eligibility screening to enrollment, minimizing out-of-pocket costs, easing financial stress, and improving therapy affordability and access across diverse populations.",
     keyFeatures: [
-      "Care gap analysis",
-      "Risk stratification",
-      "Clinical decision support",
-      "Quality measure calculation",
+      "Automated financial assistance matching",
+      "Enrollment automation",
+    ],
+  },
+  {
+    id: "340bcheck",
+    title: "340B Pre-qualification check",
+    description: "Ensure compliance",
+    icon: ShieldCheck,
+    pattern: "circle",
+    detailedDescription:
+      "Ensures regulatory compliance while maximizing eligible drug cost savings through automated 340B validation. It verifies entity and patient eligibility in real time, reduces audit risk, and optimizes program utilization. By embedding intelligent checks into the workflow, organizations can protect revenue, maintain compliance, and achieve sustainable cost efficiencies without increasing operational complexity.",
+    keyFeatures: [
+      "Automated 340B pre-qualification check",
       "Predictive analytics",
     ],
   },
   {
-    id: "specialtyfill",
-    title: "Specialty Rx Fill",
-    description: "Capture & fill specialty scripts in-house",
-    icon: BarChart3,
-    pattern: "matrix",
+    id: "refillmanagement",
+    title: "Refill Management",
+    description: "Improve adherence",
+    icon: RefreshCw,
+    pattern: "diamond",
     detailedDescription:
-      "Capture and fill specialty prescriptions in-house, ensuring optimal patient care and maximizing revenue for your health system.",
+      "Improves continuity of care and patient adherence through intelligent, proactive refill automation. Predictive analytics identify refill risks before gaps occur, while automated reminders and status tracking ensure patients stay on therapy without disruption. This reduces missed doses, prevents therapy abandonment, and supports better clinical outcomes through consistent medication access.",
     keyFeatures: [
-      "In-house specialty fill",
-      "Revenue capture",
-      "Patient care optimization",
-      "Workflow automation",
-      "Compliance tracking",
+      "Proactive refill reminders",
+      "Automate refills",
+      "Refill status tracking",
     ],
   },
   {
-    id: "deliver",
-    title: "Deliver",
-    description: "Ensure timely delivery & patient outcomes",
-    icon: CheckCircle,
+    id: "medicationtherapy",
+    title: "Medication Therapy Management",
+    description: "Improve patient outcomes",
+    icon: ClipboardList,
+    pattern: "matrix",
+    detailedDescription:
+      "Enhances clinical outcomes through data-driven, personalized medication optimization. This solution embeds real-time clinical intelligence into provider workflows, enabling comprehensive medication reviews, drug interaction monitoring, and therapy adjustments. By integrating directly with patient data systems, it empowers care teams to deliver safer, more effective, and more individualized treatment plans.",
+    keyFeatures: [
+      "Embedded clinical tools",
+      "Real time integrations of patient clinical information",
+      "Therapy optimization workflow",
+    ],
+  },
+  {
+    id: "patientengagement",
+    title: "Patient Engagement",
+    description: "Strengthen patient satisfaction",
+    icon: MessageSquare,
     pattern: "grid",
     detailedDescription:
-      "Final delivery stage ensuring medications reach patients on time with comprehensive tracking and outcome monitoring. This stage validates successful fulfillment and measures patient outcomes.",
+      "Strengthens patient relationships and improves outcomes through real-time, personalized communication and education. This solution delivers status alerts, educational content, appointment scheduling, and proactive reminders, keeping patients informed, empowered, and actively involved in their care journey. The result is higher satisfaction, improved adherence, and stronger long-term engagement.",
     keyFeatures: [
-      "Delivery tracking",
-      "Outcome validation",
-      "Patient monitoring",
-      "Quality assurance",
-      "Performance metrics",
+      "Real-time status alerts and education",
+      "Educational content and resources",
+      "Scheduling support and appointment reminders",
     ],
   },
 ]
@@ -436,7 +428,7 @@ const ExplanationModal = ({
 export default function DataFlowAnimation() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [selectedStep, setSelectedStep] = useState("unify")
+  const [selectedStep, setSelectedStep] = useState("priorauth")
   const [dataFlowActive, setDataFlowActive] = useState(false)
   const [modalInfo, setModalInfo] = useState<{
     isOpen: boolean

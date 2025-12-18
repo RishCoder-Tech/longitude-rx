@@ -17,6 +17,7 @@ import {
   Heart,
   BarChart,
   X,
+  CheckCircle,
 } from "lucide-react"
 
 const dataSources = [
@@ -150,6 +151,22 @@ const processSteps = [
       "Patient care optimization",
       "Workflow automation",
       "Compliance tracking",
+    ],
+  },
+  {
+    id: "deliver",
+    title: "Deliver",
+    description: "Ensure timely delivery & patient outcomes",
+    icon: CheckCircle,
+    pattern: "grid",
+    detailedDescription:
+      "Final delivery stage ensuring medications reach patients on time with comprehensive tracking and outcome monitoring. This stage validates successful fulfillment and measures patient outcomes.",
+    keyFeatures: [
+      "Delivery tracking",
+      "Outcome validation",
+      "Patient monitoring",
+      "Quality assurance",
+      "Performance metrics",
     ],
   },
 ]

@@ -635,8 +635,8 @@ export default function DataFlowAnimation() {
                   {/* Step Content */}
                   <div className="text-center flex-1 flex flex-col justify-between w-full">
                     <div className="w-full flex flex-col">
-                      <div className="h-16 flex items-center justify-center mb-3 px-2">
-                        <h4 className="text-base md:text-lg font-bold font-outfit text-white leading-snug text-center w-full">{step.title}</h4>
+                      <div className="min-h-[4.5rem] flex items-start justify-center mb-3 px-2">
+                        <h4 className="text-base md:text-lg font-bold font-outfit text-white leading-[1.3] text-center w-full">{step.title}</h4>
                       </div>
                       <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed px-1">{step.description}</p>
                     </div>

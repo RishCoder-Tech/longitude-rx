@@ -13,6 +13,10 @@ import {
   Network,
   LineChart,
   Sparkles,
+  Calendar,
+  Clock,
+  FileText,
+  Database,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -96,6 +100,100 @@ export default function Rebate340BPage() {
               </motion.a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* 340B Rebate Model Impacts Section */}
+      <section className="w-full py-20 md:py-32 bg-white">
+        <div className="container px-6 md:px-8">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-16">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
+              340B Rebate model impacts to Health Systems
+            </h2>
+            <p className="text-lg md:text-xl text-admiral-700 max-w-4xl leading-relaxed font-space-grotesk text-center">
+              The transition from upfront discounts to retrospective rebate models introduces a new layer of administrative complexity for 340B covered entities. Under this structure, hospitals purchase drugs at full price and subsequently share claim-level data to realize 340B savings. This shift requires a highly coordinated approach to data management to ensure that information flows accurately between health systems, manufacturers, and regulatory platforms.
+            </p>
+          </ScrollReveal>
+
+          {/* Timeline Section */}
+          <div className="max-w-6xl mx-auto mb-20">
+            <ScrollReveal direction="up">
+              <div className="relative">
+                {/* Timeline Line */}
+                <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-gulf-400 via-rhodamine-500 to-ocean-600 rounded-full"></div>
+                
+                {/* Timeline Points */}
+                <div className="relative flex justify-between items-start">
+                  {[
+                    { year: "2026", label: "Pilot launches with 10 drugs" },
+                    { year: "2027", label: "Expands to an additional 15 drugs" },
+                    { year: "2028", label: "Expands to an additional 20 drugs" },
+                  ].map((item, index) => (
+                    <div key={item.year} className="flex flex-col items-center flex-1">
+                      <div className="relative z-10">
+                        <div className="w-4 h-4 bg-admiral-900 rounded-full border-4 border-white shadow-lg"></div>
+                        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-admiral-900/20 to-transparent"></div>
+                      </div>
+                      <div className="mt-6 text-center">
+                        <div className="text-2xl font-bold font-outfit text-admiral-900 mb-2">{item.year}</div>
+                        <p className="text-sm md:text-base text-admiral-700 font-space-grotesk max-w-[200px]">{item.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Impact Cards */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+            {[
+              {
+                icon: DollarSign,
+                title: "Adjusted Cash Flow Dynamics",
+                description: "Health systems must now manage significantly higher upfront drug expenditures while awaiting rebate processing. This shift ties up substantial working capital, requiring precise financial forecasting to maintain operational stability.",
+                gradient: "from-rhodamine-500 to-gulf-500",
+              },
+              {
+                icon: Clock,
+                title: "Variable Payment Timelines",
+                description: "Reimbursement relies on unregulated timelines that vary by manufacturer and program maturity. Proactive visibility into pending claims is essential for maintaining predictable month-over-month revenue.",
+                gradient: "from-gulf-500 to-ocean-500",
+              },
+              {
+                icon: FileText,
+                title: "Enhanced Administrative Requirements",
+                description: "New reporting mandates significant time from 340B analysts and specialty pharmacy. Organizations require specialized technology to automate the manual burden of monitoring portals and compiling complex data files.",
+                gradient: "from-ocean-500 to-admiral-500",
+              },
+              {
+                icon: Database,
+                title: "Data Integration Challenges",
+                description: "Essential data is often fragmented across multiple TPAs, EHRs, and wholesaler feeds. Without a unified view, normalizing this information for accurate submission and efficient reconciliation is a major challenge.",
+                gradient: "from-admiral-500 to-rhodamine-500",
+              },
+            ].map((impact, index) => (
+              <ScrollReveal key={impact.title} delay={index * 0.1} direction="up">
+                <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col bg-white/90 backdrop-blur-sm border border-gypsum-200 rounded-xl">
+                    <CardHeader className="pb-4">
+                      <div
+                        className={`h-12 w-12 rounded-xl bg-gradient-to-br ${impact.gradient} shadow-lg mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <impact.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
+                        {impact.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{impact.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -41,13 +41,13 @@ export default function Rebate340BPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold leading-tight pb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold leading-tight pb-4 text-center">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
                 340B Rebate Management: Unlocking Predictability and Integrity in a Complex Landscape
               </span>
             </h1>
             
-            <div className="space-y-6 max-w-4xl">
+            <div className="space-y-6 max-w-4xl mx-auto text-center">
               <p className="text-lg md:text-xl text-admiral-700 leading-relaxed font-space-grotesk">
                 The shift toward a retrospective 340B rebate model has fundamentally changed the financial and operational workflows for health systems. By moving from upfront discounts to retrospective rebate payments, this transition introduces additional complexity impacting cash flow, increasing administrative workload, and fragmenting data across systems.
               </p>
@@ -58,7 +58,7 @@ export default function Rebate340BPage() {
             </div>
 
             {/* Branding Section */}
-            <div className="flex flex-col items-center space-y-4 my-8">
+            <div className="flex flex-col items-center justify-center space-y-4 my-8 w-full">
               <div className="flex items-center justify-center">
                 <Image
                   src="/longitude-logo-navbar.png"
@@ -68,7 +68,7 @@ export default function Rebate340BPage() {
                   className="h-12 md:h-16 w-auto object-contain"
                 />
               </div>
-              <div className="text-sm md:text-base text-admiral-600 font-space-grotesk">
+              <div className="text-sm md:text-base text-admiral-600 font-space-grotesk text-center">
                 Powered by
               </div>
               <div className="flex items-center justify-center gap-3 my-4">
@@ -83,13 +83,13 @@ export default function Rebate340BPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 w-full">
               {/* Demo CTA */}
               <motion.a
                 href="mailto:340Brebate@longituderx.org"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
               >
                 Request a Demo
                 <ArrowRight className="h-5 w-5" />

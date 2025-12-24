@@ -67,7 +67,7 @@ export default function Rebate340BPage() {
         "Highlight underpayments",
         "Account for risk and variability",
       ],
-      image: "/ServicesSlider/340BOptimization.png",
+      image: "/Modeling image.png",
     },
     {
       title: `Centralized Dashboards`,

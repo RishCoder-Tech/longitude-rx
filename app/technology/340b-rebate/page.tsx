@@ -125,7 +125,7 @@ export default function Rebate340BPage() {
                 {/* Timeline Points */}
                 <div className="relative flex justify-between items-start">
                   {[
-                    { year: "2026", label: "Pilot launches with 10 drugs" },
+                    { year: "2026", label: ["Pilot launches with", "10 drugs"] },
                     { year: "2027", label: "Expands to an additional 15 drugs" },
                     { year: "2028", label: "Expands to an additional 20 drugs" },
                   ].map((item, index) => (
@@ -136,7 +136,17 @@ export default function Rebate340BPage() {
                       </div>
                       <div className="mt-6 text-center">
                         <div className="text-2xl font-bold font-outfit text-admiral-900 mb-2">{item.year}</div>
-                        <p className="text-sm md:text-base text-admiral-700 font-space-grotesk max-w-[200px]">{item.label}</p>
+                        <p className="text-sm md:text-base text-admiral-700 font-space-grotesk max-w-[200px]">
+                          {Array.isArray(item.label) ? (
+                            <>
+                              {item.label[0]}
+                              <br />
+                              {item.label[1]}
+                            </>
+                          ) : (
+                            item.label
+                          )}
+                        </p>
                       </div>
                     </div>
                   ))}

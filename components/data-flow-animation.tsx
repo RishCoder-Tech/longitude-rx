@@ -511,7 +511,7 @@ export default function DataFlowAnimation() {
   return (
     <div
       ref={ref}
-      className="w-full bg-gradient-to-br from-ocean-800 via-ocean-900 to-ocean-800 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
+      className="w-full bg-gradient-to-br from-ocean-900 to-rhodamine-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">

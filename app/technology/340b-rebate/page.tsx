@@ -41,34 +41,64 @@ export default function Rebate340BPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <DollarSign className="h-4 w-4 text-rhodamine-600" />
-              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                340B PROGRAM OPTIMIZATION
-              </span>
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-loose pb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold leading-tight pb-4">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                340B Rebate
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
-                Compliance & Financial Safeguarding
+                340B Rebate Management: Unlocking Predictability and Integrity in a Complex Landscape
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Standardize, automate, and protect your 340B program with built-in compliance checks and manufacturer safeguards. Ensure every eligible claim is captured, every rule is enforced, and every dollar is protected.
-            </p>
-            <div className="mt-8">
-              <a href="mailto:Innovaccer@longituderx.org">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
-                >
-                  Request a Demo
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </Button>
-              </a>
+            
+            <div className="space-y-6 max-w-4xl">
+              <p className="text-lg md:text-xl text-admiral-700 leading-relaxed font-space-grotesk">
+                The shift toward a retrospective 340B rebate model has fundamentally changed the financial and operational workflows for health systems. By moving from upfront discounts to retrospective rebate payments, this transition introduces additional complexity impacting cash flow, increasing administrative workload, and fragmenting data across systems.
+              </p>
+              
+              <p className="text-lg md:text-xl text-admiral-700 leading-relaxed font-space-grotesk">
+                Longitude Rx, in partnership with Innovaccer, delivers a unified, tech-enabled platform built by 340B experts to automate reconciliation, protect cash flow, and ensure compliance.
+              </p>
+            </div>
+
+            {/* Branding Section */}
+            <div className="flex flex-col items-center space-y-4 my-8">
+              <div className="text-2xl md:text-3xl font-bold font-outfit text-admiral-900">
+                LONGITUDE Rx
+              </div>
+              <div className="text-sm md:text-base text-admiral-600 font-space-grotesk">
+                Powered by
+              </div>
+              <div className="flex items-center justify-center gap-3 my-4">
+                <Image
+                  src="/gravity logo.jpeg"
+                  alt="Innovaccer Gravity"
+                  width={200}
+                  height={60}
+                  className="h-12 md:h-16 w-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+              {/* Email CTA */}
+              <motion.a
+                href="mailto:340Brebate@longituderx.org"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-admiral-800 to-admiral-900 hover:from-admiral-900 hover:to-ocean-900 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+              >
+                <span>340Brebate@longituderx.org</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+
+              {/* Demo CTA */}
+              <motion.a
+                href="mailto:Innovaccer@longituderx.org"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+              >
+                Request a Demo
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
             </div>
           </motion.div>
         </div>

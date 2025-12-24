@@ -186,17 +186,17 @@ export default function Rebate340BPage() {
               <ScrollReveal key={impact.title} delay={index * 0.1} direction="up">
                 <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col bg-white/90 backdrop-blur-sm border border-gypsum-200 rounded-xl">
-                    <CardHeader className="pb-4">
+                    <CardHeader className="pb-4 text-center">
                       <div
-                        className={`h-12 w-12 rounded-xl bg-gradient-to-br ${impact.gradient} shadow-lg mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        className={`h-12 w-12 rounded-xl bg-gradient-to-br ${impact.gradient} shadow-lg mb-4 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
                       >
                         <impact.icon className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
+                      <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300 text-center">
                         {impact.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="text-center">
                       <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{impact.description}</p>
                     </CardContent>
                   </Card>

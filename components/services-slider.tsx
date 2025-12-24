@@ -155,7 +155,11 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                     <img
                       src={currentService.image}
                       alt={currentService.title}
-                      className="rounded-3xl object-contain w-full h-72 md:h-80 max-w-xl shadow-xl"
+                      className={`rounded-3xl shadow-xl ${
+                        currentIndex === 0 
+                          ? 'object-cover w-full h-72 md:h-80 max-w-xl' 
+                          : 'object-contain w-full h-72 md:h-80 max-w-xl'
+                      }`}
                     />
                   </div>
                 </div>

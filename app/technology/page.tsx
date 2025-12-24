@@ -346,12 +346,9 @@ export default function SolutionsPage() {
                 className="object-contain"
               />
             </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-outfit font-bold text-admiral-900 mb-4">
-                Gravity by Innovaccer
-              </h3>
-              <p className="text-admiral-700 leading-relaxed font-space-grotesk text-lg">
-                is the intelligent, healthcare-native platform powering our solution by bringing together data, AI, and workflow automation in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
+            <div className="flex-1 bg-rhodamine-50 rounded-2xl p-6">
+              <p className="text-admiral-900 leading-relaxed font-space-grotesk text-lg">
+                <strong className="font-outfit font-bold">Gravity by Innovaccer</strong> is the intelligent, healthcare-native platform powering our solution by bringing together data, AI, and workflow automation in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
               </p>
             </div>
           </ScrollReveal>

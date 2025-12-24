@@ -97,7 +97,7 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
           >
             <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden relative">
               <CardContent className="p-8 md:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                <div className={`grid lg:grid-cols-2 gap-8 ${currentIndex === 0 ? 'items-stretch' : 'items-center'}`}>
                   {/* Left Side - Content */}
                   <div className="space-y-6">
                     <h3 className="text-2xl md:text-3xl font-bold font-outfit text-primary mb-1">
@@ -151,11 +151,15 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                   </div>
 
                   {/* Right Side - Image */}
-                  <div className="flex items-center justify-center">
+                  <div className={`flex items-center justify-center ${currentIndex === 0 ? 'h-full w-full' : ''}`}>
                     <img
                       src={currentService.image}
                       alt={currentService.title}
-                      className="rounded-3xl object-contain w-full h-72 md:h-80 max-w-xl shadow-xl"
+                      className={`rounded-3xl shadow-xl ${
+                        currentIndex === 0 
+                          ? 'object-cover w-full h-full min-h-[400px] md:min-h-[500px]' 
+                          : 'object-contain w-full h-72 md:h-80 max-w-xl'
+                      }`}
                     />
                   </div>
                 </div>

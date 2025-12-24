@@ -26,6 +26,7 @@ import {
   ShieldCheck,
   Timer,
   Award,
+  HeartHandshake,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -103,16 +104,33 @@ export default function Rebate340BPage() {
       image: "/ServicesSlider/MarketAccess.png",
     },
     {
-      title: "Cell & Gene Therapy (CGT) + Rare Disease Strategy",
-      description: "Position your health system as a launch partner for complex cell & gene and rare & orphan disease therapies",
+      title: "Reconciliation Automation",
+      description: "Seamlessly match claims to rebates and track every step from validation through payment in real time",
       valueProps: [
-        { label: "10-20 cell and gene therapies gain FDA approval annually\nAverage cost per drug is over $1M", icon: Dna },
+        { label: "Compliance\nManagement", icon: ShieldCheck },
+        { label: "Rapid Inquiry\nResponse", icon: Clock },
       ],
       features: [
-        "Treatment access for your patients",
-        "Medical & pharmaceutical billing support",
-        "Partner to guide you through operational complexities",
-        "Patient support & financial navigation through their journey",
+        "Real-time eligibility validation",
+        "Support for manufacturer inquiries",
+        "End-to-end lifecycle tracking",
+        "Audit-ready transparency",
+      ],
+      image: "/ServicesSlider/Cell:Gene.png",
+    },
+    {
+      title: "Denial Management",
+      description: "Streamlining Beacon denial workflows and prioritizing high-value recovery",
+      valueProps: [
+        { label: "Rapid Inquiry\nResponse", icon: Clock },
+        { label: "Dispute\nResolution", icon: HeartHandshake },
+      ],
+      features: [
+        "Centralize Beacon denials into single workflow",
+        "Prioritize high-value denials automatically",
+        "Actionable reason code insights",
+        "Guided resubmission support",
+        "Faster dispute resolution",
       ],
       image: "/ServicesSlider/Cell:Gene.png",
     },

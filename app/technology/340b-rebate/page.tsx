@@ -89,7 +89,7 @@ export default function Rebate340BPage() {
                 href="mailto:340Brebate@longituderx.org"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
+                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-full px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
               >
                 Request a Demo
                 <ArrowRight className="h-5 w-5" />

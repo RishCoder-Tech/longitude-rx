@@ -310,7 +310,7 @@ export default function Rebate340BPage() {
               340B Rebate Model Platform
             </h2>
             <p className="text-xl text-admiral-600 max-w-5xl mx-auto font-space-grotesk whitespace-nowrap">
-              Our platform, powered by Innovaccer's Gravity, simplifies complex daily management
+              Our platform, powered by Innovaccer's Gravity, simplifies complex daily management.
             </p>
           </ScrollReveal>
 

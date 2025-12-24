@@ -38,20 +38,17 @@ export default function Rebate340BPage() {
   const [activeIndex, setActiveIndex] = useState(0)
   const coreServices = [
     {
-      title: `Prescription Capture`,
-      description: `Deliver integrated clinical pharmacy services to support\npatient care and specialty drug access`,
+      title: `Unified Data`,
+      description: `Unifying fragmented data across multiple TPAs, avoiding lost savings and manual investigations.`,
       valueProps: [
-        { label: `Reduce\nstaff\nburden`, icon: TrendingDown },
-        { label: `Improve\npatient\nexperience`, icon: UserCheck },
-        { label: `Increase Rx\nrevenue`, icon: DollarSign },
+        { label: `Improve\nCompliance`, icon: ShieldCheck },
+        { label: `Reduce\nStaff\nBurden`, icon: UserCheck },
       ],
       features: [
-        "Embedded care teams",
-        "Support hub",
-        "Medication Capture Strategy",
-        "Prescription Retention",
-        "Rx Channel Optimization",
-        "Employee and self-funded plan script capture",
+        "Unify fragmented data",
+        "Capture every eligible claim opportunity",
+        "Flag inconsistencies automatically",
+        "Surface reason for claim failure",
       ],
       image: "/ServicesSlider/PrescriptionCapture.png",
     },

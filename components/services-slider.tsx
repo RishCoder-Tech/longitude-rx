@@ -151,7 +151,7 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                   </div>
 
                   {/* Right Side - Image */}
-                  <div className={`flex items-center justify-center ${currentIndex === 2 ? 'py-4' : ''}`}>
+                  <div className="flex items-center justify-center">
                     <img
                       src={currentService.image}
                       alt={currentService.title}
@@ -159,7 +159,7 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                         currentIndex === 0
                           ? 'object-cover w-full h-72 md:h-80 max-w-xl'
                           : currentIndex === 2
-                          ? 'object-cover w-full h-96 md:h-[500px] max-w-xl'
+                          ? 'object-cover w-full h-[298px] md:h-[330px] max-w-xl'
                           : 'object-contain w-full h-72 md:h-80 max-w-xl'
                       }`}
                     />

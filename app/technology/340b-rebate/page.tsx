@@ -59,7 +59,7 @@ export default function Rebate340BPage() {
 
             {/* Branding Section */}
             <div className="flex flex-col items-center space-y-4 my-8">
-              <div className="text-2xl md:text-3xl font-bold font-outfit text-admiral-900">
+              <div className="text-2xl md:text-3xl font-bold font-outfit text-gray-800" style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.12)' }}>
                 LONGITUDE Rx
               </div>
               <div className="text-sm md:text-base text-admiral-600 font-space-grotesk">
@@ -86,12 +86,11 @@ export default function Rebate340BPage() {
                 className="bg-gradient-to-r from-admiral-800 to-admiral-900 hover:from-admiral-900 hover:to-ocean-900 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"
               >
                 <span>340Brebate@longituderx.org</span>
-                <ArrowRight className="h-5 w-5" />
               </motion.a>
 
               {/* Demo CTA */}
               <motion.a
-                href="mailto:Innovaccer@longituderx.org"
+                href="mailto:340Brebate@longituderx.org"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"

@@ -156,7 +156,7 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                       src={currentService.image}
                       alt={currentService.title}
                       className={`rounded-3xl shadow-xl ${
-                        currentIndex === 0 || currentIndex === 1
+                        currentIndex === 0 || currentIndex === 1 || currentIndex === 3
                           ? 'object-cover w-full h-72 md:h-80 max-w-xl'
                           : currentIndex === 2
                           ? 'object-cover w-full h-[298px] md:h-[330px] max-w-xl'

@@ -305,12 +305,12 @@ export default function Rebate340BPage() {
       {/* Core Services Section */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6">
-              Core Services
+          <ScrollReveal direction="up" className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold text-rhodamine-600 mb-6">
+              340B Rebate Model Platform
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl mx-auto font-space-grotesk">
-              Our comprehensive suite of services designed to maximize your specialty pharmacy revenue potential
+            <p className="text-lg md:text-xl text-admiral-700 max-w-3xl font-space-grotesk">
+              Our platform, powered by Innovaccer's Gravity, simplifies complex daily management.
             </p>
           </ScrollReveal>
 

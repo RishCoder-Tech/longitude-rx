@@ -17,13 +17,108 @@ import {
   Clock,
   FileText,
   Database,
+  Pill,
+  Dna,
+  MonitorCheck,
+  TrendingDown,
+  UserCheck,
+  Expand,
+  ShieldCheck,
+  Timer,
+  Award,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import Image from "next/image"
+import ServicesSlider from "@/components/services-slider"
+import { useState } from "react"
 
 export default function Rebate340BPage() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const coreServices = [
+    {
+      title: `Prescription Capture`,
+      description: `Deliver integrated clinical pharmacy services to support\npatient care and specialty drug access`,
+      valueProps: [
+        { label: `Reduce\nstaff\nburden`, icon: TrendingDown },
+        { label: `Improve\npatient\nexperience`, icon: UserCheck },
+        { label: `Increase Rx\nrevenue`, icon: DollarSign },
+      ],
+      features: [
+        "Embedded care teams",
+        "Support hub",
+        "Medication Capture Strategy",
+        "Prescription Retention",
+        "Rx Channel Optimization",
+        "Employee and self-funded plan script capture",
+      ],
+      image: "/ServicesSlider/PrescriptionCapture.png",
+    },
+    {
+      title: `340B Optimization`,
+      description: `Maximize 340B program value through operational and\nstrategic services`,
+      valueProps: [
+        { label: `Centralize\nMonitoring`, icon: MonitorCheck },
+        { label: `Expand\nmargin\nopportunities`, icon: Expand },
+        { label: `Improve\nProgram\nCompliance`, icon: ShieldCheck },
+      ],
+      features: [
+        "Contract pharmacy optimization",
+        "340B TPA / Claims qualification engine",
+        "340B location optimization",
+        "Patient definition enhancement",
+      ],
+      image: "/ServicesSlider/340BOptimization.png",
+    },
+    {
+      title: `LRx Tech Platform`,
+      description: `Integrate complex, fragmented tech stack to leverage complex data\nguide the patient specialty pharmacy journey`,
+      valueProps: [
+        { label: `Identify new\nopportunities`, icon: Sparkles },
+        { label: `Ensure better\noutcomes`, icon: Award },
+        { label: `Increase\nefficiency`, icon: Timer },
+      ],
+      features: [
+        "Prescriptive analytics",
+        "Orchestrated patient journey",
+        "Capture and channel optimization",
+      ],
+      image: "/ServicesSlider/LrxPlatform.png",
+    },
+    {
+      title: `Market Access`,
+      description: `Facilitate pharmaceutical pricing negotiations to enhance access to payers, PBMs, and manufacturers, focusing on rare, orphan, and cell/gene therapies.`,
+      valueProps: [
+        { label: `Expand\nmedication\nrevenue`, icon: Pill },
+        { label: `Unlock new\nServices`, icon: Dna },
+        { label: `Increase\npatient\nvolume`, icon: Network },
+      ],
+      features: [
+        "Payor & PBM access",
+        "Manufacturer access",
+        "Rare & Orphan drug access",
+        "Cell & Gene therapy access",
+        "Employee benefit design",
+      ],
+      image: "/ServicesSlider/MarketAccess.png",
+    },
+    {
+      title: "Cell & Gene Therapy (CGT) + Rare Disease Strategy",
+      description: "Position your health system as a launch partner for complex cell & gene and rare & orphan disease therapies",
+      valueProps: [
+        { label: "10-20 cell and gene therapies gain FDA approval annually\nAverage cost per drug is over $1M", icon: Dna },
+      ],
+      features: [
+        "Treatment access for your patients",
+        "Medical & pharmaceutical billing support",
+        "Partner to guide you through operational complexities",
+        "Patient support & financial navigation through their journey",
+      ],
+      image: "/ServicesSlider/Cell:Gene.png",
+    },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen pt-24">
       {/* Hero Section */}
@@ -204,6 +299,52 @@ export default function Rebate340BPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Core Services Section */}
+      <section className="w-full py-20 md:py-32">
+        <div className="container px-6 md:px-8">
+          <ScrollReveal direction="up" className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 to-rhodamine-700 bg-clip-text text-transparent mb-6">
+              Core Services
+            </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl mx-auto font-space-grotesk">
+              Our comprehensive suite of services designed to maximize your specialty pharmacy revenue potential
+            </p>
+          </ScrollReveal>
+
+          {/* Stepper Bar */}
+          <div className="flex gap-6 mb-10 justify-center">
+            {coreServices.map((service, idx) => (
+              <div
+                key={service.title}
+                className={`flex items-center gap-3 px-4 py-2 rounded-2xl transition-all duration-300 ${activeIndex === idx ? 'bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 shadow-lg' : 'bg-admiral-200/40'} cursor-pointer`}
+                onClick={() => setActiveIndex(idx)}
+                style={{ minWidth: 160 }}
+              >
+                <div className={`rounded-xl p-3 ${activeIndex === idx ? 'bg-white/20 backdrop-blur-sm' : 'bg-white/60'} flex items-center justify-center`}>
+                  {idx === 0 && <Sparkles className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 1 && <Pill className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 2 && <MonitorCheck className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 3 && <FileText className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  {idx === 4 && <Dna className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                </div>
+                <span className={`font-mono text-base font-semibold tracking-wide ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`}>
+                  {idx === 0 ? 'Rx CAPTURE' : idx === 2 ? 'TECH' : idx === 3 ? 'MARKET ACCESS' : idx === 4 ? 'CGT Strategy' : service.title.toUpperCase().split(' ')[0]}
+                </span>
+                {activeIndex === idx && (
+                  <span className="ml-2 w-3 h-3 bg-white rounded-full inline-block" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <ServicesSlider
+            services={coreServices}
+            activeIndex={activeIndex}
+            onChange={setActiveIndex}
+          />
         </div>
       </section>
 

@@ -51,7 +51,7 @@ export default function Rebate340BPage() {
         "Flag inconsistencies automatically",
         "Surface reason for claim failure",
       ],
-      image: "/ServicesSlider/PrescriptionCapture.png",
+      image: "/ServicesSlider/UnifiedData.png",
     },
     {
       title: `Predictive Rebate & Cash Flow Modeling`,

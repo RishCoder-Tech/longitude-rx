@@ -315,23 +315,26 @@ export default function Rebate340BPage() {
           </ScrollReveal>
 
           {/* Stepper Bar */}
-          <div className="flex gap-6 mb-10 justify-center">
-            {coreServices.map((service, idx) => (
+          <div className="flex gap-6 mb-10 justify-center flex-wrap">
+            {[
+              { name: "Data", icon: Database },
+              { name: "Modeling", icon: FileText },
+              { name: "Dashboard", icon: MonitorCheck },
+              { name: "Claims", icon: FileText },
+              { name: "Reconciliation", icon: Sparkles },
+              { name: "Denials", icon: Shield },
+            ].map((item, idx) => (
               <div
-                key={service.title}
+                key={item.name}
                 className={`flex items-center gap-3 px-4 py-2 rounded-2xl transition-all duration-300 ${activeIndex === idx ? 'bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 shadow-lg' : 'bg-admiral-200/40'} cursor-pointer`}
                 onClick={() => setActiveIndex(idx)}
                 style={{ minWidth: 160 }}
               >
                 <div className={`rounded-xl p-3 ${activeIndex === idx ? 'bg-white/20 backdrop-blur-sm' : 'bg-white/60'} flex items-center justify-center`}>
-                  {idx === 0 && <Sparkles className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
-                  {idx === 1 && <Pill className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
-                  {idx === 2 && <MonitorCheck className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
-                  {idx === 3 && <FileText className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
-                  {idx === 4 && <Dna className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />}
+                  <item.icon className={`h-6 w-6 ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`} />
                 </div>
                 <span className={`font-mono text-base font-semibold tracking-wide ${activeIndex === idx ? 'text-white' : 'text-admiral-900'}`}>
-                  {idx === 0 ? 'Rx CAPTURE' : idx === 2 ? 'TECH' : idx === 3 ? 'MARKET ACCESS' : idx === 4 ? 'CGT Strategy' : service.title.toUpperCase().split(' ')[0]}
+                  {item.name}
                 </span>
                 {activeIndex === idx && (
                   <span className="ml-2 w-3 h-3 bg-white rounded-full inline-block" />

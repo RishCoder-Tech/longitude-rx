@@ -511,7 +511,7 @@ export default function DataFlowAnimation() {
   return (
     <div
       ref={ref}
-      className="w-full bg-gradient-to-br from-slate-900 via-rhodamine-900/30 to-ocean-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
+      className="w-full bg-gradient-to-br from-ocean-900 via-admiral-900 to-ocean-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -618,8 +618,8 @@ export default function DataFlowAnimation() {
                   whileHover={{ y: -5 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {/* Icon Display */}
-                  <div className="mb-4 flex justify-center h-20 items-center">
+                  {/* Icon Display - Fixed Position */}
+                  <div className="flex justify-center h-16 items-center mb-4">
                     <motion.div
                       className={`flex items-center justify-center transition-all duration-300 ${
                         selectedStep === step.id ? "scale-110" : "scale-100"
@@ -632,13 +632,15 @@ export default function DataFlowAnimation() {
                     </motion.div>
                   </div>
 
-                  {/* Step Content */}
-                  <div className="text-center flex-1 flex flex-col justify-between w-full">
-                    <div className="w-full flex flex-col">
-                      <div className="min-h-[4.5rem] flex items-start justify-center mb-3 px-2">
-                        <h4 className="text-base md:text-lg font-bold font-outfit text-white leading-[1.3] text-center w-full">{step.title}</h4>
-                      </div>
-                      <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed px-1">{step.description}</p>
+                  {/* Step Content - Fixed Layout */}
+                  <div className="text-center w-full flex flex-col">
+                    {/* Title - Fixed Height Container */}
+                    <div className="h-20 flex items-start justify-center mb-3 px-2">
+                      <h4 className="text-base md:text-lg font-bold font-outfit text-white leading-[1.3] text-center w-full">{step.title}</h4>
+                    </div>
+                    {/* Description - Fixed Position */}
+                    <div className="h-10 flex items-center justify-center px-1">
+                      <p className="text-sm text-slate-300 font-space-grotesk leading-relaxed text-center">{step.description}</p>
                     </div>
                   </div>
 

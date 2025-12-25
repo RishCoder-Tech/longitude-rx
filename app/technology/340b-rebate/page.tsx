@@ -372,62 +372,81 @@ export default function Rebate340BPage() {
       </section>
 
       {/* Longitude Rx Differentiated Experience Section */}
-      <section className="w-full py-20 md:py-32 bg-white">
-        <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-16">
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold leading-loose pb-4">
-              <span className="text-admiral-900">Longitude Rx</span>{" "}
-              <span className="text-ocean-600">Differentiated Experience</span>
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/healthcare-technology.jpg"
+            alt="Healthcare technology background"
+            fill
+            className="object-cover opacity-5"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-gypsum-50/90 via-white/95 to-gypsum-100/90" />
+        </div>
+        
+        <div className="container px-6 md:px-8 relative z-10">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
+              <Sparkles className="h-4 w-4 text-rhodamine-600" />
+              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
+                DIFFERENTIATED EXPERIENCE
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
+              Longitude Rx Differentiated Experience
             </h2>
-            <p className="text-lg md:text-xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk text-center">
+            <p className="text-lg md:text-xl text-admiral-700 max-w-4xl leading-relaxed font-space-grotesk text-center">
               We provide an integrated, predictive, and transparent ecosystem married with input and guidance from industry experts in specialty pharmacy and 340B program management.
             </p>
           </ScrollReveal>
 
-          {/* Feature Cards */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto mb-16">
+          {/* Feature Cards - 2x2 Grid */}
+          <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto mb-16">
             {[
               {
                 icon: Lightbulb,
                 title: "Expert Design",
                 description: "Designed and supported by seasoned 340B experts with deep experience across health systems, manufacturers, and specialty pharmacy",
-                bgColor: "bg-rhodamine-500",
+                gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Cog,
                 title: "Full Integration",
                 description: "Integrates EHR, TPA, wholesaler, and manufacturer data into a single, unified ecosystem thereby eliminating fragmentation across the rebate lifecycle",
-                bgColor: "bg-admiral-900",
+                gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: ShieldCheck,
                 title: "Continuously Compliant",
                 description: "Adaptive technology that evolves with 340B regulatory change, enabling proactive monitoring, audit readiness, and risk mitigation",
-                bgColor: "bg-gray-700",
+                gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: Users,
                 title: "C-Suite Confidence",
                 description: "Combines powerful analytics with ongoing expert guidance to simplify operations, resolve exceptions, and support confident decision-making.",
-                bgColor: "bg-rhodamine-500",
+                gradient: "from-admiral-500 to-rhodamine-500",
               },
             ].map((feature, index) => (
               <ScrollReveal key={feature.title} delay={index * 0.1} direction="up">
                 <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col bg-white/90 backdrop-blur-sm border border-gypsum-200 rounded-xl">
-                    <CardHeader className="pb-4 text-center">
-                      <div
-                        className={`h-12 w-12 rounded-xl ${feature.bgColor} shadow-lg mb-4 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <feature.icon className={`h-6 w-6 ${index === 0 || index === 1 || index === 2 ? 'text-ocean-200' : 'text-rhodamine-200'}`} />
+                  <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col bg-white/80 backdrop-blur-sm border border-gypsum-200 rounded-2xl overflow-hidden">
+                    <CardHeader className="pb-6">
+                      <div className="flex items-start gap-6">
+                        <div
+                          className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <feature.icon className="h-8 w-8 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <CardTitle className="text-xl font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300 mb-3">
+                            {feature.title}
+                          </CardTitle>
+                          <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">
+                            {feature.description}
+                          </p>
+                        </div>
                       </div>
-                      <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300 text-center">
-                        {feature.title}
-                      </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-center">
-                      <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{feature.description}</p>
-                    </CardContent>
                   </Card>
                 </motion.div>
               </ScrollReveal>
@@ -435,18 +454,21 @@ export default function Rebate340BPage() {
           </div>
 
           {/* Call to Action */}
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6">
-            <p className="text-xl md:text-2xl font-space-grotesk font-bold text-rhodamine-600">
-              Contact us today to schedule a demo.
-            </p>
-            <motion.a
-              href="mailto:340Brebate@longituderx.org"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-gulf-400 to-ocean-500 hover:from-gulf-500 hover:to-ocean-600 text-white rounded-xl px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
-            >
-              <span>340Brebate@longituderx.org</span>
-            </motion.a>
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gypsum-200 p-8 md:p-12 max-w-3xl">
+              <p className="text-xl md:text-2xl font-space-grotesk font-bold text-rhodamine-600 mb-6">
+                Contact us today to schedule a demo.
+              </p>
+              <motion.a
+                href="mailto:340Brebate@longituderx.org"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-gulf-400 via-ocean-500 to-gulf-500 hover:from-gulf-500 hover:via-ocean-600 hover:to-gulf-600 text-white rounded-full px-8 py-4 text-lg font-semibold font-space-grotesk shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+              >
+                <span>340Brebate@longituderx.org</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+            </div>
           </ScrollReveal>
         </div>
       </section>

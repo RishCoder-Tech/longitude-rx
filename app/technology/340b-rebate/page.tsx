@@ -84,7 +84,7 @@ export default function Rebate340BPage() {
         "Visualize trends",
         "Model best-case and worst-case scenarios",
       ],
-      image: "/ServicesSlider/LrxPlatform.png",
+      image: "/Dashboard image.png",
     },
     {
       title: `Claims Submission`,

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
@@ -16,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export default function Navbar() {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [isTechnologyOpen, setIsTechnologyOpen] = useState(false)
@@ -115,6 +117,9 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative"
+              onMouseEnter={() => setIsTechnologyOpen(true)}
+              onMouseLeave={() => setIsTechnologyOpen(false)}
             >
               <DropdownMenu open={isTechnologyOpen} onOpenChange={setIsTechnologyOpen}>
                 <DropdownMenuTrigger asChild>
@@ -122,6 +127,10 @@ export default function Navbar() {
                     className="relative text-admiral-700 hover:text-admiral-900 transition-all duration-300 font-medium font-space-grotesk group text-sm lg:text-base flex items-center gap-1"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      router.push("/technology")
+                    }}
                   >
                     Technology
                     <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isTechnologyOpen && "rotate-180")} />
@@ -135,6 +144,8 @@ export default function Navbar() {
                 <DropdownMenuContent
                   align="start"
                   className="w-48 bg-white/95 backdrop-blur-sm border border-admiral-200/30 shadow-xl rounded-xl mt-2"
+                  onMouseEnter={() => setIsTechnologyOpen(true)}
+                  onMouseLeave={() => setIsTechnologyOpen(false)}
                 >
                   <DropdownMenuItem asChild>
                     <Link

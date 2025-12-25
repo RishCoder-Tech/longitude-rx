@@ -3,9 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Play, Pause, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import CounterAnimation from "@/components/counter-animation"
 import { CheckCircle } from "lucide-react"
 
@@ -134,20 +132,6 @@ export default function ServicesSlider({ services, activeIndex, onChange }: Serv
                       ))}
                     </div>
 
-                    {/* Learn More button for LRx Tech Platform */}
-                    {currentIndex === 2 && (
-                      <div className="flex justify-start mt-6">
-                        <Link href="/technology">
-                          <Button
-                            size="lg"
-                            className="bg-gradient-to-r from-rhodamine-500 via-gulf-500 to-ocean-600 hover:from-rhodamine-600 hover:via-gulf-600 hover:to-ocean-700 text-white shadow-2xl shadow-rhodamine-500/25 hover:shadow-rhodamine-500/40 transition-all duration-500 rounded-2xl px-8 py-4 text-lg font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-1"
-                          >
-                            Learn More
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        </Link>
-                      </div>
-                    )}
                   </div>
 
                   {/* Right Side - Image */}

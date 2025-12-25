@@ -51,7 +51,7 @@ export default function Rebate340BPage() {
         "Flag inconsistencies automatically",
         "Surface reason for claim failure",
       ],
-      image: "/Screenshot 2025-12-24 at 5.48.01 PM.png",
+      image: "/Data.png",
     },
     {
       title: `Predictive Rebate & Cash Flow Modeling`,
@@ -101,7 +101,7 @@ export default function Rebate340BPage() {
         "Predictive denial prevention",
         "Automated claim submission",
       ],
-      image: "/ServicesSlider/MarketAccess.png",
+      image: "/Claims image.png",
     },
     {
       title: "Reconciliation Automation",
@@ -116,7 +116,7 @@ export default function Rebate340BPage() {
         "End-to-end lifecycle tracking",
         "Audit-ready transparency",
       ],
-      image: "/ServicesSlider/Cell:Gene.png",
+      image: "/Reconciliation image.png",
     },
     {
       title: "Denial Management",
@@ -132,7 +132,7 @@ export default function Rebate340BPage() {
         "Guided resubmission support",
         "Faster dispute resolution",
       ],
-      image: "/ServicesSlider/Cell:Gene.png",
+      image: "/Denials image.png",
     },
   ]
 

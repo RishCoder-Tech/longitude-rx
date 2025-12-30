@@ -173,7 +173,7 @@ const outcomes = [
     id: "access",
     title: "Enhance patient access & adherence",
     icon: TrendingUp,
-    color: "from-blue-500 to-blue-600",
+    color: "from-ocean-500 to-ocean-600",
     description:
       "Enable health systems to build end-to-end visibility of the specialty pharmacy patient journey, reducing prior authorization delays and financial hurdles and integrating fragmented data sources. Build faster processes and reduce medication non-compliance.",
     source: "darwinresearch.com",
@@ -471,7 +471,7 @@ export default function DataFlowAnimation() {
         title: step.title,
         description: step.description,
         icon: step.icon,
-        color: "from-blue-500 to-blue-600",
+        color: "from-ocean-500 to-ocean-600",
         keyFeatures: step.keyFeatures,
         detailedDescription: step.detailedDescription,
       })
@@ -526,10 +526,10 @@ export default function DataFlowAnimation() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold font-outfit mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+          <h3 className="text-3xl md:text-4xl font-bold font-outfit mb-4 bg-gradient-to-r from-white to-ocean-200 bg-clip-text text-transparent">
             Next-Gen Data Intelligence Pipeline
           </h3>
-          <p className="text-lg text-blue-200 font-space-grotesk max-w-3xl mx-auto">
+          <p className="text-lg text-ocean-200 font-space-grotesk max-w-3xl mx-auto">
             Click on any element to explore how we transform healthcare data into actionable insights
           </p>
         </motion.div>
@@ -609,7 +609,9 @@ export default function DataFlowAnimation() {
                   onClick={() => handleStepClick(step.id)}
                   className={`relative p-6 rounded-2xl border-2 transition-all duration-500 w-full h-64 flex flex-col cursor-pointer group ${
                     selectedStep === step.id
-                      ? "bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 shadow-2xl shadow-blue-500/25 scale-105"
+                      ? index >= 3
+                        ? "bg-gradient-to-br from-gulf-400 to-gulf-500 border-gulf-300 shadow-2xl shadow-gulf-400/25 scale-105"
+                        : "bg-gradient-to-br from-ocean-600 to-ocean-700 border-ocean-400 shadow-2xl shadow-ocean-500/25 scale-105"
                       : "bg-slate-800/30 border-slate-700/50 hover:border-slate-600/50 hover:bg-slate-800/50"
                   }`}
                   initial={{ opacity: 0, y: 50 }}

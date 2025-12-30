@@ -10,7 +10,7 @@ import {
   Users,
   Globe,
   Network,
-  DollarSign,
+  Activity,
   Target,
   BarChart3,
   ShoppingCart,
@@ -59,7 +59,7 @@ export default function SolutionsPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <DollarSign className="h-4 w-4 text-rhodamine-600" />
+              <Activity className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
                 SPECIALTY PHARMACY TECHNOLOGY
               </span>

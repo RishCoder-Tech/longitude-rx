@@ -88,7 +88,6 @@ const processSteps = [
     title: "Prior Authorization & Appeals",
     description: "Improve time-to-therapy",
     icon: ClipboardCheck,
-    iconColor: "text-rhodamine-400",
     pattern: "grid",
     isDefault: true,
     detailedDescription:
@@ -104,7 +103,6 @@ const processSteps = [
     title: "Financial Assistance",
     description: "Make therapy affordable",
     icon: DollarSign,
-    iconColor: "text-ocean-400",
     pattern: "grid",
     detailedDescription:
       "Reduces financial barriers to care by automatically identifying, matching, and enrolling patients in appropriate financial assistance programs. It streamlines the process from eligibility screening to enrollment, minimizing out-of-pocket costs, easing financial stress, and improving therapy affordability and access across diverse populations.",
@@ -118,7 +116,6 @@ const processSteps = [
     title: "340B Pre-qualification check",
     description: "Ensure compliance",
     icon: ShieldCheck,
-    iconColor: "text-gulf-400",
     pattern: "grid",
     detailedDescription:
       "Ensures regulatory compliance while maximizing eligible drug cost savings through automated 340B validation. It verifies entity and patient eligibility in real time, reduces audit risk, and optimizes program utilization. By embedding intelligent checks into the workflow, organizations can protect revenue, maintain compliance, and achieve sustainable cost efficiencies without increasing operational complexity.",
@@ -633,7 +630,7 @@ export default function DataFlowAnimation() {
                       animate={{ scale: selectedStep === step.id ? 1.1 : 1, opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <step.icon className={`w-12 h-12 ${index < 3 ? (step.iconColor || "text-white") : "text-white"} ${selectedStep === step.id ? "opacity-100" : "opacity-70"}`} />
+                      <step.icon className={`w-12 h-12 text-white ${selectedStep === step.id ? "opacity-100" : "opacity-70"}`} />
                     </motion.div>
                   </div>
 

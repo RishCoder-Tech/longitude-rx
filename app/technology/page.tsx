@@ -410,7 +410,22 @@ export default function SolutionsPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Our solution leverages pre-built data models and integrations, enabling dramatically faster deployment compared to traditional implementations. Most health systems see measurable impact within weeks rather than months, with full deployment typically completed in a fraction of the time required by standard specialty pharmacy platforms.
+                    By leveraging our validated playbooks and extensive pre-built data integrations, initial modules can typically reach <strong>go-live in 8–12 weeks</strong>. The full deployment is modular, allowing you to phase the rollout according to your organization's highest priorities.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={0.3}>
+              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
+                    Can we implement specific modules (e.g., PA or 340B) first and then expand later?
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
+                    Absolutely. Our architecture supports <strong>phased, modular deployment</strong>. Most organizations achieve immediate impact by starting with critical areas like prior authorization optimization or 340B program management, and then strategically expanding to other modules as operational value is proven.
                   </p>
                 </CardContent>
               </Card>

@@ -44,7 +44,7 @@ const dataSources = [
     id: "claims",
     name: "Claims",
     icon: FileText,
-    color: "from-rhodamine-400 to-gulf-500",
+    color: "from-gulf-400 to-gulf-500",
     description:
       "Insurance claims data including procedure codes, diagnosis codes, service dates, and reimbursement information.",
   },
@@ -52,7 +52,7 @@ const dataSources = [
     id: "emrs",
     name: "EMRs",
     icon: Database,
-    color: "from-gulf-500 to-ocean-500",
+    color: "from-[#4559A8] to-gulf-400",
     description:
       "Electronic Medical Records containing patient history, clinical notes, treatment plans, and provider documentation.",
   },
@@ -60,7 +60,7 @@ const dataSources = [
     id: "wholesaler",
     name: "Wholesaler",
     icon: Users,
-    color: "from-ocean-500 to-ocean-400",
+    color: "from-admiral-900 to-admiral-800",
     description:
       "Data from pharmaceutical wholesalers, including inventory, distribution, and supply chain logistics.",
   },
@@ -68,7 +68,7 @@ const dataSources = [
     id: "340b",
     name: "340B TPA",
     icon: Heart,
-    color: "from-ocean-400 to-gulf-300",
+    color: "from-[#F9F7FF] to-gulf-400",
     description:
       "340B third-party administrator data including eligibility, claims, and compliance information for specialty pharmacy optimization.",
   },
@@ -76,7 +76,7 @@ const dataSources = [
     id: "thirdparty",
     name: "Third-party Data",
     icon: BarChart,
-    color: "from-gulf-300 to-gypsum-200",
+    color: "from-rhodamine-400 to-[#4559A8]",
     description:
       "External datasets including demographic information, geographic data, and public health statistics for enriched analysis.",
   },

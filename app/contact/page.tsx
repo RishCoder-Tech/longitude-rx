@@ -81,6 +81,11 @@ export default function ContactPage() {
         "Our AI-powered technology provides comprehensive solutions including predictive analytics, automated workflows, real-time synchronization, and advanced business intelligence. We help health systems reduce costs, improve patient outcomes, and streamline operations.",
     },
     {
+      question: "How do I become a partner with Longitude Rx?",
+      answer:
+        "We're actively seeking visionary healthcare organizations to join our network. If you're interested in partnering with Longitude Rx, please contact us through this form or email us directly. We'll schedule a consultation to discuss how we can help revolutionize your specialty pharmacy operations.",
+    },
+    {
       question: "How does this solution differentiate itself from standard 340B optimization software?",
       answer:
         "Unlike standard 340B software vendors, our platform provides comprehensive management for the **complete specialty pharmacy lifecycle**. This includes every stage: from prescription intake, precise prior authorization, and financial assistance coordination, through to dispensing and medication adherence monitoring.",
@@ -99,16 +104,6 @@ export default function ContactPage() {
       question: "Can we implement specific modules (e.g., PA or 340B) first and then expand later?",
       answer:
         "Absolutely. Our architecture supports **phased, modular deployment**. Most organizations achieve immediate impact by starting with critical areas like prior authorization optimization or 340B program management, and then strategically expanding to other modules as operational value is proven.",
-    },
-    {
-      question: "When will the full Longitude Rx technology be available?",
-      answer:
-        "The revolutionary Longitude Rx technology is launching in late 2025. We're currently onboarding select healthcare partners for our beta program. Contact us to learn about early access opportunities and how you can be part of the healthcare revolution.",
-    },
-    {
-      question: "How do I become a partner with Longitude Rx?",
-      answer:
-        "We're actively seeking visionary healthcare organizations to join our network. If you're interested in partnering with Longitude Rx, please contact us through this form or email us directly. We'll schedule a consultation to discuss how we can help revolutionize your specialty pharmacy operations.",
     },
   ]
 

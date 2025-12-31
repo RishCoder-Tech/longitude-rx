@@ -68,7 +68,7 @@ const dataSources = [
     id: "340b",
     name: "340B TPA",
     icon: Heart,
-    color: "from-[#F9F7FF] to-gulf-400",
+    color: "from-gulf-400 to-admiral-900",
     description:
       "340B third-party administrator data including eligibility, claims, and compliance information for specialty pharmacy optimization.",
   },

@@ -196,7 +196,7 @@ export default function Rebate340BPage() {
                   alt="Innovaccer Gravity"
                   width={200}
                   height={60}
-                  className="h-12 md:h-16 w-auto object-contain"
+                  className="h-10 md:h-14 w-auto object-contain"
                 />
               </div>
             </div>
@@ -241,7 +241,6 @@ export default function Rebate340BPage() {
                 <div className="relative flex justify-between items-start">
                   {[
                     { year: "2026", label: ["Pilot launches with", "10 drugs"] },
-                    { year: "2027", label: "Expands to an additional 15 drugs" },
                     { year: "2028", label: "Expands to an additional 20 drugs" },
                   ].map((item, index) => (
                     <div key={item.year} className="flex flex-col items-center flex-1">
@@ -276,24 +275,28 @@ export default function Rebate340BPage() {
               {
                 icon: DollarSign,
                 title: "Adjusted Cash Flow Dynamics",
+                subtitle: "Financial Strain",
                 description: "Health systems must now manage significantly higher upfront drug expenditures while awaiting rebate processing. This shift ties up substantial working capital, requiring precise financial forecasting to maintain operational stability.",
                 gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Clock,
                 title: "Variable Payment Timelines",
+                subtitle: "Unpredictable Revenue Cycles",
                 description: "Reimbursement relies on unregulated timelines that vary by manufacturer and program maturity. Proactive visibility into pending claims is essential for maintaining predictable month-over-month revenue.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: FileText,
-                title: "Enhanced Administrative Requirements",
-                description: "New reporting mandates significant time from 340B analysts and specialty pharmacy. Organizations require specialized technology to automate the manual burden of monitoring portals and compiling complex data files.",
+                title: "Enhanced Operational Requirements",
+                subtitle: "Increased Burden",
+                description: "New reporting mandates significant time from 340B analysts and health system administration. Organizations require specialized technology to automate the manual burden of monitoring portals and compiling complex data files.",
                 gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: Database,
                 title: "Data Integration Challenges",
+                subtitle: "Fragmented Data Risks",
                 description: "Essential data is often fragmented across multiple TPAs, EHRs, and wholesaler feeds. Without a unified view, normalizing this information for accurate submission and efficient reconciliation is a major challenge.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },
@@ -310,6 +313,11 @@ export default function Rebate340BPage() {
                       <CardTitle className="text-lg font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300 text-center">
                         {impact.title}
                       </CardTitle>
+                      {impact.subtitle && (
+                        <p className="text-sm font-semibold text-rhodamine-600 mt-2 font-space-grotesk">
+                          {impact.subtitle}
+                        </p>
+                      )}
                     </CardHeader>
                     <CardContent className="text-center">
                       <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{impact.description}</p>

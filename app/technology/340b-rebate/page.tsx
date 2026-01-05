@@ -45,7 +45,7 @@ export default function Rebate340BPage() {
       title: `Unified Data`,
       description: `Unifying fragmented data across multiple TPAs, avoiding lost savings and manual investigations.`,
       valueProps: [
-        { label: `Improve\nCompliance`, icon: ShieldCheck },
+        { label: `Centralized Data Integration`, icon: ShieldCheck },
         { label: `Reduce\nStaff\nBurden`, icon: UserCheck },
       ],
       features: [
@@ -61,7 +61,6 @@ export default function Rebate340BPage() {
       description: `Project rebate revenue amount and timing including payment delays or disputes.`,
       valueProps: [
         { label: `Forecast\nClarity`, icon: BarChart3 },
-        { label: `Early issue\nidentification`, icon: Shield },
         { label: `Protect\nRevenue`, icon: DollarSign },
       ],
       features: [
@@ -85,7 +84,7 @@ export default function Rebate340BPage() {
         "Monitor KPIs",
         "Track receivables",
         "Visualize trends",
-        "Model best-case and worst-case scenarios",
+        "Customizable dashboard",
       ],
       image: "/Dashboard image.png",
     },
@@ -93,9 +92,9 @@ export default function Rebate340BPage() {
       title: `Claims Submission`,
       description: `Standardized claim files aligned with Beacon requirements.`,
       valueProps: [
-        { label: `Expand\nmedication\nrevenue`, icon: Pill },
-        { label: `Unlock new\nServices`, icon: Dna },
-        { label: `Increase\npatient\nvolume`, icon: Network },
+        { label: `Early issue\nidentification`, icon: Pill },
+        { label: `Automated\nFiling`, icon: Dna },
+        { label: `Consolidation\nof claims`, icon: Network },
       ],
       features: [
         "Unified data for seamless submission",
@@ -103,15 +102,16 @@ export default function Rebate340BPage() {
         "Mismatched field & error detection",
         "Predictive denial prevention",
         "Automated claim submission",
+        "Increase probability of claim approval",
       ],
       image: "/Claims image.png",
     },
     {
       title: "Reconciliation Automation",
-      description: "Seamlessly match claims to rebates and track every step from validation through payment in real time",
+      description: "Seamlessly match claims to rebates and track every step from submission, validation, and bank payment",
       valueProps: [
-        { label: "Compliance\nManagement", icon: ShieldCheck },
-        { label: "Rapid Inquiry\nResponse", icon: Clock },
+        { label: "Automated claim\nmatching", icon: ShieldCheck },
+        { label: "Payment\nreconciliation", icon: Clock },
       ],
       features: [
         "Real-time eligibility validation",
@@ -134,6 +134,7 @@ export default function Rebate340BPage() {
         "Actionable reason code insights",
         "Guided resubmission support",
         "Faster dispute resolution",
+        "Increase recovery rate",
       ],
       image: "/Denials image.png",
     },
@@ -337,7 +338,7 @@ export default function Rebate340BPage() {
           <div className="flex gap-6 mb-10 justify-center flex-wrap">
             {[
               { name: "Data", icon: Database },
-              { name: "Modeling", icon: FileText },
+              { name: "Cash Flow", icon: FileText },
               { name: "Dashboard", icon: MonitorCheck },
               { name: "Claims", icon: FileText },
               { name: "Reconciliation", icon: Sparkles },

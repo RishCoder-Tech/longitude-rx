@@ -2,16 +2,25 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { MagneticButton } from "@/components/scroll-animations"
 import Image from "next/image"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Navbar() {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isTechnologyOpen, setIsTechnologyOpen] = useState(false)
   const { scrollY } = useScroll()
 
   const navbarY = useTransform(scrollY, [0, 100], [0, -5])
@@ -81,7 +90,85 @@ export default function Navbar() {
             {[
               { href: "/about", label: "About" },
               { href: "/services", label: "Services" },
-              { href: "/technology", label: "Technology" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={item.href}
+                    className="relative text-admiral-700 hover:text-admiral-900 transition-all duration-300 font-medium font-space-grotesk group text-sm lg:text-base"
+                  >
+                    {item.label}
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-rhodamine-600 to-gulf-600 transition-all duration-300"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                    />
+                  </Link>
+                </motion.div>
+              </motion.div>
+            ))}
+            {/* Technology Dropdown */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative"
+              onMouseEnter={() => setIsTechnologyOpen(true)}
+              onMouseLeave={() => setIsTechnologyOpen(false)}
+            >
+              <DropdownMenu open={isTechnologyOpen} onOpenChange={setIsTechnologyOpen}>
+                <DropdownMenuTrigger asChild>
+                  <motion.button
+                    className="relative text-admiral-700 hover:text-admiral-900 transition-all duration-300 font-medium font-space-grotesk group text-sm lg:text-base flex items-center gap-1"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      router.push("/technology")
+                    }}
+                  >
+                    Technology
+                    <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isTechnologyOpen && "rotate-180")} />
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-rhodamine-600 to-gulf-600 transition-all duration-300"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                    />
+                  </motion.button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  className="w-48 bg-white/95 backdrop-blur-sm border border-admiral-200/30 shadow-xl rounded-xl mt-2"
+                  onMouseEnter={() => setIsTechnologyOpen(true)}
+                  onMouseLeave={() => setIsTechnologyOpen(false)}
+                >
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/technology"
+                      className="cursor-pointer text-admiral-700 hover:text-admiral-900 hover:bg-gypsum-100/50"
+                      onClick={() => setIsTechnologyOpen(false)}
+                    >
+                      Technology
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/technology/340b-rebate"
+                      className="cursor-pointer text-admiral-700 hover:text-admiral-900 hover:bg-gypsum-100/50"
+                      onClick={() => setIsTechnologyOpen(false)}
+                    >
+                      340B Rebate
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </motion.div>
+            {[
               { href: "/newsletter", label: "News" },
               { href: "/careers", label: "Careers" },
               { href: "/case-studies", label: "Case Studies" },
@@ -90,7 +177,7 @@ export default function Navbar() {
                 key={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
               >
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
@@ -177,7 +264,48 @@ export default function Navbar() {
                 {[
                   { href: "/about", label: "About" },
                   { href: "/services", label: "Services" },
-                  { href: "/technology", label: "Technology" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="text-lg font-medium text-admiral-700 hover:text-admiral-900 transition-colors duration-200 font-space-grotesk py-2 block"
+                      onClick={toggleMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                {/* Technology with submenu for mobile */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                  className="space-y-2"
+                >
+                  <div className="text-lg font-medium text-admiral-700 font-space-grotesk py-2">Technology</div>
+                  <div className="pl-4 space-y-2">
+                    <Link
+                      href="/technology"
+                      className="text-base font-medium text-admiral-600 hover:text-admiral-900 transition-colors duration-200 font-space-grotesk py-1 block"
+                      onClick={toggleMenu}
+                    >
+                      Technology
+                    </Link>
+                    <Link
+                      href="/technology/340b-rebate"
+                      className="text-base font-medium text-admiral-600 hover:text-admiral-900 transition-colors duration-200 font-space-grotesk py-1 block"
+                      onClick={toggleMenu}
+                    >
+                      340B Rebate
+                    </Link>
+                  </div>
+                </motion.div>
+                {[
                   { href: "/newsletter", label: "News" },
                   { href: "/careers", label: "Careers" },
                   { href: "/case-studies", label: "Case Studies" },
@@ -186,7 +314,7 @@ export default function Navbar() {
                     key={item.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.3, delay: (index + 3) * 0.1 }}
                   >
                     <Link
                       href={item.href}

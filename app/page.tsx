@@ -25,6 +25,7 @@ import {
   Building,
   Cpu,
   HeartHandshake,
+  Heart,
 } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
@@ -69,7 +70,7 @@ export default function Home() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="/onvida-press-release" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn more</a>
+          <strong>Innovaccer and Longitude Rx Partner to Transform Health System Specialty Pharmacy with the Gravity Platform!</strong> <a href="https://longituderx.org/newsletter" target="_blank" rel="noopener noreferrer" className="underline text-rhodamine-700 hover:text-ocean-700 ml-2">Learn More</a>.
         </span>
       </div>
 
@@ -444,6 +445,84 @@ Unlock specialty pharmacy success with our innovative services. Powered by techn
           <ScrollReveal direction="up">
             <HealthcareLeadersScrollHome />
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Capabilities for Health Systems Section */}
+      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm relative">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/healthcare-technology.jpg"
+            alt="Healthcare technology background"
+            fill
+            className="object-cover opacity-5"
+          />
+        </div>
+
+        <div className="container px-6 md:px-8 relative z-10">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
+              Capabilities for Health Systems
+            </h2>
+            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
+              Our solutions empower health systems to:
+            </p>
+          </ScrollReveal>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
+            {[
+              {
+                icon: Heart,
+                title: "Improve patient access and adherence",
+                description: "Boost access to specialty medications and support adherence for better health outcomes.",
+                gradient: "from-rhodamine-500 via-gulf-400 to-ocean-500",
+              },
+              {
+                icon: Shield,
+                title: "Address market, regulatory, and competitive barriers",
+                description: "Overcome challenges in specialty pharmacy with compliance and market expertise.",
+                gradient: "from-gulf-500 to-ocean-600",
+              },
+              {
+                icon: Cpu,
+                title: "Enable participation in rare disease and cell/gene therapy markets",
+                description: "Expand your reach into advanced therapies and rare disease markets.",
+                gradient: "from-ocean-600 to-admiral-700",
+              },
+              {
+                icon: Users,
+                title: "Leverage member strengths and build new capabilities",
+                description: "Collaborate and innovate to build new strengths and capabilities where needed.",
+                gradient: "from-admiral-700 to-rhodamine-700",
+              },
+              {
+                icon: Globe,
+                title: "Deliver better outcomes for patients, providers, and communities",
+                description: "Drive improved outcomes for all stakeholders in the specialty pharmacy ecosystem.",
+                gradient: "from-rhodamine-700 to-ocean-700",
+              },
+            ].map((capability, index) => (
+              <ScrollReveal key={capability.title} delay={index * 0.1} direction="up">
+                <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
+                    <CardContent className="p-6 text-center flex flex-col h-full">
+                      <div
+                        className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${capability.gradient} shadow-lg mb-6 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <capability.icon className="h-8 w-8 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-4 text-admiral-800 font-outfit group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
+                        {capability.title}
+                      </h3>
+                      <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm flex-grow">
+                        {capability.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

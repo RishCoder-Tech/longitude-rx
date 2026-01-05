@@ -10,7 +10,7 @@ import {
   Users,
   Globe,
   Network,
-  DollarSign,
+  Activity,
   Target,
   BarChart3,
   ShoppingCart,
@@ -35,7 +35,7 @@ export default function SolutionsPage() {
       <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
         <span className="mr-2">🚀</span>
         <span>
-          <strong>Announcement:</strong> Longitude Rx welcomes <strong>Onvida Health</strong> as our first external partner, expanding our specialty pharmacy technology beyond founding health systems! <a href="https://www.hcinnovationgroup.com/clinical-it/pharmacy/news/55296372/longitude-rxs-first-external-partner-arizonas-onvida-health" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn more</a>.
+          <strong>Innovaccer and Longitude Rx Partner to Transform Health System Specialty Pharmacy with the Gravity Platform!</strong> <a href="https://longituderx.org/newsletter" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn More</a>.
         </span>
       </div>
 
@@ -59,23 +59,46 @@ export default function SolutionsPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <DollarSign className="h-4 w-4 text-rhodamine-600" />
+              <Activity className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
                 SPECIALTY PHARMACY TECHNOLOGY
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-loose pb-4">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Specialty pharmacy operations,
+                Tech-Enabled Specialty Pharmacy Platform
               </span>
               <br />
               <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
-                orchestrated with AI.
+                Built for Health Systems
               </span>
             </h1>
+            <div className="flex items-center justify-center gap-3 my-6">
+              <span className="text-lg md:text-xl text-admiral-700 font-space-grotesk font-medium">
+                Longitude Rx powered by
+              </span>
+              <Image
+                src="/gravity logo.jpeg"
+                alt="Innovaccer Gravity"
+                width={200}
+                height={60}
+                className="h-12 md:h-16 w-auto object-contain"
+              />
+            </div>
             <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Our platform provides complete infrastructure for specialty pharmacy transformation. AI-powered agents automate the patient lifecycle, minimizing administrative complexity, improving the speed of patient access, and ensuring 340B adherence.
+              Transform the specialty pharmacy patient journey by integrated technology that strengthens patient and clinician support through unified data and streamlined workflows, improving outcomes at every step.
             </p>
+            <div className="mt-8">
+              <a href="mailto:Innovaccer@longituderx.org">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
+                >
+                  Request a Demo
+                  <ArrowRight className="ml-3 h-6 w-6" />
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -174,10 +197,12 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Comprehensive Platform Capabilities
+              Specialty pharmacy operations,
+              <br />
+              orchestrated with AI
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Experience leadership and embedded staff support health system pharmacy teams with intelligent workflows and real-time insights.
+              Our platform provides complete infrastructure for specialty pharmacy transformation. AI-powered agents automate the patient lifecycle, minimizing administrative complexity, improving the speed of patient access, and ensuring 340B adherence.
             </p>
           </ScrollReveal>
 
@@ -185,32 +210,32 @@ export default function SolutionsPage() {
             {[
               {
                 icon: Zap,
-                title: "Automated Workflows",
-                description: "Workflows driven by clear protocols for specialty prescriptions with automated handoffs between tasks.",
+                title: "Unified Specialty Pharmacy Platform",
+                description: "A purpose-built, unified platform to manage the entire specialty pharmacy lifecycle from prescription intake to therapy fulfillment. Purpose-built for scale, our infrastructure replaces fragmented tools with one connected ecosystem, accelerating time-to-therapy.",
                 gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Network,
-                title: "Data Integration",
-                description: "System data integration across EMR, TPA, Payers and wholesalers.",
+                title: "Reduced Administrative Burden",
+                description: "Automate the most time-consuming operational workflows across prior authorization, financial assistance, refills, and appeals. By digitally eliminating manual tasks and handoffs, your teams gain back time to focus on patient care instead of paperwork.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: Target,
-                title: "Single Source",
-                description: "Integrated system data becomes single source of truth driving transparency across the patient journey.",
+                title: "End-to-End transparency",
+                description: "Full, real-time visibility into every step of the patient journey, from prescription order to medication in hand. Gain immediate, actionable insights into status, delays, and outcomes, eliminating uncertainty or blind spots.",
                 gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: BarChart3,
-                title: "Prioritized Worklists",
-                description: "Smart queues powered by intelligent routing adjusts staff work priority based on availability, expertise and urgency.",
+                title: "340B Compliance & Financial Safeguarding",
+                description: "Standardize, automate, and protect your 340B program with built-in compliance checks and manufacturer safeguards. Ensure every eligible claim is captured, every rule is enforced, and every dollar is protected.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },
               {
                 icon: LineChart,
-                title: "Real-time Analytics",
-                description: "Performance dashboards track outcomes, including financial performance, approval rates and task cycle times.",
+                title: "Connected Ecosystem",
+                description: "Unite health systems into a single, connected network to unlocks new opportunities for market access, payer partnerships, and expanded patient reach. Shared best practices and improved patient outcomes fuel stronger negotiating power, smarter growth strategies, and faster access to therapy for patients.",
                 gradient: "from-rhodamine-600 to-ocean-600",
               },
             ].map((feature, index) => (
@@ -247,7 +272,8 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
-              Your Health System's success, amplified by our partnership
+              Your Health System's success,<br />
+              amplified by our partnership
             </h2>
             <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
               Innovaccer's healthcare intelligence platform combined with Longitude Rx's deep clinical and operational experience to optimize your specialty pharmacy performance.
@@ -310,19 +336,21 @@ export default function SolutionsPage() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="up" className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-ocean-50 to-gulf-50 backdrop-blur-sm border border-ocean-200">
-              <CardHeader>
-                <CardTitle className="text-2xl font-outfit font-bold text-admiral-900 mb-4">
-                  Gravity by Innovaccer
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-admiral-700 leading-relaxed font-space-grotesk text-lg">
-                  is the intelligent, healthcare-native platform powering our solution by bringing together data, AI, and workflow automation in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
-                </p>
-              </CardContent>
-            </Card>
+          <ScrollReveal direction="up" className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+            <div className="flex-shrink-0">
+              <Image
+                src="/gravity logo.jpeg"
+                alt="Gravity by Innovaccer logo"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-admiral-900 leading-relaxed font-space-grotesk text-lg">
+                <strong className="font-outfit font-bold">Gravity by Innovaccer</strong> is the intelligent, healthcare-native platform powering our solution by bringing together data, AI, and workflow automation in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -382,7 +410,22 @@ export default function SolutionsPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Our solution leverages pre-built data models and integrations, enabling dramatically faster deployment compared to traditional implementations. Most health systems see measurable impact within weeks rather than months, with full deployment typically completed in a fraction of the time required by standard specialty pharmacy platforms.
+                    By leveraging our validated playbooks and extensive pre-built data integrations, initial modules can typically reach <strong>go-live in 8–12 weeks</strong>. The full deployment is modular, allowing you to phase the rollout according to your organization's highest priorities.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={0.3}>
+              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
+                    Can we implement specific modules (e.g., PA or 340B) first and then expand later?
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
+                    Absolutely. Our architecture supports <strong>phased, modular deployment</strong>. Most organizations achieve immediate impact by starting with critical areas like prior authorization optimization or 340B program management, and then strategically expanding to other modules as operational value is proven.
                   </p>
                 </CardContent>
               </Card>

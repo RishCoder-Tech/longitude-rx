@@ -119,7 +119,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
     // First check for explicit link field
     const link = article.link || article.fields?.link;
     
-    // If no explicit link, generate slug from title
+    // If no explicit link, generate slug from title and link to blog post page
     if (!link) {
       const slug = getBlogSlug(article);
       const blogUrl = `/blog/${slug}`;
@@ -132,8 +132,9 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
       );
     }
 
+    // Handle explicit links
     if (link.startsWith('/')) {
-      // Internal route
+      // Internal route (like /onvida-press-release)
       return (
         <Link href={link} className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group">
           Read More
@@ -154,7 +155,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
         </a>
       );
     } else {
-      // Fallback - generate slug
+      // Fallback - generate slug from title
       const slug = getBlogSlug(article);
       const blogUrl = `/blog/${slug}`;
       

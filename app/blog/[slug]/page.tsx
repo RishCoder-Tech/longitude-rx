@@ -5,7 +5,7 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { getBlogSlug, generateSlug } from '@/lib/slug';
+import { getBlogSlug } from '@/lib/slug';
 
 async function getBlogPostBySlug(slug: string) {
   const space = process.env.CONTENTFUL_SPACE_ID || 'lw7encv6ilgz';
@@ -237,7 +237,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   );
 }
 
-// Generate static params for better performance (optional)
+// Generate static params for better performance
 export async function generateStaticParams() {
   const space = process.env.CONTENTFUL_SPACE_ID || 'lw7encv6ilgz';
   const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN || 'tdOouTA_FZNydGxt_s1ADAyix3bHJle8uyn2dSSYV9g';

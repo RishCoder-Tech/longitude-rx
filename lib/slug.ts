@@ -10,7 +10,7 @@ export function generateSlug(title: string): string {
     .trim()
     // Replace spaces and underscores with hyphens
     .replace(/[\s_]+/g, '-')
-    // Remove special characters except hyphens
+    // Remove special characters except hyphens and alphanumeric
     .replace(/[^\w\-]+/g, '')
     // Replace multiple consecutive hyphens with a single hyphen
     .replace(/\-+/g, '-')
@@ -26,12 +26,16 @@ export function getBlogSlug(blogPost: any): string {
   const slugField = blogPost.fields?.slug || blogPost.slug;
   
   if (slugField) {
-    // Handle Contentful slug object format
+    // Handle Contentful slug object format (can be string or object)
     if (typeof slugField === 'string') {
       return slugField;
     }
-    if (slugField.fields?.slug || slugField.slug) {
-      return slugField.fields?.slug || slugField.slug;
+    // Handle Contentful slug object with nested fields
+    if (slugField.fields?.slug) {
+      return slugField.fields.slug;
+    }
+    if (slugField.slug) {
+      return slugField.slug;
     }
   }
   

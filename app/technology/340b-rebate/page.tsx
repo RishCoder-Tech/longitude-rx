@@ -388,12 +388,6 @@ export default function Rebate340BPage() {
         
         <div className="container px-6 md:px-8 relative z-10">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Sparkles className="h-4 w-4 text-rhodamine-600" />
-              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                DIFFERENTIATED EXPERIENCE
-              </span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               Longitude Rx Differentiated Experience
             </h2>

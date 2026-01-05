@@ -9,6 +9,7 @@ import Link from "next/link";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { ScrollReveal } from "@/components/scroll-animations";
+import { getBlogSlug } from "@/lib/slug";
 
 // TypeScript declaration for Tally
 declare global {
@@ -77,7 +78,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
       category: "Press Release",
       description: "Arizona-based health system joins Longitude Rx network, expanding access to innovative specialty pharmacy technology.",
       readTime: "3 min read",
-      link: "/onvida-press-release",
+      link: "/onvida-press-release", // Keep explicit link for special pages
       featured: true,
       author: "Sarah Johnson",
       body: "Longitude Rx is excited to announce that Onvida Health, a leading Arizona-based health system, has joined our network as the first external partner. This strategic partnership represents a significant milestone in our mission to expand access to innovative specialty pharmacy technology across the healthcare landscape.\n\nOnvida Health brings extensive experience in managing complex patient populations and a strong commitment to leveraging technology to improve patient outcomes. Their decision to partner with Longitude Rx underscores the value of our AI-powered specialty pharmacy solutions in addressing the unique challenges faced by health systems today.\n\nThrough this partnership, Onvida Health will gain access to our comprehensive suite of specialty pharmacy management tools, including advanced analytics, automated prior authorization processes, and collaborative purchasing capabilities. These technologies will enable Onvida Health to optimize their specialty pharmacy operations while maintaining the highest standards of patient care.\n\nThe collaboration also creates opportunities for knowledge sharing and best practice development between our organizations. By working together, we can accelerate innovation in specialty pharmacy management and create new solutions that benefit patients across the healthcare ecosystem.\n\nThis partnership represents just the beginning of Longitude Rx's expansion strategy. We look forward to welcoming additional health system partners as we continue to build a network dedicated to transforming specialty pharmacy care through technology and collaboration.",
@@ -90,7 +91,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
       category: "Industry News",
       description: "New study demonstrates significant savings for health systems using advanced AI technology in specialty pharmacy operations.",
       readTime: "5 min read",
-      link: "/newsletter",
+      // No link - will use slug: "ai-powered-specialty-pharmacy-solutions-show-30-cost-reduction"
       featured: false,
       author: "Dr. Michael Chen",
       body: "A groundbreaking study published this month reveals that health systems implementing AI-powered specialty pharmacy solutions are achieving remarkable cost reductions while simultaneously improving patient outcomes. The comprehensive analysis, which examined data from over 50 health systems across the United States, found an average 30% reduction in specialty pharmacy operational costs.\n\nThe study, conducted by leading healthcare researchers, evaluated the impact of AI technology across multiple aspects of specialty pharmacy operations, including medication selection, dosing optimization, prior authorization processes, and patient monitoring. The results demonstrate that AI-driven solutions can significantly enhance efficiency while maintaining or improving quality of care.\n\nKey findings from the research include a 40% reduction in prior authorization processing time, a 25% improvement in medication adherence rates, and a 35% decrease in medication-related adverse events. These improvements translate to substantial cost savings for health systems while enhancing patient safety and outcomes.\n\nThe study also highlights the importance of proper implementation and training in achieving these results. Health systems that invested in comprehensive staff training and change management processes saw even greater improvements in their specialty pharmacy operations.\n\nThese findings provide compelling evidence for health systems considering AI-powered specialty pharmacy solutions. The combination of cost savings and improved patient outcomes makes a strong case for accelerating adoption of these technologies across the healthcare industry.",
@@ -103,7 +104,7 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
       category: "Market Analysis",
       description: "Health systems increasingly adopting collaborative approaches to specialty medication procurement and management.",
       readTime: "4 min read",
-      link: "/services",
+      // No link - will use slug: "collaborative-purchasing-model-gains-momentum-in-healthcare"
       featured: false,
       author: "Emily Rodriguez",
       body: "The healthcare industry is witnessing a significant shift toward collaborative purchasing models for specialty medications, as health systems recognize the benefits of collective bargaining power and shared resources. This trend reflects a broader movement toward strategic partnerships and cooperative approaches in healthcare delivery.\n\nRecent market analysis indicates that collaborative purchasing arrangements are becoming increasingly popular among health systems of all sizes. These partnerships enable organizations to leverage their combined purchasing power to negotiate better pricing with pharmaceutical manufacturers and distributors.\n\nThe benefits of collaborative purchasing extend beyond cost savings to include improved access to medications, enhanced supply chain reliability, and increased opportunities for knowledge sharing and best practice development. Health systems participating in these arrangements report greater confidence in their ability to meet patient needs while maintaining financial sustainability.\n\nTechnology platforms are playing a crucial role in facilitating these collaborative arrangements by providing the infrastructure needed for coordinated purchasing, inventory management, and performance monitoring. These platforms enable health systems to work together effectively while maintaining their individual operational autonomy.\n\nThe growing adoption of collaborative purchasing models represents a fundamental shift in how health systems approach specialty medication management. As this trend continues, we can expect to see further innovation in partnership structures and technology solutions designed to support collaborative healthcare initiatives.",
@@ -115,22 +116,25 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
 
   // Helper function to render the "Read More" link
   const renderReadMoreLink = (article: any) => {
+    // First check for explicit link field
     const link = article.link || article.fields?.link;
     
+    // If no explicit link, generate slug from title and link to blog post page
     if (!link) {
+      const slug = getBlogSlug(article);
+      const blogUrl = `/blog/${slug}`;
+      
       return (
-        <button
-          onClick={() => handleReadMore(article)}
-          className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group"
-        >
+        <Link href={blogUrl} className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group">
           Read More
           <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
+        </Link>
       );
     }
 
+    // Handle explicit links
     if (link.startsWith('/')) {
-      // Internal route
+      // Internal route (like /onvida-press-release)
       return (
         <Link href={link} className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group">
           Read More
@@ -151,15 +155,15 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
         </a>
       );
     } else {
-      // Fallback - show modal
+      // Fallback - generate slug from title
+      const slug = getBlogSlug(article);
+      const blogUrl = `/blog/${slug}`;
+      
       return (
-        <button
-          onClick={() => handleReadMore(article)}
-          className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group"
-        >
+        <Link href={blogUrl} className="text-rhodamine-600 hover:text-rhodamine-700 text-sm font-medium flex items-center group">
           Read More
           <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
+        </Link>
       );
     }
   };

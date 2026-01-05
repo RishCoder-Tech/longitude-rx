@@ -30,6 +30,9 @@ import {
   Lightbulb,
   Cog,
   Users,
+  AlertCircle,
+  FileCheck,
+  Layers,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -92,9 +95,9 @@ export default function Rebate340BPage() {
       title: `Claims Submission`,
       description: `Standardized claim files aligned with Beacon requirements.`,
       valueProps: [
-        { label: `Early issue\nidentification`, icon: Pill },
-        { label: `Automated\nFiling`, icon: Dna },
-        { label: `Consolidation\nof claims`, icon: Network },
+        { label: `Early issue\nidentification`, icon: AlertCircle },
+        { label: `Automated\nFiling`, icon: FileCheck },
+        { label: `Consolidation\nof claims`, icon: Layers },
       ],
       features: [
         "Unified data for seamless submission",

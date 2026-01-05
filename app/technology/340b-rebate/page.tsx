@@ -145,6 +145,13 @@ export default function Rebate340BPage() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24">
+      {/* Announcement Banner */}
+      <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
+        <span>
+          Following a court order, the 340B Rebate model pilot has been paused, providing a window for further organizational preparation.
+        </span>
+      </div>
+
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-visible bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">

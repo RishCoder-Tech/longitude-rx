@@ -72,7 +72,7 @@ export default function AboutPage() {
     {
       name: "Stacey Hale",
       title: "Vice President of Pharmacy Services",
-      headshot: "/image.png",
+      headshot: "/image copy.png",
       bio: "Bio to be added.",
     },
     {

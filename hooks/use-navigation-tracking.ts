@@ -37,6 +37,7 @@ export const useNavigationTracking = () => {
     if (path.startsWith('/about')) return 'about'
     if (path.startsWith('/technologies')) return 'technologies'
     if (path.startsWith('/newsletter')) return 'newsletter'
+    if (path.startsWith('/blog')) return 'blog'
     return 'other'
   }
 

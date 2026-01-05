@@ -200,7 +200,7 @@ export default function Rebate340BPage() {
                   alt="Innovaccer Gravity"
                   width={200}
                   height={60}
-                  className="h-10 md:h-14 w-auto object-contain"
+                  className="h-8 md:h-12 w-auto object-contain"
                 />
               </div>
             </div>

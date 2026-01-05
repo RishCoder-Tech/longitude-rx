@@ -274,25 +274,25 @@ export default function Rebate340BPage() {
             {[
               {
                 icon: DollarSign,
-                title: "Adjusted Cash Flow Dynamics",
+                title: "Financial Strain",
                 description: "Health systems must now manage significantly higher upfront drug expenditures while awaiting rebate processing. This shift ties up substantial working capital, requiring precise financial forecasting to maintain operational stability.",
                 gradient: "from-rhodamine-500 to-gulf-500",
               },
               {
                 icon: Clock,
-                title: "Variable Payment Timelines",
+                title: "Unpredictable Revenue Cycles",
                 description: "Reimbursement relies on unregulated timelines that vary by manufacturer and program maturity. Proactive visibility into pending claims is essential for maintaining predictable month-over-month revenue.",
                 gradient: "from-gulf-500 to-ocean-500",
               },
               {
                 icon: FileText,
-                title: "Enhanced Administrative Requirements",
-                description: "New reporting mandates significant time from 340B analysts and specialty pharmacy. Organizations require specialized technology to automate the manual burden of monitoring portals and compiling complex data files.",
+                title: "Increased Operational Burden",
+                description: "New reporting mandates significant time from 340B analysts and health system administration. Organizations require specialized technology to automate the manual burden of monitoring portals and compiling complex data files.",
                 gradient: "from-ocean-500 to-admiral-500",
               },
               {
                 icon: Database,
-                title: "Data Integration Challenges",
+                title: "Fragmented Data Risks",
                 description: "Essential data is often fragmented across multiple TPAs, EHRs, and wholesaler feeds. Without a unified view, normalizing this information for accurate submission and efficient reconciliation is a major challenge.",
                 gradient: "from-admiral-500 to-rhodamine-500",
               },

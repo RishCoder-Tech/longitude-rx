@@ -73,7 +73,8 @@ export default function AboutPage() {
       name: "Stacey Hale",
       title: "Vice President of Pharmacy Services",
       headshot: "/image copy.png",
-      bio: "Bio to be added.",
+      bio: "Stacey Hale is the Vice President of Pharmacy Services at Longitude Rx. Previously, she served as the Administrative Director of the 340B program at OU Health and the Manager of Oklahoma Medicaid's Federal Drug Rebate Program.\n\nWith over 15 years of experience in healthcare finance and operations, Stacey is a highly skilled leader specializing in the optimization of pharmacy programs and compliance within complex healthcare systems. At OU Health, she managed the operational and financial performance of a $450 million outpatient pharmacy program, which included the management of hospital-owned pharmacies, contract pharmacies, and mixed-use areas. She created opportunities for the health system related to contract pharmacy and drug manufacturer restrictions to assist with patient access to medications and savings. Stacey excels in budgeting, forecasting, and ensuring compliance with federal and local regulations while providing strategic insights that drive system-wide initiatives.\n\nStacey holds a certification through the Apexus 340B Operational ACE program. Her additional interests include pharmacy and hospital revenue cycle management. Outside of work, Stacey enjoys spending time with family and traveling.",
+      linkedin: "https://www.linkedin.com/in/stacey-hale-a15265107/",
     },
     {
       name: "Rachel Bolton",

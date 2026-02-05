@@ -11,16 +11,15 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import { ScrollReveal } from "@/components/scroll-animations";
 import { getBlogSlug } from "@/lib/slug";
 
-// TypeScript declaration for Tally
 declare global {
   interface Window {
     Tally?: {
-      loadEmbeds: () => void
-    }
+      loadEmbeds: () => void;
+    };
   }
 }
 
-export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: any[], webinars: any[] }) {
+export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: any[]; webinars: any[] }) {
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tallyLoaded, setTallyLoaded] = useState(false);
@@ -35,39 +34,31 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
     setSelectedArticle(null);
   };
 
-  // Load Tally script
   useEffect(() => {
-    const loadTallyScript = () => {
-      if (typeof window !== 'undefined' && !window.Tally) {
-        const script = document.createElement('script')
-        script.src = 'https://tally.so/widgets/embed.js'
-        script.async = true
-        script.onload = () => {
-          if (window.Tally) {
-            window.Tally.loadEmbeds()
-            setTallyLoaded(true)
-          }
-        }
-        script.onerror = () => {
-          console.error('Failed to load Tally script')
-          // Fallback: try to load the iframe directly
-          const iframe = document.querySelector('iframe[data-tally-src]') as HTMLIFrameElement
-          if (iframe && iframe.dataset.tallySrc) {
-            iframe.src = iframe.dataset.tallySrc
-            setTallyLoaded(true)
-          }
-        }
-        document.body.appendChild(script)
-      } else if (window.Tally) {
-        window.Tally.loadEmbeds()
-        setTallyLoaded(true)
-      }
+    if (typeof window === "undefined") return;
+    if (window.Tally) {
+      window.Tally.loadEmbeds();
+      setTallyLoaded(true);
+      return;
     }
-
-    loadTallyScript()
-  }, [])
-
-
+    const script = document.createElement("script");
+    script.src = "https://tally.so/widgets/embed.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.Tally) {
+        window.Tally.loadEmbeds();
+        setTallyLoaded(true);
+      }
+    };
+    script.onerror = () => {
+      const iframe = document.querySelector('iframe[data-tally-src]') as HTMLIFrameElement;
+      if (iframe?.dataset.tallySrc) {
+        iframe.src = iframe.dataset.tallySrc;
+        setTallyLoaded(true);
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
 
   // Fallback blog posts if no Contentful data is available
   const fallbackBlogPosts = [
@@ -334,20 +325,20 @@ export default function NewsletterClient({ blogPosts, webinars }: { blogPosts: a
             <div className="w-full max-w-md mx-auto pt-8">
               {!tallyLoaded && (
                 <div className="flex items-center justify-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rhodamine-500"></div>
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rhodamine-500" />
                   <span className="ml-3 text-admiral-600">Loading form...</span>
                 </div>
               )}
-              <iframe 
-                data-tally-src="https://tally.so/embed/1AA5G4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" 
-                loading="lazy" 
-                width="100%" 
-                height={200} 
-                frameBorder="0" 
-                marginHeight={0} 
-                marginWidth={0} 
+              <iframe
+                data-tally-src="https://tally.so/embed/1AA5G4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
+                loading="lazy"
+                width="100%"
+                height={200}
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
                 title="Newsroom Email Subscription"
-                className={`w-full ${tallyLoaded ? 'block' : 'hidden'}`}
+                className={`w-full ${tallyLoaded ? "block" : "hidden"}`}
                 onLoad={() => setTallyLoaded(true)}
               />
             </div>

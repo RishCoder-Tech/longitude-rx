@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
@@ -126,7 +127,14 @@ const renderOptions = {
       <ol className="list-decimal list-inside mb-4 space-y-2 text-admiral-700">{children}</ol>
     ),
     [BLOCKS.LIST_ITEM]: (node: any, children: any) => (
-      <li className="ml-4">{children}</li>
+      <li className="ml-4">
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child) && (child as React.ReactElement<any>).type === 'p') {
+            return (child as React.ReactElement<any>).props.children;
+          }
+          return child;
+        })}
+      </li>
     ),
   },
   renderMark: {

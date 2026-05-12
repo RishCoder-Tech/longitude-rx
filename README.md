@@ -1,4 +1,4 @@
-# Longitude Rx - Healthcare Technology Platform
+# Longitude Rx - Healthcare Technology Website
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org/)

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -120,26 +120,60 @@ const renderOptions = {
     [BLOCKS.HEADING_3]: (node: any, children: any) => (
       <h3 className="text-2xl font-bold font-outfit mb-3 mt-5 text-admiral-900">{children}</h3>
     ),
+    [BLOCKS.HEADING_4]: (node: any, children: any) => (
+      <h4 className="text-xl font-bold font-outfit mb-2 mt-4 text-admiral-900">{children}</h4>
+    ),
     [BLOCKS.UL_LIST]: (node: any, children: any) => (
-      <ul className="list-disc list-inside mb-4 space-y-2 text-admiral-700">{children}</ul>
+      <ul className="list-disc pl-6 mb-6 space-y-2 text-admiral-700">{children}</ul>
     ),
     [BLOCKS.OL_LIST]: (node: any, children: any) => (
-      <ol className="list-decimal list-inside mb-4 space-y-2 text-admiral-700">{children}</ol>
+      <ol className="list-decimal pl-6 mb-6 space-y-2 text-admiral-700">{children}</ol>
     ),
-    [BLOCKS.LIST_ITEM]: (node: any, children: any) => (
-      <li className="ml-4">
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child) && (child as React.ReactElement<any>).type === 'p') {
-            return (child as React.ReactElement<any>).props.children;
-          }
-          return child;
-        })}
-      </li>
+    [BLOCKS.LIST_ITEM]: (node: any, children: any) => {
+      const unwrapped = React.Children.map(children, (child) => {
+        if (
+          React.isValidElement(child) &&
+          (child as React.ReactElement<any>).type === 'p'
+        ) {
+          return (child as React.ReactElement<any>).props.children;
+        }
+        return child;
+      });
+      return <li className="leading-relaxed">{unwrapped}</li>;
+    },
+    [BLOCKS.QUOTE]: (node: any, children: any) => (
+      <blockquote className="border-l-4 border-rhodamine-300 pl-4 my-6 italic text-admiral-600">{children}</blockquote>
+    ),
+    [BLOCKS.HR]: () => <hr className="my-8 border-gypsum-300" />,
+    [BLOCKS.TABLE]: (node: any, children: any) => (
+      <div className="overflow-x-auto mb-6">
+        <table className="min-w-full border-collapse border border-gypsum-200">{children}</table>
+      </div>
+    ),
+    [BLOCKS.TABLE_ROW]: (node: any, children: any) => (
+      <tr className="border-b border-gypsum-200">{children}</tr>
+    ),
+    [BLOCKS.TABLE_CELL]: (node: any, children: any) => (
+      <td className="px-4 py-2 text-admiral-700">{children}</td>
+    ),
+    [BLOCKS.TABLE_HEADER_CELL]: (node: any, children: any) => (
+      <th className="px-4 py-2 font-bold text-admiral-900 bg-gypsum-100 text-left">{children}</th>
+    ),
+    [INLINES.HYPERLINK]: (node: any, children: any) => (
+      <a
+        href={node.data.uri}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-ocean-600 hover:text-ocean-800 underline font-medium"
+      >
+        {children}
+      </a>
     ),
   },
   renderMark: {
     [MARKS.BOLD]: (text: any) => <strong className="font-bold">{text}</strong>,
     [MARKS.ITALIC]: (text: any) => <em className="italic">{text}</em>,
+    [MARKS.UNDERLINE]: (text: any) => <span className="underline">{text}</span>,
   },
 };
 

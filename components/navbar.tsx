@@ -64,21 +64,14 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="h-9 w-auto md:h-10 rounded-xl flex items-center justify-center p-1 space-x-2">
-                  <Image
-                    src="/images/longitude-logo.png"
-                  alt="Favicon"
-                  width={24}
-                  height={24}
-                  className="object-contain h-6 w-6 mr-2"
-                />
+            <Link href="/" className="flex items-center">
+              <div className="h-12 w-12 md:h-14 md:w-14 rounded-xl flex items-center justify-center">
                 <Image
-                  src="/longitude-logo-navbar.png"
-                    alt="Longitude Rx Logo"
-                  width={160}
-                  height={40}
-                  className="object-contain h-8 md:h-9 w-auto"
+                  src="/images/longitude-rx-globe-logo.svg"
+                  alt="Longitude Rx Logo"
+                  width={56}
+                  height={56}
+                  className="h-12 w-12 md:h-14 md:w-14 object-contain"
                   priority
                 />
               </div>

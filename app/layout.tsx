@@ -120,7 +120,7 @@ export default function RootLayout({
         <PostHogProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
             <ErrorBoundary>
-              <div className="flex min-h-screen flex-col bg-gradient-to-br from-gypsum-50 via-gypsum-100 to-gypsum-200 relative overflow-hidden">
+              <div className="flex min-h-screen flex-col bg-gradient-to-br from-gypsum-50 via-gypsum-100 to-gypsum-200 relative overflow-x-hidden">
                 {/* Scroll Progress */}
                 <ScrollProgress />
 

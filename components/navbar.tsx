@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="navbar fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4"
+      className="navbar fixed top-0 left-0 right-0 z-50 overflow-visible px-4 md:px-6 pt-3"
       style={{ y: navbarY, opacity: navbarOpacity }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -48,30 +48,33 @@ export default function Navbar() {
     >
       <motion.div
         className={cn(
-          "w-full max-w-7xl mx-auto transition-all duration-500 rounded-2xl border backdrop-blur-2xl",
+          "w-full max-w-7xl mx-auto overflow-visible transition-all duration-500 rounded-xl border backdrop-blur-xl",
           scrolled
-            ? "bg-gypsum-100/90 shadow-2xl shadow-admiral-900/10 border-admiral-200/30"
-            : "bg-gypsum-100/70 shadow-xl shadow-admiral-900/5 border-admiral-200/20",
+            ? "bg-gypsum-100/90 shadow-xl shadow-admiral-900/10 border-admiral-200/30"
+            : "bg-gypsum-100/70 shadow-lg shadow-admiral-900/5 border-admiral-200/20",
         )}
         whileHover={{
-          boxShadow: scrolled ? "0 25px 50px -12px rgba(0, 0, 0, 0.15)" : "0 20px 40px -12px rgba(0, 0, 0, 0.1)",
+          boxShadow: scrolled ? "0 20px 40px -12px rgba(0, 0, 0, 0.12)" : "0 12px 28px -8px rgba(0, 0, 0, 0.08)",
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex h-16 md:h-18 items-center justify-between px-6 md:px-8">
+        <div className="relative flex h-16 items-center justify-between overflow-visible px-6 md:h-[4.5rem] md:px-8">
           <motion.div
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
+            className="relative flex w-[115px] shrink-0 items-center md:w-[134px]"
+            whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Link href="/" className="flex items-center">
-              <div className="h-12 w-12 md:h-14 md:w-14 rounded-xl flex items-center justify-center">
+            <Link
+              href="/"
+              className="absolute left-0 top-1/2 z-10 flex -translate-y-1/2 items-center outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-admiral-400"
+            >
+              <div className="flex h-[115px] w-[115px] items-center justify-center rounded-xl md:h-[134px] md:w-[134px]">
                 <Image
                   src="/images/longitude-rx-globe-logo.svg"
                   alt="Longitude Rx Logo"
-                  width={56}
-                  height={56}
-                  className="h-12 w-12 md:h-14 md:w-14 object-contain"
+                  width={134}
+                  height={134}
+                  className="h-[115px] w-[115px] object-contain md:h-[134px] md:w-[134px]"
                   priority
                 />
               </div>
@@ -246,7 +249,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden border-t border-admiral-200/20 rounded-b-2xl"
+              className="md:hidden overflow-hidden border-t border-admiral-200/20 rounded-b-xl"
             >
               <motion.nav
                 initial={{ y: -20 }}

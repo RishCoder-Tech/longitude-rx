@@ -187,15 +187,16 @@ export default function Rebate340BPage() {
               </p>
             </div>
 
-            {/* Branding Section */}
+            {/* Branding Section — box height caps display; Image uses h-full so Tailwind wins over intrinsic pixels */}
             <div className="flex flex-col items-center justify-center space-y-4 my-8 w-full">
-              <div className="flex items-center justify-center">
+              <div className="flex h-12 w-full max-w-md items-center justify-center px-2 md:h-16 md:max-w-lg">
                 <Image
                   src="/longitude-logo-navbar.png"
                   alt="Longitude Rx"
-                  width={200}
-                  height={60}
-                  className="h-12 md:h-16 w-auto object-contain"
+                  width={640}
+                  height={160}
+                  className="h-full w-auto max-w-full object-contain"
+                  sizes="(max-width: 768px) min(100vw, 28rem), 32rem"
                 />
               </div>
               <div className="text-sm md:text-base text-admiral-600 font-space-grotesk text-center">

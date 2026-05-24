@@ -11,9 +11,6 @@ import {
   Database,
   MessageSquare,
   ClipboardCheck,
-  Users,
-  HeartHandshake,
-  Sparkles,
 } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -131,7 +128,7 @@ export default function TechnologyPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-3 my-6">
               <span className="text-lg md:text-xl text-admiral-700 font-space-grotesk font-medium">
-                LRx360 powered by
+                LRx360 powered by Innovaccer Gravity
               </span>
               <div className="flex h-12 max-w-[220px] items-center justify-center md:h-16 md:max-w-[280px]">
                 <Image
@@ -179,10 +176,7 @@ export default function TechnologyPage() {
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up">
-            <DataFlowAnimation
-              headline="Not next-gen in name only"
-              subheadline="Click on any element to explore how LRx360 transforms healthcare data into actionable workflow"
-            />
+            <DataFlowAnimation headline="NOT NEXT GEN IN" />
           </ScrollReveal>
         </div>
       </section>
@@ -241,12 +235,6 @@ export default function TechnologyPage() {
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <HeartHandshake className="h-4 w-4 text-ocean-600" />
-              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                MANAGED SAAS
-              </span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               LRx360 is a managed product, not just software
             </h2>
@@ -272,12 +260,6 @@ export default function TechnologyPage() {
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-12 max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Users className="h-4 w-4 text-ocean-600" />
-              <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                PARTNERSHIP
-              </span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
               Co-developed with Innovaccer
             </h2>
@@ -322,10 +304,6 @@ export default function TechnologyPage() {
       <section className="w-full py-20 md:py-32 bg-white">
         <div className="container px-6 md:px-8">
           <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-16">
-            <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Sparkles className="h-4 w-4 text-rhodamine-600" />
-              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">FAQ</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
               Questions we get from health system pharmacy leaders
             </h2>

@@ -3,22 +3,16 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
-  CheckCircle,
   ArrowRight,
-  Zap,
-  Shield,
-  Users,
-  Globe,
-  Network,
   Activity,
-  Target,
-  BarChart3,
-  ShoppingCart,
-  LineChart,
-  Building,
-  Cpu,
+  ShieldCheck,
+  Network,
+  Wallet,
+  Database,
+  MessageSquare,
+  ClipboardCheck,
+  Users,
   HeartHandshake,
-  Rocket,
   Sparkles,
 } from "lucide-react"
 import Link from "next/link"
@@ -26,19 +20,83 @@ import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-animations"
 import DataFlowAnimation from "@/components/data-flow-animation"
 import Image from "next/image"
-import { useState } from "react"
 
-export default function SolutionsPage() {
+const capabilities = [
+  {
+    icon: ClipboardCheck,
+    title: "Prior authorization, started at the point of care",
+    description:
+      "Benefit verification and prior authorization initiate the moment a specialty prescription is written. Status, missing documentation, and payer-specific requirements are visible in one place. The result is fewer handoffs and a shorter path to first dose.",
+    gradient: "from-rhodamine-500 to-gulf-500",
+  },
+  {
+    icon: Network,
+    title: "Routing that protects the script",
+    description:
+      "Intelligent routing directs each prescription to the most appropriate dispensing point, prioritizing the health system's own specialty pharmacy where clinically and contractually appropriate. Allowing for continuity of patient care.",
+    gradient: "from-gulf-500 to-ocean-500",
+  },
+  {
+    icon: Wallet,
+    title: "Real-time prescription benefit and affordability",
+    description:
+      "Real-time visibility into coverage, cost, and alternatives at the point of care. Patient financial assistance options surface in workflow, before the call to the patient.",
+    gradient: "from-ocean-500 to-admiral-500",
+  },
+  {
+    icon: ShieldCheck,
+    title: "340B pre-qualification and program integrity",
+    description:
+      "340B eligibility is checked before financial exposure begins, with a compliance-grade audit trail. The platform supports HRSA's patient definition standard, contract pharmacy review, and ongoing claims monitoring for duplicate discounts and diversion risk.",
+    gradient: "from-admiral-500 to-rhodamine-500",
+  },
+  {
+    icon: Database,
+    title: "One source of truth for specialty pharmacy data",
+    description:
+      "LRx360 unifies claims, EMR, pharmacy, wholesaler, 340B TPA, and third-party data into one view. Care gaps, workflow bottlenecks, and performance trends are visible at the program level, not stitched together after the fact.",
+    gradient: "from-rhodamine-600 to-ocean-600",
+  },
+  {
+    icon: MessageSquare,
+    title: "Patient engagement",
+    description:
+      "A patient portal with prescription status, refill reminders, and direct communication channels. Fewer inbound calls to the pharmacy team. More transparency for the patient.",
+    gradient: "from-gulf-400 to-rhodamine-500",
+  },
+]
+
+const faqs = [
+  {
+    question: "What is LRx360?",
+    answer:
+      "LRx360 is the specialty pharmacy intelligence platform from Longitude Rx co-developed with Innovaccer. It verifies benefits, initiates prior authorization, routes prescriptions, validates affordability, and pre-qualifies 340B at the point of care. It comes with an LRx team integrated into the health system, so the platform is operationalized day one.",
+  },
+  {
+    question: "Does LRx360 work with our existing EMR and dispensing systems?",
+    answer:
+      "Yes. LRx360 uses pre-built integrations with major EMR vendors and supports HL7 and FHIR for bidirectional exchange across electronic health records, pharmacy, billing, and dispensing systems.",
+  },
+  {
+    question: "How long does implementation take?",
+    answer:
+      "Initial modules typically reach go-live in 8–12 weeks using validated playbooks and pre-built data integrations. Full deployment is modular and phased to the system's priorities.",
+  },
+  {
+    question: "Can we start with one module and expand later?",
+    answer:
+      "Yes. Most systems start with the highest-friction workflow first, usually prior authorization or 340B program integrity, and add modules as operational value is proven. The architecture is modular by design.",
+  },
+  {
+    question: "How is this different from a 340B optimization tool?",
+    answer:
+      "LRx360 manages the full specialty pharmacy lifecycle, from prescription intake through dispensing and adherence. 340B pre-qualification and program integrity checks are part of that lifecycle, not the whole product. The objective is program integrity and operational coordination, not financial extraction.",
+  },
+]
+
+export default function TechnologyPage() {
   return (
     <div className="flex flex-col min-h-screen pt-24">
-      {/* Onvida Health Announcement */}
-      <div className="w-full bg-gradient-to-r from-rhodamine-100 via-gulf-100 to-ocean-100 py-3 px-4 text-center text-lg font-semibold text-rhodamine-800 shadow-md mb-2">
-        <span className="mr-2">🚀</span>
-        <span>
-          <strong>Innovaccer and Longitude Rx Partner to Transform Health System Specialty Pharmacy with the Gravity Platform!</strong> <a href="https://longituderx.org/newsletter" target="_blank" rel="noopener noreferrer" className="underline text-gulf-700 hover:text-ocean-700">Learn More</a>.
-        </span>
-      </div>
-
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32 lg:py-40 relative overflow-visible bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="absolute inset-0 z-0">
@@ -61,41 +119,55 @@ export default function SolutionsPage() {
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Activity className="h-4 w-4 text-rhodamine-600" />
               <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                SPECIALTY PHARMACY TECHNOLOGY
+                INTELLIGENT SPECIALTY PHARMACY SOLUTION
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold leading-loose pb-4">
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold leading-tight pb-4">
               <span className="bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-                Tech-Enabled Specialty Pharmacy Platform
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-rhodamine-600 via-gulf-500 to-ocean-600 bg-clip-text text-transparent">
-                Built for Health Systems
+                The first end-to-end specialty pharmacy platform built for health systems, by health systems.
               </span>
             </h1>
-            <div className="flex items-center justify-center gap-3 my-6">
+
+            <div className="flex flex-wrap items-center justify-center gap-3 my-6">
               <span className="text-lg md:text-xl text-admiral-700 font-space-grotesk font-medium">
-                Longitude Rx powered by
+                LRx360 powered by
               </span>
-              <Image
-                src="/gravity logo.jpeg"
-                alt="Innovaccer Gravity"
-                width={200}
-                height={60}
-                className="h-12 md:h-16 w-auto object-contain"
-              />
+              <div className="flex h-12 max-w-[220px] items-center justify-center md:h-16 md:max-w-[280px]">
+                <Image
+                  src="/gravity logo.jpeg"
+                  alt="Innovaccer Gravity"
+                  width={320}
+                  height={96}
+                  className="h-full w-auto max-w-full object-contain"
+                  sizes="(max-width: 768px) 11rem, 14rem"
+                />
+              </div>
             </div>
-            <p className="text-xl md:text-2xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Transform the specialty pharmacy patient journey by integrated technology that strengthens patient and clinician support through unified data and streamlined workflows, improving outcomes at every step.
+
+            <p className="text-lg md:text-xl text-admiral-700 max-w-3xl leading-relaxed font-space-grotesk">
+              Co-developed with Innovaccer, LRx360 brings specialty pharmacy data and workflows into one place, so
+              prior authorization, routing, financial assistance, and 340B pre-qualification happen before the
+              prescription is released.
             </p>
-            <div className="mt-8">
-              <a href="mailto:Innovaccer@longituderx.org">
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
+                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-lg font-semibold font-space-grotesk group hover:scale-105"
                 >
-                  Request a Demo
-                  <ArrowRight className="ml-3 h-6 w-6" />
+                  Talk to our team
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
+              <a href="#capabilities">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-2xl px-10 py-5 text-lg font-semibold font-space-grotesk border-admiral-300 text-admiral-800 hover:bg-gypsum-100"
+                >
+                  See how it works
                 </Button>
               </a>
             </div>
@@ -103,19 +175,20 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* Data Flow Animation Section */}
+      {/* Interactive data flow */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
-
-
           <ScrollReveal direction="up">
-            <DataFlowAnimation />
+            <DataFlowAnimation
+              headline="Not next-gen in name only"
+              subheadline="Click on any element to explore how LRx360 transforms healthcare data into actionable workflow"
+            />
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Unified Specialty Pharmacy Platform Section */}
-      <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm relative">
+      {/* Capabilities */}
+      <section id="capabilities" className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-100/80 via-gypsum-200/30 to-gypsum-300/30 backdrop-blur-sm relative scroll-mt-24">
         <div className="absolute inset-0">
           <Image
             src="/images/healthcare-technology.jpg"
@@ -126,57 +199,35 @@ export default function SolutionsPage() {
         </div>
 
         <div className="container px-6 md:px-8 relative z-10">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-16">
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
-              Unified Specialty Pharmacy Platform
+              What LRx360 does
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              A purpose-built, unified platform to manage the entire specialty pharmacy lifecycle from prescription intake to therapy fulfillment.
+            <p className="text-lg md:text-xl text-admiral-600 max-w-4xl leading-relaxed font-space-grotesk">
+              Specialty pharmacy is the rate-limiting step between a complex prescription and a patient on therapy.
+              LRx360 brings the work that decides whether a patient ever starts therapy, including benefit verification,
+              prior authorization, routing, affordability, and 340B qualification, forward into one workflow, before the
+              prescription is released.
             </p>
           </ScrollReveal>
 
-          <div className="grid gap-8 lg:grid-cols-2 max-w-7xl mx-auto items-stretch">
-            {[
-              {
-                icon: Zap,
-                title: "Reduced Administrative Burden",
-                description: "Automate the most time-consuming operational workflows across prior authorization, financial assistance, refills, and appeals. By digitally eliminating manual tasks and handoffs, your teams gain back time to focus on patient care instead of paperwork.",
-                gradient: "from-rhodamine-500 to-gulf-500",
-              },
-              {
-                icon: Target,
-                title: "End-to-End Transparency",
-                description: "Full, real-time visibility into every step of the patient journey, from prescription order to medication in hand. Gain immediate, actionable insights into status, delays, and outcomes, eliminating uncertainty or blind spots.",
-                gradient: "from-gulf-500 to-ocean-500",
-              },
-              {
-                icon: Shield,
-                title: "340B Compliance & Financial Safeguarding",
-                description: "Standardize, automate, and protect your 340B program with built-in compliance checks and manufacturer safeguards. Ensure every eligible claim is captured, every rule is enforced, and every dollar is protected.",
-                gradient: "from-ocean-500 to-admiral-500",
-              },
-              {
-                icon: Network,
-                title: "Connected Ecosystem",
-                description: "Purpose-built for scale, our infrastructure replaces fragmented tools with one connected ecosystem, accelerating time-to-therapy. Unite health systems into a single, connected network to unlock new opportunities for market access.",
-                gradient: "from-admiral-500 to-rhodamine-500",
-              },
-            ].map((solution, index) => (
-              <ScrollReveal key={solution.title} delay={index * 0.1} direction="up">
-                <motion.div className="group h-full" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col min-h-[280px] bg-white/80 backdrop-blur-sm border border-gypsum-200">
-                    <CardHeader className="pb-6">
+          <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
+            {capabilities.map((item, index) => (
+              <ScrollReveal key={item.title} delay={index * 0.08} direction="up">
+                <motion.div className="group h-full" whileHover={{ y: -6 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
+                    <CardHeader className="pb-4">
                       <div
-                        className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${solution.gradient} shadow-lg mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${item.gradient} shadow-lg mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                       >
-                        <solution.icon className="h-8 w-8 text-white" />
+                        <item.icon className="h-7 w-7 text-white" />
                       </div>
-                      <CardTitle className="text-xl font-outfit font-bold text-admiral-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
-                        {solution.title}
+                      <CardTitle className="text-xl font-outfit font-bold text-admiral-800 leading-snug">
+                        {item.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-admiral-600 leading-relaxed font-space-grotesk">{solution.description}</p>
+                      <p className="text-admiral-600 leading-relaxed font-space-grotesk">{item.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -186,85 +237,41 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* Operational Support Section */}
+      {/* Managed product */}
       <section className="w-full py-20 md:py-32">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Cpu className="h-4 w-4 text-ocean-600" />
+              <HeartHandshake className="h-4 w-4 text-ocean-600" />
               <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
-                OPERATIONAL SUPPORT
+                MANAGED SAAS
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Specialty pharmacy operations,
-              <br />
-              orchestrated with AI
+            <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
+              LRx360 is a managed product, not just software
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Our platform provides complete infrastructure for specialty pharmacy transformation. AI-powered agents automate the patient lifecycle, minimizing administrative complexity, improving the speed of patient access, and ensuring 340B adherence.
+            <p className="text-lg md:text-xl text-admiral-600 leading-relaxed font-space-grotesk">
+              Longitude Rx embedded care teams work inside your health system, supporting prior authorization, refill
+              management, and day to day patient communication. A central support hub coordinates remotely across
+              multi-site programs. The platform is the connective tissue; the team is what makes it work.
             </p>
+            <Link href="/contact" className="pt-4">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-xl rounded-2xl px-10 py-5 text-lg font-semibold font-space-grotesk"
+              >
+                Request a demo
+                <ArrowRight className="ml-3 h-5 w-5" />
+              </Button>
+            </Link>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                icon: Zap,
-                title: "Unified Specialty Pharmacy Platform",
-                description: "A purpose-built, unified platform to manage the entire specialty pharmacy lifecycle from prescription intake to therapy fulfillment. Purpose-built for scale, our infrastructure replaces fragmented tools with one connected ecosystem, accelerating time-to-therapy.",
-                gradient: "from-rhodamine-500 to-gulf-500",
-              },
-              {
-                icon: Network,
-                title: "Reduced Administrative Burden",
-                description: "Automate the most time-consuming operational workflows across prior authorization, financial assistance, refills, and appeals. By digitally eliminating manual tasks and handoffs, your teams gain back time to focus on patient care instead of paperwork.",
-                gradient: "from-gulf-500 to-ocean-500",
-              },
-              {
-                icon: Target,
-                title: "End-to-End transparency",
-                description: "Full, real-time visibility into every step of the patient journey, from prescription order to medication in hand. Gain immediate, actionable insights into status, delays, and outcomes, eliminating uncertainty or blind spots.",
-                gradient: "from-ocean-500 to-admiral-500",
-              },
-              {
-                icon: BarChart3,
-                title: "340B Compliance & Financial Safeguarding",
-                description: "Standardize, automate, and protect your 340B program with built-in compliance checks and manufacturer safeguards. Ensure every eligible claim is captured, every rule is enforced, and every dollar is protected.",
-                gradient: "from-admiral-500 to-rhodamine-500",
-              },
-              {
-                icon: LineChart,
-                title: "Connected Ecosystem",
-                description: "Unite health systems into a single, connected network to unlocks new opportunities for market access, payer partnerships, and expanded patient reach. Shared best practices and improved patient outcomes fuel stronger negotiating power, smarter growth strategies, and faster access to therapy for patients.",
-                gradient: "from-rhodamine-600 to-ocean-600",
-              },
-            ].map((feature, index) => (
-              <ScrollReveal key={feature.title} delay={index * 0.1} direction="up">
-                <motion.div className="group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
-                    <CardContent className="p-6 text-center">
-                      <div
-                        className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-lg mb-6 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <feature.icon className="h-8 w-8 text-white" />
-                      </div>
-                      <h3 className="text-lg font-bold mb-4 text-admiral-800 font-outfit group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-admiral-800 group-hover:to-rhodamine-600 transition-all duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-admiral-600 leading-relaxed font-space-grotesk text-sm">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Innovaccer Partnership Section */}
+      {/* Innovaccer partnership */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-gypsum-50 via-white to-gypsum-100">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-12 max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-ocean-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
               <Users className="h-4 w-4 text-ocean-600" />
               <span className="text-sm font-semibold text-ocean-800 font-space-grotesk tracking-wide">
@@ -272,169 +279,76 @@ export default function SolutionsPage() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent leading-loose pb-4">
-              Your Health System's success,<br />
-              amplified by our partnership
+              Co-developed with Innovaccer
             </h2>
-            <p className="text-xl text-admiral-600 max-w-3xl leading-relaxed font-space-grotesk">
-              Innovaccer's healthcare intelligence platform combined with Longitude Rx's deep clinical and operational experience to optimize your specialty pharmacy performance.
+            <p className="text-lg md:text-xl text-admiral-600 leading-relaxed font-space-grotesk text-left md:text-center">
+              LRx360 is co-developed with Innovaccer and powered by their Gravity platform. Longitude Rx brings the
+              clinical, operational, and specialty pharmacy experience, built from inside health systems by clinical
+              pharmacists and operational leaders who ran these programs. Innovaccer brings the healthcare data
+              infrastructure that connects clinical, financial, and operational systems into a single working layer.
+            </p>
+            <p className="text-lg text-admiral-600 leading-relaxed font-space-grotesk text-left md:text-center">
+              A partnership that solves both a workflow and data problem for a specialty pharmacy so patients reach
+              complex therapies faster without unnecessary barriers or delays, and your program is positioned to perform
+              at its highest level.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
-            <ScrollReveal direction="up" className="group">
-              <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-rhodamine-500 to-gulf-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Sparkles className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-800 mb-4">
-                    Specialty Expertise Meets AI Innovation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Longitude Rx contributes its proven specialty pharmacy experience and 340B optimization strategies. Innovaccer Gravity provides the scalable technology and robust AI backbone. This powerful combination ensures health systems benefit from unparalleled expertise paired with cutting-edge innovation.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.1} className="group">
-              <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-gulf-500 to-ocean-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Rocket className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-800 mb-4">
-                    Reliable Workflows, Accelerated Deployment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Our solution leverages Longitude Rx's refined specialty pharmacy protocols and workflows, alongside Innovaccer's pre-built data models and integrations. This comprehensive preparation ensures a dramatically faster deployment and delivers a measurable impact almost immediately.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.2} className="group">
-              <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 h-full bg-white/80 backdrop-blur-sm border border-gypsum-200">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-ocean-500 to-admiral-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Zap className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-800 mb-4">
-                    Agile Response to Industry Change
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    This partnership is designed to keep you ahead of the curve as regulations shift and new opportunities emerge. Longitude Rx actively identifies emerging challenges, allowing Innovaccer to rapidly develop and deploy next-generation solutions.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          </div>
-
           <ScrollReveal direction="up" className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
-            <div className="flex-shrink-0">
+            <div className="flex h-12 w-full max-w-xs shrink-0 items-center justify-center md:h-16 md:max-w-sm">
               <Image
                 src="/gravity logo.jpeg"
                 alt="Gravity by Innovaccer logo"
-                width={200}
-                height={100}
-                className="object-contain"
+                width={320}
+                height={120}
+                className="h-full w-auto max-w-full object-contain"
               />
             </div>
             <div className="flex-1">
-              <p className="text-admiral-900 leading-relaxed font-space-grotesk text-lg">
-                <strong className="font-outfit font-bold">Gravity by Innovaccer</strong> is the intelligent, healthcare-native platform powering our solution by bringing together data, AI, and workflow automation in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
+              <p className="text-admiral-900 leading-relaxed font-space-grotesk text-lg text-left">
+                <strong className="font-outfit font-bold">Gravity by Innovaccer</strong> is the intelligent,
+                healthcare-native platform powering our solution by bringing together data, AI, and workflow automation
+                in one unified foundation. By securely connecting clinical, financial, and operational systems, Gravity
+                creates a single source of truth for real-time decision-making. Its AI-first architecture enables rapid
+                deployment, scalable automation, and measurable performance gains. This powerful backbone allows us to
+                deliver faster innovation, smarter workflows, and better outcomes across the specialty pharmacy journey.
               </p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Q&A Section */}
+      {/* FAQ */}
       <section className="w-full py-20 md:py-32 bg-white">
         <div className="container px-6 md:px-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-20">
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-6 mb-16">
             <div className="inline-flex items-center space-x-2 bg-white/80 border border-rhodamine-200/50 rounded-full px-6 py-3 backdrop-blur-sm shadow-lg">
-              <Target className="h-4 w-4 text-rhodamine-600" />
-              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">
-                FREQUENTLY ASKED QUESTIONS
-              </span>
+              <Sparkles className="h-4 w-4 text-rhodamine-600" />
+              <span className="text-sm font-semibold text-rhodamine-800 font-space-grotesk tracking-wide">FAQ</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-outfit font-bold bg-gradient-to-r from-admiral-900 via-rhodamine-700 to-ocean-700 bg-clip-text text-transparent">
-              Questions & Answers
+              Questions we get from health system pharmacy leaders
             </h2>
           </ScrollReveal>
 
           <div className="max-w-4xl mx-auto space-y-6">
-            <ScrollReveal direction="up">
-              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
-                    How does this solution differentiate itself from standard 340B optimization software?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Unlike standard 340B software vendors, our platform provides comprehensive management for the <strong>complete specialty pharmacy lifecycle</strong>. This includes every stage: from prescription intake, precise prior authorization, and financial assistance coordination, through to dispensing and medication adherence monitoring.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.1}>
-              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
-                    Is the specialty pharmacy platform compatible with existing EMR and dispensing systems?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Yes, we focus on seamless interoperability. We utilize pre-built <strong>integrations with major EMR providers</strong> and support modern, standardized <strong>HL7/FHIR protocols</strong> for efficient, bidirectional data exchange across your electronic health records, billing, and dispensing systems.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.2}>
-              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
-                    What is the typical implementation timeline for the platform?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    By leveraging our validated playbooks and extensive pre-built data integrations, initial modules can typically reach <strong>go-live in 8–12 weeks</strong>. The full deployment is modular, allowing you to phase the rollout according to your organization's highest priorities.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={0.3}>
-              <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-xl font-outfit font-bold text-admiral-900">
-                    Can we implement specific modules (e.g., PA or 340B) first and then expand later?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-admiral-600 leading-relaxed font-space-grotesk">
-                    Absolutely. Our architecture supports <strong>phased, modular deployment</strong>. Most organizations achieve immediate impact by starting with critical areas like prior authorization optimization or 340B program management, and then strategically expanding to other modules as operational value is proven.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
+            {faqs.map((faq, index) => (
+              <ScrollReveal key={faq.question} direction="up" delay={index * 0.05}>
+                <Card className="border border-gypsum-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-outfit font-bold text-admiral-900">{faq.question}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-admiral-600 leading-relaxed font-space-grotesk">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - replaced with homepage version */}
+      {/* Closing CTA */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-admiral-900 via-ocean-800 to-rhodamine-900 text-white relative overflow-visible">
         <div className="absolute inset-0">
           <Image
@@ -445,74 +359,25 @@ export default function SolutionsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-admiral-900/90 via-ocean-800/90 to-rhodamine-900/90" />
         </div>
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-rhodamine-400/20 to-gulf-400/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-          />
-          <motion.div
-            className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-ocean-400/20 to-gulf-400/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.6, 0.3, 0.6],
-            }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
-          />
-        </div>
         <div className="container px-6 md:px-8 relative z-10 pb-8">
-          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
-            <motion.div
-              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 shadow-lg"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
-            >
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <Sparkles className="h-4 w-4 text-gulf-400" />
-              </motion.div>
-              <span className="text-sm font-semibold text-gulf-300 font-space-grotesk tracking-wide">
-                START OPTIMIZING TODAY
-              </span>
-            </motion.div>
-            <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-loose pb-4"
-              initial={{ backgroundPosition: "0% 50%" }}
-              animate={{ backgroundPosition: "100% 50%" }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-            >
-              Ready to grow your specialty pharmacy program?
-            </motion.h2>
-            <p className="text-2xl text-gypsum-300 max-w-4xl leading-relaxed font-space-grotesk font-light">
-              Join leading health systems who are already capturing millions of added revenue on specialty medications and therapies.
+          <ScrollReveal direction="up" className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-bold bg-gradient-to-r from-white via-gypsum-200 to-gulf-200 bg-clip-text text-transparent leading-tight pb-4">
+              See LRx360 in your environment
+            </h2>
+            <p className="text-xl text-gypsum-300 leading-relaxed font-space-grotesk font-light">
+              Specialty pharmacy programs do not look the same from one health system to the next. Tell us about your
+              program, and we&apos;ll walk you through where LRx360 fits, what your team would see in the first 90 days,
+              and how the work gets staffed alongside yours.
             </p>
-            <div className="flex flex-col sm:flex-row gap-8 pt-8">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 hover:shadow-gulf-500/40 transition-all duration-500 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk group hover:scale-105 hover:-translate-y-2"
-                >
-                  <motion.div
-                    animate={{ rotate: [0, 12, 0] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  >
-                    <span className="mr-3 h-6 w-6">🎯</span>
-                  </motion.div>
-                  Contact Us
-                  <motion.div
-                    className="ml-3"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                  >
-                    <ArrowRight className="h-6 w-6" />
-                  </motion.div>
-                </Button>
-              </Link>
-            </div>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-gulf-400 to-rhodamine-500 hover:from-gulf-500 hover:to-rhodamine-600 text-white shadow-2xl shadow-gulf-500/25 rounded-2xl px-10 py-5 text-xl font-semibold font-space-grotesk hover:scale-105 transition-transform"
+              >
+                Request a demo
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+            </Link>
           </ScrollReveal>
         </div>
       </section>

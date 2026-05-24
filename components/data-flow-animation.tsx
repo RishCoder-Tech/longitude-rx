@@ -430,7 +430,15 @@ const ExplanationModal = ({
   )
 }
 
-export default function DataFlowAnimation() {
+type DataFlowAnimationProps = {
+  headline?: string
+  subheadline?: string
+}
+
+export default function DataFlowAnimation({
+  headline = "Next-Gen Data Intelligence Pipeline",
+  subheadline = "Click on any element to explore how we transform healthcare data into actionable insights",
+}: DataFlowAnimationProps = {}) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [selectedStep, setSelectedStep] = useState("priorauth")
@@ -527,10 +535,10 @@ export default function DataFlowAnimation() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-3xl md:text-4xl font-bold font-outfit mb-4 bg-gradient-to-r from-white to-ocean-200 bg-clip-text text-transparent">
-            Next-Gen Data Intelligence Pipeline
+            {headline}
           </h3>
           <p className="text-lg text-ocean-200 font-space-grotesk max-w-3xl mx-auto">
-            Click on any element to explore how we transform healthcare data into actionable insights
+            {subheadline}
           </p>
         </motion.div>
 

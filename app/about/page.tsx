@@ -102,6 +102,8 @@ export default function AboutPage() {
       name: "Kyle Asay",
       title: "Vice President of Strategy & Implementation of Longitude Cell and Gene Therapy",
       headshot: "/Kyle Asay.jpg",
+      // Nudge crop down so his forehead isn't clipped in the circular frame
+      objectPosition: "center 8%",
       bio: "Kyle Asay is a healthcare strategy and operations leader with over 10 years of experience across leading academic health systems and early-stage health tech organizations. At Longitude Rx, he manages the implementation of key initiatives that drive operational performance and growth within health systems, partnering closely with clinical, pharmacy, and executive leadership teams to execute complex, multi-system strategies.\n\nKyle also brings experience in corporate and venture-oriented finance, supporting pro forma development, capital planning, partnership structuring, and investment analysis for new service lines and emerging healthcare ventures.\n\nEarlier in his career, he held strategy and operational roles within prominent academic medical centers including Stanford Health Care, UCLA Health, VCU Health, and the University of Utah Health, where he focused on service line expansion, enterprise strategic initiatives, and pharmacy operations.\n\nKyle holds a finance degree from the University of Utah and a Master of Health Administration from Virginia Commonwealth University. He completed an Administrative Fellowship at Stanford Health Care.",
     },
     {

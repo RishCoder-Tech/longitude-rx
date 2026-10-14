@@ -46,6 +46,8 @@ export default function AboutPage() {
       name: "Cora Beth Enzor",
       title: "Chief Operating Officer",
       headshot: "/Cora Beth Enzor.jpg",
+      // Nudge crop down so her forehead isn't clipped in the circular frame
+      objectPosition: "center 8%",
       bio: "Cora Beth is one of the health system pharmacy field's most respected operators, with deep expertise across the challenges that now define specialty pharmacy for health systems: building scalable pharmacy operations, improving prescription capture and continuity of care, and strengthening 340B program performance. These capabilities are increasingly important as payers consolidate and shift financial risk onto providers, reimbursement compresses, and cell-and-gene therapies continue to reshape drug spend and patient access.\n\nShe joins Longitude Rx from Thyme Care, where she served as Vice President of Pharmacy Operations and led the Pharmacy Solutions team. Founded and led by CEO Robin Shah and named No. 18 on CNBC's 2026 Disruptor 50 list.\n\nCora Beth's work inside health systems makes her a natural fit for Longitude Rx. She previously led Vanderbilt Health Pharmacy Solutions, the externally facing specialty pharmacy enterprise of one of the nation's leading academic health systems, where she architected and scaled health-system-owned specialty pharmacies for multiple health system organizations. That capability is central to what Longitude Rx extends to partners across the country, and Enzor's experience reflects the company's founding ethos: specialty pharmacy built by health systems, for health systems.\n\nAs COO, she leads the end-to-end operating engine of Longitude Rx, including pharmacy operations, implementation, service delivery, and partner performance. She will work closely with the company's commercial, data, and technology teams to translate Longitude Rx's founding vision into consistent outcomes for health systems and the patients they serve.",
     },
     {
@@ -383,7 +385,8 @@ export default function AboutPage() {
                           src={member.headshot}
                           alt={member.name}
                           fill
-                          className="object-cover object-center object-[center_25%] rounded-full shadow-lg"
+                          className="object-cover rounded-full shadow-lg"
+                          style={{ objectPosition: member.objectPosition ?? "center 25%" }}
                         />
                       </button>
                     <h3 className="text-xl font-bold font-outfit mb-2 text-admiral-900">
@@ -430,7 +433,8 @@ export default function AboutPage() {
                           src={selectedMember.headshot}
                           alt={selectedMember.name}
                           fill
-                          className="object-cover object-center object-[center_25%] rounded-full shadow-lg"
+                          className="object-cover rounded-full shadow-lg"
+                          style={{ objectPosition: selectedMember.objectPosition ?? "center 25%" }}
                         />
                       </div>
                       
